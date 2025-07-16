@@ -6,29 +6,34 @@ using System.Text.Json.Serialization;
 
 namespace DiGi.Communication.Classes
 {
-    public class ScatteringPoint : SerializableObject, ICommunicationObject
+    public class Ray : SerializableObject, ICommunicationSerializableObject
     {
         [JsonInclude, JsonPropertyName("Point")]
         private Point3D point;
 
-        public ScatteringPoint(Point3D point)
+        [JsonInclude, JsonPropertyName("Vector")]
+        private Vector3D vector;
+
+        public Ray(Point3D point, Vector3D vector)
             : base()
         {
             this.point = Core.Query.Clone(point);
+            this.vector = Core.Query.Clone(vector);
         }
 
-        public ScatteringPoint(JsonObject jsonObject)
+        public Ray(JsonObject jsonObject)
             :base(jsonObject)
         {
             
         }
 
-        public ScatteringPoint(ScatteringPoint scatteringPoint)
-            : base(scatteringPoint)
+        public Ray(Ray ray)
+            : base(ray)
         {
-            if(scatteringPoint != null)
+            if(ray != null)
             {
-                point = Core.Query.Clone(scatteringPoint.point);
+                point = Core.Query.Clone(ray.point);
+                vector = Core.Query.Clone(ray.vector);
             }
         }
 
@@ -38,6 +43,15 @@ namespace DiGi.Communication.Classes
             get
             {
                 return Core.Query.Clone(point);
+            }
+        }
+
+        [JsonIgnore]
+        public Vector3D Vector
+        {
+            get
+            {
+                return Core.Query.Clone(vector);
             }
         }
     }

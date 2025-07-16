@@ -6,23 +6,25 @@ using System.Text.Json.Serialization;
 
 namespace DiGi.Communication.Classes
 {
-    public class Scattering : SerializableObject, ICommunicationObject
+    public class Scattering : SerializableObject, IScattering
     {
-        [JsonInclude, JsonPropertyName("Location_1")]
-        private Point3D location_1;
+        [JsonInclude, JsonPropertyName("Delay")]
+        private double delay;
 
-        [JsonInclude, JsonPropertyName("Location_2")]
-        private Point3D location_2;
-
-        [JsonInclude, JsonPropertyName("ScatteringPoints")]
+        [JsonInclude, JsonPropertyName("ScatteringPointGroups")]
         private List<ScatteringPointGroup> scatteringPointGroups;
-        
-        public Scattering(Point3D location_1, Point3D location_2, IEnumerable<ScatteringPointGroup> scatteringPointGroups)
+
+        public Scattering(double delay)
+        {
+            this.delay = delay;
+            scatteringPointGroups = new List<ScatteringPointGroup>();
+        }
+
+        public Scattering(double delay, IEnumerable<ScatteringPointGroup> scatteringPointGroups)
             : base()
         {
+            this.delay = delay;
             this.scatteringPointGroups = Core.Query.Clone(scatteringPointGroups);
-            this.location_1 = Core.Query.Clone(location_1);
-            this.location_2 = Core.Query.Clone(location_2);
         }
 
         public Scattering(JsonObject jsonObject)
@@ -31,32 +33,22 @@ namespace DiGi.Communication.Classes
 
         }
 
-        public Scattering(Scattering scatteringPointGroup)
-            : base(scatteringPointGroup)
+        public Scattering(Scattering scattering)
+            : base(scattering)
         {
-            if (scatteringPointGroup != null)
+            if (scattering != null)
             {
-                scatteringPointGroups = Core.Query.Clone(scatteringPointGroup.scatteringPointGroups);
-                location_1 = Core.Query.Clone(scatteringPointGroup.location_1);
-                location_2 = Core.Query.Clone(scatteringPointGroup.location_2);
+                delay = scattering.delay;
+                scatteringPointGroups = Core.Query.Clone(scattering.scatteringPointGroups);
             }
         }
 
         [JsonIgnore]
-        public Point3D Location_1
+        public double Delay
         {
             get
             {
-                return Core.Query.Clone(location_1);
-            }
-        }
-
-        [JsonIgnore]
-        public Point3D Location_2
-        {
-            get
-            {
-                return Core.Query.Clone(location_2);
+                return delay;
             }
         }
 
@@ -67,37 +59,6 @@ namespace DiGi.Communication.Classes
             {
                 return Core.Query.Clone(scatteringPointGroups);
             }
-        }
-
-        public List<Polyline3D> GetPolylines()
-        {
-            if(scatteringPointGroups == null || location_1 == null || location_2 == null)
-            {
-                return null;
-            }
-
-            List<Polyline3D> result = new List<Polyline3D>();
-            foreach(ScatteringPointGroup scatteringPointGroup in scatteringPointGroups)
-            {
-                List<Point3D> point3Ds = scatteringPointGroup?.GetPoints();
-                if(point3Ds == null)
-                {
-                    continue;
-                }
-
-                foreach(Point3D point3D in point3Ds)
-                {
-                    if(point3D == null)
-                    {
-                        continue;
-                    }
-
-                    Polyline3D polyline3D = new Polyline3D([location_1, point3D, location_2]);
-                    result.Add(polyline3D);
-                }
-            }
-
-            return result;
         }
     }
 }

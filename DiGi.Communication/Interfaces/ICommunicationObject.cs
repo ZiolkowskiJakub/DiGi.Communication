@@ -1,6 +1,8 @@
-﻿namespace DiGi.Communication.Interfaces
+﻿using DiGi.Core.Interfaces;
+
+namespace DiGi.Communication.Interfaces
 {
-    public interface ICommunicationObject
+    public interface ICommunicationObject : IObject
     {
     }
 }

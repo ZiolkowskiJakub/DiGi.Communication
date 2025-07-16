@@ -1,4 +1,4 @@
-﻿namespace DiGi.Communication.Constans
+﻿namespace DiGi.Communication.ComputeSharp.Constans
 {
     public static class Factor
     {
@@ -7,6 +7,9 @@
         /// </summary>
         public const double Angle = 0.0872665;
 
+        /// <summary>
+        /// Point density [m]
+        /// </summary>
         public const double PointDensity = 0.01;
     }
 }
