@@ -10,6 +10,6 @@
         /// <summary>
         /// Point density [m]
         /// </summary>
-        public const double PointDensity = 0.01;
+        public const double PointDensity = 0.001;
     }
 }

@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 
 namespace DiGi.Communication.Classes
 {
-    public class AngularPowerDistribution : SerializableObject, ICommunicationObject
+    public class AngularPowerDistribution : SerializableObject, IAngularPowerDistribution
     {
         [JsonInclude, JsonPropertyName("Delay")]
         private double delay;

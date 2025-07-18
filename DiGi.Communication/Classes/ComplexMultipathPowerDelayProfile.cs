@@ -16,15 +16,15 @@ namespace DiGi.Communication.Classes
         public ComplexMultipathPowerDelayProfile(Guid guid, ISimpleMultipathPowerDelayProfile simpleMultipathPowerDelayProfile_Visible, ISimpleMultipathPowerDelayProfile simpleMultipathPowerDelayProfile_Hidden)
             : base(guid)
         {
-            this.simpleMultipathPowerDelayProfile_Visible = Query.Clone(simpleMultipathPowerDelayProfile_Visible);
-            this.simpleMultipathPowerDelayProfile_Hidden = Query.Clone(simpleMultipathPowerDelayProfile_Hidden);
+            this.simpleMultipathPowerDelayProfile_Visible = Core.Query.Clone(simpleMultipathPowerDelayProfile_Visible);
+            this.simpleMultipathPowerDelayProfile_Hidden = Core.Query.Clone(simpleMultipathPowerDelayProfile_Hidden);
         }
 
         public ComplexMultipathPowerDelayProfile(ISimpleMultipathPowerDelayProfile simpleMultipathPowerDelayProfile_Visible, ISimpleMultipathPowerDelayProfile simpleMultipathPowerDelayProfile_Hidden)
             : base()
         {
-            this.simpleMultipathPowerDelayProfile_Visible = Query.Clone(simpleMultipathPowerDelayProfile_Visible);
-            this.simpleMultipathPowerDelayProfile_Hidden = Query.Clone(simpleMultipathPowerDelayProfile_Hidden);
+            this.simpleMultipathPowerDelayProfile_Visible = Core.Query.Clone(simpleMultipathPowerDelayProfile_Visible);
+            this.simpleMultipathPowerDelayProfile_Hidden = Core.Query.Clone(simpleMultipathPowerDelayProfile_Hidden);
         }
 
         public ComplexMultipathPowerDelayProfile(JsonObject jsonObject)
@@ -38,14 +38,14 @@ namespace DiGi.Communication.Classes
         {
             if (complexMultipathPowerDelayProfile != null)
             {
-                simpleMultipathPowerDelayProfile_Visible = Query.Clone(complexMultipathPowerDelayProfile.simpleMultipathPowerDelayProfile_Visible);
-                simpleMultipathPowerDelayProfile_Hidden = Query.Clone(complexMultipathPowerDelayProfile.simpleMultipathPowerDelayProfile_Hidden);
+                simpleMultipathPowerDelayProfile_Visible = Core.Query.Clone(complexMultipathPowerDelayProfile.simpleMultipathPowerDelayProfile_Visible);
+                simpleMultipathPowerDelayProfile_Hidden = Core.Query.Clone(complexMultipathPowerDelayProfile.simpleMultipathPowerDelayProfile_Hidden);
             }
         }
 
         public ISimpleMultipathPowerDelayProfile GetSimpleMultipathPowerDelay(bool visible)
         {
-            return visible ? Query.Clone(simpleMultipathPowerDelayProfile_Visible) : Query.Clone(simpleMultipathPowerDelayProfile_Hidden);
+            return visible ? Core.Query.Clone(simpleMultipathPowerDelayProfile_Visible) : Core.Query.Clone(simpleMultipathPowerDelayProfile_Hidden);
         }
     }
 }

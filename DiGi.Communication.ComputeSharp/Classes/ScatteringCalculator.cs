@@ -13,12 +13,24 @@ namespace DiGi.Communication.ComputeSharp.Classes
 {
     public class ScatteringCalculator : ICommunicationObject, ICalculator
     {
-        public ScatteringCalculatorOptions ScatteringCalculatorOptions { get; set; }
-
+        private List<IScatteringProfile> scatteringProfiles;
+        
         public GeometricalPropagationModel GeometricalPropagationModel { get; set; }
+        
+        public ScatteringCalculatorOptions ScatteringCalculatorOptions { get; set; }
+        
+        public List<IScatteringProfile> ScatteringProfiles
+        {
+            get
+            {
+                return Core.Query.Clone(scatteringProfiles);
+            }
+        }
 
         public bool Calculate()
         {
+            scatteringProfiles = null;
+
             if (ScatteringCalculatorOptions == null || GeometricalPropagationModel == null)
             {
                 return false;
@@ -67,6 +79,8 @@ namespace DiGi.Communication.ComputeSharp.Classes
             {
                 return false;
             }
+
+            scatteringProfiles = new List<IScatteringProfile>();
 
             List<IScatteringObject> scatteringObjects = GeometricalPropagationModel.GetScatteringObjects<IScatteringObject>();
 
@@ -131,6 +145,7 @@ namespace DiGi.Communication.ComputeSharp.Classes
                     ScatteringProfile scatteringProfile = new ScatteringProfile(visible, antenna_1.Location, antenna_2.Location, scatterings);
                     GeometricalPropagationModel.Assign(scatteringProfile, antenna_1, antenna_2);
                     GeometricalPropagationModel.Assign(scatteringProfile, multipathPowerDelayProfile);
+                    scatteringProfiles.Add(scatteringProfile);
                 }
 
                 return true;
@@ -330,7 +345,7 @@ namespace DiGi.Communication.ComputeSharp.Classes
                                                     Dictionary<string, List<Coordinate3>> dictionary = new Dictionary<string, List<Coordinate3>>();
                                                     for (int j = 0; j < coordinate3s.Count; j++)
                                                     {
-                                                        int index = indexes[i];
+                                                        int index = indexes[j];
                                                         Coordinate3 point = coordinate3s[j];
 
                                                         string reference = index == -1 ? string.Empty : references[index];
@@ -367,6 +382,7 @@ namespace DiGi.Communication.ComputeSharp.Classes
                 ScatteringProfile scatteringProfile = new ScatteringProfile(visible, antenna_1.Location, antenna_2.Location, scatterings);
                 GeometricalPropagationModel.Assign(scatteringProfile, antenna_1, antenna_2);
                 GeometricalPropagationModel.Assign(scatteringProfile, multipathPowerDelayProfile);
+                scatteringProfiles.Add(scatteringProfile);
             }
 
             return true;

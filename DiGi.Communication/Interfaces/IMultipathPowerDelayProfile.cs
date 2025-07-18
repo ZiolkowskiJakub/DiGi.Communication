@@ -2,5 +2,6 @@
 {
     public interface IMultipathPowerDelayProfile : ICommunicationGuidObject
     {
+        //string Name {get;}
     }
 }

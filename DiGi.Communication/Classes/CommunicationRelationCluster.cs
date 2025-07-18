@@ -90,6 +90,22 @@ namespace DiGi.Communication.Classes
             return AddRelation(new ScatteringProfileMultipathPowerDelayProfileRelation(scatteringProfile, multipathPowerDelayProfile));
         }
 
+        public AngularPowerDistributionProfileAntennaRelation AddRelation(IAngularPowerDistributionProfile angularPowerDistributionProfile, IAntenna antenna)
+        {
+            if (angularPowerDistributionProfile == null || antenna == null)
+            {
+                return null;
+            }
 
+            IUniqueReference uniqueReference = Core.Create.UniqueReference(antenna);
+
+            AngularPowerDistributionProfileAntennaRelation multipathPowerDelayProfileAntennasRelation = GetRelation<AngularPowerDistributionProfileAntennaRelation>(Core.Create.UniqueReference(angularPowerDistributionProfile), x => x.UniqueReference_To.ToString() == uniqueReference.ToString());
+            if (multipathPowerDelayProfileAntennasRelation != null)
+            {
+                Remove(multipathPowerDelayProfileAntennasRelation);
+            }
+
+            return AddRelation(new AngularPowerDistributionProfileAntennaRelation(angularPowerDistributionProfile, antenna));
+        }
     }
 }

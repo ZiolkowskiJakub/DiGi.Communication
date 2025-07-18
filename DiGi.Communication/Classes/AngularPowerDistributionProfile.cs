@@ -11,20 +11,20 @@ namespace DiGi.Communication.Classes
         [JsonIgnore]
         private SortedDictionary<double, AngularPowerDistribution> dictionary;
 
-        [JsonInclude, JsonPropertyName("Point")]
-        private Point3D point;
+        [JsonInclude, JsonPropertyName("Location")]
+        private Point3D location;
 
-        public AngularPowerDistributionProfile(Guid guid, Point3D point, IEnumerable<AngularPowerDistribution> angularPowerDistributions)
+        public AngularPowerDistributionProfile(Guid guid, Point3D location, IEnumerable<AngularPowerDistribution> angularPowerDistributions)
             : base(guid)
         {
-            this.point = Core.Query.Clone(point);
+            this.location = Core.Query.Clone(location);
             AngularPowerDistributions = angularPowerDistributions;
         }
 
-        public AngularPowerDistributionProfile(Point3D point, IEnumerable<AngularPowerDistribution> angularPowerDistributions)
+        public AngularPowerDistributionProfile(Point3D location, IEnumerable<AngularPowerDistribution> angularPowerDistributions)
             : base()
         {
-            this.point = Core.Query.Clone(point);
+            this.location = Core.Query.Clone(location);
             AngularPowerDistributions = angularPowerDistributions;
         }
 
@@ -39,7 +39,7 @@ namespace DiGi.Communication.Classes
         {
             if (angularPowerDistributionProfile != null)
             {
-                point = angularPowerDistributionProfile.Point;
+                location = angularPowerDistributionProfile.Location;
                 AngularPowerDistributions = angularPowerDistributionProfile.dictionary?.Values;
             }
         }
@@ -70,7 +70,15 @@ namespace DiGi.Communication.Classes
                     return;
                 }
 
-                dictionary.Clear();
+                if (dictionary == null)
+                {
+                    dictionary = new SortedDictionary<double, AngularPowerDistribution>();
+                }
+                else
+                {
+                    dictionary.Clear();
+                }
+
                 foreach (AngularPowerDistribution angularPowerDistribution in value)
                 {
                     if (angularPowerDistribution == null)
@@ -84,12 +92,23 @@ namespace DiGi.Communication.Classes
         }
 
         [JsonIgnore]
-        public Point3D Point
+        public Point3D Location
         {
             get
             {
-                return Core.Query.Clone(point);
+                return Core.Query.Clone(location);
             }
+        }
+
+        public List<Ray> GetRays(double delay)
+        {
+            if(double.IsNaN(delay) || location == null || dictionary == null || !dictionary.TryGetValue(delay, out AngularPowerDistribution angularPowerDistribution) || angularPowerDistribution == null)
+            {
+                return null;
+            }
+
+            return angularPowerDistribution.Vectors?.ConvertAll(x => new Ray(location.GetMoved(x.GetInversed()), x));
+
         }
     }
 }

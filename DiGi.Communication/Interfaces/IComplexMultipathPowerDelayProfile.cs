@@ -1,6 +1,6 @@
 ﻿namespace DiGi.Communication.Interfaces
 {
-    public interface IComplexMultipathPowerDelayProfile : ICommunicationGuidObject
+    public interface IComplexMultipathPowerDelayProfile : IMultipathPowerDelayProfile
     {
         ISimpleMultipathPowerDelayProfile GetSimpleMultipathPowerDelay(bool visible);
     }
