@@ -1,23 +1,22 @@
 ﻿using DiGi.Communication.Interfaces;
 using DiGi.Core.Classes;
 using DiGi.Geometry.Spatial.Classes;
-using System.Collections.Generic;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 
 namespace DiGi.Communication.Classes
 {
-    public class ScatteringPointGroup : SerializableObject, ICommunicationObject
+    public class ScatteringPointGroup : SerializableObject, ICommunicationSerializableObject
     {
         [JsonInclude, JsonPropertyName("Reference")]
         private string reference;
 
-        [JsonInclude, JsonPropertyName("ScatteringPoints")]
-        private List<ScatteringPoint> scatteringPoints;
-        public ScatteringPointGroup(string reference, IEnumerable<ScatteringPoint> scatteringPoints)
+        [JsonInclude, JsonPropertyName("Points")]
+        private List<Point3D> points;
+        public ScatteringPointGroup(string reference, IEnumerable<Point3D> points)
             : base()
         {
-            this.scatteringPoints = Core.Query.Clone(scatteringPoints);
+            this.points = Core.Query.Clone(points);
             this.reference = reference;
         }
 
@@ -32,7 +31,7 @@ namespace DiGi.Communication.Classes
         {
             if (scatteringPointGroup != null)
             {
-                scatteringPoints = Core.Query.Clone(scatteringPointGroup.scatteringPoints);
+                points = Core.Query.Clone(scatteringPointGroup.points);
                 reference = scatteringPointGroup.Reference;
             }
         }
@@ -47,17 +46,12 @@ namespace DiGi.Communication.Classes
         }
 
         [JsonIgnore]
-        public List<ScatteringPoint> ScatteringPoints
+        public List<Point3D> Points
         {
             get
             {
-                return Core.Query.Clone(scatteringPoints);
+                return Core.Query.Clone(points);
             }
-        }
-
-        public List<Point3D> GetPoints()
-        {
-            return scatteringPoints?.ConvertAll(x => x.Point);
         }
     }
 }
