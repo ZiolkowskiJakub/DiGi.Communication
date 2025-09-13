@@ -2,6 +2,6 @@
 {
     public interface IComplexMultipathPowerDelayProfile : IMultipathPowerDelayProfile
     {
-        ISimpleMultipathPowerDelayProfile GetSimpleMultipathPowerDelay(bool visible);
+        ISimpleMultipathPowerDelayProfile? GetSimpleMultipathPowerDelay(bool visible);
     }
 }

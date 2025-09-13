@@ -1,4 +1,5 @@
 ﻿using DiGi.Communication.Classes;
+using System.Collections.Generic;
 
 namespace DiGi.Communication.Interfaces
 {
@@ -6,6 +7,6 @@ namespace DiGi.Communication.Interfaces
     {
         double Delay { get; }
 
-        public List<ScatteringPointGroup> ScatteringPointGroups { get; }
+        public List<ScatteringPointGroup>? ScatteringPointGroups { get; }
     }
 }

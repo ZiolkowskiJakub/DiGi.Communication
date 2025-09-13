@@ -2,6 +2,7 @@
 using DiGi.Core;
 using DiGi.Core.Classes;
 using DiGi.Core.Interfaces;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
@@ -11,7 +12,7 @@ namespace DiGi.Communication.Classes
     public class GeometricalPropagationModel : GuidObject, ICommunicationGuidObject, IGuidModel
     {
         [JsonInclude, JsonPropertyName("CommunicationRelationCluster"), Description("CommunicationRelationCluster")]
-        private CommunicationRelationCluster communicationRelationCluster = new CommunicationRelationCluster();
+        private readonly CommunicationRelationCluster communicationRelationCluster = [];
 
         public GeometricalPropagationModel()
             : base()
@@ -19,22 +20,22 @@ namespace DiGi.Communication.Classes
 
         }
 
-        public GeometricalPropagationModel(JsonObject jsonObject)
+        public GeometricalPropagationModel(JsonObject? jsonObject)
             :base(jsonObject)
         {
             
         }
 
-        public GeometricalPropagationModel(GeometricalPropagationModel geometricalPropagationModel)
+        public GeometricalPropagationModel(GeometricalPropagationModel? geometricalPropagationModel)
             : base(geometricalPropagationModel)
         {
             if(geometricalPropagationModel != null)
             {
-                communicationRelationCluster = Core.Query.Clone(geometricalPropagationModel.communicationRelationCluster);
+                communicationRelationCluster = Core.Query.Clone(geometricalPropagationModel.communicationRelationCluster) ?? [];
             }
         }
 
-        public bool Assign(IMultipathPowerDelayProfile multipathPowerDelayProfile, IAntenna antenna_1, IAntenna antenna_2)
+        public bool Assign(IMultipathPowerDelayProfile? multipathPowerDelayProfile, IAntenna? antenna_1, IAntenna? antenna_2)
         {
             if (multipathPowerDelayProfile == null || antenna_1 == null || antenna_2 == null)
             {
@@ -59,7 +60,7 @@ namespace DiGi.Communication.Classes
             return communicationRelationCluster.AddRelation(multipathPowerDelayProfile, antenna_1, antenna_2) != null;
         }
 
-        public bool Assign(IScatteringProfile scatteringProfile, IAntenna antenna_1, IAntenna antenna_2)
+        public bool Assign(IScatteringProfile? scatteringProfile, IAntenna? antenna_1, IAntenna? antenna_2)
         {
             if (scatteringProfile == null || antenna_1 == null || antenna_2 == null)
             {
@@ -84,7 +85,7 @@ namespace DiGi.Communication.Classes
             return communicationRelationCluster.AddRelation(scatteringProfile, antenna_1, antenna_2) != null;
         }
 
-        public bool Assign(IScatteringProfile scatteringProfile, IMultipathPowerDelayProfile multipathPowerDelayProfile)
+        public bool Assign(IScatteringProfile? scatteringProfile, IMultipathPowerDelayProfile? multipathPowerDelayProfile)
         {
             if (scatteringProfile == null || multipathPowerDelayProfile == null)
             {
@@ -105,7 +106,7 @@ namespace DiGi.Communication.Classes
             return communicationRelationCluster.AddRelation(scatteringProfile, multipathPowerDelayProfile) != null;
         }
 
-        public bool Assign(IAngularPowerDistributionProfile angularPowerDistributionProfile, IAntenna antenna)
+        public bool Assign(IAngularPowerDistributionProfile? angularPowerDistributionProfile, IAntenna? antenna)
         {
             if (angularPowerDistributionProfile == null || antenna == null)
             {
@@ -125,28 +126,28 @@ namespace DiGi.Communication.Classes
             return communicationRelationCluster.AddRelation(angularPowerDistributionProfile, antenna) != null;
         }
 
-        public List<TAngularPowerDistributionProfile> GetAngularPowerDistributionProfiles<TAngularPowerDistributionProfile>() where TAngularPowerDistributionProfile : IAngularPowerDistributionProfile
+        public List<TAngularPowerDistributionProfile>? GetAngularPowerDistributionProfiles<TAngularPowerDistributionProfile>() where TAngularPowerDistributionProfile : IAngularPowerDistributionProfile
         {
-            return communicationRelationCluster.GetValues<TAngularPowerDistributionProfile>()?.ConvertAll(x => Core.Query.Clone(x));
+            return communicationRelationCluster.GetValues<TAngularPowerDistributionProfile>()?.CloneAndFilterNulls();
         }
 
-        public List<TAntenna> GetAntennas<TAntenna>(IMultipathPowerDelayProfile multipathPowerDelayProfile) where TAntenna : IAntenna
+        public List<TAntenna>? GetAntennas<TAntenna>(IMultipathPowerDelayProfile? multipathPowerDelayProfile) where TAntenna : IAntenna
         {
             if (multipathPowerDelayProfile == null)
             {
                 return null;
             }
 
-            List<MultipathPowerDelayProfileAntennasRelation> multipathPowerDelayProfileAntennasRelations = communicationRelationCluster.GetRelations<MultipathPowerDelayProfileAntennasRelation>(multipathPowerDelayProfile);
+            List<MultipathPowerDelayProfileAntennasRelation>? multipathPowerDelayProfileAntennasRelations = communicationRelationCluster.GetRelations<MultipathPowerDelayProfileAntennasRelation>(multipathPowerDelayProfile);
             if (multipathPowerDelayProfileAntennasRelations == null)
             {
                 return null;
             }
 
-            List<TAntenna> result = new List<TAntenna>();
+            List<TAntenna> result = [];
             foreach (MultipathPowerDelayProfileAntennasRelation multipathPowerDelayProfileAntennasRelation in multipathPowerDelayProfileAntennasRelations)
             {
-                List<TAntenna> antennas = communicationRelationCluster.GetValues<TAntenna>(multipathPowerDelayProfileAntennasRelation, Core.Relation.Enums.RelationSide.To);
+                List<TAntenna>? antennas = communicationRelationCluster.GetValues<TAntenna>(multipathPowerDelayProfileAntennasRelation, Core.Relation.Enums.RelationSide.To);
                 if (antennas == null)
                 {
                     continue;
@@ -159,32 +160,38 @@ namespace DiGi.Communication.Classes
                         continue;
                     }
 
-                    result.Add(Core.Query.Clone(antenna));
+                    if(Core.Query.Clone(antenna) is TAntenna antenna_Temp )
+                    {
+                        result.Add(antenna_Temp);
+                    }
                 }
             }
 
             return result;
         }
 
-        public List<TAntenna> GetAntennas<TAntenna>(IMultipathPowerDelayProfile multipathPowerDelayProfile, IAntenna antenna) where TAntenna : IAntenna
+        public List<TAntenna>? GetAntennas<TAntenna>(IMultipathPowerDelayProfile? multipathPowerDelayProfile, IAntenna? antenna) where TAntenna : IAntenna
         {
             if (multipathPowerDelayProfile == null || antenna == null)
             {
                 return default;
             }
 
-            IUniqueReference uniqueReference = Core.Create.UniqueReference(antenna);
+            if(Core.Create.UniqueReference(antenna) is not IUniqueReference uniqueReference)
+            {
+                return default;
+            }
 
-            List<MultipathPowerDelayProfileAntennasRelation> multipathPowerDelayProfileAntennasRelations = communicationRelationCluster.GetRelations<MultipathPowerDelayProfileAntennasRelation>(multipathPowerDelayProfile, x => x.UniqueReferences_To.Contains(uniqueReference));
+            List<MultipathPowerDelayProfileAntennasRelation>? multipathPowerDelayProfileAntennasRelations = communicationRelationCluster.GetRelations<MultipathPowerDelayProfileAntennasRelation>(multipathPowerDelayProfile, x => x?.UniqueReferences_To is List<IUniqueReference> uniqueReferences && x.UniqueReferences_To.Contains(uniqueReference));
             if (multipathPowerDelayProfileAntennasRelations == null)
             {
                 return null;
             }
 
-            List<TAntenna> result = new List<TAntenna>();
+            List<TAntenna> result = [];
             foreach (MultipathPowerDelayProfileAntennasRelation multipathPowerDelayProfileAntennasRelation in multipathPowerDelayProfileAntennasRelations)
             {
-                List<TAntenna> antennas = communicationRelationCluster.GetValues<TAntenna>(multipathPowerDelayProfileAntennasRelation, Core.Relation.Enums.RelationSide.To);
+                List<TAntenna>? antennas = communicationRelationCluster.GetValues<TAntenna>(multipathPowerDelayProfileAntennasRelation, Core.Relation.Enums.RelationSide.To);
                 if (antennas == null)
                 {
                     continue;
@@ -202,94 +209,104 @@ namespace DiGi.Communication.Classes
                         continue;
                     }
 
-                    result.Add(Core.Query.Clone(antenna_Temp));
+                    if (Core.Query.Clone(antenna) is TAntenna antenna_Temp_Temp)
+                    {
+                        result.Add(antenna_Temp_Temp);
+                    }
                 }
             }
 
             return result;
         }
 
-        public List<TAntenna> GetAntennas<TAntenna>(IScatteringProfile scatteringProfile) where TAntenna : IAntenna
+        public List<TAntenna>? GetAntennas<TAntenna>(IScatteringProfile? scatteringProfile) where TAntenna : IAntenna
         {
             if(scatteringProfile == null)
             {
                 return null;
             }
 
-            List<ScatteringProfileAntennasRelation> scatteringProfileAntennasRelations = communicationRelationCluster.GetRelations<ScatteringProfileAntennasRelation>(Core.Create.UniqueReference(scatteringProfile));
+            List<ScatteringProfileAntennasRelation>? scatteringProfileAntennasRelations = communicationRelationCluster.GetRelations<ScatteringProfileAntennasRelation>(Core.Create.UniqueReference(scatteringProfile));
             if(scatteringProfileAntennasRelations == null)
             {
                 return null;
             }
 
-            List<TAntenna> result = new List<TAntenna>();
+            List<TAntenna> result = [];
             foreach(ScatteringProfileAntennasRelation scatteringProfileAntennasRelation in scatteringProfileAntennasRelations)
             {
-                List<TAntenna> antennas = communicationRelationCluster.GetValues<TAntenna>(scatteringProfileAntennasRelation, Core.Relation.Enums.RelationSide.To);
+                List<TAntenna>? antennas = communicationRelationCluster.GetValues<TAntenna>(scatteringProfileAntennasRelation, Core.Relation.Enums.RelationSide.To);
                 if(antennas == null)
                 {
                     continue;
                 }
 
-                result.AddRange(Core.Query.Clone(antennas));
+                result.AddRange(Core.Query.CloneAndFilterNulls(antennas));
             }
 
             return result;
         }
 
-        public List<TAntenna> GetAntennas<TAntenna>() where TAntenna : IAntenna
+        public List<TAntenna>? GetAntennas<TAntenna>() where TAntenna : IAntenna
         {
-            return communicationRelationCluster.GetValues<TAntenna>()?.ConvertAll(x => Core.Query.Clone(x));
+            return communicationRelationCluster.GetValues<TAntenna>()?.CloneAndFilterNulls();
         }
 
-        public TMultipathPowerDelayProfile GetMultipathPowerDelayProfile<TMultipathPowerDelayProfile>(IScatteringProfile scatteringProfile) where TMultipathPowerDelayProfile : IMultipathPowerDelayProfile
+        public TMultipathPowerDelayProfile? GetMultipathPowerDelayProfile<TMultipathPowerDelayProfile>(IScatteringProfile? scatteringProfile) where TMultipathPowerDelayProfile : IMultipathPowerDelayProfile
         {
             if(scatteringProfile == null)
             {
                 return default;
             }
 
-            ScatteringProfileMultipathPowerDelayProfileRelation scatteringProfileMultipathPowerDelayProfileRelation = communicationRelationCluster.GetRelation<ScatteringProfileMultipathPowerDelayProfileRelation>(scatteringProfile);
+            ScatteringProfileMultipathPowerDelayProfileRelation? scatteringProfileMultipathPowerDelayProfileRelation = communicationRelationCluster.GetRelation<ScatteringProfileMultipathPowerDelayProfileRelation>(scatteringProfile);
             if(scatteringProfileMultipathPowerDelayProfileRelation == null)
             {
                 return default;
             }
 
-            List<TMultipathPowerDelayProfile> multipathPowerDelayProfiles = communicationRelationCluster.GetValues<TMultipathPowerDelayProfile>(scatteringProfileMultipathPowerDelayProfileRelation, Core.Relation.Enums.RelationSide.To);
+            List<TMultipathPowerDelayProfile>? multipathPowerDelayProfiles = communicationRelationCluster.GetValues<TMultipathPowerDelayProfile>(scatteringProfileMultipathPowerDelayProfileRelation, Core.Relation.Enums.RelationSide.To);
 
             return multipathPowerDelayProfiles == null || multipathPowerDelayProfiles.Count == 0 ? default : Core.Query.Clone(multipathPowerDelayProfiles[0]);
         }
 
-        public List<TMultipathPowerDelayProfile> GetMultipathPowerDelayProfiles<TMultipathPowerDelayProfile>() where TMultipathPowerDelayProfile : IMultipathPowerDelayProfile
+        public List<TMultipathPowerDelayProfile>? GetMultipathPowerDelayProfiles<TMultipathPowerDelayProfile>() where TMultipathPowerDelayProfile : IMultipathPowerDelayProfile
         {
-            return communicationRelationCluster.GetValues<TMultipathPowerDelayProfile>()?.ConvertAll(x => Core.Query.Clone(x));
+            return communicationRelationCluster.GetValues<TMultipathPowerDelayProfile>()?.CloneAndFilterNulls();
         }
 
-        public List<TScatteringObject> GetScatteringObjects<TScatteringObject>() where TScatteringObject : IScatteringObject
+        public List<TScatteringObject>? GetScatteringObjects<TScatteringObject>() where TScatteringObject : IScatteringObject
         {
-            return communicationRelationCluster.GetValues<TScatteringObject>()?.ConvertAll(x => Core.Query.Clone(x));
+            return communicationRelationCluster.GetValues<TScatteringObject>()?.CloneAndFilterNulls();
         }
 
-        public List<TScatteringProfile> GetScatteringProfiles<TScatteringProfile>(IAntenna antenna_1, IAntenna antenna_2) where TScatteringProfile : IScatteringProfile
+        public List<TScatteringProfile>? GetScatteringProfiles<TScatteringProfile>(IAntenna? antenna_1, IAntenna? antenna_2) where TScatteringProfile : IScatteringProfile
         {
             if (antenna_1 == null || antenna_2 == null)
             {
                 return default;
             }
 
-            IUniqueReference uniqueReference_1 = Core.Create.UniqueReference(antenna_1);
-            IUniqueReference uniqueReference_2 = Core.Create.UniqueReference(antenna_2);
+            if(Core.Create.UniqueReference(antenna_1) is not IUniqueReference uniqueReference_1)
+            {
+                return default;
+            }
 
-            List<ScatteringProfileAntennasRelation> scatteringAntennasRelations = communicationRelationCluster.GetRelations<ScatteringProfileAntennasRelation>(uniqueReference_1, x => x.UniqueReferences_To.Contains(uniqueReference_2));
-            if (scatteringAntennasRelations == null)
+            if (Core.Create.UniqueReference(antenna_2) is not IUniqueReference uniqueReference_2)
+            {
+                return default;
+            }
+
+            List<ScatteringProfileAntennasRelation>? scatteringAntennasRelations = communicationRelationCluster.GetRelations<ScatteringProfileAntennasRelation>(uniqueReference_1, x => x?.UniqueReferences_To is List<IUniqueReference> uniqueReferences && uniqueReferences.Contains(uniqueReference_2));
+            if (scatteringAntennasRelations is null)
             {
                 return null;
             }
 
-            List<TScatteringProfile> result = new List<TScatteringProfile>();
+            List<TScatteringProfile> result = [];
             foreach (ScatteringProfileAntennasRelation scatteringProfileAntennasRelation in scatteringAntennasRelations)
             {
-                List<TScatteringProfile> scatteringProfiles = communicationRelationCluster.GetValues<TScatteringProfile>(scatteringProfileAntennasRelation, Core.Relation.Enums.RelationSide.From);
+                List<TScatteringProfile>? scatteringProfiles = communicationRelationCluster.GetValues<TScatteringProfile>(scatteringProfileAntennasRelation, Core.Relation.Enums.RelationSide.From);
                 if (scatteringProfiles == null)
                 {
                     continue;
@@ -302,19 +319,22 @@ namespace DiGi.Communication.Classes
                         continue;
                     }
 
-                    result.Add(Core.Query.Clone(scatteringProfile));
+                    if(Core.Query.Clone(scatteringProfile) is TScatteringProfile scatteringProfile_Temp)
+                    {
+                        result.Add(scatteringProfile_Temp);
+                    }
                 }
             }
 
             return result;
         }
 
-        public List<TScatteringProfile> GetScatteringProfiles<TScatteringProfile>() where TScatteringProfile : IScatteringProfile
+        public List<TScatteringProfile>? GetScatteringProfiles<TScatteringProfile>() where TScatteringProfile : IScatteringProfile
         {
-            return communicationRelationCluster.GetValues<TScatteringProfile>()?.ConvertAll(x => Core.Query.Clone(x));
+            return communicationRelationCluster.GetValues<TScatteringProfile>()?.CloneAndFilterNulls();
         }
 
-        public bool Update(IAntenna antenna)
+        public bool Update(IAntenna? antenna)
         {
             if (antenna == null)
             {
@@ -324,7 +344,7 @@ namespace DiGi.Communication.Classes
             return communicationRelationCluster.Add(Core.Query.Clone(antenna));
         }
 
-        public bool Update(IMultipathPowerDelayProfile multipathPowerDelayProfile)
+        public bool Update(IMultipathPowerDelayProfile? multipathPowerDelayProfile)
         {
             if (multipathPowerDelayProfile == null)
             {
@@ -334,7 +354,7 @@ namespace DiGi.Communication.Classes
             return communicationRelationCluster.Add(Core.Query.Clone(multipathPowerDelayProfile));
         }
 
-        public bool Update(IScatteringObject scatteringObject)
+        public bool Update(IScatteringObject? scatteringObject)
         {
             if (scatteringObject == null)
             {
@@ -344,7 +364,7 @@ namespace DiGi.Communication.Classes
             return communicationRelationCluster.Add(Core.Query.Clone(scatteringObject));
         }
 
-        public bool Update(IScatteringProfile scatteringProfile)
+        public bool Update(IScatteringProfile? scatteringProfile)
         {
             if (scatteringProfile == null)
             {
@@ -354,7 +374,7 @@ namespace DiGi.Communication.Classes
             return communicationRelationCluster.Add(Core.Query.Clone(scatteringProfile));
         }
 
-        public bool Update(IAngularPowerDistributionProfile angularPowerDistributionProfile)
+        public bool Update(IAngularPowerDistributionProfile? angularPowerDistributionProfile)
         {
             if (angularPowerDistributionProfile == null)
             {

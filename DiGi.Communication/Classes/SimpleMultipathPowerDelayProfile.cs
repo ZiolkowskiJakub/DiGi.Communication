@@ -1,6 +1,8 @@
 ﻿using DiGi.Communication.Interfaces;
 using DiGi.Core;
 using DiGi.Core.Classes;
+using System;
+using System.Collections.Generic;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 
@@ -9,14 +11,14 @@ namespace DiGi.Communication.Classes
     public class SimpleMultipathPowerDelayProfile : GuidObject, ISimpleMultipathPowerDelayProfile
     {
         [JsonInclude, JsonPropertyName("Values")]
-        private SortedDictionary<double, double> values;
+        private readonly SortedDictionary<double, double>? values;
 
-        public SimpleMultipathPowerDelayProfile(Guid guid, IEnumerable<KeyValuePair<double, double>> values)
+        public SimpleMultipathPowerDelayProfile(Guid guid, IEnumerable<KeyValuePair<double, double>>? values)
             : base(guid)
         {
             if (values != null)
             {
-                this.values = new SortedDictionary<double, double>();
+                this.values = [];
                 foreach (KeyValuePair<double, double> keyValuePair in values)
                 {
                     this.values[keyValuePair.Key] = keyValuePair.Value;
@@ -24,12 +26,12 @@ namespace DiGi.Communication.Classes
             }
         }
 
-        public SimpleMultipathPowerDelayProfile(IEnumerable<KeyValuePair<double, double>> values)
+        public SimpleMultipathPowerDelayProfile(IEnumerable<KeyValuePair<double, double>>? values)
             : base()
         {
             if (values != null)
             {
-                this.values = new SortedDictionary<double, double>();
+                this.values = [];
                 foreach (KeyValuePair<double, double> keyValuePair in values)
                 {
                     this.values[keyValuePair.Key] = keyValuePair.Value;
@@ -37,23 +39,23 @@ namespace DiGi.Communication.Classes
             }
         }
 
-        public SimpleMultipathPowerDelayProfile(JsonObject jsonObject)
+        public SimpleMultipathPowerDelayProfile(JsonObject? jsonObject)
             : base(jsonObject)
         {
 
         }
 
-        public SimpleMultipathPowerDelayProfile(SimpleMultipathPowerDelayProfile simpleMultipathPowerDelayProfile)
+        public SimpleMultipathPowerDelayProfile(SimpleMultipathPowerDelayProfile? simpleMultipathPowerDelayProfile)
             : base(simpleMultipathPowerDelayProfile)
         {
             if (simpleMultipathPowerDelayProfile != null)
             {
                 if (simpleMultipathPowerDelayProfile.values != null)
                 {
-                    this.values = new SortedDictionary<double, double>();
+                    values = [];
                     foreach (KeyValuePair<double, double> keyValuePair in simpleMultipathPowerDelayProfile.values)
                     {
-                        this.values[keyValuePair.Key] = keyValuePair.Value;
+                        values[keyValuePair.Key] = keyValuePair.Value;
                     }
                 }
             }
@@ -63,7 +65,7 @@ namespace DiGi.Communication.Classes
         /// Delays [s]
         /// </summary>
         [JsonIgnore]
-        public HashSet<double> Delays
+        public HashSet<double>? Delays
         {
             get
             {

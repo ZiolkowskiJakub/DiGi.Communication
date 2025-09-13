@@ -1,11 +1,13 @@
 ﻿using DiGi.Communication.Classes;
+using DiGi.Core;
 using DiGi.Geometry.Spatial.Classes;
+using System.Collections.Generic;
 
 namespace DiGi.Communication
 {
     public static partial class Query
     {
-        public static Ray Scale(this Ray ray, double factor)
+        public static Ray? Scale(this Ray? ray, double factor)
         {
             if(ray == null || double.IsNaN(factor))
             {
@@ -17,13 +19,13 @@ namespace DiGi.Communication
                 return new Ray(ray);
             }
 
-            Point3D point = ray.Point;
+            Point3D? point = ray.Point;
             if(point == null)
             {
                 return null;
             }
 
-            Vector3D vector = ray.Vector;
+            Vector3D? vector = ray.Vector;
             if (vector == null)
             {
                 return null;
@@ -31,24 +33,27 @@ namespace DiGi.Communication
 
             point = point.GetMoved(vector);
 
-            vector = vector * factor;
+            vector *= factor;
 
-            point = point.GetMoved(vector.GetInversed());
+            point = point?.GetMoved(vector?.GetInversed());
 
             return new Ray(point, vector);
         }
 
-        public static List<Ray> Scale(this IEnumerable<Ray> rays, double factor)
+        public static List<Ray>? Scale(this IEnumerable<Ray>? rays, double factor)
         {
             if(rays == null)
             {
                 return null;
             }
 
-            List<Ray> result = new List<Ray>();
+            List<Ray> result = [];
             foreach(Ray ray in rays)
             {
-                result.Add(Scale(ray, factor));
+                if(Scale(ray, factor) is Ray ray_Scale)
+                {
+                    result.Add(ray_Scale);
+                }
             }
 
             return result;

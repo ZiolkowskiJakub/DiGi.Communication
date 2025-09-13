@@ -1,26 +1,29 @@
 ﻿using DiGi.Communication.Classes;
 using DiGi.Communication.Interfaces;
 using DiGi.Core.IO.Classes;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DiGi.Communication
 {
     public static partial class Create
     {
-        public static Report Report(this GeometricalPropagationModel geometricalPropagationModel)
+        public static Report Report(this GeometricalPropagationModel? geometricalPropagationModel)
         {
-            Report result = new Report();
+            Report result = new ();
 
             if (geometricalPropagationModel == null)
             {
                 return result;
             }
 
-            List<IAntenna> antennas = geometricalPropagationModel.GetAntennas<IAntenna>();
-            List<ISimpleMultipathPowerDelayProfile> simpleMultipathPowerDelayProfiles = geometricalPropagationModel.GetMultipathPowerDelayProfiles<ISimpleMultipathPowerDelayProfile>();
-            List<IComplexMultipathPowerDelayProfile> complexMultipathPowerDelayProfiles = geometricalPropagationModel.GetMultipathPowerDelayProfiles<IComplexMultipathPowerDelayProfile>();
-            List<IScatteringProfile> scatteringProfiles = geometricalPropagationModel.GetScatteringProfiles<IScatteringProfile>();
-            List<IAngularPowerDistributionProfile> angularPowerDistributionProfiles = geometricalPropagationModel.GetAngularPowerDistributionProfiles<IAngularPowerDistributionProfile>();
-            List<IScatteringObject> scatteringObjects = geometricalPropagationModel.GetScatteringObjects<IScatteringObject>();
+            List<IAntenna>? antennas = geometricalPropagationModel.GetAntennas<IAntenna>();
+            List<ISimpleMultipathPowerDelayProfile>? simpleMultipathPowerDelayProfiles = geometricalPropagationModel.GetMultipathPowerDelayProfiles<ISimpleMultipathPowerDelayProfile>();
+            List<IComplexMultipathPowerDelayProfile>? complexMultipathPowerDelayProfiles = geometricalPropagationModel.GetMultipathPowerDelayProfiles<IComplexMultipathPowerDelayProfile>();
+            List<IScatteringProfile>? scatteringProfiles = geometricalPropagationModel.GetScatteringProfiles<IScatteringProfile>();
+            List<IAngularPowerDistributionProfile>? angularPowerDistributionProfiles = geometricalPropagationModel.GetAngularPowerDistributionProfiles<IAngularPowerDistributionProfile>();
+            List<IScatteringObject>? scatteringObjects = geometricalPropagationModel.GetScatteringObjects<IScatteringObject>();
 
             result.Add("GeometricalPropagationModel");
             result.Add("Guid", "Antennas", "SimpleMultipathPowerDelayProfiles", "ComplexMultipathPowerDelayProfiles", "ScatteringProfiles", "AngularPowerDistributionProfiles", "ScatteringObjects");
@@ -38,11 +41,16 @@ namespace DiGi.Communication
                 result.Add();
             }
 
-            Action<ISimpleMultipathPowerDelayProfile> append = new Action<ISimpleMultipathPowerDelayProfile>( x =>
+            Action<ISimpleMultipathPowerDelayProfile?> append = new( x =>
             {
-                result.Add(x?.Guid);
+                if(x is null)
+                {
+                    return;
+                }
 
-                HashSet<double> delays = x?.Delays;
+                result.Add(x.Guid);
+
+                HashSet<double>? delays = x.Delays;
                 if (delays == null)
                 {
                     return;
@@ -86,7 +94,7 @@ namespace DiGi.Communication
                 result.Add("Guid", "Visible", "X 1", "Y 1", "Z 1", "X 2", "Y 2", "Z 2");
                 foreach (IScatteringProfile scatteringProfile in scatteringProfiles)
                 {
-                    result.Add(scatteringProfile.Guid, scatteringProfile.Visible, scatteringProfile.Location_1.X, scatteringProfile.Location_1.Y, scatteringProfile.Location_1.Z);
+                    result.Add(scatteringProfile.Guid, scatteringProfile.Visible, scatteringProfile?.Location_1?.X, scatteringProfile?.Location_1?.Y, scatteringProfile?.Location_1?.Z);
                 }
             }
 

@@ -13,17 +13,17 @@ namespace DiGi.Communication.ComputeSharp.Classes
 {
     public class ScatteringCalculator : ICommunicationObject, ICalculator
     {
-        private List<IScatteringProfile> scatteringProfiles;
+        private List<IScatteringProfile>? scatteringProfiles;
         
-        public GeometricalPropagationModel GeometricalPropagationModel { get; set; }
+        public GeometricalPropagationModel? GeometricalPropagationModel { get; set; }
         
-        public ScatteringCalculatorOptions ScatteringCalculatorOptions { get; set; }
+        public ScatteringCalculatorOptions? ScatteringCalculatorOptions { get; set; }
         
-        public List<IScatteringProfile> ScatteringProfiles
+        public List<IScatteringProfile>? ScatteringProfiles
         {
             get
             {
-                return Core.Query.Clone(scatteringProfiles);
+                return Core.Query.CloneAndFilterNulls(scatteringProfiles);
             }
         }
 
@@ -36,7 +36,7 @@ namespace DiGi.Communication.ComputeSharp.Classes
                 return false;
             }
 
-            List<IMultipathPowerDelayProfile> multipathPowerDelayProfiles = GeometricalPropagationModel.GetMultipathPowerDelayProfiles<IMultipathPowerDelayProfile>();
+            List<IMultipathPowerDelayProfile>? multipathPowerDelayProfiles = GeometricalPropagationModel.GetMultipathPowerDelayProfiles<IMultipathPowerDelayProfile>();
             if (multipathPowerDelayProfiles == null || multipathPowerDelayProfiles.Count == 0)
             {
                 return false;
@@ -48,15 +48,15 @@ namespace DiGi.Communication.ComputeSharp.Classes
 
             double pointDensityFactor = ScatteringCalculatorOptions.PointDensityFactor;
 
-            List<Tuple<IAntenna, IAntenna, IMultipathPowerDelayProfile>> tuples = new List<Tuple<IAntenna, IAntenna, IMultipathPowerDelayProfile>>();
+            List<Tuple<IAntenna, IAntenna, IMultipathPowerDelayProfile>> tuples = [];
             foreach (IMultipathPowerDelayProfile multipathPowerDelayProfile in multipathPowerDelayProfiles)
             {
-                List<IAntenna> antennas_1 = GeometricalPropagationModel.GetAntennas<IAntenna>(multipathPowerDelayProfile);
+                List<IAntenna>? antennas_1 = GeometricalPropagationModel.GetAntennas<IAntenna>(multipathPowerDelayProfile);
                 if (antennas_1 != null)
                 {
                     foreach (IAntenna antenna_1 in antennas_1)
                     {
-                        List<IAntenna> antennas_2 = GeometricalPropagationModel.GetAntennas<IAntenna>(multipathPowerDelayProfile, antenna_1);
+                        List<IAntenna>? antennas_2 = GeometricalPropagationModel.GetAntennas<IAntenna>(multipathPowerDelayProfile, antenna_1);
                         if (antennas_2 != null)
                         {
                             foreach (IAntenna antenna_2 in antennas_2)
@@ -71,8 +71,8 @@ namespace DiGi.Communication.ComputeSharp.Classes
                 }
 
                 tuples.RemoveAll(x => x.Item1.Functions == null || x.Item1.Functions.Count == 0 || x.Item2.Functions == null || x.Item2.Functions.Count == 0);
-                tuples.RemoveAll(x => !x.Item1.Functions.Contains(Enums.Function.Receiver) && !x.Item2.Functions.Contains(Enums.Function.Receiver));
-                tuples.RemoveAll(x => !x.Item1.Functions.Contains(Enums.Function.Transmitter) && !x.Item2.Functions.Contains(Enums.Function.Transmitter));
+                tuples.RemoveAll(x => !x.Item1.Functions!.Contains(Enums.Function.Receiver) && !x.Item2.Functions!.Contains(Enums.Function.Receiver));
+                tuples.RemoveAll(x => !x.Item1.Functions!.Contains(Enums.Function.Transmitter) && !x.Item2.Functions!.Contains(Enums.Function.Transmitter));
             }
 
             if (tuples == null || tuples.Count == 0)
@@ -80,25 +80,26 @@ namespace DiGi.Communication.ComputeSharp.Classes
                 return false;
             }
 
-            scatteringProfiles = new List<IScatteringProfile>();
+            scatteringProfiles = [];
 
-            List<IScatteringObject> scatteringObjects = GeometricalPropagationModel.GetScatteringObjects<IScatteringObject>();
+            List<IScatteringObject>? scatteringObjects = GeometricalPropagationModel.GetScatteringObjects<IScatteringObject>();
 
-            List<Triangle3> triangle3s = new List<Triangle3>();
-            List<string> references = new List<string>();
-            List<BoundingBox3D> boundingBox3Ds = new List<BoundingBox3D>();
+            List<Triangle3> triangle3s = [];
+            List<string> references = [];
+            List<BoundingBox3D> boundingBox3Ds = [];
 
             if (scatteringObjects != null)
             {
                 foreach (IScatteringObject scatteringObject in scatteringObjects)
                 {
-                    Mesh3D mesh3D_ScatteringObject = scatteringObject?.Mesh3D;
+                    Mesh3D? mesh3D_ScatteringObject = scatteringObject?.Mesh3D;
                     if (mesh3D_ScatteringObject == null)
                     {
                         continue;
                     }
 
-                    string reference = scatteringObject.Reference;
+                    string? reference = scatteringObject?.Reference;
+                    reference ??= string.Empty;
 
                     List<Triangle3> triangle3s_Temp = DiGi.ComputeSharp.Geometry.Spatial.Convert.ToComputeSharp(mesh3D_ScatteringObject, true);
                     if (triangle3s_Temp == null)
@@ -112,8 +113,10 @@ namespace DiGi.Communication.ComputeSharp.Classes
                         references.Add(reference);
                     }
 
-                    BoundingBox3D boundingBox3D_ScatteringObject = mesh3D_ScatteringObject.GetBoundingBox();
-                    boundingBox3Ds.Add(boundingBox3D_ScatteringObject);
+                    if(mesh3D_ScatteringObject.GetBoundingBox() is BoundingBox3D boundingBox3D)
+                    {
+                        boundingBox3Ds.Add(boundingBox3D);
+                    }
                 }
             }
 
@@ -128,21 +131,21 @@ namespace DiGi.Communication.ComputeSharp.Classes
 
                     bool visible = true;
 
-                    ISimpleMultipathPowerDelayProfile simpleMultipathPowerDelayProfile = multipathPowerDelayProfile is ISimpleMultipathPowerDelayProfile ? (ISimpleMultipathPowerDelayProfile)multipathPowerDelayProfile : ((IComplexMultipathPowerDelayProfile)multipathPowerDelayProfile).GetSimpleMultipathPowerDelay(visible);
+                    ISimpleMultipathPowerDelayProfile? simpleMultipathPowerDelayProfile = multipathPowerDelayProfile is ISimpleMultipathPowerDelayProfile profile ? profile : ((IComplexMultipathPowerDelayProfile)multipathPowerDelayProfile).GetSimpleMultipathPowerDelay(visible);
 
-                    HashSet<double> delays = simpleMultipathPowerDelayProfile?.Delays;
+                    HashSet<double>? delays = simpleMultipathPowerDelayProfile?.Delays;
                     if (delays == null || delays.Count == 0)
                     {
                         continue;
                     }
 
-                    List<Scattering> scatterings = new List<Scattering>();
+                    List<Scattering> scatterings = [];
                     foreach (double delay in delays)
                     {
                         scatterings.Add(new Scattering(delay));
                     }
 
-                    ScatteringProfile scatteringProfile = new ScatteringProfile(visible, antenna_1.Location, antenna_2.Location, scatterings);
+                    ScatteringProfile scatteringProfile = new (visible, antenna_1.Location, antenna_2.Location, scatterings);
                     GeometricalPropagationModel.Assign(scatteringProfile, antenna_1, antenna_2);
                     GeometricalPropagationModel.Assign(scatteringProfile, multipathPowerDelayProfile);
                     scatteringProfiles.Add(scatteringProfile);
@@ -159,8 +162,18 @@ namespace DiGi.Communication.ComputeSharp.Classes
 
             ReadOnlyBuffer<Triangle3> readOnlyBuffer_Triangle3s = graphicsDevice.AllocateReadOnlyBuffer(triangle3s.ToArray());
 
-            List<Line3> lines = tuples.ConvertAll(x => new Line3(new DiGi.ComputeSharp.Core.Classes.Bool(true), x.Item1.Location.ToComputeSharp(), x.Item2.Location.ToComputeSharp()));
-            List<bool> intersects = DiGi.ComputeSharp.Spatial.Query.Intersect(graphicsDevice, lines, readOnlyBuffer_Triangle3s, false, false, tolerance);
+            List<Line3> line3s_Temp = [];
+            foreach(Tuple < IAntenna, IAntenna, IMultipathPowerDelayProfile > tuple in tuples)
+            {
+                if(tuple.Item1?.Location?.ToComputeSharp() is not Coordinate3 point_1 || tuple.Item2?.Location?.ToComputeSharp() is not Coordinate3 point_2)
+                {
+                    continue;
+                }
+
+                line3s_Temp.Add(new Line3(new DiGi.ComputeSharp.Core.Classes.Bool(true), point_1, point_2));
+            }
+
+            List<bool> intersects = DiGi.ComputeSharp.Spatial.Query.Intersect(graphicsDevice, line3s_Temp, readOnlyBuffer_Triangle3s, false, false, tolerance);
 
             for (int i = 0; i < tuples.Count; i++)
             {
@@ -171,15 +184,15 @@ namespace DiGi.Communication.ComputeSharp.Classes
 
                 IMultipathPowerDelayProfile multipathPowerDelayProfile = tuples[i].Item3;
 
-                ISimpleMultipathPowerDelayProfile simpleMultipathPowerDelayProfile = multipathPowerDelayProfile is ISimpleMultipathPowerDelayProfile ? (ISimpleMultipathPowerDelayProfile)multipathPowerDelayProfile : ((IComplexMultipathPowerDelayProfile)multipathPowerDelayProfile).GetSimpleMultipathPowerDelay(visible);
+                ISimpleMultipathPowerDelayProfile? simpleMultipathPowerDelayProfile = multipathPowerDelayProfile is ISimpleMultipathPowerDelayProfile profile ? profile : ((IComplexMultipathPowerDelayProfile)multipathPowerDelayProfile).GetSimpleMultipathPowerDelay(visible);
 
-                HashSet<double> delays = simpleMultipathPowerDelayProfile?.Delays;
+                HashSet<double>? delays = simpleMultipathPowerDelayProfile?.Delays;
                 if (delays == null || delays.Count == 0)
                 {
                     continue;
                 }
 
-                SortedDictionary<double, Tuple<Ellipsoid, Mesh3D, List<Triangle3>>> sortedDictionary = new SortedDictionary<double, Tuple<Ellipsoid, Mesh3D, List<Triangle3>>>();
+                SortedDictionary<double, Tuple<Ellipsoid, Mesh3D, List<Triangle3>>?> sortedDictionary = [];
                 foreach (double delay in delays)
                 {
                     if(double.IsNaN(delay))
@@ -193,21 +206,21 @@ namespace DiGi.Communication.ComputeSharp.Classes
                 Parallel.ForEach(sortedDictionary.Keys, delay => 
                 //foreach (double delay in delays)
                 {
-                    Ellipsoid ellipsoid = Create.Ellipsoid(antenna_1, antenna_2, delay, tolerance);
+                    Ellipsoid? ellipsoid = Create.Ellipsoid(antenna_1, antenna_2, delay, tolerance);
                     if (ellipsoid == null)
                     {
                         return;
                         //continue;
                     }
 
-                    Mesh3D mesh3D = ellipsoid.Mesh3D(angleFactor);
+                    Mesh3D? mesh3D = ellipsoid.Mesh3D(angleFactor);
                     if (mesh3D == null)
                     {
                         return;
                         //continue;
                     }
 
-                    List<Triangle3D> triangle3Ds_Ellipsoid = mesh3D.GetTriangles();
+                    List<Triangle3D>? triangle3Ds_Ellipsoid = mesh3D.GetTriangles();
                     if (triangle3Ds_Ellipsoid == null || triangle3Ds_Ellipsoid.Count == 0)
                     {
                         return;
@@ -218,7 +231,7 @@ namespace DiGi.Communication.ComputeSharp.Classes
                     {
                         Triangle3D triangle3D = triangle3Ds_Ellipsoid[j];
 
-                        BoundingBox3D boundingBox3D_Triangle3D = triangle3D.GetBoundingBox();
+                        BoundingBox3D? boundingBox3D_Triangle3D = triangle3D.GetBoundingBox();
 
                         int index = boundingBox3Ds.FindIndex(x => x.InRange(boundingBox3D_Triangle3D, tolerance));
                         if (index >= 0)
@@ -233,29 +246,39 @@ namespace DiGi.Communication.ComputeSharp.Classes
                 }
                 );
 
-                List<Scattering> scatterings = new List<Scattering>();
+                List<Scattering> scatterings = [];
 
-                Coordinate3 location_1 = antenna_1.Location.ToComputeSharp();
-                Coordinate3 location_2 = antenna_2.Location.ToComputeSharp();
+                Coordinate3? location_1 = antenna_1?.Location?.ToComputeSharp();
+                if(location_1 is null)
+                {
+                    return false;
+                }
 
-                foreach (KeyValuePair<double, Tuple<Ellipsoid, Mesh3D, List<Triangle3>>> keyValuePair in sortedDictionary)
+                Coordinate3? location_2 = antenna_2?.Location?.ToComputeSharp();
+                if(location_2 is null)
+                {
+                    return false;
+                }
+
+
+                foreach (KeyValuePair<double, Tuple<Ellipsoid, Mesh3D, List<Triangle3>>?> keyValuePair in sortedDictionary)
                 {
                     double delay = keyValuePair.Key;
 
-                    List<Triangle3> triangle3s_Ellipsoid = keyValuePair.Value.Item3;
+                    List<Triangle3>? triangle3s_Ellipsoid = keyValuePair.Value?.Item3;
                     if (triangle3s_Ellipsoid == null || triangle3s_Ellipsoid.Count == 0)
                     {
                         scatterings.Add(new Scattering(delay));
                         continue;
                     }
 
-                    List<ScatteringPointGroup> scatteringPointGroups = new List<ScatteringPointGroup>();
+                    List<ScatteringPointGroup> scatteringPointGroups = [];
 
-                    List<Point3D> points = new List<Point3D>();
+                    List<Point3D> points = [];
                     IEnumerable<Triangle3Intersection> triangle3Interscetions = DiGi.ComputeSharp.Spatial.Create.Triangle3Intersections(graphicsDevice, triangle3s_Ellipsoid, readOnlyBuffer_Triangle3s, tolerance);
                     if (triangle3Interscetions != null)
                     {
-                        List<Line3> line3s = new List<Line3>();
+                        List<Line3> line3s = [];
                         foreach (Triangle3Intersection triangle3Intersection in triangle3Interscetions)
                         {
                             IGeometry3[] geometry3s = triangle3Intersection.GetIntersectionGeometries();
@@ -266,22 +289,22 @@ namespace DiGi.Communication.ComputeSharp.Classes
 
                             foreach (IGeometry3 geometry3 in geometry3s)
                             {
-                                if (geometry3 is Triangle3)
+                                if (geometry3 is Triangle3 triangle3)
                                 {
-                                    line3s.AddRange(((Triangle3)geometry3).GetLines());
+                                    line3s.AddRange(triangle3.GetLines());
                                 }
-                                else if (geometry3 is Line3)
+                                else if (geometry3 is Line3 line3)
                                 {
-                                    line3s.Add((Line3)geometry3);
+                                    line3s.Add(line3);
                                 }
                             }
                         }
 
                         if (line3s != null && line3s.Count != 0)
                         {
-                            List<Segment3D> intersectionSegment3Ds = new List<Segment3D>();
+                            List<Segment3D> intersectionSegment3Ds = [];
 
-                            List<Tuple<Line3, Coordinate3>> tuples_1 = new List<Tuple<Line3, Coordinate3>>();
+                            List<Tuple<Line3, Coordinate3>> tuples_1 = [];
 
                             foreach (Line3 line3 in line3s)
                             {
@@ -295,7 +318,7 @@ namespace DiGi.Communication.ComputeSharp.Classes
 
                                 foreach (Coordinate3 coordinate3 in coordinate3s)
                                 {
-                                    Line3 line3_Temp = new Line3(new DiGi.ComputeSharp.Core.Classes.Bool(true), location_1, coordinate3);
+                                    Line3 line3_Temp = new(new DiGi.ComputeSharp.Core.Classes.Bool(true), location_1.Value, coordinate3);
 
                                     tuples_1.Add(new Tuple<Line3, Coordinate3>(line3_Temp, coordinate3));
                                 }
@@ -306,7 +329,7 @@ namespace DiGi.Communication.ComputeSharp.Classes
                                 List<bool> intersects_Temp = DiGi.ComputeSharp.Spatial.Query.Intersect(graphicsDevice, tuples_1.ConvertAll(x => x.Item1), readOnlyBuffer_Triangle3s, false, false, tolerance);
                                 if (intersects_Temp != null && intersects_Temp.Count != 0)
                                 {
-                                    List<Tuple<Line3, Coordinate3>> tuples_2 = new List<Tuple<Line3, Coordinate3>>();
+                                    List<Tuple<Line3, Coordinate3>> tuples_2 = [];
                                     for (int j = 0; j < intersects_Temp.Count; j++)
                                     {
                                         if (intersects_Temp[j])
@@ -316,7 +339,7 @@ namespace DiGi.Communication.ComputeSharp.Classes
 
                                         Coordinate3 coordinate3 = tuples_1[j].Item2;
 
-                                        Line3 line3_Temp = new Line3(new DiGi.ComputeSharp.Core.Classes.Bool(true), location_2, coordinate3);
+                                        Line3 line3_Temp = new(new DiGi.ComputeSharp.Core.Classes.Bool(true), location_2.Value, coordinate3);
 
                                         tuples_2.Add(new Tuple<Line3, Coordinate3>(line3_Temp, coordinate3));
                                     }
@@ -326,7 +349,7 @@ namespace DiGi.Communication.ComputeSharp.Classes
                                         intersects_Temp = DiGi.ComputeSharp.Spatial.Query.Intersect(graphicsDevice, tuples_2.ConvertAll(x => x.Item1), readOnlyBuffer_Triangle3s, false, false, tolerance);
                                         if (intersects_Temp != null && intersects_Temp.Count != 0)
                                         {
-                                            List<Coordinate3> coordinate3s = new List<Coordinate3>();
+                                            List<Coordinate3> coordinate3s = [];
                                             for (int j = 0; j < intersects_Temp.Count; j++)
                                             {
                                                 if (intersects_Temp[j])
@@ -342,21 +365,18 @@ namespace DiGi.Communication.ComputeSharp.Classes
                                                 List<int> indexes = DiGi.ComputeSharp.Spatial.Query.Inside(graphicsDevice, coordinate3s, readOnlyBuffer_Triangle3s, tolerance);
                                                 if (indexes != null && indexes.Count != 0)
                                                 {
-                                                    Dictionary<string, List<Coordinate3>> dictionary = new Dictionary<string, List<Coordinate3>>();
+                                                    Dictionary<string, List<Coordinate3>> dictionary = [];
                                                     for (int j = 0; j < coordinate3s.Count; j++)
                                                     {
                                                         int index = indexes[j];
                                                         Coordinate3 point = coordinate3s[j];
 
                                                         string reference = index == -1 ? string.Empty : references[index];
-                                                        if (reference == null)
-                                                        {
-                                                            reference = string.Empty;
-                                                        }
+                                                        reference ??= string.Empty;
 
-                                                        if (!dictionary.TryGetValue(reference, out List<Coordinate3> points_Temp) || points_Temp == null)
+                                                        if (!dictionary.TryGetValue(reference, out List<Coordinate3>? points_Temp) || points_Temp == null)
                                                         {
-                                                            points_Temp = new List<Coordinate3>();
+                                                            points_Temp = [];
                                                             dictionary[reference] = points_Temp;
                                                         }
 
@@ -379,7 +399,7 @@ namespace DiGi.Communication.ComputeSharp.Classes
                     scatterings.Add(new Scattering(delay, scatteringPointGroups));
                 }
 
-                ScatteringProfile scatteringProfile = new ScatteringProfile(visible, antenna_1.Location, antenna_2.Location, scatterings);
+                ScatteringProfile scatteringProfile = new (visible, antenna_1?.Location, antenna_2?.Location, scatterings);
                 GeometricalPropagationModel.Assign(scatteringProfile, antenna_1, antenna_2);
                 GeometricalPropagationModel.Assign(scatteringProfile, multipathPowerDelayProfile);
                 scatteringProfiles.Add(scatteringProfile);

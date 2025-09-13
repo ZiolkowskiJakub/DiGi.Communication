@@ -15,20 +15,20 @@ namespace DiGi.Communication
         /// <param name="delay">Delay [m]</param>
         /// <param name="tolerance">Tolerance [m]</param>
         /// <returns></returns>
-        public static Ellipsoid Ellipsoid(IAntenna antenna_1, IAntenna antenna_2, double delay, double tolerance = Tolerance.Distance)
+        public static Ellipsoid? Ellipsoid(IAntenna? antenna_1, IAntenna? antenna_2, double delay, double tolerance = Tolerance.Distance)
         {
             if(antenna_1 == null || antenna_2 == null || double.IsNaN(delay))
             {
                 return null;
             }
 
-            Point3D location_1 = antenna_1.Location;
+            Point3D? location_1 = antenna_1.Location;
             if(location_1 == null)
             {
                 return null;
             }
 
-            Point3D location_2 = antenna_2.Location;
+            Point3D? location_2 = antenna_2.Location;
             if(location_2 == null)
             {
                 return null;
@@ -45,7 +45,7 @@ namespace DiGi.Communication
         /// <param name="delay">Delay [m]</param>
         /// <param name="tolerance">Tolerance [m]</param>
         /// <returns></returns>
-        public static Ellipsoid Ellipsoid(Point3D location_1, Point3D location_2, double delay, double tolerance = Tolerance.Distance)
+        public static Ellipsoid? Ellipsoid(Point3D? location_1, Point3D? location_2, double delay, double tolerance = Tolerance.Distance)
         {
             if (location_1 == null || location_2 == null || double.IsNaN(delay))
             {
@@ -59,15 +59,15 @@ namespace DiGi.Communication
             }
 
             double a = ((Constans.Physical.LightSpeed * delay) + distance) / 2;
-            double b = Math.Sqrt(Constans.Physical.LightSpeed * delay * ((Constans.Physical.LightSpeed * delay) + (2 * distance))) / 2;
+            double b = System.Math.Sqrt(Constans.Physical.LightSpeed * delay * ((Constans.Physical.LightSpeed * delay) + (2 * distance))) / 2;
 
-            Point3D center = location_1.Mid(location_2);
+            Point3D? center = location_1.Mid(location_2);
 
-            Vector3D directionA = new Vector3D(location_1, location_2).Unit;
+            Vector3D? directionA = new Vector3D(location_1, location_2).Unit;
 
-            Vector3D directionB = directionA.Similar(Geometry.Spatial.Constans.Vector3D.WorldZ, tolerance) ? directionA.CrossProduct(Geometry.Spatial.Constans.Vector3D.WorldY).Unit : directionA.CrossProduct(Geometry.Spatial.Constans.Vector3D.WorldZ).Unit;
+            Vector3D? directionB = directionA.Similar(Geometry.Spatial.Constans.Vector3D.WorldZ, tolerance) ? directionA?.CrossProduct(Geometry.Spatial.Constans.Vector3D.WorldY)?.Unit : directionA?.CrossProduct(Geometry.Spatial.Constans.Vector3D.WorldZ)?.Unit;
 
-            Plane plane = new Plane(center, directionA, directionB);
+            Plane plane = new(center, directionA, directionB);
 
             return new Ellipsoid(plane, a, b, b);
         }

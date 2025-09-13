@@ -1,6 +1,8 @@
 ﻿using DiGi.Communication.Interfaces;
 using DiGi.Core.Classes;
 using DiGi.Geometry.Spatial.Classes;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 
@@ -9,16 +11,16 @@ namespace DiGi.Communication.Classes
     public class AngularPowerDistribution : SerializableObject, IAngularPowerDistribution
     {
         [JsonInclude, JsonPropertyName("Delay")]
-        private double delay;
+        private readonly double delay;
 
         [JsonInclude, JsonPropertyName("Vectors")]
-        private List<Vector3D> vectors;
+        private readonly List<Vector3D>? vectors;
 
-        public AngularPowerDistribution(double delay, IEnumerable<Vector3D> vectors)
+        public AngularPowerDistribution(double delay, IEnumerable<Vector3D>? vectors)
             : base()
         {
             this.delay = delay;
-            this.vectors = Core.Query.Clone(vectors);
+            this.vectors = Core.Query.CloneAndFilterNulls(vectors);
         }
 
         public AngularPowerDistribution(JsonObject jsonObject)
@@ -27,13 +29,13 @@ namespace DiGi.Communication.Classes
             
         }
 
-        public AngularPowerDistribution(AngularPowerDistribution angularPowerDistribution)
+        public AngularPowerDistribution(AngularPowerDistribution? angularPowerDistribution)
             : base(angularPowerDistribution)
         {
             if(angularPowerDistribution != null)
             {
                 delay = angularPowerDistribution.delay;
-                vectors = Core.Query.Clone(angularPowerDistribution.vectors);
+                vectors = Core.Query.CloneAndFilterNulls(angularPowerDistribution.vectors);
             }
         }
 
@@ -47,11 +49,11 @@ namespace DiGi.Communication.Classes
         }
 
         [JsonIgnore]
-        public List<Vector3D> Vectors
+        public List<Vector3D>? Vectors
         {
             get
             {
-                return Core.Query.Clone(vectors);
+                return Core.Query.CloneAndFilterNulls(vectors);
             }
         }
         

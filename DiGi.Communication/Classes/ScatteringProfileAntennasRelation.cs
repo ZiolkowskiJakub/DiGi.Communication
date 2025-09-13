@@ -6,19 +6,19 @@ namespace DiGi.Communication.Classes
 {
     public class ScatteringProfileAntennasRelation : OneToManyDirectionalRelation<IScatteringProfile, IAntenna>, ICommunicationRelation
     {
-        public ScatteringProfileAntennasRelation(IScatteringProfile scatteringProfile, IAntenna antenna_1, IAntenna antenna_2)
-            : base(scatteringProfile, [antenna_1, antenna_2])
+        public ScatteringProfileAntennasRelation(IScatteringProfile? scatteringProfile, IAntenna? antenna_1, IAntenna? antenna_2)
+            : base(scatteringProfile, Core.Query.FilterNulls([antenna_1, antenna_2]))
         {
 
         }
 
-        public ScatteringProfileAntennasRelation(JsonObject jsonObject)
+        public ScatteringProfileAntennasRelation(JsonObject? jsonObject)
             : base(jsonObject)
         {
 
         }
 
-        public ScatteringProfileAntennasRelation(ScatteringProfileAntennasRelation scatteringProfileAntennasRelation)
+        public ScatteringProfileAntennasRelation(ScatteringProfileAntennasRelation? scatteringProfileAntennasRelation)
             : base(scatteringProfileAntennasRelation)
         {
 

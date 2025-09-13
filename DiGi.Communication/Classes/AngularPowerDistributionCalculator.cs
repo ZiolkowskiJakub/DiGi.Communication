@@ -1,26 +1,30 @@
 ﻿using DiGi.Communication.Enums;
 using DiGi.Communication.Interfaces;
+using DiGi.Core;
 using DiGi.Core.Interfaces;
 using DiGi.Geometry.Spatial;
 using DiGi.Geometry.Spatial.Classes;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DiGi.Communication.Classes
 {
     public class AngularPowerDistributionCalculator : ICommunicationObject, ICalculator
     {
-        private List<IAngularPowerDistributionProfile> angularPowerDistributionProfiles;
+        private List<IAngularPowerDistributionProfile>? angularPowerDistributionProfiles;
         
-        public AngularPowerDistributionCalculatorOptions AngularPowerDistributionCalculatorOptions { get; set; }
+        public AngularPowerDistributionCalculatorOptions? AngularPowerDistributionCalculatorOptions { get; set; }
 
-        public List<IAngularPowerDistributionProfile> AngularPowerDistributionProfiles
+        public List<IAngularPowerDistributionProfile>? AngularPowerDistributionProfiles
         {
             get
             {
-                return Core.Query.Clone(angularPowerDistributionProfiles);
+                return Core.Query.CloneAndFilterNulls(angularPowerDistributionProfiles);
             }
         }
 
-        public GeometricalPropagationModel GeometricalPropagationModel { get; set; }
+        public GeometricalPropagationModel? GeometricalPropagationModel { get; set; }
         
         public bool Calculate()
         {
@@ -31,32 +35,32 @@ namespace DiGi.Communication.Classes
                 return false;
             }
 
-            List<IScatteringProfile> scatteringProfiles = GeometricalPropagationModel.GetScatteringProfiles<IScatteringProfile>();
+            List<IScatteringProfile>? scatteringProfiles = GeometricalPropagationModel.GetScatteringProfiles<IScatteringProfile>();
             if (scatteringProfiles == null || scatteringProfiles.Count == 0)
             {
                 return false;
             }
 
-            List<IScatteringObject> scatteringObjects = GeometricalPropagationModel.GetScatteringObjects<IScatteringObject>();
+            List<IScatteringObject>? scatteringObjects = GeometricalPropagationModel.GetScatteringObjects<IScatteringObject>();
 
             double tolerance = AngularPowerDistributionCalculatorOptions.Tolerance;
 
             int rayCount = AngularPowerDistributionCalculatorOptions.RayCount;
 
-            angularPowerDistributionProfiles = new List<IAngularPowerDistributionProfile>();
+            angularPowerDistributionProfiles = [];
 
             foreach (IScatteringProfile scatteringProfile in scatteringProfiles)
             {
-                IMultipathPowerDelayProfile multipathPowerDelayProfile = GeometricalPropagationModel.GetMultipathPowerDelayProfile<IMultipathPowerDelayProfile>(scatteringProfile);
+                IMultipathPowerDelayProfile? multipathPowerDelayProfile = GeometricalPropagationModel.GetMultipathPowerDelayProfile<IMultipathPowerDelayProfile>(scatteringProfile);
                 if(multipathPowerDelayProfile == null)
                 {
                     continue;
                 }
 
-                ISimpleMultipathPowerDelayProfile simpleMultipathPowerDelayProfile = null;
-                if(multipathPowerDelayProfile is IComplexMultipathPowerDelayProfile)
+                ISimpleMultipathPowerDelayProfile? simpleMultipathPowerDelayProfile = null;
+                if(multipathPowerDelayProfile is IComplexMultipathPowerDelayProfile complexMultipathPowerDelayProfile)
                 {
-                    simpleMultipathPowerDelayProfile = ((IComplexMultipathPowerDelayProfile)multipathPowerDelayProfile).GetSimpleMultipathPowerDelay(scatteringProfile.Visible);
+                    simpleMultipathPowerDelayProfile = complexMultipathPowerDelayProfile.GetSimpleMultipathPowerDelay(scatteringProfile.Visible);
                 }
                 else
                 {
@@ -68,28 +72,28 @@ namespace DiGi.Communication.Classes
                     continue;
                 }
 
-                List<IAntenna> antennas = GeometricalPropagationModel.GetAntennas<IAntenna>(scatteringProfile);
+                List<IAntenna>? antennas = GeometricalPropagationModel.GetAntennas<IAntenna>(scatteringProfile);
                 if (antennas == null || antennas.Count < 2)
                 {
                     continue;
                 }
 
-                IEnumerable<Scattering> scatterings = scatteringProfile.Scatterings;
+                IEnumerable<Scattering>? scatterings = scatteringProfile.Scatterings;
                 if (scatterings == null)
                 {
                     continue;
                 }
 
-                List<Tuple<IScatteringProfile, IAntenna, IAngularPowerDistributionProfile>> tuples = new List<Tuple<IScatteringProfile, IAntenna, IAngularPowerDistributionProfile>>();
+                List<Tuple<IScatteringProfile, IAntenna, IAngularPowerDistributionProfile>> tuples = [];
                 foreach (IAntenna antenna in antennas)
                 {
-                    HashSet<Function> functions = antenna?.Functions;
+                    HashSet<Function>? functions = antenna?.Functions;
                     if (functions == null || !functions.Contains(Function.Receiver))
                     {
                         continue;
                     }
 
-                    Point3D location = antenna.Location;
+                    Point3D? location = antenna?.Location;
                     if (location == null)
                     {
                         continue;
@@ -97,7 +101,7 @@ namespace DiGi.Communication.Classes
 
                     int count = scatterings.Count();
 
-                    List<AngularPowerDistribution> angularPowerDistributions = new List<AngularPowerDistribution>();
+                    List<AngularPowerDistribution> angularPowerDistributions = [];
 
                     for (int i = 0; i < count; i++)
                     {
@@ -115,36 +119,36 @@ namespace DiGi.Communication.Classes
                             continue;
                         }
 
-                        List<Vector3D> vector3Ds = new List<Vector3D>();
+                        List<Vector3D> vector3Ds = [];
 
-                        List<ScatteringPointGroup> scatteringPointGroups = scattering.ScatteringPointGroups;
+                        List<ScatteringPointGroup>? scatteringPointGroups = scattering.ScatteringPointGroups;
                         if(scatteringPointGroups != null && scatteringPointGroups.Count != 0)
                         {
-                            Dictionary<string, List<Point3D>> dictionary = new Dictionary<string, List<Point3D>>();
+                            Dictionary<string, List<Point3D>> dictionary = [];
                             foreach(ScatteringPointGroup scatteringPointGroup in scatteringPointGroups)
                             {
-                                string reference = scatteringPointGroup?.Reference;
+                                string? reference = scatteringPointGroup?.Reference;
                                 if(string.IsNullOrWhiteSpace(reference))
                                 {
                                     continue;
                                 }
 
-                                List<Point3D> point3Ds = scatteringPointGroup.Points;
+                                List<Point3D>? point3Ds = scatteringPointGroup?.Points;
                                 if(point3Ds == null)
                                 {
                                     continue;
                                 }
 
-                                if(!dictionary.TryGetValue(reference, out List<Point3D> point3Ds_Temp) || point3Ds_Temp == null)
+                                if(!dictionary.TryGetValue(reference!, out List<Point3D> point3Ds_Temp) || point3Ds_Temp == null)
                                 {
-                                    point3Ds_Temp = new List<Point3D>();
-                                    dictionary[reference] = point3Ds_Temp;
+                                    point3Ds_Temp = [];
+                                    dictionary[reference!] = point3Ds_Temp;
                                 }
 
                                 point3Ds_Temp.AddRange(point3Ds);
                             }
 
-                            List<Tuple<List<Point3D>, double>> tuples_Point3Ds = new List<Tuple<List<Point3D>, double>>();
+                            List<Tuple<List<Point3D>, double>> tuples_Point3Ds = [];
                             foreach(KeyValuePair<string, List<Point3D>> keyValuePair in dictionary)
                             {
                                 List<Point3D> point3Ds = keyValuePair.Value;
@@ -153,18 +157,16 @@ namespace DiGi.Communication.Classes
                                     continue;
                                 }
 
-                                Geometry.Spatial.Query.ExtremePoints(point3Ds, out Point3D point3D_1, out Point3D point3D_2);
+                                Geometry.Spatial.Query.ExtremePoints(point3Ds, out Point3D? point3D_1, out Point3D? point3D_2, out double distance);
 
-                                double distance = point3D_1.Distance(point3D_2);
-
-                                if (distance < tolerance)
+                                if (double.IsNaN(distance) || distance < tolerance)
                                 {
                                     continue;
                                 }
 
                                 double scatteringCoefficient = 1;
 
-                                IScatteringObject scatteringObject = scatteringObjects.Find(x => x.Reference == keyValuePair.Key);
+                                IScatteringObject? scatteringObject = scatteringObjects?.Find(x => x.Reference == keyValuePair.Key);
                                 if (scatteringObject != null)
                                 {
                                     scatteringCoefficient = scatteringObject.ScatteringCoefficient;
@@ -172,18 +174,21 @@ namespace DiGi.Communication.Classes
 
                                 double weight = distance * scatteringCoefficient;
 
-                                Segment3D segment3D = new Segment3D(point3D_1, point3D_2);
+                                Segment3D segment3D = new (point3D_1, point3D_2);
 
-                                List<Point3D> point3Ds_Temp = Geometry.Spatial.Create.Point3Ds(segment3D, rayCount);
+                                List<Point3D>? point3Ds_Temp = Geometry.Spatial.Create.Point3Ds(segment3D, rayCount);
                                 if(point3Ds_Temp == null || point3Ds_Temp.Count == 0)
                                 {
                                     continue;
                                 }
 
-                                List<Point3D> point3Ds_Closest = new List<Point3D>();
+                                List<Point3D> point3Ds_Closest = [];
                                 foreach (Point3D point3D_Temp in point3Ds_Temp)
                                 {
-                                    point3Ds_Closest.Add(point3D_Temp.ClosestPoint(point3Ds, out double distance_Temp));
+                                    if(point3D_Temp.ClosestPoint(point3Ds, out double distance_Temp) is Point3D point3D_Closest)
+                                    {
+                                        point3Ds_Closest.Add(point3D_Closest);
+                                    }
                                 }
 
                                 tuples_Point3Ds.Add(new Tuple<List<Point3D>, double>(point3Ds_Closest, weight));
@@ -201,7 +206,10 @@ namespace DiGi.Communication.Classes
 
                                 foreach(Point3D point3D in tuple_Point3Ds.Item1)
                                 {
-                                    vector3Ds.Add(new Vector3D(point3D, location).Unit * length);
+                                    if(new Vector3D(point3D, location).Unit * length is Vector3D vector3D)
+                                    {
+                                        vector3Ds.Add(vector3D);
+                                    }
                                 }
                             }
                         }
@@ -209,7 +217,7 @@ namespace DiGi.Communication.Classes
                         angularPowerDistributions.Add(new AngularPowerDistribution(delay, vector3Ds));
                     }
 
-                    tuples.Add(new Tuple<IScatteringProfile, IAntenna, IAngularPowerDistributionProfile>(scatteringProfile, antenna, new AngularPowerDistributionProfile(location, angularPowerDistributions)));
+                    tuples.Add(new Tuple<IScatteringProfile, IAntenna, IAngularPowerDistributionProfile>(scatteringProfile, antenna!, new AngularPowerDistributionProfile(location, angularPowerDistributions)));
                 }
 
                 foreach(Tuple<IScatteringProfile, IAntenna, IAngularPowerDistributionProfile> tuple in tuples)

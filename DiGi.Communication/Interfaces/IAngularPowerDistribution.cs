@@ -1,4 +1,5 @@
 ﻿using DiGi.Geometry.Spatial.Classes;
+using System.Collections.Generic;
 
 namespace DiGi.Communication.Interfaces
 {
@@ -6,7 +7,7 @@ namespace DiGi.Communication.Interfaces
     {
         double Delay { get; }
 
-        List<Vector3D> Vectors { get; }
+        List<Vector3D>? Vectors { get; }
 
         double GetPower();
     }

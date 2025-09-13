@@ -1,6 +1,9 @@
 ﻿using DiGi.Communication.Interfaces;
 using DiGi.Core.Classes;
+using DiGi.Core.Interfaces;
 using DiGi.Geometry.Spatial.Classes;
+using System;
+using System.Collections.Generic;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 
@@ -9,18 +12,18 @@ namespace DiGi.Communication.Classes
     public class ScatteringProfile : GuidObject, IScatteringProfile
     {
         [JsonInclude, JsonPropertyName("Location_1")]
-        private Point3D location_1;
+        private readonly Point3D? location_1;
 
         [JsonInclude, JsonPropertyName("Location_2")]
-        private Point3D location_2;
+        private readonly Point3D? location_2;
 
         [JsonIgnore]
-        private SortedDictionary<double, Scattering> dictionary;
+        private SortedDictionary<double, Scattering>? dictionary;
 
         [JsonInclude, JsonPropertyName("Visible")]
-        private bool visible;
+        private readonly bool visible;
 
-        public ScatteringProfile(Guid guid, Point3D location_1, Point3D location_2, bool visible, IEnumerable<Scattering> scatterings)
+        public ScatteringProfile(Guid guid, Point3D? location_1, Point3D? location_2, bool visible, IEnumerable<Scattering>? scatterings)
             : base(guid)
         {
             this.visible = visible;
@@ -29,7 +32,7 @@ namespace DiGi.Communication.Classes
             Scatterings = scatterings;
         }
 
-        public ScatteringProfile(bool visible, Point3D location_1, Point3D location_2, IEnumerable<Scattering> scatterings)
+        public ScatteringProfile(bool visible, Point3D? location_1, Point3D? location_2, IEnumerable<Scattering>? scatterings)
             : base()
         {
             this.visible = visible;
@@ -38,13 +41,13 @@ namespace DiGi.Communication.Classes
             Scatterings = scatterings;
         }
 
-        public ScatteringProfile(JsonObject jsonObject)
+        public ScatteringProfile(JsonObject? jsonObject)
             : base(jsonObject)
         {
 
         }
 
-        public ScatteringProfile(ScatteringProfile scatteringProfile)
+        public ScatteringProfile(ScatteringProfile? scatteringProfile)
             : base(scatteringProfile)
         {
             if (scatteringProfile != null)
@@ -57,7 +60,7 @@ namespace DiGi.Communication.Classes
         }
 
         [JsonInclude, JsonPropertyName("Scatterings")]
-        public IEnumerable<Scattering> Scatterings
+        public IEnumerable<Scattering>? Scatterings
         {
             get
             {
@@ -66,10 +69,13 @@ namespace DiGi.Communication.Classes
                     return null;
                 }
 
-                List<Scattering> result = new List<Scattering>();
+                List<Scattering> result = [];
                 foreach (Scattering scattering in dictionary.Values)
                 {
-                    result.Add(Core.Query.Clone(scattering));
+                    if(Core.Query.Clone(scattering) is Scattering scattering_Temp)
+                    {
+                        result.Add(scattering_Temp);
+                    }
                 }
                 return result;
             }
@@ -84,7 +90,7 @@ namespace DiGi.Communication.Classes
 
                 if(dictionary == null)
                 {
-                    dictionary = new SortedDictionary<double, Scattering>();
+                    dictionary = [];
                 }
                 else
                 {
@@ -93,12 +99,10 @@ namespace DiGi.Communication.Classes
 
                 foreach (Scattering scattering in value)
                 {
-                    if (scattering == null)
+                    if (Core.Query.Clone(scattering) is Scattering scattering_Temp)
                     {
-                        continue;
+                        dictionary[scattering.Delay] = scattering_Temp;
                     }
-
-                    dictionary[scattering.Delay] = Core.Query.Clone(scattering);
                 }
             }
         }
@@ -113,7 +117,7 @@ namespace DiGi.Communication.Classes
         }
 
         [JsonIgnore]
-        public Point3D Location_1
+        public Point3D? Location_1
         {
             get
             {
@@ -122,7 +126,7 @@ namespace DiGi.Communication.Classes
         }
 
         [JsonIgnore]
-        public Point3D Location_2
+        public Point3D? Location_2
         {
             get
             {

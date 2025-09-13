@@ -9,25 +9,25 @@ namespace DiGi.Communication.Classes
     public class Ray : SerializableObject, ICommunicationSerializableObject
     {
         [JsonInclude, JsonPropertyName("Point")]
-        private Point3D point;
+        private readonly Point3D? point;
 
         [JsonInclude, JsonPropertyName("Vector")]
-        private Vector3D vector;
+        private readonly Vector3D? vector;
 
-        public Ray(Point3D point, Vector3D vector)
+        public Ray(Point3D? point, Vector3D? vector)
             : base()
         {
             this.point = Core.Query.Clone(point);
             this.vector = Core.Query.Clone(vector);
         }
 
-        public Ray(JsonObject jsonObject)
+        public Ray(JsonObject? jsonObject)
             :base(jsonObject)
         {
             
         }
 
-        public Ray(Ray ray)
+        public Ray(Ray? ray)
             : base(ray)
         {
             if(ray != null)
@@ -38,7 +38,7 @@ namespace DiGi.Communication.Classes
         }
 
         [JsonIgnore]
-        public Point3D Point
+        public Point3D? Point
         {
             get
             {
@@ -47,7 +47,7 @@ namespace DiGi.Communication.Classes
         }
 
         [JsonIgnore]
-        public Vector3D Vector
+        public Vector3D? Vector
         {
             get
             {

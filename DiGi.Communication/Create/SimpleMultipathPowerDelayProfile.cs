@@ -1,12 +1,13 @@
 ﻿using DiGi.Communication.Classes;
+using System.Collections.Generic;
 
 namespace DiGi.Communication
 {
     public static partial class Create
     {
-        public static SimpleMultipathPowerDelayProfile SimpleMultipathPowerDelayProfile(Enums.DefaultSimpleMultipathPowerDelayProfile defaultSimpleMultipathPowerDelayProfile)
+        public static SimpleMultipathPowerDelayProfile? SimpleMultipathPowerDelayProfile(Enums.DefaultSimpleMultipathPowerDelayProfile defaultSimpleMultipathPowerDelayProfile)
         {
-            switch(defaultSimpleMultipathPowerDelayProfile)
+            switch (defaultSimpleMultipathPowerDelayProfile)
             {
                 case Enums.DefaultSimpleMultipathPowerDelayProfile.BadUrban:
                     return new SimpleMultipathPowerDelayProfile(new Dictionary<double, double>
@@ -41,6 +42,9 @@ namespace DiGi.Communication
                         { 3.2e-6, 0.018 },
                         { 5.0e-6, 0.025 },
                     });
+
+                default:
+                    break;
             }
 
             return null;

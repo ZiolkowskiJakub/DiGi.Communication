@@ -10,15 +10,15 @@ namespace DiGi.Communication.Classes
     public class ScatteringObject : GuidObject, IScatteringObject
     {
         [JsonInclude, JsonPropertyName("Mesh3D")]
-        private Mesh3D mesh3D;
+        private readonly Mesh3D? mesh3D;
 
         [JsonInclude, JsonPropertyName("Reference")]
-        private string reference;
+        private readonly string? reference;
 
         [JsonInclude, JsonPropertyName("ScatteringCoefficient")]
-        private double scatteringCoefficient = 1.0;
+        private readonly double scatteringCoefficient = 1.0;
 
-        public ScatteringObject(Guid guid, string reference, Mesh3D mesh3D, double scatteringCoefficient = 1.0)
+        public ScatteringObject(Guid guid, string? reference, Mesh3D? mesh3D, double scatteringCoefficient = 1.0)
             : base(guid)
         {
             this.reference = string.IsNullOrWhiteSpace(reference) ? guid.ToString() : reference;
@@ -26,7 +26,7 @@ namespace DiGi.Communication.Classes
             this.scatteringCoefficient = scatteringCoefficient;
         }
 
-        public ScatteringObject(string reference, Mesh3D mesh3D, double scatteringCoefficient = 1.0)
+        public ScatteringObject(string? reference, Mesh3D? mesh3D, double scatteringCoefficient = 1.0)
             : base()
         {
             this.reference = string.IsNullOrWhiteSpace(reference) ? Guid.ToString() : reference;
@@ -34,13 +34,13 @@ namespace DiGi.Communication.Classes
             this.scatteringCoefficient = scatteringCoefficient;
         }
 
-        public ScatteringObject(JsonObject jsonObject)
+        public ScatteringObject(JsonObject? jsonObject)
             : base(jsonObject)
         {
 
         }
 
-        public ScatteringObject(ScatteringObject scatteringObject)
+        public ScatteringObject(ScatteringObject? scatteringObject)
             : base(scatteringObject)
         {
             if (scatteringObject != null)
@@ -52,7 +52,7 @@ namespace DiGi.Communication.Classes
         }
 
         [JsonIgnore]
-        public string Reference
+        public string? Reference
         {
             get
             {
@@ -61,7 +61,7 @@ namespace DiGi.Communication.Classes
         }
 
         [JsonIgnore]
-        public Mesh3D Mesh3D
+        public Mesh3D? Mesh3D
         {
             get
             {
