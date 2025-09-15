@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace DiGi.Communication.ComputeSharp.Classes
 {
-    public class ScatteringCalculatorOptions : SerializableObject, ICommunicationObject, IOptions
+    public class ScatteringSolverOptions : SerializableObject, ICommunicationObject, IOptions
     {
         [JsonInclude, JsonPropertyName("AngleFactor")]
         public double AngleFactor { get; set; } = Constans.Factor.Angle;

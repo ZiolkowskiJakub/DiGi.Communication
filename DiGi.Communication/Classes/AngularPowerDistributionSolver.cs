@@ -10,11 +10,11 @@ using System.Linq;
 
 namespace DiGi.Communication.Classes
 {
-    public class AngularPowerDistributionCalculator : ICommunicationObject, ICalculator
+    public class AngularPowerDistributionSolver : ICommunicationObject, ISolver
     {
         private List<IAngularPowerDistributionProfile>? angularPowerDistributionProfiles;
         
-        public AngularPowerDistributionCalculatorOptions? AngularPowerDistributionCalculatorOptions { get; set; }
+        public AngularPowerDistributionSolverOptions? AngularPowerDistributionSolverOptions { get; set; }
 
         public List<IAngularPowerDistributionProfile>? AngularPowerDistributionProfiles
         {
@@ -26,11 +26,11 @@ namespace DiGi.Communication.Classes
 
         public GeometricalPropagationModel? GeometricalPropagationModel { get; set; }
         
-        public bool Calculate()
+        public bool Solve()
         {
             angularPowerDistributionProfiles = null;
 
-            if (GeometricalPropagationModel == null || AngularPowerDistributionCalculatorOptions == null)
+            if (GeometricalPropagationModel == null || AngularPowerDistributionSolverOptions == null)
             {
                 return false;
             }
@@ -43,9 +43,9 @@ namespace DiGi.Communication.Classes
 
             List<IScatteringObject>? scatteringObjects = GeometricalPropagationModel.GetScatteringObjects<IScatteringObject>();
 
-            double tolerance = AngularPowerDistributionCalculatorOptions.Tolerance;
+            double tolerance = AngularPowerDistributionSolverOptions.Tolerance;
 
-            int rayCount = AngularPowerDistributionCalculatorOptions.RayCount;
+            int rayCount = AngularPowerDistributionSolverOptions.RayCount;
 
             angularPowerDistributionProfiles = [];
 
