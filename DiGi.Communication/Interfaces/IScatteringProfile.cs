@@ -11,7 +11,7 @@ namespace DiGi.Communication.Interfaces
         bool Visible { get; }
 
         Point3D? Location_1 { get; }
-        
+
         Point3D? Location_2 { get; }
 
     }

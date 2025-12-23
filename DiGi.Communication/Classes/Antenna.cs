@@ -16,7 +16,7 @@ namespace DiGi.Communication.Classes
 
         [JsonInclude, JsonPropertyName("Location")]
         private readonly Point3D? location;
-        
+
         public Antenna(Guid guid, Point3D? location, params Function[]? functions)
             : base(guid)
         {

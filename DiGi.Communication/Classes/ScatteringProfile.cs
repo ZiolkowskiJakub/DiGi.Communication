@@ -1,6 +1,5 @@
 ﻿using DiGi.Communication.Interfaces;
 using DiGi.Core.Classes;
-using DiGi.Core.Interfaces;
 using DiGi.Geometry.Spatial.Classes;
 using System;
 using System.Collections.Generic;
@@ -72,7 +71,7 @@ namespace DiGi.Communication.Classes
                 List<Scattering> result = [];
                 foreach (Scattering scattering in dictionary.Values)
                 {
-                    if(Core.Query.Clone(scattering) is Scattering scattering_Temp)
+                    if (Core.Query.Clone(scattering) is Scattering scattering_Temp)
                     {
                         result.Add(scattering_Temp);
                     }
@@ -88,7 +87,7 @@ namespace DiGi.Communication.Classes
                     return;
                 }
 
-                if(dictionary == null)
+                if (dictionary == null)
                 {
                     dictionary = [];
                 }

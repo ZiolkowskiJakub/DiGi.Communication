@@ -15,15 +15,15 @@ namespace DiGi.Communication.Classes
         }
 
         public CommunicationRelationCluster(JsonObject? jsonObject)
-            :base(jsonObject)
+            : base(jsonObject)
         {
-            
+
         }
 
         public CommunicationRelationCluster(CommunicationRelationCluster? communicationRelationCluster)
             : base(communicationRelationCluster)
         {
-            if(communicationRelationCluster != null)
+            if (communicationRelationCluster != null)
             {
 
             }
@@ -62,7 +62,7 @@ namespace DiGi.Communication.Classes
                 return null;
             }
 
-            if(Core.Create.UniqueReference(antenna_1) is not IUniqueReference uniqueReference_1)
+            if (Core.Create.UniqueReference(antenna_1) is not IUniqueReference uniqueReference_1)
             {
                 return null;
             }
@@ -75,7 +75,7 @@ namespace DiGi.Communication.Classes
             List<ScatteringProfileAntennasRelation>? scatteringProfileAntennasRelations = GetRelations<ScatteringProfileAntennasRelation>(Core.Create.UniqueReference(scatteringProfile), x => x?.UniqueReferences_To is List<IUniqueReference> uniqueReferences && uniqueReferences.Contains(uniqueReference_1) && uniqueReferences.Contains(uniqueReference_2));
             if (scatteringProfileAntennasRelations != null)
             {
-                foreach(ScatteringProfileAntennasRelation scatteringAntennasRelation in scatteringProfileAntennasRelations)
+                foreach (ScatteringProfileAntennasRelation scatteringAntennasRelation in scatteringProfileAntennasRelations)
                 {
                     Remove(scatteringAntennasRelation);
                 }

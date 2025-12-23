@@ -24,15 +24,15 @@ namespace DiGi.Communication.Classes
         }
 
         public AngularPowerDistribution(JsonObject jsonObject)
-            :base(jsonObject)
+            : base(jsonObject)
         {
-            
+
         }
 
         public AngularPowerDistribution(AngularPowerDistribution? angularPowerDistribution)
             : base(angularPowerDistribution)
         {
-            if(angularPowerDistribution != null)
+            if (angularPowerDistribution != null)
             {
                 delay = angularPowerDistribution.delay;
                 vectors = Core.Query.CloneAndFilterNulls(angularPowerDistribution.vectors);
@@ -56,10 +56,10 @@ namespace DiGi.Communication.Classes
                 return Core.Query.CloneAndFilterNulls(vectors);
             }
         }
-        
+
         public double GetPower()
         {
-            if(vectors == null)
+            if (vectors == null)
             {
                 return double.NaN;
             }

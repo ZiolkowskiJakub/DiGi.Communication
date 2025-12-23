@@ -11,7 +11,7 @@ namespace DiGi.Communication
     {
         public static Report Report(this GeometricalPropagationModel? geometricalPropagationModel)
         {
-            Report result = new ();
+            Report result = new();
 
             if (geometricalPropagationModel == null)
             {
@@ -41,9 +41,9 @@ namespace DiGi.Communication
                 result.Add();
             }
 
-            Action<ISimpleMultipathPowerDelayProfile?> append = new( x =>
+            Action<ISimpleMultipathPowerDelayProfile?> append = new(x =>
             {
-                if(x is null)
+                if (x is null)
                 {
                     return;
                 }
@@ -88,7 +88,7 @@ namespace DiGi.Communication
                 }
             }
 
-            if(scatteringProfiles != null && scatteringProfiles.Count != 0)
+            if (scatteringProfiles != null && scatteringProfiles.Count != 0)
             {
                 result.Add("ScatteringProfiles");
                 result.Add("Guid", "Visible", "X 1", "Y 1", "Z 1", "X 2", "Y 2", "Z 2");

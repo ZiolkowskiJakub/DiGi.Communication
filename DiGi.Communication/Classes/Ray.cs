@@ -22,15 +22,15 @@ namespace DiGi.Communication.Classes
         }
 
         public Ray(JsonObject? jsonObject)
-            :base(jsonObject)
+            : base(jsonObject)
         {
-            
+
         }
 
         public Ray(Ray? ray)
             : base(ray)
         {
-            if(ray != null)
+            if (ray != null)
             {
                 point = Core.Query.Clone(ray.point);
                 vector = Core.Query.Clone(ray.vector);

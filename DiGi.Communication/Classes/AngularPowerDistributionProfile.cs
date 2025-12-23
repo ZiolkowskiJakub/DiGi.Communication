@@ -86,7 +86,7 @@ namespace DiGi.Communication.Classes
 
                 foreach (AngularPowerDistribution angularPowerDistribution in value)
                 {
-                    if(Core.Query.Clone(angularPowerDistribution) is AngularPowerDistribution angularPowerDistribution_Temp)
+                    if (Core.Query.Clone(angularPowerDistribution) is AngularPowerDistribution angularPowerDistribution_Temp)
                     {
                         dictionary[angularPowerDistribution.Delay] = angularPowerDistribution_Temp;
                     }
@@ -105,7 +105,7 @@ namespace DiGi.Communication.Classes
 
         public List<Ray>? GetRays(double delay)
         {
-            if(double.IsNaN(delay) || location == null || dictionary == null || !dictionary.TryGetValue(delay, out AngularPowerDistribution angularPowerDistribution) || angularPowerDistribution == null)
+            if (double.IsNaN(delay) || location == null || dictionary == null || !dictionary.TryGetValue(delay, out AngularPowerDistribution angularPowerDistribution) || angularPowerDistribution == null)
             {
                 return null;
             }

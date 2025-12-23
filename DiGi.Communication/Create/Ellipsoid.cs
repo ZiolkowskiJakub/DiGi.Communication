@@ -17,19 +17,19 @@ namespace DiGi.Communication
         /// <returns></returns>
         public static Ellipsoid? Ellipsoid(IAntenna? antenna_1, IAntenna? antenna_2, double delay, double tolerance = Tolerance.Distance)
         {
-            if(antenna_1 == null || antenna_2 == null || double.IsNaN(delay))
+            if (antenna_1 == null || antenna_2 == null || double.IsNaN(delay))
             {
                 return null;
             }
 
             Point3D? location_1 = antenna_1.Location;
-            if(location_1 == null)
+            if (location_1 == null)
             {
                 return null;
             }
 
             Point3D? location_2 = antenna_2.Location;
-            if(location_2 == null)
+            if (location_2 == null)
             {
                 return null;
             }

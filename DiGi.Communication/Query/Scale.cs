@@ -1,5 +1,4 @@
 ﻿using DiGi.Communication.Classes;
-using DiGi.Core;
 using DiGi.Geometry.Spatial.Classes;
 using System.Collections.Generic;
 
@@ -9,18 +8,18 @@ namespace DiGi.Communication
     {
         public static Ray? Scale(this Ray? ray, double factor)
         {
-            if(ray == null || double.IsNaN(factor))
+            if (ray == null || double.IsNaN(factor))
             {
                 return null;
             }
 
-            if(factor == 1.0)
+            if (factor == 1.0)
             {
                 return new Ray(ray);
             }
 
             Point3D? point = ray.Point;
-            if(point == null)
+            if (point == null)
             {
                 return null;
             }
@@ -42,15 +41,15 @@ namespace DiGi.Communication
 
         public static List<Ray>? Scale(this IEnumerable<Ray>? rays, double factor)
         {
-            if(rays == null)
+            if (rays == null)
             {
                 return null;
             }
 
             List<Ray> result = [];
-            foreach(Ray ray in rays)
+            foreach (Ray ray in rays)
             {
-                if(Scale(ray, factor) is Ray ray_Scale)
+                if (Scale(ray, factor) is Ray ray_Scale)
                 {
                     result.Add(ray_Scale);
                 }

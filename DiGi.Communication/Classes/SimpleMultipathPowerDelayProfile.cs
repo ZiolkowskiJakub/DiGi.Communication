@@ -1,5 +1,4 @@
 ﻿using DiGi.Communication.Interfaces;
-using DiGi.Core;
 using DiGi.Core.Classes;
 using System;
 using System.Collections.Generic;

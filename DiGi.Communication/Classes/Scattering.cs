@@ -1,6 +1,5 @@
 ﻿using DiGi.Communication.Interfaces;
 using DiGi.Core.Classes;
-using DiGi.Geometry.Spatial.Classes;
 using System.Collections.Generic;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;

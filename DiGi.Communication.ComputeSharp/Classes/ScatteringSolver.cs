@@ -15,11 +15,11 @@ namespace DiGi.Communication.ComputeSharp.Classes
     public class ScatteringSolver : ICommunicationObject, ISolver
     {
         private List<IScatteringProfile>? scatteringProfiles;
-        
+
         public GeometricalPropagationModel? GeometricalPropagationModel { get; set; }
-        
+
         public ScatteringSolverOptions? ScatteringSolverOptions { get; set; }
-        
+
         public List<IScatteringProfile>? ScatteringProfiles
         {
             get
@@ -114,7 +114,7 @@ namespace DiGi.Communication.ComputeSharp.Classes
                         references.Add(reference);
                     }
 
-                    if(mesh3D_ScatteringObject.GetBoundingBox() is BoundingBox3D boundingBox3D)
+                    if (mesh3D_ScatteringObject.GetBoundingBox() is BoundingBox3D boundingBox3D)
                     {
                         boundingBox3Ds.Add(boundingBox3D);
                     }
@@ -146,7 +146,7 @@ namespace DiGi.Communication.ComputeSharp.Classes
                         scatterings.Add(new Scattering(delay));
                     }
 
-                    ScatteringProfile scatteringProfile = new (visible, antenna_1.Location, antenna_2.Location, scatterings);
+                    ScatteringProfile scatteringProfile = new(visible, antenna_1.Location, antenna_2.Location, scatterings);
                     GeometricalPropagationModel.Assign(scatteringProfile, antenna_1, antenna_2);
                     GeometricalPropagationModel.Assign(scatteringProfile, multipathPowerDelayProfile);
                     scatteringProfiles.Add(scatteringProfile);
@@ -164,9 +164,9 @@ namespace DiGi.Communication.ComputeSharp.Classes
             ReadOnlyBuffer<Triangle3> readOnlyBuffer_Triangle3s = graphicsDevice.AllocateReadOnlyBuffer(triangle3s.ToArray());
 
             List<Line3> line3s_Temp = [];
-            foreach(Tuple < IAntenna, IAntenna, IMultipathPowerDelayProfile > tuple in tuples)
+            foreach (Tuple<IAntenna, IAntenna, IMultipathPowerDelayProfile> tuple in tuples)
             {
-                if(tuple.Item1?.Location?.ToComputeSharp() is not Coordinate3 point_1 || tuple.Item2?.Location?.ToComputeSharp() is not Coordinate3 point_2)
+                if (tuple.Item1?.Location?.ToComputeSharp() is not Coordinate3 point_1 || tuple.Item2?.Location?.ToComputeSharp() is not Coordinate3 point_2)
                 {
                     continue;
                 }
@@ -201,7 +201,7 @@ namespace DiGi.Communication.ComputeSharp.Classes
                 SortedDictionary<double, Tuple<Ellipsoid, Mesh3D, List<Triangle3>?>?> sortedDictionary = [];
                 foreach (double delay in delays)
                 {
-                    if(double.IsNaN(delay))
+                    if (double.IsNaN(delay))
                     {
                         continue;
                     }
@@ -209,7 +209,7 @@ namespace DiGi.Communication.ComputeSharp.Classes
                     sortedDictionary[delay] = null;
                 }
 
-                Parallel.ForEach(sortedDictionary.Keys, delay => 
+                Parallel.ForEach(sortedDictionary.Keys, delay =>
                 //foreach (double delay in delays)
                 {
                     Ellipsoid? ellipsoid = Create.Ellipsoid(antenna_1, antenna_2, delay, tolerance);
@@ -255,13 +255,13 @@ namespace DiGi.Communication.ComputeSharp.Classes
                 List<Scattering> scatterings = [];
 
                 Coordinate3? location_1 = antenna_1?.Location?.ToComputeSharp();
-                if(location_1 is null)
+                if (location_1 is null)
                 {
                     return false;
                 }
 
                 Coordinate3? location_2 = antenna_2?.Location?.ToComputeSharp();
-                if(location_2 is null)
+                if (location_2 is null)
                 {
                     return false;
                 }
@@ -314,7 +314,7 @@ namespace DiGi.Communication.ComputeSharp.Classes
 
                             foreach (Line3 line3 in line3s)
                             {
-                                if(DiGi.ComputeSharp.Geometry.Spatial.Convert.ToDiGi(line3) is not Segment3D segment3D)
+                                if (DiGi.ComputeSharp.Geometry.Spatial.Convert.ToDiGi(line3) is not Segment3D segment3D)
                                 {
                                     continue;
                                 }
@@ -410,7 +410,7 @@ namespace DiGi.Communication.ComputeSharp.Classes
                     scatterings.Add(new Scattering(delay, scatteringPointGroups));
                 }
 
-                ScatteringProfile scatteringProfile = new (visible, antenna_1?.Location, antenna_2?.Location, scatterings);
+                ScatteringProfile scatteringProfile = new(visible, antenna_1?.Location, antenna_2?.Location, scatterings);
                 GeometricalPropagationModel.Assign(scatteringProfile, antenna_1, antenna_2);
                 GeometricalPropagationModel.Assign(scatteringProfile, multipathPowerDelayProfile);
                 scatteringProfiles.Add(scatteringProfile);

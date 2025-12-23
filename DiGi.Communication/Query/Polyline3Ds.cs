@@ -11,11 +11,11 @@ namespace DiGi.Communication
     {
         public static List<Polyline3D>? Polyline3Ds(this IScatteringProfile? scatteringProfile, double delay, IEnumerable<string>? references = null)
         {
-            if(scatteringProfile == null)
+            if (scatteringProfile == null)
             {
                 return null;
             }
-            
+
             List<Polyline3D>? result = null;
 
             IEnumerable<Scattering>? scatterings = scatteringProfile.Scatterings;
@@ -53,7 +53,7 @@ namespace DiGi.Communication
                 scatteringPointGroups.RemoveAll(x => !references.Contains(x.Reference));
             }
 
-            if(scatteringPointGroups.Count == 0)
+            if (scatteringPointGroups.Count == 0)
             {
                 return null;
             }

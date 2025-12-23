@@ -21,15 +21,15 @@ namespace DiGi.Communication.Classes
         }
 
         public GeometricalPropagationModel(JsonObject? jsonObject)
-            :base(jsonObject)
+            : base(jsonObject)
         {
-            
+
         }
 
         public GeometricalPropagationModel(GeometricalPropagationModel? geometricalPropagationModel)
             : base(geometricalPropagationModel)
         {
-            if(geometricalPropagationModel != null)
+            if (geometricalPropagationModel != null)
             {
                 communicationRelationCluster = Core.Query.Clone(geometricalPropagationModel.communicationRelationCluster) ?? [];
             }
@@ -160,7 +160,7 @@ namespace DiGi.Communication.Classes
                         continue;
                     }
 
-                    if(Core.Query.Clone(antenna) is TAntenna antenna_Temp )
+                    if (Core.Query.Clone(antenna) is TAntenna antenna_Temp)
                     {
                         result.Add(antenna_Temp);
                     }
@@ -177,7 +177,7 @@ namespace DiGi.Communication.Classes
                 return default;
             }
 
-            if(Core.Create.UniqueReference(antenna) is not IUniqueReference uniqueReference)
+            if (Core.Create.UniqueReference(antenna) is not IUniqueReference uniqueReference)
             {
                 return default;
             }
@@ -221,22 +221,22 @@ namespace DiGi.Communication.Classes
 
         public List<TAntenna>? GetAntennas<TAntenna>(IScatteringProfile? scatteringProfile) where TAntenna : IAntenna
         {
-            if(scatteringProfile == null)
+            if (scatteringProfile == null)
             {
                 return null;
             }
 
             List<ScatteringProfileAntennasRelation>? scatteringProfileAntennasRelations = communicationRelationCluster.GetRelations<ScatteringProfileAntennasRelation>(Core.Create.UniqueReference(scatteringProfile));
-            if(scatteringProfileAntennasRelations == null)
+            if (scatteringProfileAntennasRelations == null)
             {
                 return null;
             }
 
             List<TAntenna> result = [];
-            foreach(ScatteringProfileAntennasRelation scatteringProfileAntennasRelation in scatteringProfileAntennasRelations)
+            foreach (ScatteringProfileAntennasRelation scatteringProfileAntennasRelation in scatteringProfileAntennasRelations)
             {
                 List<TAntenna>? antennas = communicationRelationCluster.GetValues<TAntenna>(scatteringProfileAntennasRelation, Core.Relation.Enums.RelationSide.To);
-                if(antennas == null)
+                if (antennas == null)
                 {
                     continue;
                 }
@@ -254,13 +254,13 @@ namespace DiGi.Communication.Classes
 
         public TMultipathPowerDelayProfile? GetMultipathPowerDelayProfile<TMultipathPowerDelayProfile>(IScatteringProfile? scatteringProfile) where TMultipathPowerDelayProfile : IMultipathPowerDelayProfile
         {
-            if(scatteringProfile == null)
+            if (scatteringProfile == null)
             {
                 return default;
             }
 
             ScatteringProfileMultipathPowerDelayProfileRelation? scatteringProfileMultipathPowerDelayProfileRelation = communicationRelationCluster.GetRelation<ScatteringProfileMultipathPowerDelayProfileRelation>(scatteringProfile);
-            if(scatteringProfileMultipathPowerDelayProfileRelation == null)
+            if (scatteringProfileMultipathPowerDelayProfileRelation == null)
             {
                 return default;
             }
@@ -287,7 +287,7 @@ namespace DiGi.Communication.Classes
                 return default;
             }
 
-            if(Core.Create.UniqueReference(antenna_1) is not IUniqueReference uniqueReference_1)
+            if (Core.Create.UniqueReference(antenna_1) is not IUniqueReference uniqueReference_1)
             {
                 return default;
             }
@@ -319,7 +319,7 @@ namespace DiGi.Communication.Classes
                         continue;
                     }
 
-                    if(Core.Query.Clone(scatteringProfile) is TScatteringProfile scatteringProfile_Temp)
+                    if (Core.Query.Clone(scatteringProfile) is TScatteringProfile scatteringProfile_Temp)
                     {
                         result.Add(scatteringProfile_Temp);
                     }
