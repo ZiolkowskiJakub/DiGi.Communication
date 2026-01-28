@@ -41,7 +41,6 @@ namespace DiGi.Communication.Classes
         public SimpleMultipathPowerDelayProfile(JsonObject? jsonObject)
             : base(jsonObject)
         {
-
         }
 
         public SimpleMultipathPowerDelayProfile(SimpleMultipathPowerDelayProfile? simpleMultipathPowerDelayProfile)

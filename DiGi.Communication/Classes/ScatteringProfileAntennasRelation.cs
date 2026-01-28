@@ -9,19 +9,16 @@ namespace DiGi.Communication.Classes
         public ScatteringProfileAntennasRelation(IScatteringProfile? scatteringProfile, IAntenna? antenna_1, IAntenna? antenna_2)
             : base(scatteringProfile, Core.Query.FilterNulls([antenna_1, antenna_2]))
         {
-
         }
 
         public ScatteringProfileAntennasRelation(JsonObject? jsonObject)
             : base(jsonObject)
         {
-
         }
 
         public ScatteringProfileAntennasRelation(ScatteringProfileAntennasRelation? scatteringProfileAntennasRelation)
             : base(scatteringProfileAntennasRelation)
         {
-
         }
     }
 }

@@ -14,6 +14,7 @@ namespace DiGi.Communication.Classes
 
         [JsonInclude, JsonPropertyName("Points")]
         private readonly List<Point3D>? points;
+
         public ScatteringPointGroup(string? reference, IEnumerable<Point3D>? points)
             : base()
         {
@@ -24,7 +25,6 @@ namespace DiGi.Communication.Classes
         public ScatteringPointGroup(JsonObject? jsonObject)
             : base(jsonObject)
         {
-
         }
 
         public ScatteringPointGroup(ScatteringPointGroup? scatteringPointGroup)

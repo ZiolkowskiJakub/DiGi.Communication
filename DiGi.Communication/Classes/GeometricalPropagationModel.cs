@@ -17,13 +17,11 @@ namespace DiGi.Communication.Classes
         public GeometricalPropagationModel()
             : base()
         {
-
         }
 
         public GeometricalPropagationModel(JsonObject? jsonObject)
             : base(jsonObject)
         {
-
         }
 
         public GeometricalPropagationModel(GeometricalPropagationModel? geometricalPropagationModel)
@@ -101,7 +99,6 @@ namespace DiGi.Communication.Classes
             {
                 return false;
             }
-
 
             return communicationRelationCluster.AddRelation(scatteringProfile, multipathPowerDelayProfile) != null;
         }

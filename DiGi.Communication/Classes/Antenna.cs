@@ -34,7 +34,6 @@ namespace DiGi.Communication.Classes
         public Antenna(JsonObject? jsonObject)
             : base(jsonObject)
         {
-
         }
 
         public Antenna(Antenna? antenna)

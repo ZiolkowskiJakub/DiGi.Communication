@@ -9,19 +9,16 @@ namespace DiGi.Communication.Classes
         public ScatteringProfileMultipathPowerDelayProfileRelation(IScatteringProfile scatteringProfile, IMultipathPowerDelayProfile multipathPowerDelayProfile)
             : base(scatteringProfile, multipathPowerDelayProfile)
         {
-
         }
 
         public ScatteringProfileMultipathPowerDelayProfileRelation(JsonObject jsonObject)
             : base(jsonObject)
         {
-
         }
 
         public ScatteringProfileMultipathPowerDelayProfileRelation(ScatteringProfileMultipathPowerDelayProfileRelation scatteringProfileMultipathPowerDelayProfileRelation)
             : base(scatteringProfileMultipathPowerDelayProfileRelation)
         {
-
         }
     }
 }

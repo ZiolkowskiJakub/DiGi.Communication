@@ -75,7 +75,6 @@ namespace DiGi.Communication
             }
 
             return result;
-
         }
     }
 }

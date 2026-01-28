@@ -13,6 +13,7 @@ namespace DiGi.Communication.Classes
 
         [JsonInclude, JsonPropertyName("SimpleMultipathPowerDelayProfile_Visible")]
         private readonly ISimpleMultipathPowerDelayProfile? simpleMultipathPowerDelayProfile_Visible;
+
         public ComplexMultipathPowerDelayProfile(Guid guid, ISimpleMultipathPowerDelayProfile? simpleMultipathPowerDelayProfile_Visible, ISimpleMultipathPowerDelayProfile? simpleMultipathPowerDelayProfile_Hidden)
             : base(guid)
         {
@@ -30,7 +31,6 @@ namespace DiGi.Communication.Classes
         public ComplexMultipathPowerDelayProfile(JsonObject? jsonObject)
             : base(jsonObject)
         {
-
         }
 
         public ComplexMultipathPowerDelayProfile(ComplexMultipathPowerDelayProfile? complexMultipathPowerDelayProfile)

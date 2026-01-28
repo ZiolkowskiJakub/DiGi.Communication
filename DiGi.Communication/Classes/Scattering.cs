@@ -30,7 +30,6 @@ namespace DiGi.Communication.Classes
         public Scattering(JsonObject? jsonObject)
             : base(jsonObject)
         {
-
         }
 
         public Scattering(Scattering? scattering)

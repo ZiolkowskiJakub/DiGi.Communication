@@ -71,6 +71,5 @@ namespace DiGi.Communication
 
             return new Ellipsoid(plane, a, b, b);
         }
-
     }
 }

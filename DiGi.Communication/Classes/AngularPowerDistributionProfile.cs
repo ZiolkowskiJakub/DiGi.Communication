@@ -33,7 +33,6 @@ namespace DiGi.Communication.Classes
         public AngularPowerDistributionProfile(JsonObject? jsonObject)
             : base(jsonObject)
         {
-
         }
 
         public AngularPowerDistributionProfile(AngularPowerDistributionProfile? angularPowerDistributionProfile)
@@ -111,7 +110,6 @@ namespace DiGi.Communication.Classes
             }
 
             return angularPowerDistribution.Vectors?.ConvertAll(x => new Ray(location.GetMoved(x.GetInversed()), x));
-
         }
     }
 }

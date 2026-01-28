@@ -26,7 +26,6 @@ namespace DiGi.Communication.Classes
         public AngularPowerDistribution(JsonObject jsonObject)
             : base(jsonObject)
         {
-
         }
 
         public AngularPowerDistribution(AngularPowerDistribution? angularPowerDistribution)

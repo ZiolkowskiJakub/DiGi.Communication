@@ -9,19 +9,16 @@ namespace DiGi.Communication.Classes
         public AngularPowerDistributionProfileAntennaRelation(IAngularPowerDistributionProfile angularPowerDistributionProfile, IAntenna antenna)
             : base(angularPowerDistributionProfile, antenna)
         {
-
         }
 
         public AngularPowerDistributionProfileAntennaRelation(JsonObject jsonObject)
             : base(jsonObject)
         {
-
         }
 
         public AngularPowerDistributionProfileAntennaRelation(AngularPowerDistributionProfileAntennaRelation angularPowerDistributionProfileAntennaRelation)
             : base(angularPowerDistributionProfileAntennaRelation)
         {
-
         }
     }
 }

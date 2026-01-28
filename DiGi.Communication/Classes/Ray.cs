@@ -24,7 +24,6 @@ namespace DiGi.Communication.Classes
         public Ray(JsonObject? jsonObject)
             : base(jsonObject)
         {
-
         }
 
         public Ray(Ray? ray)

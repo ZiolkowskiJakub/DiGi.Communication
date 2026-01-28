@@ -13,6 +13,5 @@ namespace DiGi.Communication.Interfaces
         Point3D? Location_1 { get; }
 
         Point3D? Location_2 { get; }
-
     }
 }

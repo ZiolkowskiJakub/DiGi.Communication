@@ -266,7 +266,6 @@ namespace DiGi.Communication.ComputeSharp.Classes
                     return false;
                 }
 
-
                 foreach (KeyValuePair<double, Tuple<Ellipsoid, Mesh3D, List<Triangle3>?>?> keyValuePair in sortedDictionary)
                 {
                     double delay = keyValuePair.Key;

@@ -11,13 +11,11 @@ namespace DiGi.Communication.Classes
         public CommunicationRelationCluster()
             : base()
         {
-
         }
 
         public CommunicationRelationCluster(JsonObject? jsonObject)
             : base(jsonObject)
         {
-
         }
 
         public CommunicationRelationCluster(CommunicationRelationCluster? communicationRelationCluster)
@@ -25,7 +23,6 @@ namespace DiGi.Communication.Classes
         {
             if (communicationRelationCluster != null)
             {
-
             }
         }
 

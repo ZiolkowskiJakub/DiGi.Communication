@@ -43,7 +43,6 @@ namespace DiGi.Communication.Classes
         public ScatteringProfile(JsonObject? jsonObject)
             : base(jsonObject)
         {
-
         }
 
         public ScatteringProfile(ScatteringProfile? scatteringProfile)
