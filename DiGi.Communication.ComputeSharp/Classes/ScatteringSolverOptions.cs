@@ -8,12 +8,12 @@ namespace DiGi.Communication.ComputeSharp.Classes
     public class ScatteringSolverOptions : SerializableObject, ICommunicationObject, IOptions
     {
         [JsonInclude, JsonPropertyName("AngleFactor")]
-        public double AngleFactor { get; set; } = Constans.Factor.Angle;
+        public double AngleFactor { get; set; } = Constants.Factor.Angle;
 
         [JsonInclude, JsonPropertyName("PointDensityFactor")]
-        public double PointDensityFactor { get; set; } = Constans.Factor.PointDensity;
+        public double PointDensityFactor { get; set; } = Constants.Factor.PointDensity;
 
         [JsonInclude, JsonPropertyName("Tolerance")]
-        public double Tolerance { get; set; } = Core.Constans.Tolerance.Distance;
+        public double Tolerance { get; set; } = Core.Constants.Tolerance.Distance;
     }
 }

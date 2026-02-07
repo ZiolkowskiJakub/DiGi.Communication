@@ -1,4 +1,4 @@
-﻿namespace DiGi.Communication.ComputeSharp.Constans
+﻿namespace DiGi.Communication.ComputeSharp.Constants
 {
     public static class Factor
     {

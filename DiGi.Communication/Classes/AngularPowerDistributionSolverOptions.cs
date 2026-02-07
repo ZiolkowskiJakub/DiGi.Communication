@@ -8,7 +8,7 @@ namespace DiGi.Communication.Classes
     public class AngularPowerDistributionSolverOptions : SerializableObject, ICommunicationObject, IOptions
     {
         [JsonInclude, JsonPropertyName("Tolerance")]
-        public double Tolerance { get; set; } = Core.Constans.Tolerance.Distance;
+        public double Tolerance { get; set; } = Core.Constants.Tolerance.Distance;
 
         [JsonInclude, JsonPropertyName("RayCount")]
         public int RayCount { get; set; } = 1;
