@@ -14,6 +14,6 @@ namespace DiGi.Communication.ComputeSharp.Classes
         public double PointDensityFactor { get; set; } = Constants.Factor.PointDensity;
 
         [JsonInclude, JsonPropertyName("Tolerance")]
-        public double Tolerance { get; set; } = Core.Constants.Tolerance.Distance;
+        public double Tolerance { get; set; } = Core.Constans.Tolerance.Distance;
     }
 }

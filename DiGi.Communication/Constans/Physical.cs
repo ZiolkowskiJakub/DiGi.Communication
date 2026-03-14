@@ -1,4 +1,4 @@
-﻿namespace DiGi.Communication.Constants
+﻿namespace DiGi.Communication.Constans
 {
     public static class Physical
     {

@@ -1,5 +1,5 @@
 ﻿using DiGi.Communication.Interfaces;
-using DiGi.Core.Constants;
+using DiGi.Core.Constans;
 using DiGi.Geometry.Spatial;
 using DiGi.Geometry.Spatial.Classes;
 
@@ -58,14 +58,14 @@ namespace DiGi.Communication
                 return null;
             }
 
-            double a = ((Constants.Physical.LightSpeed * delay) + distance) / 2;
-            double b = System.Math.Sqrt(Constants.Physical.LightSpeed * delay * ((Constants.Physical.LightSpeed * delay) + (2 * distance))) / 2;
+            double a = ((Constans.Physical.LightSpeed * delay) + distance) / 2;
+            double b = System.Math.Sqrt(Constans.Physical.LightSpeed * delay * ((Constans.Physical.LightSpeed * delay) + (2 * distance))) / 2;
 
             Point3D? center = location_1.Mid(location_2);
 
             Vector3D? directionA = new Vector3D(location_1, location_2).Unit;
 
-            Vector3D? directionB = directionA.Similar(Geometry.Spatial.Constants.Vector3D.WorldZ, tolerance) ? directionA?.CrossProduct(Geometry.Spatial.Constants.Vector3D.WorldY)?.Unit : directionA?.CrossProduct(Geometry.Spatial.Constants.Vector3D.WorldZ)?.Unit;
+            Vector3D? directionB = directionA.Similar(Geometry.Spatial.Constans.Vector3D.WorldZ, tolerance) ? directionA?.CrossProduct(Geometry.Spatial.Constans.Vector3D.WorldY)?.Unit : directionA?.CrossProduct(Geometry.Spatial.Constans.Vector3D.WorldZ)?.Unit;
 
             Plane plane = new(center, directionA, directionB);
 
