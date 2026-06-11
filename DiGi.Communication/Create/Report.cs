@@ -9,6 +9,11 @@ namespace DiGi.Communication
 {
     public static partial class Create
     {
+        /// <summary>
+        /// Creates a new report based on the specified geometrical propagation model.
+        /// </summary>
+        /// <param name="geometricalPropagationModel">The geometrical propagation model to use for the report.</param>
+        /// <returns>A new <see cref="Report"/> instance used for collecting and exporting data.</returns>
         public static Report Report(this GeometricalPropagationModel? geometricalPropagationModel)
         {
             Report result = new();

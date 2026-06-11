@@ -1,4 +1,4 @@
-﻿using DiGi.Communication.Enums;
+using DiGi.Communication.Enums;
 using DiGi.Communication.Interfaces;
 using DiGi.Core.Interfaces;
 using DiGi.Geometry.Spatial;
@@ -9,12 +9,17 @@ using System.Linq;
 
 namespace DiGi.Communication.Classes
 {
+    /// <summary>
+    /// Provides functionality to solve the distribution of angular power based on a set of defined angular power distribution profiles and solver options.
+    /// </summary>
     public class AngularPowerDistributionSolver : ICommunicationObject, ISolver
     {
         private List<IAngularPowerDistributionProfile>? angularPowerDistributionProfiles;
 
+        /// <summary> Gets or sets the configuration options for the angular power distribution solver. </summary>
         public AngularPowerDistributionSolverOptions? AngularPowerDistributionSolverOptions { get; set; }
 
+        /// <summary> Gets the list of angular power distribution profiles, filtered to remove null entries and cloned to ensure data integrity. </summary>
         public List<IAngularPowerDistributionProfile>? AngularPowerDistributionProfiles
         {
             get
@@ -23,8 +28,15 @@ namespace DiGi.Communication.Classes
             }
         }
 
+        /// <summary>
+        /// Gets or sets the geometrical propagation model used by the solver to calculate the angular power distribution.
+        /// </summary>
         public GeometricalPropagationModel? GeometricalPropagationModel { get; set; }
 
+        /// <summary>
+        /// Executes the solving operation for the angular power distribution.
+        /// </summary>
+        /// <returns><c>true</c> if the solver successfully executed; otherwise, <c>false</c>.</returns>
         public bool Solve()
         {
             angularPowerDistributionProfiles = null;

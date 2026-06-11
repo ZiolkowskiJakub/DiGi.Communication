@@ -5,6 +5,11 @@ namespace DiGi.Communication
 {
     public static partial class Create
     {
+        /// <summary>
+        /// Creates a <see cref="SimpleMultipathPowerDelayProfile"/> based on the specified default profile configuration.
+        /// </summary>
+        /// <param name="defaultSimpleMultipathPowerDelayProfile">The default power delay profile preset to use.</param>
+        /// <returns>A new instance of <see cref="SimpleMultipathPowerDelayProfile"/> corresponding to the specified preset, or <c>null</c> if no matching profile is found.</returns>
         public static SimpleMultipathPowerDelayProfile? SimpleMultipathPowerDelayProfile(Enums.DefaultSimpleMultipathPowerDelayProfile defaultSimpleMultipathPowerDelayProfile)
         {
             switch (defaultSimpleMultipathPowerDelayProfile)

@@ -1,4 +1,4 @@
-﻿using ComputeSharp;
+using ComputeSharp;
 using DiGi.Communication.Classes;
 using DiGi.Communication.Interfaces;
 using DiGi.ComputeSharp.Geometry.Spatial;
@@ -12,14 +12,23 @@ using DiGi.Geometry.Spatial.Classes;
 
 namespace DiGi.Communication.ComputeSharp.Classes
 {
+    /// <summary>
+    /// Provides functionality to solve scattering calculations within a communication system,
+    /// integrating geometrical propagation models and various scattering profiles.
+    /// </summary>
     public class ScatteringSolver : ICommunicationObject, ISolver
     {
         private List<IScatteringProfile>? scatteringProfiles;
 
+        /// <summary>
+        /// Gets or sets the geometrical propagation model used by the scattering solver.
+        /// </summary>
         public GeometricalPropagationModel? GeometricalPropagationModel { get; set; }
 
+        /// <summary> Gets or sets the configuration options for the scattering solver. </summary>
         public ScatteringSolverOptions? ScatteringSolverOptions { get; set; }
 
+        /// <summary> Gets a cloned list of scattering profiles, filtering out any null entries. </summary>
         public List<IScatteringProfile>? ScatteringProfiles
         {
             get
@@ -28,6 +37,10 @@ namespace DiGi.Communication.ComputeSharp.Classes
             }
         }
 
+        /// <summary>
+        /// Executes the solving operation.
+        /// </summary>
+        /// <returns><c>true</c> if the solver successfully executed; otherwise, <c>false</c>.</returns>
         public bool Solve()
         {
             scatteringProfiles = null;

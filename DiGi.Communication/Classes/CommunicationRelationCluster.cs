@@ -6,18 +6,32 @@ using System.Text.Json.Nodes;
 
 namespace DiGi.Communication.Classes
 {
+    /// <summary>
+    /// Represents a cluster of communication relations, providing functionality to manage unique relationships between communication GUID objects and communication relations while supporting serialization.
+    /// </summary>
     public class CommunicationRelationCluster : UniqueObjectRelationCluster<ICommunicationGuidObject, ICommunicationRelation>, ICommunicationSerializableObject
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CommunicationRelationCluster"/> class.
+        /// </summary>
         public CommunicationRelationCluster()
             : base()
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CommunicationRelationCluster"/> class using the specified JSON object.
+        /// </summary>
+        /// <param name="jsonObject">The <see cref="JsonObject"/> used to initialize the cluster, which may be null.</param>
         public CommunicationRelationCluster(JsonObject? jsonObject)
             : base(jsonObject)
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CommunicationRelationCluster"/> class, optionally copying data from an existing cluster.
+        /// </summary>
+        /// <param name="communicationRelationCluster">The source communication relation cluster to initialize from, or <see langword="null"/> to create a new empty instance.</param>
         public CommunicationRelationCluster(CommunicationRelationCluster? communicationRelationCluster)
             : base(communicationRelationCluster)
         {
@@ -26,6 +40,13 @@ namespace DiGi.Communication.Classes
             }
         }
 
+        /// <summary>
+        /// Adds a relation between a multipath power delay profile and two antennas.
+        /// </summary>
+        /// <param name="multipathPowerDelayProfile">The multipath power delay profile to be associated.</param>
+        /// <param name="antenna_1">The first antenna involved in the relation.</param>
+        /// <param name="antenna_2">The second antenna involved in the relation.</param>
+        /// <returns>The created <see cref="MultipathPowerDelayProfileAntennasRelation"/> if successful; otherwise, <c>null</c>.</returns>
         public MultipathPowerDelayProfileAntennasRelation? AddRelation(IMultipathPowerDelayProfile? multipathPowerDelayProfile, IAntenna? antenna_1, IAntenna? antenna_2)
         {
             if (multipathPowerDelayProfile == null || antenna_1 == null || antenna_2 == null)
@@ -52,6 +73,13 @@ namespace DiGi.Communication.Classes
             return AddRelation(new MultipathPowerDelayProfileAntennasRelation(multipathPowerDelayProfile, antenna_1, antenna_2));
         }
 
+        /// <summary>
+        /// Adds a relation between a scattering profile and two antennas.
+        /// </summary>
+        /// <param name="scatteringProfile">The scattering profile to associate with the antennas.</param>
+        /// <param name="antenna_1">The first antenna involved in the relation.</param>
+        /// <param name="antenna_2">The second antenna involved in the relation.</param>
+        /// <returns>A <see cref="ScatteringProfileAntennasRelation"/> if the relation was successfully created; otherwise, <c>null</c>.</returns>
         public ScatteringProfileAntennasRelation? AddRelation(IScatteringProfile? scatteringProfile, IAntenna? antenna_1, IAntenna? antenna_2)
         {
             if (scatteringProfile == null || antenna_1 == null || antenna_2 == null)
@@ -81,6 +109,12 @@ namespace DiGi.Communication.Classes
             return AddRelation(new ScatteringProfileAntennasRelation(scatteringProfile, antenna_1, antenna_2));
         }
 
+        /// <summary>
+        /// Adds a relation between the specified scattering profile and multipath power delay profile.
+        /// </summary>
+        /// <param name="scatteringProfile">The scattering profile to associate.</param>
+        /// <param name="multipathPowerDelayProfile">The multipath power delay profile to associate.</param>
+        /// <returns>A <see cref="ScatteringProfileMultipathPowerDelayProfileRelation"/> if the relation was successfully added; otherwise, <c>null</c> if either parameter is null.</returns>
         public ScatteringProfileMultipathPowerDelayProfileRelation? AddRelation(IScatteringProfile? scatteringProfile, IMultipathPowerDelayProfile? multipathPowerDelayProfile)
         {
             if (scatteringProfile == null || multipathPowerDelayProfile == null)
@@ -102,6 +136,12 @@ namespace DiGi.Communication.Classes
             return AddRelation(new ScatteringProfileMultipathPowerDelayProfileRelation(scatteringProfile, multipathPowerDelayProfile));
         }
 
+        /// <summary>
+        /// Adds a relation between the specified angular power distribution profile and antenna.
+        /// </summary>
+        /// <param name="angularPowerDistributionProfile">The angular power distribution profile to associate.</param>
+        /// <param name="antenna">The antenna to associate.</param>
+        /// <returns>A new <see cref="AngularPowerDistributionProfileAntennaRelation"/> if both parameters are non-null; otherwise, null.</returns>
         public AngularPowerDistributionProfileAntennaRelation? AddRelation(IAngularPowerDistributionProfile? angularPowerDistributionProfile, IAntenna? antenna)
         {
             if (angularPowerDistributionProfile == null || antenna == null)

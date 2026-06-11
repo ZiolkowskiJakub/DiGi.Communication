@@ -1,4 +1,4 @@
-﻿using DiGi.Communication.Interfaces;
+using DiGi.Communication.Interfaces;
 using DiGi.Core.Classes;
 using DiGi.Geometry.Spatial.Classes;
 using System.Collections.Generic;
@@ -8,6 +8,9 @@ using System.Text.Json.Serialization;
 
 namespace DiGi.Communication.Classes
 {
+    /// <summary>
+    /// Represents the angular power distribution, encapsulating the time delay and the associated spatial vectors.
+    /// </summary>
     public class AngularPowerDistribution : SerializableObject, IAngularPowerDistribution
     {
         [JsonInclude, JsonPropertyName("Delay")]
@@ -16,6 +19,11 @@ namespace DiGi.Communication.Classes
         [JsonInclude, JsonPropertyName("Vectors")]
         private readonly List<Vector3D>? vectors;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AngularPowerDistribution"/> class.
+        /// </summary>
+        /// <param name="delay">The delay value for the power distribution.</param>
+        /// <param name="vectors">A collection of three-dimensional vectors defining the angular power distribution.</param>
         public AngularPowerDistribution(double delay, IEnumerable<Vector3D>? vectors)
             : base()
         {
@@ -23,11 +31,19 @@ namespace DiGi.Communication.Classes
             this.vectors = Core.Query.CloneAndFilterNulls(vectors);
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AngularPowerDistribution"/> class using the specified JSON object.
+        /// </summary>
+        /// <param name="jsonObject">The JSON object used to initialize the current instance.</param>
         public AngularPowerDistribution(JsonObject jsonObject)
             : base(jsonObject)
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AngularPowerDistribution"/> class by copying values from an existing instance.
+        /// </summary>
+        /// <param name="angularPowerDistribution">The source <see cref="AngularPowerDistribution"/> instance to copy data from, or <see langword="null"/>.</param>
         public AngularPowerDistribution(AngularPowerDistribution? angularPowerDistribution)
             : base(angularPowerDistribution)
         {
@@ -38,6 +54,7 @@ namespace DiGi.Communication.Classes
             }
         }
 
+        /// <summary> Gets the delay associated with the angular power distribution. </summary>
         [JsonIgnore]
         public double Delay
         {
@@ -47,6 +64,7 @@ namespace DiGi.Communication.Classes
             }
         }
 
+        /// <summary> Gets the collection of three-dimensional vectors associated with the angular power distribution, filtered to remove null entries. </summary>
         [JsonIgnore]
         public List<Vector3D>? Vectors
         {
@@ -56,6 +74,10 @@ namespace DiGi.Communication.Classes
             }
         }
 
+        /// <summary>
+        /// Calculates the total power by summing the lengths of all stored vectors.
+        /// </summary>
+        /// <returns>The sum of the vector lengths, or <see cref="double.NaN"/> if the vectors collection is null.</returns>
         public double GetPower()
         {
             if (vectors == null)

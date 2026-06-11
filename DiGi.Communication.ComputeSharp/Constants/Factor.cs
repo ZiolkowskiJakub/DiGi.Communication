@@ -1,5 +1,8 @@
 ﻿namespace DiGi.Communication.ComputeSharp.Constants
 {
+    /// <summary>
+    /// Provides constant values and normalization factors used in computations.
+    /// </summary>
     public static class Factor
     {
         /// <summary>

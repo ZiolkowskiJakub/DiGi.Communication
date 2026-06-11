@@ -9,6 +9,13 @@ namespace DiGi.Communication
 {
     public static partial class Query
     {
+        /// <summary>
+        /// Retrieves a list of three-dimensional polylines from the specified scattering profile based on the provided delay and optional references.
+        /// </summary>
+        /// <param name="scatteringProfile">The scattering profile to query for polyline data.</param>
+        /// <param name="delay">The delay value used to filter or identify the polylines.</param>
+        /// <param name="references">An optional collection of reference strings to further filter the results.</param>
+        /// <returns>A list of <see cref="Polyline3D"/> objects if successful; otherwise, <c>null</c> if the scattering profile is null.</returns>
         public static List<Polyline3D>? Polyline3Ds(this IScatteringProfile? scatteringProfile, double delay, IEnumerable<string>? references = null)
         {
             if (scatteringProfile == null)

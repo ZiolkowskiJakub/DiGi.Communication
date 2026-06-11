@@ -1,4 +1,4 @@
-﻿using DiGi.Communication.Interfaces;
+using DiGi.Communication.Interfaces;
 using DiGi.Core.Classes;
 using DiGi.Geometry.Spatial.Classes;
 using System;
@@ -8,6 +8,9 @@ using System.Text.Json.Serialization;
 
 namespace DiGi.Communication.Classes
 {
+    /// <summary>
+    /// Represents a profile that defines the angular power distribution associated with a specific 3D location.
+    /// </summary>
     public class AngularPowerDistributionProfile : GuidObject, IAngularPowerDistributionProfile
     {
         [JsonIgnore]
@@ -16,6 +19,12 @@ namespace DiGi.Communication.Classes
         [JsonInclude, JsonPropertyName("Location")]
         private readonly Point3D? location;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AngularPowerDistributionProfile"/> class.
+        /// </summary>
+        /// <param name="guid">The unique identifier for the profile.</param>
+        /// <param name="location">The location in three-dimensional space.</param>
+        /// <param name="angularPowerDistributions">The collection of angular power distributions.</param>
         public AngularPowerDistributionProfile(Guid guid, Point3D? location, IEnumerable<AngularPowerDistribution>? angularPowerDistributions)
             : base(guid)
         {
@@ -23,6 +32,11 @@ namespace DiGi.Communication.Classes
             AngularPowerDistributions = angularPowerDistributions;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AngularPowerDistributionProfile"/> class.
+        /// </summary>
+        /// <param name="location">The location of the angular power distribution profile in three-dimensional space.</param>
+        /// <param name="angularPowerDistributions">A collection of angular power distributions associated with this profile.</param>
         public AngularPowerDistributionProfile(Point3D? location, IEnumerable<AngularPowerDistribution>? angularPowerDistributions)
             : base()
         {
@@ -30,11 +44,19 @@ namespace DiGi.Communication.Classes
             AngularPowerDistributions = angularPowerDistributions;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AngularPowerDistributionProfile"/> class using the specified JSON object.
+        /// </summary>
+        /// <param name="jsonObject">The JSON object used to initialize the profile.</param>
         public AngularPowerDistributionProfile(JsonObject? jsonObject)
             : base(jsonObject)
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AngularPowerDistributionProfile"/> class, optionally copying values from an existing profile.
+        /// </summary>
+        /// <param name="angularPowerDistributionProfile">The source <see cref="AngularPowerDistributionProfile"/> to copy data from, or <c>null</c> to create a new instance.</param>
         public AngularPowerDistributionProfile(AngularPowerDistributionProfile? angularPowerDistributionProfile)
             : base(angularPowerDistributionProfile)
         {
@@ -45,6 +67,7 @@ namespace DiGi.Communication.Classes
             }
         }
 
+        /// <summary> Gets or sets the collection of angular power distributions associated with this profile. </summary>
         [JsonInclude, JsonPropertyName("AngularPowerDistributions")]
         public IEnumerable<AngularPowerDistribution>? AngularPowerDistributions
         {
@@ -93,6 +116,7 @@ namespace DiGi.Communication.Classes
             }
         }
 
+        /// <summary> Gets the location of the angular power distribution profile in three-dimensional space. </summary>
         [JsonIgnore]
         public Point3D? Location
         {
@@ -102,6 +126,11 @@ namespace DiGi.Communication.Classes
             }
         }
 
+        /// <summary>
+        /// Retrieves a list of rays associated with the specified delay.
+        /// </summary>
+        /// <param name="delay">The time delay used to look up the angular power distribution.</param>
+        /// <returns>A list of <see cref="Ray"/> objects if the distribution is found for the given delay; otherwise, <c>null</c>.</returns>
         public List<Ray>? GetRays(double delay)
         {
             if (double.IsNaN(delay) || location == null || dictionary == null || !dictionary.TryGetValue(delay, out AngularPowerDistribution angularPowerDistribution) || angularPowerDistribution == null)

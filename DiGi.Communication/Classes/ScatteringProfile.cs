@@ -1,4 +1,4 @@
-﻿using DiGi.Communication.Interfaces;
+using DiGi.Communication.Interfaces;
 using DiGi.Core.Classes;
 using DiGi.Geometry.Spatial.Classes;
 using System;
@@ -8,6 +8,9 @@ using System.Text.Json.Serialization;
 
 namespace DiGi.Communication.Classes
 {
+    /// <summary>
+    /// Represents a scattering profile that defines the spatial characteristics and location data associated with a scattering process.
+    /// </summary>
     public class ScatteringProfile : GuidObject, IScatteringProfile
     {
         [JsonInclude, JsonPropertyName("Location_1")]
@@ -22,6 +25,14 @@ namespace DiGi.Communication.Classes
         [JsonInclude, JsonPropertyName("Visible")]
         private readonly bool visible;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ScatteringProfile"/> class.
+        /// </summary>
+        /// <param name="guid">The unique identifier for the scattering profile.</param>
+        /// <param name="location_1">The first point in three-dimensional space defining the location.</param>
+        /// <param name="location_2">The second point in three-dimensional space defining the location.</param>
+        /// <param name="visible">A value indicating whether the scattering profile is visible.</param>
+        /// <param name="scatterings">A collection of scatterings associated with this profile.</param>
         public ScatteringProfile(Guid guid, Point3D? location_1, Point3D? location_2, bool visible, IEnumerable<Scattering>? scatterings)
             : base(guid)
         {
@@ -31,6 +42,13 @@ namespace DiGi.Communication.Classes
             Scatterings = scatterings;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ScatteringProfile"/> class.
+        /// </summary>
+        /// <param name="visible">A value indicating whether the scattering profile is visible.</param>
+        /// <param name="location_1">The first point in three-dimensional space defining the location.</param>
+        /// <param name="location_2">The second point in three-dimensional space defining the location.</param>
+        /// <param name="scatterings">A collection of scattering elements associated with this profile.</param>
         public ScatteringProfile(bool visible, Point3D? location_1, Point3D? location_2, IEnumerable<Scattering>? scatterings)
             : base()
         {
@@ -40,11 +58,19 @@ namespace DiGi.Communication.Classes
             Scatterings = scatterings;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ScatteringProfile"/> class using the specified JSON object.
+        /// </summary>
+        /// <param name="jsonObject">The JSON object used to initialize the profile.</param>
         public ScatteringProfile(JsonObject? jsonObject)
             : base(jsonObject)
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ScatteringProfile"/> class by copying another <see cref="ScatteringProfile"/> instance.
+        /// </summary>
+        /// <param name="scatteringProfile">The source scattering profile to copy from, or <c>null</c> to initialize a new empty profile.</param>
         public ScatteringProfile(ScatteringProfile? scatteringProfile)
             : base(scatteringProfile)
         {
@@ -57,6 +83,7 @@ namespace DiGi.Communication.Classes
             }
         }
 
+        /// <summary> Gets the collection of scattering entries associated with this profile. </summary>
         [JsonInclude, JsonPropertyName("Scatterings")]
         public IEnumerable<Scattering>? Scatterings
         {
@@ -105,6 +132,7 @@ namespace DiGi.Communication.Classes
             }
         }
 
+        /// <summary> Gets a value indicating whether the scattering profile is visible. </summary>
         [JsonIgnore]
         public bool Visible
         {
@@ -114,6 +142,7 @@ namespace DiGi.Communication.Classes
             }
         }
 
+        /// <summary> Gets the first location point in three-dimensional space associated with the scattering profile. </summary>
         [JsonIgnore]
         public Point3D? Location_1
         {
@@ -123,6 +152,7 @@ namespace DiGi.Communication.Classes
             }
         }
 
+        /// <summary> Gets the second location associated with the scattering profile. </summary>
         [JsonIgnore]
         public Point3D? Location_2
         {
