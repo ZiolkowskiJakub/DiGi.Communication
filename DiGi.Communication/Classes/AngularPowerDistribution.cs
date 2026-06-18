@@ -54,7 +54,7 @@ namespace DiGi.Communication.Classes
             }
         }
 
-        /// <summary> Gets the delay associated with the angular power distribution. </summary>
+        /// <summary> Gets the delay associated with the angular power distribution. </summary>
         [JsonIgnore]
         public double Delay
         {
@@ -64,7 +64,7 @@ namespace DiGi.Communication.Classes
             }
         }
 
-        /// <summary> Gets the collection of three-dimensional vectors associated with the angular power distribution, filtered to remove null entries. </summary>
+        /// <summary> Gets the collection of three-dimensional vectors associated with the angular power distribution, filtered to remove null entries. </summary>
         [JsonIgnore]
         public List<Vector3D>? Vectors
         {

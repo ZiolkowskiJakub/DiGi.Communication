@@ -68,8 +68,8 @@ namespace DiGi.Communication.Classes
             }
         }
 
-        /// <summary> Gets the set of functions associated with the antenna. </summary>
-        /// <value> A <see cref="HashSet{Function}" /> containing the antenna's functions, or <c>null</c> if none are defined. </value>
+        /// <summary> Gets the set of functions associated with the antenna. </summary>
+        /// <value> A <see cref="HashSet{Function}" /> containing the antenna's functions, or <c>null</c> if none are defined. </value>
         [JsonIgnore]
         public HashSet<Function>? Functions
         {
@@ -79,7 +79,7 @@ namespace DiGi.Communication.Classes
             }
         }
 
-        /// <summary> Gets the three-dimensional location of the antenna. </summary>
+        /// <summary> Gets the three-dimensional location of the antenna. </summary>
         [JsonIgnore]
         public Point3D? Location
         {

@@ -74,7 +74,7 @@ namespace DiGi.Communication.Classes
             }
         }
 
-        /// <summary> Gets the serializable reference object. </summary>
+        /// <summary> Gets the serializable reference object. </summary>
         [JsonIgnore]
         public string? Reference
         {
@@ -84,7 +84,7 @@ namespace DiGi.Communication.Classes
             }
         }
 
-        /// <summary> Gets a clone of the three-dimensional mesh associated with this scattering object. </summary>
+        /// <summary> Gets a clone of the three-dimensional mesh associated with this scattering object. </summary>
         [JsonIgnore]
         public Mesh3D? Mesh3D
         {
@@ -94,7 +94,7 @@ namespace DiGi.Communication.Classes
             }
         }
 
-        /// <summary> Gets the scattering coefficient of the object. </summary>
+        /// <summary> Gets the scattering coefficient of the object. </summary>
         [JsonIgnore]
         public double ScatteringCoefficient
         {

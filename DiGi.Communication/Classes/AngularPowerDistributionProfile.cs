@@ -67,7 +67,7 @@ namespace DiGi.Communication.Classes
             }
         }
 
-        /// <summary> Gets or sets the collection of angular power distributions associated with this profile. </summary>
+        /// <summary> Gets or sets the collection of angular power distributions associated with this profile. </summary>
         [JsonInclude, JsonPropertyName("AngularPowerDistributions")]
         public IEnumerable<AngularPowerDistribution>? AngularPowerDistributions
         {
@@ -116,7 +116,7 @@ namespace DiGi.Communication.Classes
             }
         }
 
-        /// <summary> Gets the location of the angular power distribution profile in three-dimensional space. </summary>
+        /// <summary> Gets the location of the angular power distribution profile in three-dimensional space. </summary>
         [JsonIgnore]
         public Point3D? Location
         {

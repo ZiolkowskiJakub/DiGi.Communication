@@ -52,7 +52,7 @@ namespace DiGi.Communication.Classes
             }
         }
 
-        /// <summary> Gets the point in three-dimensional space associated with this ray. </summary>
+        /// <summary> Gets the point in three-dimensional space associated with this ray. </summary>
         [JsonIgnore]
         public Point3D? Point
         {
@@ -62,7 +62,7 @@ namespace DiGi.Communication.Classes
             }
         }
 
-        /// <summary> Gets the vector defining the segment. </summary>
+        /// <summary> Gets the vector defining the segment. </summary>
         [JsonIgnore]
         public Vector3D? Vector
         {

@@ -63,7 +63,7 @@ namespace DiGi.Communication.Classes
             }
         }
 
-        /// <summary> Gets the delay associated with the scattering process. </summary>
+        /// <summary> Gets the delay associated with the scattering process. </summary>
         [JsonIgnore]
         public double Delay
         {
@@ -73,7 +73,7 @@ namespace DiGi.Communication.Classes
             }
         }
 
-        /// <summary> Gets the collection of scattering point groups, filtered to remove null entries and cloned for safety. </summary>
+        /// <summary> Gets the collection of scattering point groups, filtered to remove null entries and cloned for safety. </summary>
         [JsonIgnore]
         public List<ScatteringPointGroup>? ScatteringPointGroups
         {

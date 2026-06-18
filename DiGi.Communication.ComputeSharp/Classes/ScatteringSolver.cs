@@ -25,10 +25,10 @@ namespace DiGi.Communication.ComputeSharp.Classes
         /// </summary>
         public GeometricalPropagationModel? GeometricalPropagationModel { get; set; }
 
-        /// <summary> Gets or sets the configuration options for the scattering solver. </summary>
+        /// <summary> Gets or sets the configuration options for the scattering solver. </summary>
         public ScatteringSolverOptions? ScatteringSolverOptions { get; set; }
 
-        /// <summary> Gets a cloned list of scattering profiles, filtering out any null entries. </summary>
+        /// <summary> Gets a cloned list of scattering profiles, filtering out any null entries. </summary>
         public List<IScatteringProfile>? ScatteringProfiles
         {
             get

@@ -16,10 +16,10 @@ namespace DiGi.Communication.Classes
     {
         private List<IAngularPowerDistributionProfile>? angularPowerDistributionProfiles;
 
-        /// <summary> Gets or sets the configuration options for the angular power distribution solver. </summary>
+        /// <summary> Gets or sets the configuration options for the angular power distribution solver. </summary>
         public AngularPowerDistributionSolverOptions? AngularPowerDistributionSolverOptions { get; set; }
 
-        /// <summary> Gets the list of angular power distribution profiles, filtered to remove null entries and cloned to ensure data integrity. </summary>
+        /// <summary> Gets the list of angular power distribution profiles, filtered to remove null entries and cloned to ensure data integrity. </summary>
         public List<IAngularPowerDistributionProfile>? AngularPowerDistributionProfiles
         {
             get

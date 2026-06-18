@@ -9,9 +9,9 @@ namespace DiGi.Communication.Classes
     /// </summary>
     public class ScatteringProfileMultipathPowerDelayProfileRelation : OneToOneBidirectionalRelation<IScatteringProfile, IMultipathPowerDelayProfile>, ICommunicationRelation
     {
-        /// <summary> Initializes a new instance of the <see cref="ScatteringProfileMultipathPowerDelayProfileRelation" /> class. </summary>
-        /// <param name="scatteringProfile">The scattering profile to be associated in the relation.</param>
-        /// <param name="multipathPowerDelayProfile">The multipath power delay profile to be associated in the relation.</param>
+        /// <summary> Initializes a new instance of the <see cref="ScatteringProfileMultipathPowerDelayProfileRelation" /> class. </summary>
+        /// <param name="scatteringProfile">The scattering profile to be associated in the relation.</param>
+        /// <param name="multipathPowerDelayProfile">The multipath power delay profile to be associated in the relation.</param>
         public ScatteringProfileMultipathPowerDelayProfileRelation(IScatteringProfile scatteringProfile, IMultipathPowerDelayProfile multipathPowerDelayProfile)
             : base(scatteringProfile, multipathPowerDelayProfile)
         {

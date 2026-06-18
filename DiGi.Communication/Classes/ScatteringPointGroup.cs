@@ -53,7 +53,7 @@ namespace DiGi.Communication.Classes
             }
         }
 
-        /// <summary> Gets the serializable reference object. </summary>
+        /// <summary> Gets the serializable reference object. </summary>
         [JsonIgnore]
         public string? Reference
         {
@@ -63,7 +63,7 @@ namespace DiGi.Communication.Classes
             }
         }
 
-        /// <summary> Gets the collection of points in three-dimensional space associated with this scattering point group, filtered to remove null entries. </summary>
+        /// <summary> Gets the collection of points in three-dimensional space associated with this scattering point group, filtered to remove null entries. </summary>
         [JsonIgnore]
         public List<Point3D>? Points
         {

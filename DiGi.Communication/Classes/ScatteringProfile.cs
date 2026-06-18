@@ -83,7 +83,7 @@ namespace DiGi.Communication.Classes
             }
         }
 
-        /// <summary> Gets the collection of scattering entries associated with this profile. </summary>
+        /// <summary> Gets the collection of scattering entries associated with this profile. </summary>
         [JsonInclude, JsonPropertyName("Scatterings")]
         public IEnumerable<Scattering>? Scatterings
         {
@@ -132,7 +132,7 @@ namespace DiGi.Communication.Classes
             }
         }
 
-        /// <summary> Gets a value indicating whether the scattering profile is visible. </summary>
+        /// <summary> Gets a value indicating whether the scattering profile is visible. </summary>
         [JsonIgnore]
         public bool Visible
         {
@@ -142,7 +142,7 @@ namespace DiGi.Communication.Classes
             }
         }
 
-        /// <summary> Gets the first location point in three-dimensional space associated with the scattering profile. </summary>
+        /// <summary> Gets the first location point in three-dimensional space associated with the scattering profile. </summary>
         [JsonIgnore]
         public Point3D? Location_1
         {
@@ -152,7 +152,7 @@ namespace DiGi.Communication.Classes
             }
         }
 
-        /// <summary> Gets the second location associated with the scattering profile. </summary>
+        /// <summary> Gets the second location associated with the scattering profile. </summary>
         [JsonIgnore]
         public Point3D? Location_2
         {
