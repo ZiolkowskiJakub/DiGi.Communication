@@ -48,3 +48,26 @@ Represents the transmitter function\.
 `Receiver` 1
 
 Represents the receiver function\.
+
+<a name='DiGi.Communication.Enums.Polarization'></a>
+
+## Polarization Enum
+
+Polarization type of a propagating electromagnetic wave\.
+
+```csharp
+public enum Polarization
+```
+### Fields
+
+<a name='DiGi.Communication.Enums.Polarization.Vertical'></a>
+
+`Vertical` 0
+
+Vertical polarization\.
+
+<a name='DiGi.Communication.Enums.Polarization.Horizontal'></a>
+
+`Horizontal` 1
+
+Horizontal polarization\.
