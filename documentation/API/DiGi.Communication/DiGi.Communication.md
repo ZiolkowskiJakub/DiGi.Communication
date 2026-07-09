@@ -1,4 +1,4 @@
-#### [DiGi\.Communication](index.md 'index')
+#### [DiGi\.Communication](DiGi.Communication.Overview.md 'DiGi\.Communication\.Overview')
 
 ## DiGi\.Communication Namespace
 ### Classes
