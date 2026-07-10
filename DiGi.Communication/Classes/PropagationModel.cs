@@ -37,10 +37,10 @@ namespace DiGi.Communication.Classes
         private readonly Polarization polarization;
 
         /// <summary>
-        /// Normalized Power Delay Profile (PDP) points: delays tau_n with the normalized (fractional) powers p'_n. The fractional powers are expected to sum to 1.
+        /// Normalized Power Delay Profile (PDP): delays tau_n mapped to the normalized (fractional) powers p'_n. The fractional powers are expected to sum to 1.
         /// </summary>
-        [JsonInclude, JsonPropertyName(nameof(PowerDelayProfilePoints))]
-        private readonly List<PowerDelayProfilePoint>? powerDelayProfilePoints;
+        [JsonInclude, JsonPropertyName(nameof(SimpleMultipathPowerDelayProfile))]
+        private readonly SimpleMultipathPowerDelayProfile? simpleMultipathPowerDelayProfile;
 
         /// <summary>
         /// Normalized reception characteristic g(theta, phi) of the directional receiving antenna. Not serializable: excluded from JSON persistence and cloning restores a <see langword="null"/> reference.
@@ -69,18 +69,18 @@ namespace DiGi.Communication.Classes
         /// <param name="frequency">Frequency f of the propagating electromagnetic wave [MHz].</param>
         /// <param name="meshCells">Triangular spatial cells representing the scattering objects.</param>
         /// <param name="polarization">Polarization type of the propagating electromagnetic wave.</param>
-        /// <param name="powerDelayProfilePoints">Normalized Power Delay Profile (PDP) points: delays tau_n with the normalized (fractional) powers p'_n.</param>
+        /// <param name="simpleMultipathPowerDelayProfile">Normalized Power Delay Profile (PDP): delays tau_n mapped to the normalized (fractional) powers p'_n.</param>
         /// <param name="receivingDirectionalCharacteristic">Normalized reception characteristic g(theta, phi) of the directional receiving antenna.</param>
         /// <param name="receivingOmnidirectionalCharacteristic">Normalized reception characteristic g_0(theta, phi) of the omnidirectional receiving antenna.</param>
         /// <param name="transmittingDirectionalCharacteristic">Normalized radiation characteristic g_T(theta, phi) of the directional transmitting antenna.</param>
         /// <param name="transmittingOmnidirectionalCharacteristic">Normalized radiation characteristic g_T0(theta, phi) of the omnidirectional transmitting antenna.</param>
-        public PropagationModel(double distance, double frequency, IEnumerable<MeshCell>? meshCells, Polarization polarization, IEnumerable<PowerDelayProfilePoint>? powerDelayProfilePoints, AntennaCharacteristic? receivingDirectionalCharacteristic, AntennaCharacteristic? receivingOmnidirectionalCharacteristic, AntennaCharacteristic? transmittingDirectionalCharacteristic, AntennaCharacteristic? transmittingOmnidirectionalCharacteristic)
+        public PropagationModel(double distance, double frequency, IEnumerable<MeshCell>? meshCells, Polarization polarization, SimpleMultipathPowerDelayProfile? simpleMultipathPowerDelayProfile, AntennaCharacteristic? receivingDirectionalCharacteristic, AntennaCharacteristic? receivingOmnidirectionalCharacteristic, AntennaCharacteristic? transmittingDirectionalCharacteristic, AntennaCharacteristic? transmittingOmnidirectionalCharacteristic)
         {
             this.distance = distance;
             this.frequency = frequency;
             this.meshCells = Core.Query.CloneAndFilterNulls(meshCells);
             this.polarization = polarization;
-            this.powerDelayProfilePoints = Core.Query.CloneAndFilterNulls(powerDelayProfilePoints);
+            this.simpleMultipathPowerDelayProfile = Core.Query.Clone(simpleMultipathPowerDelayProfile);
             this.receivingDirectionalCharacteristic = receivingDirectionalCharacteristic;
             this.receivingOmnidirectionalCharacteristic = receivingOmnidirectionalCharacteristic;
             this.transmittingDirectionalCharacteristic = transmittingDirectionalCharacteristic;
@@ -100,7 +100,7 @@ namespace DiGi.Communication.Classes
                 frequency = propagationModel.frequency;
                 meshCells = Core.Query.CloneAndFilterNulls(propagationModel.meshCells);
                 polarization = propagationModel.polarization;
-                powerDelayProfilePoints = Core.Query.CloneAndFilterNulls(propagationModel.powerDelayProfilePoints);
+                simpleMultipathPowerDelayProfile = Core.Query.Clone(propagationModel.simpleMultipathPowerDelayProfile);
                 receivingDirectionalCharacteristic = propagationModel.receivingDirectionalCharacteristic;
                 receivingOmnidirectionalCharacteristic = propagationModel.receivingOmnidirectionalCharacteristic;
                 transmittingDirectionalCharacteristic = propagationModel.transmittingDirectionalCharacteristic;
@@ -166,14 +166,14 @@ namespace DiGi.Communication.Classes
         }
 
         /// <summary>
-        /// Normalized Power Delay Profile (PDP) points: delays tau_n with the normalized (fractional) powers p'_n. The fractional powers are expected to sum to 1.
+        /// Normalized Power Delay Profile (PDP): delays tau_n mapped to the normalized (fractional) powers p'_n. The fractional powers are expected to sum to 1.
         /// </summary>
         [JsonIgnore]
-        public List<PowerDelayProfilePoint>? PowerDelayProfilePoints
+        public SimpleMultipathPowerDelayProfile? SimpleMultipathPowerDelayProfile
         {
             get
             {
-                return Core.Query.CloneAndFilterNulls(powerDelayProfilePoints);
+                return Core.Query.Clone(simpleMultipathPowerDelayProfile);
             }
         }
 

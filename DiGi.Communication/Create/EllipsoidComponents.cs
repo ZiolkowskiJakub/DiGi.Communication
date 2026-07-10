@@ -21,8 +21,14 @@ namespace DiGi.Communication
                 return null;
             }
 
-            List<PowerDelayProfilePoint>? powerDelayProfilePoints = propagationModel.PowerDelayProfilePoints;
-            if (powerDelayProfilePoints == null || powerDelayProfilePoints.Count == 0)
+            SimpleMultipathPowerDelayProfile? simpleMultipathPowerDelayProfile = propagationModel.SimpleMultipathPowerDelayProfile;
+            if (simpleMultipathPowerDelayProfile == null)
+            {
+                return null;
+            }
+
+            HashSet<double>? delays = simpleMultipathPowerDelayProfile.Delays;
+            if (delays == null || delays.Count == 0)
             {
                 return null;
             }
@@ -37,10 +43,10 @@ namespace DiGi.Communication
             double distance = propagationModel.Distance;
             double wavelength = Query.Wavelength(propagationModel.Frequency);
 
-            List<PowerDelayProfilePoint> orderedPowerDelayProfilePoints = [.. powerDelayProfilePoints.OrderBy(x => x.Delay)];
+            List<double> orderedDelays = [.. delays.OrderBy(x => x)];
 
             List<List<RayContribution>> rayContributionsList = [];
-            for (int i = 0; i < orderedPowerDelayProfilePoints.Count; i++)
+            for (int i = 0; i < orderedDelays.Count; i++)
             {
                 rayContributionsList.Add([]);
             }
@@ -83,9 +89,9 @@ namespace DiGi.Communication
 
                     int index = -1;
                     double difference = double.MaxValue;
-                    for (int i = 0; i < orderedPowerDelayProfilePoints.Count; i++)
+                    for (int i = 0; i < orderedDelays.Count; i++)
                     {
-                        double difference_Temp = Math.Abs(orderedPowerDelayProfilePoints[i].Delay - delay);
+                        double difference_Temp = Math.Abs(orderedDelays[i] - delay);
                         if (difference_Temp < difference)
                         {
                             difference = difference_Temp;
@@ -106,9 +112,10 @@ namespace DiGi.Communication
             }
 
             List<EllipsoidComponent> result = [];
-            for (int i = 0; i < orderedPowerDelayProfilePoints.Count; i++)
+            for (int i = 0; i < orderedDelays.Count; i++)
             {
-                PowerDelayProfilePoint powerDelayProfilePoint = orderedPowerDelayProfilePoints[i];
+                double delay = orderedDelays[i];
+                double fractionalPower = simpleMultipathPowerDelayProfile.GetPower(delay);
                 List<RayContribution> rayContributions = rayContributionsList[i];
 
                 Complex reflectionCoefficientSum = Complex.Zero;
@@ -124,17 +131,17 @@ namespace DiGi.Communication
                 double power = reflectionCoefficientSum.Magnitude * reflectionCoefficientSum.Magnitude;
 
                 EllipsoidComponent ellipsoidComponent = new(
-                    powerDelayProfilePoint.Delay,
+                    delay,
                     0,
                     0,
-                    powerDelayProfilePoint.FractionalPower,
+                    fractionalPower,
                     power,
                     0,
                     rayContributions,
                     referencePower,
                     reflectionCoefficientSum,
-                    Query.SemiMajorAxis(powerDelayProfilePoint.Delay, distance),
-                    Query.SemiMinorAxis(powerDelayProfilePoint.Delay, distance));
+                    Query.SemiMajorAxis(delay, distance),
+                    Query.SemiMinorAxis(delay, distance));
 
                 result.Add(ellipsoidComponent);
             }

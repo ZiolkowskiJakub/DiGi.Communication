@@ -61,7 +61,7 @@ namespace DiGi.Communication
                 return null;
             }
 
-            List<PowerDelayProfilePoint> powerDelayProfilePoints = [];
+            Dictionary<double, double> normalizedValues = [];
             foreach (double delay in delays.OrderBy(x => x))
             {
                 double power = simpleMultipathPowerDelayProfile.GetPower(delay);
@@ -70,8 +70,10 @@ namespace DiGi.Communication
                     continue;
                 }
 
-                powerDelayProfilePoints.Add(new PowerDelayProfilePoint(delay, power / powerSum));
+                normalizedValues[delay] = power / powerSum;
             }
+
+            SimpleMultipathPowerDelayProfile normalizedSimpleMultipathPowerDelayProfile = new(normalizedValues);
 
             List<Antenna>? antennas = geometricalPropagationModel.GetAntennas<Antenna>(simpleMultipathPowerDelayProfile);
             if (antennas == null || antennas.Count == 0)
@@ -178,7 +180,7 @@ namespace DiGi.Communication
                 }
             }
 
-            return new PropagationModel(distance, frequency, meshCells, polarization, powerDelayProfilePoints, receivingDirectionalCharacteristic, receivingOmnidirectionalCharacteristic, transmittingDirectionalCharacteristic, transmittingOmnidirectionalCharacteristic);
+            return new PropagationModel(distance, frequency, meshCells, polarization, normalizedSimpleMultipathPowerDelayProfile, receivingDirectionalCharacteristic, receivingOmnidirectionalCharacteristic, transmittingDirectionalCharacteristic, transmittingOmnidirectionalCharacteristic);
         }
     }
 }

@@ -2388,132 +2388,6 @@ public MultipathPowerDelayProfileAntennasRelation(System.Text.Json.Nodes.JsonObj
 
 The JSON object containing the data to initialize the relation\.
 
-<a name='DiGi.Communication.Classes.PowerDelayProfilePoint'></a>
-
-## PowerDelayProfilePoint Class
-
-Single point of the normalized Power Delay Profile \(PDP\): a delay tau\_n and the normalized \(fractional\) power arriving with that delay\.
-
-```csharp
-public class PowerDelayProfilePoint : DiGi.Core.Classes.SerializableObject, DiGi.Communication.Interfaces.ICommunicationSerializableObject, DiGi.Core.Interfaces.ISerializableObject, DiGi.Core.Interfaces.ICloneableObject<DiGi.Core.Interfaces.ISerializableObject>, DiGi.Core.Interfaces.ICloneableObject, DiGi.Core.Interfaces.IObject, DiGi.Communication.Interfaces.ICommunicationObject
-```
-
-Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → PowerDelayProfilePoint
-
-Implements [DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationserializableobject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Communication\.Interfaces\.ICommunicationObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationobject 'DiGi\.Communication\.Interfaces\.ICommunicationObject')
-### Constructors
-
-<a name='DiGi.Communication.Classes.PowerDelayProfilePoint.PowerDelayProfilePoint(DiGi.Communication.Classes.PowerDelayProfilePoint)'></a>
-
-## PowerDelayProfilePoint\(PowerDelayProfilePoint\) Constructor
-
-Initializes a new instance of the [PowerDelayProfilePoint](DiGi.Communication.Classes.md#DiGi.Communication.Classes.PowerDelayProfilePoint 'DiGi\.Communication\.Classes\.PowerDelayProfilePoint') class by copying another power delay profile point\.
-
-```csharp
-public PowerDelayProfilePoint(DiGi.Communication.Classes.PowerDelayProfilePoint? powerDelayProfilePoint);
-```
-#### Parameters
-
-<a name='DiGi.Communication.Classes.PowerDelayProfilePoint.PowerDelayProfilePoint(DiGi.Communication.Classes.PowerDelayProfilePoint).powerDelayProfilePoint'></a>
-
-`powerDelayProfilePoint` [PowerDelayProfilePoint](DiGi.Communication.Classes.md#DiGi.Communication.Classes.PowerDelayProfilePoint 'DiGi\.Communication\.Classes\.PowerDelayProfilePoint')
-
-The source power delay profile point to copy from\.
-
-<a name='DiGi.Communication.Classes.PowerDelayProfilePoint.PowerDelayProfilePoint(double,double)'></a>
-
-## PowerDelayProfilePoint\(double, double\) Constructor
-
-Initializes a new instance of the [PowerDelayProfilePoint](DiGi.Communication.Classes.md#DiGi.Communication.Classes.PowerDelayProfilePoint 'DiGi\.Communication\.Classes\.PowerDelayProfilePoint') class\.
-
-```csharp
-public PowerDelayProfilePoint(double delay, double fractionalPower);
-```
-#### Parameters
-
-<a name='DiGi.Communication.Classes.PowerDelayProfilePoint.PowerDelayProfilePoint(double,double).delay'></a>
-
-`delay` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
-
-Delay tau\_n \[s\]\.
-
-<a name='DiGi.Communication.Classes.PowerDelayProfilePoint.PowerDelayProfilePoint(double,double).fractionalPower'></a>
-
-`fractionalPower` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
-
-Normalized \(fractional\) power p'\_n arriving with the given delay \[\-\]\.
-
-<a name='DiGi.Communication.Classes.PowerDelayProfilePoint.PowerDelayProfilePoint(System.Text.Json.Nodes.JsonObject)'></a>
-
-## PowerDelayProfilePoint\(JsonObject\) Constructor
-
-Initializes a new instance of the [PowerDelayProfilePoint](DiGi.Communication.Classes.md#DiGi.Communication.Classes.PowerDelayProfilePoint 'DiGi\.Communication\.Classes\.PowerDelayProfilePoint') class from a JsonObject\.
-
-```csharp
-public PowerDelayProfilePoint(System.Text.Json.Nodes.JsonObject? jsonObject);
-```
-#### Parameters
-
-<a name='DiGi.Communication.Classes.PowerDelayProfilePoint.PowerDelayProfilePoint(System.Text.Json.Nodes.JsonObject).jsonObject'></a>
-
-`jsonObject` [System\.Text\.Json\.Nodes\.JsonObject](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.nodes.jsonobject 'System\.Text\.Json\.Nodes\.JsonObject')
-
-The JSON object containing serializable data\.
-### Fields
-
-<a name='DiGi.Communication.Classes.PowerDelayProfilePoint.delay'></a>
-
-## PowerDelayProfilePoint\.delay Field
-
-Delay tau\_n \[s\]\.
-
-```csharp
-private readonly double delay;
-```
-
-#### Field Value
-[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
-
-<a name='DiGi.Communication.Classes.PowerDelayProfilePoint.fractionalPower'></a>
-
-## PowerDelayProfilePoint\.fractionalPower Field
-
-Normalized \(fractional\) power p'\_n arriving with the given delay \[\-\]\.
-
-```csharp
-private readonly double fractionalPower;
-```
-
-#### Field Value
-[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
-### Properties
-
-<a name='DiGi.Communication.Classes.PowerDelayProfilePoint.Delay'></a>
-
-## PowerDelayProfilePoint\.Delay Property
-
-Delay tau\_n \[s\]\.
-
-```csharp
-public double Delay { get; }
-```
-
-#### Property Value
-[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
-
-<a name='DiGi.Communication.Classes.PowerDelayProfilePoint.FractionalPower'></a>
-
-## PowerDelayProfilePoint\.FractionalPower Property
-
-Normalized \(fractional\) power p'\_n arriving with the given delay \[\-\]\.
-
-```csharp
-public double FractionalPower { get; }
-```
-
-#### Property Value
-[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
-
 <a name='DiGi.Communication.Classes.PropagationModel'></a>
 
 ## PropagationModel Class
@@ -2546,66 +2420,66 @@ public PropagationModel(DiGi.Communication.Classes.PropagationModel? propagation
 
 The source propagation model to copy from\.
 
-<a name='DiGi.Communication.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.MeshCell_,DiGi.Communication.Enums.Polarization,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.PowerDelayProfilePoint_,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic)'></a>
+<a name='DiGi.Communication.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.MeshCell_,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic)'></a>
 
-## PropagationModel\(double, double, IEnumerable\<MeshCell\>, Polarization, IEnumerable\<PowerDelayProfilePoint\>, AntennaCharacteristic, AntennaCharacteristic, AntennaCharacteristic, AntennaCharacteristic\) Constructor
+## PropagationModel\(double, double, IEnumerable\<MeshCell\>, Polarization, SimpleMultipathPowerDelayProfile, AntennaCharacteristic, AntennaCharacteristic, AntennaCharacteristic, AntennaCharacteristic\) Constructor
 
 Initializes a new instance of the [PropagationModel](DiGi.Communication.Classes.md#DiGi.Communication.Classes.PropagationModel 'DiGi\.Communication\.Classes\.PropagationModel') class\.
 
 ```csharp
-public PropagationModel(double distance, double frequency, System.Collections.Generic.IEnumerable<DiGi.Communication.Classes.MeshCell>? meshCells, DiGi.Communication.Enums.Polarization polarization, System.Collections.Generic.IEnumerable<DiGi.Communication.Classes.PowerDelayProfilePoint>? powerDelayProfilePoints, DiGi.Communication.AntennaCharacteristic? receivingDirectionalCharacteristic, DiGi.Communication.AntennaCharacteristic? receivingOmnidirectionalCharacteristic, DiGi.Communication.AntennaCharacteristic? transmittingDirectionalCharacteristic, DiGi.Communication.AntennaCharacteristic? transmittingOmnidirectionalCharacteristic);
+public PropagationModel(double distance, double frequency, System.Collections.Generic.IEnumerable<DiGi.Communication.Classes.MeshCell>? meshCells, DiGi.Communication.Enums.Polarization polarization, DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile? simpleMultipathPowerDelayProfile, DiGi.Communication.AntennaCharacteristic? receivingDirectionalCharacteristic, DiGi.Communication.AntennaCharacteristic? receivingOmnidirectionalCharacteristic, DiGi.Communication.AntennaCharacteristic? transmittingDirectionalCharacteristic, DiGi.Communication.AntennaCharacteristic? transmittingOmnidirectionalCharacteristic);
 ```
 #### Parameters
 
-<a name='DiGi.Communication.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.MeshCell_,DiGi.Communication.Enums.Polarization,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.PowerDelayProfilePoint_,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic).distance'></a>
+<a name='DiGi.Communication.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.MeshCell_,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic).distance'></a>
 
 `distance` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
 
 Distance d between the transmitter and receiver \[m\]\.
 
-<a name='DiGi.Communication.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.MeshCell_,DiGi.Communication.Enums.Polarization,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.PowerDelayProfilePoint_,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic).frequency'></a>
+<a name='DiGi.Communication.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.MeshCell_,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic).frequency'></a>
 
 `frequency` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
 
 Frequency f of the propagating electromagnetic wave \[MHz\]\.
 
-<a name='DiGi.Communication.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.MeshCell_,DiGi.Communication.Enums.Polarization,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.PowerDelayProfilePoint_,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic).meshCells'></a>
+<a name='DiGi.Communication.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.MeshCell_,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic).meshCells'></a>
 
 `meshCells` [System\.Collections\.Generic\.IEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')[MeshCell](DiGi.Communication.Classes.md#DiGi.Communication.Classes.MeshCell 'DiGi\.Communication\.Classes\.MeshCell')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')
 
 Triangular spatial cells representing the scattering objects\.
 
-<a name='DiGi.Communication.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.MeshCell_,DiGi.Communication.Enums.Polarization,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.PowerDelayProfilePoint_,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic).polarization'></a>
+<a name='DiGi.Communication.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.MeshCell_,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic).polarization'></a>
 
 `polarization` [Polarization](DiGi.Communication.Enums.md#DiGi.Communication.Enums.Polarization 'DiGi\.Communication\.Enums\.Polarization')
 
 Polarization type of the propagating electromagnetic wave\.
 
-<a name='DiGi.Communication.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.MeshCell_,DiGi.Communication.Enums.Polarization,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.PowerDelayProfilePoint_,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic).powerDelayProfilePoints'></a>
+<a name='DiGi.Communication.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.MeshCell_,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic).simpleMultipathPowerDelayProfile'></a>
 
-`powerDelayProfilePoints` [System\.Collections\.Generic\.IEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')[PowerDelayProfilePoint](DiGi.Communication.Classes.md#DiGi.Communication.Classes.PowerDelayProfilePoint 'DiGi\.Communication\.Classes\.PowerDelayProfilePoint')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')
+`simpleMultipathPowerDelayProfile` [SimpleMultipathPowerDelayProfile](DiGi.Communication.Classes.md#DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile 'DiGi\.Communication\.Classes\.SimpleMultipathPowerDelayProfile')
 
-Normalized Power Delay Profile \(PDP\) points: delays tau\_n with the normalized \(fractional\) powers p'\_n\.
+Normalized Power Delay Profile \(PDP\): delays tau\_n mapped to the normalized \(fractional\) powers p'\_n\.
 
-<a name='DiGi.Communication.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.MeshCell_,DiGi.Communication.Enums.Polarization,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.PowerDelayProfilePoint_,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic).receivingDirectionalCharacteristic'></a>
+<a name='DiGi.Communication.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.MeshCell_,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic).receivingDirectionalCharacteristic'></a>
 
 `receivingDirectionalCharacteristic` [AntennaCharacteristic\(double, double\)](DiGi.Communication.md#DiGi.Communication.AntennaCharacteristic(double,double) 'DiGi\.Communication\.AntennaCharacteristic\(double, double\)')
 
 Normalized reception characteristic g\(theta, phi\) of the directional receiving antenna\.
 
-<a name='DiGi.Communication.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.MeshCell_,DiGi.Communication.Enums.Polarization,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.PowerDelayProfilePoint_,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic).receivingOmnidirectionalCharacteristic'></a>
+<a name='DiGi.Communication.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.MeshCell_,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic).receivingOmnidirectionalCharacteristic'></a>
 
 `receivingOmnidirectionalCharacteristic` [AntennaCharacteristic\(double, double\)](DiGi.Communication.md#DiGi.Communication.AntennaCharacteristic(double,double) 'DiGi\.Communication\.AntennaCharacteristic\(double, double\)')
 
 Normalized reception characteristic g\_0\(theta, phi\) of the omnidirectional receiving antenna\.
 
-<a name='DiGi.Communication.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.MeshCell_,DiGi.Communication.Enums.Polarization,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.PowerDelayProfilePoint_,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic).transmittingDirectionalCharacteristic'></a>
+<a name='DiGi.Communication.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.MeshCell_,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic).transmittingDirectionalCharacteristic'></a>
 
 `transmittingDirectionalCharacteristic` [AntennaCharacteristic\(double, double\)](DiGi.Communication.md#DiGi.Communication.AntennaCharacteristic(double,double) 'DiGi\.Communication\.AntennaCharacteristic\(double, double\)')
 
 Normalized radiation characteristic g\_T\(theta, phi\) of the directional transmitting antenna\.
 
-<a name='DiGi.Communication.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.MeshCell_,DiGi.Communication.Enums.Polarization,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.PowerDelayProfilePoint_,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic).transmittingOmnidirectionalCharacteristic'></a>
+<a name='DiGi.Communication.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.MeshCell_,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic).transmittingOmnidirectionalCharacteristic'></a>
 
 `transmittingOmnidirectionalCharacteristic` [AntennaCharacteristic\(double, double\)](DiGi.Communication.md#DiGi.Communication.AntennaCharacteristic(double,double) 'DiGi\.Communication\.AntennaCharacteristic\(double, double\)')
 
@@ -2681,19 +2555,6 @@ private readonly Polarization polarization;
 #### Field Value
 [Polarization](DiGi.Communication.Enums.md#DiGi.Communication.Enums.Polarization 'DiGi\.Communication\.Enums\.Polarization')
 
-<a name='DiGi.Communication.Classes.PropagationModel.powerDelayProfilePoints'></a>
-
-## PropagationModel\.powerDelayProfilePoints Field
-
-Normalized Power Delay Profile \(PDP\) points: delays tau\_n with the normalized \(fractional\) powers p'\_n\. The fractional powers are expected to sum to 1\.
-
-```csharp
-private readonly List<PowerDelayProfilePoint>? powerDelayProfilePoints;
-```
-
-#### Field Value
-[System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[PowerDelayProfilePoint](DiGi.Communication.Classes.md#DiGi.Communication.Classes.PowerDelayProfilePoint 'DiGi\.Communication\.Classes\.PowerDelayProfilePoint')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')
-
 <a name='DiGi.Communication.Classes.PropagationModel.receivingDirectionalCharacteristic'></a>
 
 ## PropagationModel\.receivingDirectionalCharacteristic Field
@@ -2719,6 +2580,19 @@ private readonly AntennaCharacteristic? receivingOmnidirectionalCharacteristic;
 
 #### Field Value
 [AntennaCharacteristic\(double, double\)](DiGi.Communication.md#DiGi.Communication.AntennaCharacteristic(double,double) 'DiGi\.Communication\.AntennaCharacteristic\(double, double\)')
+
+<a name='DiGi.Communication.Classes.PropagationModel.simpleMultipathPowerDelayProfile'></a>
+
+## PropagationModel\.simpleMultipathPowerDelayProfile Field
+
+Normalized Power Delay Profile \(PDP\): delays tau\_n mapped to the normalized \(fractional\) powers p'\_n\. The fractional powers are expected to sum to 1\.
+
+```csharp
+private readonly SimpleMultipathPowerDelayProfile? simpleMultipathPowerDelayProfile;
+```
+
+#### Field Value
+[SimpleMultipathPowerDelayProfile](DiGi.Communication.Classes.md#DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile 'DiGi\.Communication\.Classes\.SimpleMultipathPowerDelayProfile')
 
 <a name='DiGi.Communication.Classes.PropagationModel.transmittingDirectionalCharacteristic'></a>
 
@@ -2799,19 +2673,6 @@ public DiGi.Communication.Enums.Polarization Polarization { get; }
 #### Property Value
 [Polarization](DiGi.Communication.Enums.md#DiGi.Communication.Enums.Polarization 'DiGi\.Communication\.Enums\.Polarization')
 
-<a name='DiGi.Communication.Classes.PropagationModel.PowerDelayProfilePoints'></a>
-
-## PropagationModel\.PowerDelayProfilePoints Property
-
-Normalized Power Delay Profile \(PDP\) points: delays tau\_n with the normalized \(fractional\) powers p'\_n\. The fractional powers are expected to sum to 1\.
-
-```csharp
-public System.Collections.Generic.List<DiGi.Communication.Classes.PowerDelayProfilePoint>? PowerDelayProfilePoints { get; }
-```
-
-#### Property Value
-[System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[PowerDelayProfilePoint](DiGi.Communication.Classes.md#DiGi.Communication.Classes.PowerDelayProfilePoint 'DiGi\.Communication\.Classes\.PowerDelayProfilePoint')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')
-
 <a name='DiGi.Communication.Classes.PropagationModel.ReceivingDirectionalCharacteristic'></a>
 
 ## PropagationModel\.ReceivingDirectionalCharacteristic Property
@@ -2837,6 +2698,19 @@ public DiGi.Communication.AntennaCharacteristic? ReceivingOmnidirectionalCharact
 
 #### Property Value
 [AntennaCharacteristic\(double, double\)](DiGi.Communication.md#DiGi.Communication.AntennaCharacteristic(double,double) 'DiGi\.Communication\.AntennaCharacteristic\(double, double\)')
+
+<a name='DiGi.Communication.Classes.PropagationModel.SimpleMultipathPowerDelayProfile'></a>
+
+## PropagationModel\.SimpleMultipathPowerDelayProfile Property
+
+Normalized Power Delay Profile \(PDP\): delays tau\_n mapped to the normalized \(fractional\) powers p'\_n\. The fractional powers are expected to sum to 1\.
+
+```csharp
+public DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile? SimpleMultipathPowerDelayProfile { get; }
+```
+
+#### Property Value
+[SimpleMultipathPowerDelayProfile](DiGi.Communication.Classes.md#DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile 'DiGi\.Communication\.Classes\.SimpleMultipathPowerDelayProfile')
 
 <a name='DiGi.Communication.Classes.PropagationModel.TransmittingDirectionalCharacteristic'></a>
 
