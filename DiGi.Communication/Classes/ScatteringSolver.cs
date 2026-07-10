@@ -182,12 +182,12 @@ namespace DiGi.Communication.Classes
                 cachedFaces[k] = new CachedFaceInfo
                 {
                     Face = faces[k],
-                    BBox = (BoundingBox3D)faces[k].GetBoundingBox()!,
+                    BBox = faces[k].GetBoundingBox()!,
                     Reference = references[k]
                 };
             }
 
-            List<Point3D> SegmentPoints(Segment3D segment, double distance, bool includeShorter, double toleranceVal)
+            static List<Point3D> SegmentPoints(Segment3D segment, double distance, bool includeShorter, double toleranceVal)
             {
                 double length = segment.Length;
                 if (length < toleranceVal)
@@ -200,7 +200,7 @@ namespace DiGi.Communication.Classes
                     return [];
                 }
 
-                int numPoints = System.Convert.ToInt32(System.Math.Truncate(length / distance));
+                int numPoints = System.Convert.ToInt32(Math.Truncate(length / distance));
 
                 List<Point3D> resultPoints = [];
                 Vector3D? directionNullable = segment.Direction;
