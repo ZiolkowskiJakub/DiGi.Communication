@@ -1,4 +1,4 @@
-﻿using DiGi.Communication.Interfaces;
+using DiGi.Communication.Interfaces;
 using DiGi.Core;
 using DiGi.Core.Classes;
 using DiGi.Core.Interfaces;
@@ -264,7 +264,7 @@ namespace DiGi.Communication.Classes
                         continue;
                     }
 
-                    if (Core.Query.Clone(antenna) is TAntenna antenna_Temp_Temp)
+                    if (Core.Query.Clone(antenna_Temp) is TAntenna antenna_Temp_Temp)
                     {
                         result.Add(antenna_Temp_Temp);
                     }

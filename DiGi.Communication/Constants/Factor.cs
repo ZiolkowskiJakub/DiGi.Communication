@@ -1,4 +1,4 @@
-﻿namespace DiGi.Communication.ComputeSharp.Constants
+namespace DiGi.Communication.Constants
 {
     /// <summary>
     /// Provides constant values and normalization factors used in computations.

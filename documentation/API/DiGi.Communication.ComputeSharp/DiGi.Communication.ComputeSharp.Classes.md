@@ -52,11 +52,11 @@ public System.Collections.Generic.List<DiGi.Communication.Interfaces.IScattering
 Gets or sets the configuration options for the scattering solver\.
 
 ```csharp
-public DiGi.Communication.ComputeSharp.Classes.ScatteringSolverOptions? ScatteringSolverOptions { get; set; }
+public DiGi.Communication.Classes.ScatteringSolverOptions? ScatteringSolverOptions { get; set; }
 ```
 
 #### Property Value
-[ScatteringSolverOptions](DiGi.Communication.ComputeSharp.Classes.md#DiGi.Communication.ComputeSharp.Classes.ScatteringSolverOptions 'DiGi\.Communication\.ComputeSharp\.Classes\.ScatteringSolverOptions')
+[DiGi\.Communication\.Classes\.ScatteringSolverOptions](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.classes.scatteringsolveroptions 'DiGi\.Communication\.Classes\.ScatteringSolverOptions')
 ### Methods
 
 <a name='DiGi.Communication.ComputeSharp.Classes.ScatteringSolver.Solve()'></a>
@@ -74,58 +74,3 @@ Implements [Solve\(\)](https://learn.microsoft.com/en-us/dotnet/api/digi.core.in
 #### Returns
 [System\.Boolean](https://learn.microsoft.com/en-us/dotnet/api/system.boolean 'System\.Boolean')  
 `true` if the solver successfully executed; otherwise, `false`\.
-
-<a name='DiGi.Communication.ComputeSharp.Classes.ScatteringSolverOptions'></a>
-
-## ScatteringSolverOptions Class
-
-Provides configuration options and parameters for the scattering solver,
-including factors for angle calculation and point density\.
-
-```csharp
-public class ScatteringSolverOptions : DiGi.Core.Classes.SerializableObject, DiGi.Communication.Interfaces.ICommunicationObject, DiGi.Core.Interfaces.IObject, DiGi.Core.Interfaces.IOptions
-```
-
-Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → ScatteringSolverOptions
-
-Implements [DiGi\.Communication\.Interfaces\.ICommunicationObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationobject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Core\.Interfaces\.IOptions](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.ioptions 'DiGi\.Core\.Interfaces\.IOptions')
-### Properties
-
-<a name='DiGi.Communication.ComputeSharp.Classes.ScatteringSolverOptions.AngleFactor'></a>
-
-## ScatteringSolverOptions\.AngleFactor Property
-
-Gets or sets the angle factor used by the scattering solver for angular calculations\.
-
-```csharp
-public double AngleFactor { get; set; }
-```
-
-#### Property Value
-[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
-
-<a name='DiGi.Communication.ComputeSharp.Classes.ScatteringSolverOptions.PointDensityFactor'></a>
-
-## ScatteringSolverOptions\.PointDensityFactor Property
-
-Gets or sets the factor used to determine the point density for the scattering solver\.
-
-```csharp
-public double PointDensityFactor { get; set; }
-```
-
-#### Property Value
-[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
-
-<a name='DiGi.Communication.ComputeSharp.Classes.ScatteringSolverOptions.Tolerance'></a>
-
-## ScatteringSolverOptions\.Tolerance Property
-
-Gets or sets the tolerance value used for distance and geometric comparisons within the scattering solver\.
-
-```csharp
-public double Tolerance { get; set; }
-```
-
-#### Property Value
-[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
