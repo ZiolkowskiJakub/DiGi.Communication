@@ -176,16 +176,22 @@ namespace DiGi.Communication.Classes
                 return true;
             }
 
-            CachedFaceInfo[] cachedFaces = new CachedFaceInfo[faces.Count];
+            List<CachedFaceInfo> cachedFaceInfos = [];
             for (int k = 0; k < faces.Count; k++)
             {
-                cachedFaces[k] = new CachedFaceInfo
+                BoundingBox3D? boundingBox3D = faces[k].GetBoundingBox();
+                if (boundingBox3D != null)
                 {
-                    Face = faces[k],
-                    BBox = faces[k].GetBoundingBox()!,
-                    Reference = references[k]
-                };
+                    cachedFaceInfos.Add(new CachedFaceInfo
+                    {
+                        Face = faces[k],
+                        BBox = boundingBox3D,
+                        Reference = references[k]
+                    });
+                }
             }
+
+            CachedFaceInfo[] cachedFaces = [.. cachedFaceInfos];
 
             static List<Point3D> SegmentPoints(Segment3D segment, double distance, bool includeShorter, double toleranceVal)
             {
