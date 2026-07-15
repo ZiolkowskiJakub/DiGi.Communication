@@ -598,7 +598,9 @@ namespace DiGi.Communication.Classes
                     sortedDictionary[delay] = null;
                 }
 
-                Parallel.ForEach(sortedDictionary.Keys, delay =>
+                double[] delays_Sorted = [.. sortedDictionary.Keys];
+
+                Parallel.ForEach(delays_Sorted, delay =>
                 {
                     Ellipsoid? ellipsoid = Create.Ellipsoid(antenna_1, antenna_2, delay, tolerance);
                     if (ellipsoid == null)

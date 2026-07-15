@@ -312,7 +312,9 @@ namespace DiGi.Communication.ComputeSharp.Classes
                     sortedDictionary[delay] = null;
                 }
 
-                Parallel.ForEach(sortedDictionary.Keys, delay =>
+                double[] delays_Sorted = [.. sortedDictionary.Keys];
+
+                Parallel.ForEach(delays_Sorted, delay =>
                 //foreach (double delay in delays)
                 {
                     Ellipsoid? ellipsoid = Create.Ellipsoid(antenna_1, antenna_2, delay, tolerance);
@@ -351,7 +353,10 @@ namespace DiGi.Communication.ComputeSharp.Classes
                         triangle3Ds_Ellipsoid.RemoveAt(j);
                     }
 
-                    sortedDictionary[delay] = new Tuple<Ellipsoid, Mesh3D, List<Triangle3>?>(ellipsoid, mesh3D, DiGi.ComputeSharp.Geometry.Spatial.Convert.ToComputeSharp(triangle3Ds_Ellipsoid, true));
+                    lock (sortedDictionary)
+                    {
+                        sortedDictionary[delay] = new Tuple<Ellipsoid, Mesh3D, List<Triangle3>?>(ellipsoid, mesh3D, DiGi.ComputeSharp.Geometry.Spatial.Convert.ToComputeSharp(triangle3Ds_Ellipsoid, true));
+                    }
                 }
                 );
 
