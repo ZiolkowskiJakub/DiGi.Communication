@@ -3,6 +3,9 @@ using DiGi.Communication.Classes;
 using DiGi.Communication.Interfaces;
 using DiGi.ComputeSharp.Geometry.Spatial;
 using DiGi.ComputeSharp.Spatial.Classes;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using DiGi.ComputeSharp.Spatial.Enums;
 using DiGi.ComputeSharp.Spatial.Interfaces;
 using DiGi.Core;
@@ -19,6 +22,20 @@ namespace DiGi.Communication.ComputeSharp.Classes
     public class ScatteringSolver : ICommunicationObject, ISolver
     {
         private List<IScatteringProfile>? scatteringProfiles;
+
+        private class CandidatePoint
+        {
+            public Line3 LineToLoc { get; set; }
+            public Coordinate3 Point { get; set; }
+            public Segment3D ParentSegment { get; set; }
+
+            public CandidatePoint(Line3 lineToLoc, Coordinate3 point, Segment3D parentSegment)
+            {
+                LineToLoc = lineToLoc;
+                Point = point;
+                ParentSegment = parentSegment;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the geometrical propagation model used by the scattering solver.
@@ -166,6 +183,79 @@ namespace DiGi.Communication.ComputeSharp.Classes
                 }
 
                 return true;
+            }
+
+            static List<List<Segment3D>> GroupSegmentsIntoComponents(List<Segment3D> segments, double toleranceVal)
+            {
+                List<List<Segment3D>> components = [];
+                if (segments == null || segments.Count == 0)
+                {
+                    return components;
+                }
+
+                bool[] visited = new bool[segments.Count];
+                for (int index_Outer = 0; index_Outer < segments.Count; index_Outer++)
+                {
+                    if (visited[index_Outer])
+                    {
+                        continue;
+                    }
+
+                    List<Segment3D> component = [];
+                    Queue<int> queue = new();
+                    queue.Enqueue(index_Outer);
+                    visited[index_Outer] = true;
+
+                    while (queue.Count > 0)
+                    {
+                        int current = queue.Dequeue();
+                        Segment3D currentSegment = segments[current];
+                        component.Add(currentSegment);
+
+                        Point3D? currentStart = currentSegment.Start;
+                        Point3D? currentEnd = currentSegment.End;
+
+                        for (int index_Inner = 0; index_Inner < segments.Count; index_Inner++)
+                        {
+                            if (visited[index_Inner])
+                            {
+                                continue;
+                            }
+
+                            Segment3D checkSegment = segments[index_Inner];
+                            Point3D? checkStart = checkSegment.Start;
+                            Point3D? checkEnd = checkSegment.End;
+
+                            bool connected = false;
+                            if (currentStart != null && checkStart != null && currentStart.Distance(checkStart) <= toleranceVal)
+                            {
+                                connected = true;
+                            }
+                            else if (currentStart != null && checkEnd != null && currentStart.Distance(checkEnd) <= toleranceVal)
+                            {
+                                connected = true;
+                            }
+                            else if (currentEnd != null && checkStart != null && currentEnd.Distance(checkStart) <= toleranceVal)
+                            {
+                                connected = true;
+                            }
+                            else if (currentEnd != null && checkEnd != null && currentEnd.Distance(checkEnd) <= toleranceVal)
+                            {
+                                connected = true;
+                            }
+
+                            if (connected)
+                            {
+                                visited[index_Inner] = true;
+                                queue.Enqueue(index_Inner);
+                            }
+                        }
+                    }
+
+                    components.Add(component);
+                }
+
+                return components;
             }
 
             GraphicsDevice graphicsDevice = GraphicsDevice.GetDefault();
@@ -320,9 +410,7 @@ namespace DiGi.Communication.ComputeSharp.Classes
 
                         if (line3s != null && line3s.Count != 0)
                         {
-                            List<Segment3D> intersectionSegment3Ds = [];
-
-                            List<Tuple<Line3, Coordinate3>> tuples_1 = [];
+                            List<CandidatePoint> candidates_First = [];
 
                             foreach (Line3 line3 in line3s)
                             {
@@ -330,8 +418,6 @@ namespace DiGi.Communication.ComputeSharp.Classes
                                 {
                                     continue;
                                 }
-
-                                intersectionSegment3Ds.Add(segment3D);
 
                                 List<Coordinate3>? coordinate3s = DiGi.ComputeSharp.Spatial.Create.Coordinate3s(line3, LineAlignment.Center, pointDensityFactor, true, tolerance);
                                 if (coordinate3s == null)
@@ -342,17 +428,16 @@ namespace DiGi.Communication.ComputeSharp.Classes
                                 foreach (Coordinate3 coordinate3 in coordinate3s)
                                 {
                                     Line3 line3_Temp = new(new DiGi.ComputeSharp.Core.Classes.Bool(true), location_1.Value, coordinate3);
-
-                                    tuples_1.Add(new Tuple<Line3, Coordinate3>(line3_Temp, coordinate3));
+                                    candidates_First.Add(new CandidatePoint(line3_Temp, coordinate3, segment3D));
                                 }
                             }
 
-                            if (tuples_1 != null && tuples_1.Count != 0)
+                            if (candidates_First.Count != 0)
                             {
-                                List<bool>? intersects_Temp = DiGi.ComputeSharp.Spatial.Query.Intersect(graphicsDevice, tuples_1.ConvertAll(x => x.Item1), readOnlyBuffer_Triangle3s, false, false);
+                                List<bool>? intersects_Temp = DiGi.ComputeSharp.Spatial.Query.Intersect(graphicsDevice, candidates_First.ConvertAll(x => x.LineToLoc), readOnlyBuffer_Triangle3s, false, false);
                                 if (intersects_Temp != null && intersects_Temp.Count != 0)
                                 {
-                                    List<Tuple<Line3, Coordinate3>> tuples_2 = [];
+                                    List<CandidatePoint> candidates_Second = [];
                                     for (int j = 0; j < intersects_Temp.Count; j++)
                                     {
                                         if (intersects_Temp[j])
@@ -360,19 +445,17 @@ namespace DiGi.Communication.ComputeSharp.Classes
                                             continue;
                                         }
 
-                                        Coordinate3 coordinate3 = tuples_1[j].Item2;
-
-                                        Line3 line3_Temp = new(new DiGi.ComputeSharp.Core.Classes.Bool(true), location_2.Value, coordinate3);
-
-                                        tuples_2.Add(new Tuple<Line3, Coordinate3>(line3_Temp, coordinate3));
+                                        CandidatePoint candidate_First = candidates_First[j];
+                                        Line3 line3_Temp = new(new DiGi.ComputeSharp.Core.Classes.Bool(true), location_2.Value, candidate_First.Point);
+                                        candidates_Second.Add(new CandidatePoint(line3_Temp, candidate_First.Point, candidate_First.ParentSegment));
                                     }
 
-                                    if (tuples_2 != null && tuples_2.Count != 0)
+                                    if (candidates_Second.Count != 0)
                                     {
-                                        intersects_Temp = DiGi.ComputeSharp.Spatial.Query.Intersect(graphicsDevice, tuples_2.ConvertAll(x => x.Item1), readOnlyBuffer_Triangle3s, false, false);
+                                        intersects_Temp = DiGi.ComputeSharp.Spatial.Query.Intersect(graphicsDevice, candidates_Second.ConvertAll(x => x.LineToLoc), readOnlyBuffer_Triangle3s, false, false);
                                         if (intersects_Temp != null && intersects_Temp.Count != 0)
                                         {
-                                            List<Coordinate3> coordinate3s = [];
+                                            List<CandidatePoint> candidates_Visible = [];
                                             for (int j = 0; j < intersects_Temp.Count; j++)
                                             {
                                                 if (intersects_Temp[j])
@@ -380,35 +463,67 @@ namespace DiGi.Communication.ComputeSharp.Classes
                                                     continue;
                                                 }
 
-                                                coordinate3s.Add(tuples_2[j].Item2);
+                                                candidates_Visible.Add(candidates_Second[j]);
                                             }
 
-                                            if (coordinate3s != null && coordinate3s.Count != 0)
+                                            if (candidates_Visible.Count != 0)
                                             {
-                                                List<int>? indexes = DiGi.ComputeSharp.Spatial.Query.Inside(graphicsDevice, coordinate3s, readOnlyBuffer_Triangle3s);
+                                                List<Coordinate3> coordinate3s_Visible = candidates_Visible.ConvertAll(x => x.Point);
+                                                List<int>? indexes = DiGi.ComputeSharp.Spatial.Query.Inside(graphicsDevice, coordinate3s_Visible, readOnlyBuffer_Triangle3s);
                                                 if (indexes != null && indexes.Count != 0)
                                                 {
-                                                    Dictionary<string, List<Coordinate3>> dictionary = [];
-                                                    for (int j = 0; j < coordinate3s.Count; j++)
+                                                    Dictionary<string, List<CandidatePoint>> candidatesByReference = [];
+                                                    for (int j = 0; j < candidates_Visible.Count; j++)
                                                     {
                                                         int index = indexes[j];
-                                                        Coordinate3 point = coordinate3s[j];
+                                                        CandidatePoint candidate_Visible = candidates_Visible[j];
 
                                                         string reference = index == -1 ? string.Empty : references[index];
                                                         reference ??= string.Empty;
 
-                                                        if (!dictionary.TryGetValue(reference, out List<Coordinate3>? points_Temp) || points_Temp == null)
+                                                        if (!candidatesByReference.TryGetValue(reference, out List<CandidatePoint>? points_Temp) || points_Temp == null)
                                                         {
                                                             points_Temp = [];
-                                                            dictionary[reference] = points_Temp;
+                                                            candidatesByReference[reference] = points_Temp;
                                                         }
 
-                                                        points_Temp.Add(point);
+                                                        points_Temp.Add(candidate_Visible);
                                                     }
 
-                                                    foreach (KeyValuePair<string, List<Coordinate3>> keyValuePair_Temp in dictionary)
+                                                    foreach (KeyValuePair<string, List<CandidatePoint>> keyValuePair_Temp in candidatesByReference)
                                                     {
-                                                        scatteringPointGroups.Add(new ScatteringPointGroup(keyValuePair_Temp.Key, keyValuePair_Temp.Value.ConvertAll(x => DiGi.ComputeSharp.Geometry.Spatial.Convert.ToDiGi(x)).FilterNulls()));
+                                                        string reference = keyValuePair_Temp.Key;
+                                                        List<CandidatePoint> candidates_Ref = keyValuePair_Temp.Value;
+
+                                                        List<Segment3D> segments = [];
+                                                        foreach (CandidatePoint candidate in candidates_Ref)
+                                                        {
+                                                            if (!segments.Contains(candidate.ParentSegment))
+                                                            {
+                                                                segments.Add(candidate.ParentSegment);
+                                                            }
+                                                        }
+
+                                                        List<List<Segment3D>> components = GroupSegmentsIntoComponents(segments, tolerance);
+                                                        foreach (List<Segment3D> component in components)
+                                                        {
+                                                            List<Point3D> pointsInComponent = [];
+                                                            foreach (CandidatePoint candidate in candidates_Ref)
+                                                            {
+                                                                if (component.Contains(candidate.ParentSegment))
+                                                                {
+                                                                    if (DiGi.ComputeSharp.Geometry.Spatial.Convert.ToDiGi(candidate.Point) is Point3D point3D)
+                                                                    {
+                                                                        pointsInComponent.Add(point3D);
+                                                                    }
+                                                                }
+                                                            }
+
+                                                            if (pointsInComponent.Count > 0)
+                                                            {
+                                                                scatteringPointGroups.Add(new ScatteringPointGroup(reference, pointsInComponent));
+                                                            }
+                                                        }
                                                     }
                                                 }
                                             }

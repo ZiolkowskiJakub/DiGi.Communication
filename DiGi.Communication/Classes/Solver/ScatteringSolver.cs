@@ -24,6 +24,31 @@ namespace DiGi.Communication.Classes
             public Triangle3D Triangle;
         }
 
+        private class SegmentComponent
+        {
+            public string Reference { get; }
+            public List<Segment3D> Segments { get; }
+
+            public SegmentComponent(string reference, List<Segment3D> segments)
+            {
+                Reference = reference;
+                Segments = segments;
+            }
+        }
+
+        private struct CandidatePoint
+        {
+            public Segment3D SegmentToLoc;
+            public Point3D Point;
+            public SegmentComponent Component;
+        }
+
+        private struct IntersectionSegment
+        {
+            public Segment3D Segment;
+            public string Reference;
+        }
+
         private List<IScatteringProfile>? scatteringProfiles;
 
         /// <summary>
@@ -441,6 +466,79 @@ namespace DiGi.Communication.Classes
                 return resultPoints;
             }
 
+            static List<List<Segment3D>> GroupSegmentsIntoComponents(List<Segment3D> segments, double toleranceVal)
+            {
+                List<List<Segment3D>> components = [];
+                if (segments == null || segments.Count == 0)
+                {
+                    return components;
+                }
+
+                bool[] visited = new bool[segments.Count];
+                for (int index_Outer = 0; index_Outer < segments.Count; index_Outer++)
+                {
+                    if (visited[index_Outer])
+                    {
+                        continue;
+                    }
+
+                    List<Segment3D> component = [];
+                    Queue<int> queue = new();
+                    queue.Enqueue(index_Outer);
+                    visited[index_Outer] = true;
+
+                    while (queue.Count > 0)
+                    {
+                        int current = queue.Dequeue();
+                        Segment3D currentSegment = segments[current];
+                        component.Add(currentSegment);
+
+                        Point3D? currentStart = currentSegment.Start;
+                        Point3D? currentEnd = currentSegment.End;
+
+                        for (int index_Inner = 0; index_Inner < segments.Count; index_Inner++)
+                        {
+                            if (visited[index_Inner])
+                            {
+                                continue;
+                            }
+
+                            Segment3D checkSegment = segments[index_Inner];
+                            Point3D? checkStart = checkSegment.Start;
+                            Point3D? checkEnd = checkSegment.End;
+
+                            bool connected = false;
+                            if (currentStart != null && checkStart != null && currentStart.Distance(checkStart) <= toleranceVal)
+                            {
+                                connected = true;
+                            }
+                            else if (currentStart != null && checkEnd != null && currentStart.Distance(checkEnd) <= toleranceVal)
+                            {
+                                connected = true;
+                            }
+                            else if (currentEnd != null && checkStart != null && currentEnd.Distance(checkStart) <= toleranceVal)
+                            {
+                                connected = true;
+                            }
+                            else if (currentEnd != null && checkEnd != null && currentEnd.Distance(checkEnd) <= toleranceVal)
+                            {
+                                connected = true;
+                            }
+
+                            if (connected)
+                            {
+                                visited[index_Inner] = true;
+                                queue.Enqueue(index_Inner);
+                            }
+                        }
+                    }
+
+                    components.Add(component);
+                }
+
+                return components;
+            }
+
             List<bool> intersects = [];
             foreach (Tuple<IAntenna, IAntenna, IMultipathPowerDelayProfile> tuple in tuples)
             {
@@ -569,7 +667,7 @@ namespace DiGi.Communication.Classes
                     }
 
                     List<ScatteringPointGroup> scatteringPointGroups = [];
-                    List<Segment3D> segment3Ds_Intersects = [];
+                    List<IntersectionSegment> intersectionSegments = [];
 
                     foreach (Triangle3D triangleEllipsoid in triangle3Ds_Ellipsoid)
                     {
@@ -592,45 +690,82 @@ namespace DiGi.Communication.Classes
                             List<Segment3D> segment3Ds_Temp = GetTriangleTriangleIntersectionSegments(triangleEllipsoid, polygonalFace3D_Ellipsoid, cachedFace.Face, tolerance);
                             if (segment3Ds_Temp.Count > 0)
                             {
-                                segment3Ds_Intersects.AddRange(segment3Ds_Temp);
+                                string reference = cachedFace.Reference ?? string.Empty;
+                                foreach (Segment3D segment3D in segment3Ds_Temp)
+                                {
+                                    intersectionSegments.Add(new IntersectionSegment
+                                    {
+                                        Segment = segment3D,
+                                        Reference = reference
+                                    });
+                                }
                             }
                         }
                     }
 
-                    if (segment3Ds_Intersects.Count != 0)
+                    if (intersectionSegments.Count != 0)
                     {
-                        List<Tuple<Segment3D, Point3D>> tuples_First = [];
-
-                        foreach (Segment3D segment3D in segment3Ds_Intersects)
+                        Dictionary<string, List<Segment3D>> segmentsByReference = [];
+                        foreach (IntersectionSegment intersectionSegment in intersectionSegments)
                         {
-                            List<Point3D> point3Ds_Sub = SegmentPoints(segment3D, pointDensityFactor, true, tolerance);
-                            if (point3Ds_Sub == null)
+                            if (!segmentsByReference.TryGetValue(intersectionSegment.Reference, out List<Segment3D>? segmentList) || segmentList == null)
                             {
-                                continue;
+                                segmentList = [];
+                                segmentsByReference[intersectionSegment.Reference] = segmentList;
                             }
+                            segmentList.Add(intersectionSegment.Segment);
+                        }
 
-                            foreach (Point3D point3D in point3Ds_Sub)
+                        List<SegmentComponent> segmentComponents = [];
+                        foreach (KeyValuePair<string, List<Segment3D>> keyValuePair_Temp in segmentsByReference)
+                        {
+                            List<List<Segment3D>> components = GroupSegmentsIntoComponents(keyValuePair_Temp.Value, tolerance);
+                            foreach (List<Segment3D> component in components)
                             {
-                                Segment3D segment3D_Temp = new(location_1, point3D);
-                                tuples_First.Add(new Tuple<Segment3D, Point3D>(segment3D_Temp, point3D));
+                                segmentComponents.Add(new SegmentComponent(keyValuePair_Temp.Key, component));
                             }
                         }
 
-                        if (tuples_First.Count != 0)
+                        List<CandidatePoint> candidates_First = [];
+
+                        foreach (SegmentComponent segmentComponent in segmentComponents)
                         {
-                            List<Tuple<Segment3D, Point3D>> tuples_Second = [];
-                            foreach (Tuple<Segment3D, Point3D> tuple_First in tuples_First)
+                            foreach (Segment3D segment3D in segmentComponent.Segments)
+                            {
+                                List<Point3D> point3Ds_Sub = SegmentPoints(segment3D, pointDensityFactor, true, tolerance);
+                                if (point3Ds_Sub == null)
+                                {
+                                    continue;
+                                }
+
+                                foreach (Point3D point3D in point3Ds_Sub)
+                                {
+                                    Segment3D segment3D_Temp = new(location_1, point3D);
+                                    candidates_First.Add(new CandidatePoint
+                                    {
+                                        SegmentToLoc = segment3D_Temp,
+                                        Point = point3D,
+                                        Component = segmentComponent
+                                    });
+                                }
+                            }
+                        }
+
+                        if (candidates_First.Count != 0)
+                        {
+                            List<CandidatePoint> candidates_Second = [];
+                            foreach (CandidatePoint candidate_First in candidates_First)
                             {
                                 bool hasIntersection = false;
                                 foreach (CachedFaceInfo cachedFace in cachedFaces)
                                 {
                                     // Bounding box range check prevents expensive segment-face intersection checks
-                                    if (!cachedFace.BBox.InRange(tuple_First.Item1, tolerance))
+                                    if (!cachedFace.BBox.InRange(candidate_First.SegmentToLoc, tolerance))
                                     {
                                         continue;
                                     }
 
-                                    if (cachedFace.Face.Intersect(tuple_First.Item1, tolerance, false, false))
+                                    if (cachedFace.Face.Intersect(candidate_First.SegmentToLoc, tolerance, false, false))
                                     {
                                         hasIntersection = true;
                                         break;
@@ -639,26 +774,31 @@ namespace DiGi.Communication.Classes
 
                                 if (!hasIntersection)
                                 {
-                                    Segment3D segment3D_Temp = new(location_2, tuple_First.Item2);
-                                    tuples_Second.Add(new Tuple<Segment3D, Point3D>(segment3D_Temp, tuple_First.Item2));
+                                    Segment3D segment3D_Temp = new(location_2, candidate_First.Point);
+                                    candidates_Second.Add(new CandidatePoint
+                                    {
+                                        SegmentToLoc = segment3D_Temp,
+                                        Point = candidate_First.Point,
+                                        Component = candidate_First.Component
+                                    });
                                 }
                             }
 
-                            if (tuples_Second.Count != 0)
+                            if (candidates_Second.Count != 0)
                             {
-                                List<Point3D> point3Ds_Visible = [];
-                                foreach (Tuple<Segment3D, Point3D> tuple_Second in tuples_Second)
+                                List<CandidatePoint> candidates_Visible = [];
+                                foreach (CandidatePoint candidate_Second in candidates_Second)
                                 {
                                     bool hasIntersection = false;
                                     foreach (CachedFaceInfo cachedFace in cachedFaces)
                                     {
                                         // Bounding box range check prevents expensive segment-face intersection checks
-                                        if (!cachedFace.BBox.InRange(tuple_Second.Item1, tolerance))
+                                        if (!cachedFace.BBox.InRange(candidate_Second.SegmentToLoc, tolerance))
                                         {
                                             continue;
                                         }
 
-                                        if (cachedFace.Face.Intersect(tuple_Second.Item1, tolerance, false, false))
+                                        if (cachedFace.Face.Intersect(candidate_Second.SegmentToLoc, tolerance, false, false))
                                         {
                                             hasIntersection = true;
                                             break;
@@ -667,42 +807,26 @@ namespace DiGi.Communication.Classes
 
                                     if (!hasIntersection)
                                     {
-                                        point3Ds_Visible.Add(tuple_Second.Item2);
+                                        candidates_Visible.Add(candidate_Second);
                                     }
                                 }
 
-                                if (point3Ds_Visible.Count != 0)
+                                if (candidates_Visible.Count != 0)
                                 {
-                                    Dictionary<string, List<Point3D>> point3Ds_ByReference = [];
-                                    foreach (Point3D point3D in point3Ds_Visible)
+                                    Dictionary<SegmentComponent, List<Point3D>> pointsByComponent = [];
+                                    foreach (CandidatePoint candidate_Visible in candidates_Visible)
                                     {
-                                        int faceIndex = -1;
-                                        for (int k = 0; k < cachedFaces.Length; k++)
+                                        if (!pointsByComponent.TryGetValue(candidate_Visible.Component, out List<Point3D>? pointsList) || pointsList == null)
                                         {
-                                            // Check bounding box before doing expensive Inside test
-                                            if (cachedFaces[k].BBox.InRange(point3D, tolerance) && 
-                                                cachedFaces[k].Triangle.Inside(point3D, tolerance))
-                                            {
-                                                faceIndex = k;
-                                                break;
-                                            }
+                                            pointsList = [];
+                                            pointsByComponent[candidate_Visible.Component] = pointsList;
                                         }
-
-                                        string reference = faceIndex == -1 ? string.Empty : cachedFaces[faceIndex].Reference;
-                                        reference ??= string.Empty;
-
-                                        if (!point3Ds_ByReference.TryGetValue(reference, out List<Point3D>? point3Ds_Temp) || point3Ds_Temp == null)
-                                        {
-                                            point3Ds_Temp = [];
-                                            point3Ds_ByReference[reference] = point3Ds_Temp;
-                                        }
-
-                                        point3Ds_Temp.Add(point3D);
+                                        pointsList.Add(candidate_Visible.Point);
                                     }
 
-                                    foreach (KeyValuePair<string, List<Point3D>> keyValuePair_Temp in point3Ds_ByReference)
+                                    foreach (KeyValuePair<SegmentComponent, List<Point3D>> keyValuePair_Temp in pointsByComponent)
                                     {
-                                        scatteringPointGroups.Add(new ScatteringPointGroup(keyValuePair_Temp.Key, keyValuePair_Temp.Value));
+                                        scatteringPointGroups.Add(new ScatteringPointGroup(keyValuePair_Temp.Key.Reference, keyValuePair_Temp.Value));
                                     }
                                 }
                             }
