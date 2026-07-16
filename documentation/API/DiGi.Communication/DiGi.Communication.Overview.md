@@ -11,3 +11,5 @@
 | [DiGi\.Communication\.Interfaces](DiGi.Communication.Interfaces.md 'DiGi\.Communication\.Interfaces') | |
 | [DiGi\.Communication\.Obselete\.Classes](DiGi.Communication.Obselete.Classes.md 'DiGi\.Communication\.Obselete\.Classes') | |
 | [DiGi\.Communication\.Obselete\.Convert](DiGi.Communication.Obselete.Convert.md 'DiGi\.Communication\.Obselete\.Convert') | |
+| [DiGi\.Communication\.Obselete\.Delegates](DiGi.Communication.Obselete.Delegates.md 'DiGi\.Communication\.Obselete\.Delegates') | |
+| [DiGi\.Communication\.Obselete\.Enums](DiGi.Communication.Obselete.Enums.md 'DiGi\.Communication\.Obselete\.Enums') | |

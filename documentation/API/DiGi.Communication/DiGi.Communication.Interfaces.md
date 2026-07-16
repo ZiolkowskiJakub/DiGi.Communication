@@ -218,7 +218,6 @@ Derived
 ↳ [GeometricalPropagationModel](DiGi.Communication.Classes.md#DiGi.Communication.Classes.GeometricalPropagationModel 'DiGi\.Communication\.Classes\.GeometricalPropagationModel')  
 ↳ [MultipathPowerDelayProfileAntennasRelation](DiGi.Communication.Classes.md#DiGi.Communication.Classes.MultipathPowerDelayProfileAntennasRelation 'DiGi\.Communication\.Classes\.MultipathPowerDelayProfileAntennasRelation')  
 ↳ [Ray](DiGi.Communication.Classes.md#DiGi.Communication.Classes.Ray 'DiGi\.Communication\.Classes\.Ray')  
-↳ [RayContribution](DiGi.Communication.Classes.md#DiGi.Communication.Classes.RayContribution 'DiGi\.Communication\.Classes\.RayContribution')  
 ↳ [Scattering](DiGi.Communication.Classes.md#DiGi.Communication.Classes.Scattering 'DiGi\.Communication\.Classes\.Scattering')  
 ↳ [ScatteringGroup](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringGroup 'DiGi\.Communication\.Classes\.ScatteringGroup')  
 ↳ [ScatteringGroupScatteringObjectsRelation](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringGroupScatteringObjectsRelation 'DiGi\.Communication\.Classes\.ScatteringGroupScatteringObjectsRelation')  
@@ -248,7 +247,8 @@ Derived
 ↳ [MaterialProperties](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.MaterialProperties 'DiGi\.Communication\.Obselete\.Classes\.MaterialProperties')  
 ↳ [MeshCell](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.MeshCell 'DiGi\.Communication\.Obselete\.Classes\.MeshCell')  
 ↳ [PropagationModel](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.PropagationModel 'DiGi\.Communication\.Obselete\.Classes\.PropagationModel')  
-↳ [PropagationResult](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.PropagationResult 'DiGi\.Communication\.Obselete\.Classes\.PropagationResult')
+↳ [PropagationResult](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.PropagationResult 'DiGi\.Communication\.Obselete\.Classes\.PropagationResult')  
+↳ [RayContribution](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.RayContribution 'DiGi\.Communication\.Obselete\.Classes\.RayContribution')
 
 Implements [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject')
 
@@ -289,7 +289,6 @@ Derived
 ↳ [ComplexMultipathPowerDelayProfile](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ComplexMultipathPowerDelayProfile 'DiGi\.Communication\.Classes\.ComplexMultipathPowerDelayProfile')  
 ↳ [GeometricalPropagationModel](DiGi.Communication.Classes.md#DiGi.Communication.Classes.GeometricalPropagationModel 'DiGi\.Communication\.Classes\.GeometricalPropagationModel')  
 ↳ [Ray](DiGi.Communication.Classes.md#DiGi.Communication.Classes.Ray 'DiGi\.Communication\.Classes\.Ray')  
-↳ [RayContribution](DiGi.Communication.Classes.md#DiGi.Communication.Classes.RayContribution 'DiGi\.Communication\.Classes\.RayContribution')  
 ↳ [Scattering](DiGi.Communication.Classes.md#DiGi.Communication.Classes.Scattering 'DiGi\.Communication\.Classes\.Scattering')  
 ↳ [ScatteringGroup](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringGroup 'DiGi\.Communication\.Classes\.ScatteringGroup')  
 ↳ [ScatteringObject](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringObject 'DiGi\.Communication\.Classes\.ScatteringObject')  
@@ -313,7 +312,8 @@ Derived
 ↳ [MaterialProperties](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.MaterialProperties 'DiGi\.Communication\.Obselete\.Classes\.MaterialProperties')  
 ↳ [MeshCell](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.MeshCell 'DiGi\.Communication\.Obselete\.Classes\.MeshCell')  
 ↳ [PropagationModel](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.PropagationModel 'DiGi\.Communication\.Obselete\.Classes\.PropagationModel')  
-↳ [PropagationResult](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.PropagationResult 'DiGi\.Communication\.Obselete\.Classes\.PropagationResult')
+↳ [PropagationResult](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.PropagationResult 'DiGi\.Communication\.Obselete\.Classes\.PropagationResult')  
+↳ [RayContribution](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.RayContribution 'DiGi\.Communication\.Obselete\.Classes\.RayContribution')
 
 Implements [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject')
 

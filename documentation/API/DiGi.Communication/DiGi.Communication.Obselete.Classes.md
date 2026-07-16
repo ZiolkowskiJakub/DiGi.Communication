@@ -193,78 +193,78 @@ public EllipsoidComponent(DiGi.Communication.Obselete.Classes.EllipsoidComponent
 
 The source ellipsoid component to copy from\.
 
-<a name='DiGi.Communication.Obselete.Classes.EllipsoidComponent.EllipsoidComponent(double,double,double,double,double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.RayContribution_,double,System.Numerics.Complex,double,double)'></a>
+<a name='DiGi.Communication.Obselete.Classes.EllipsoidComponent.EllipsoidComponent(double,double,double,double,double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.RayContribution_,double,System.Numerics.Complex,double,double)'></a>
 
 ## EllipsoidComponent\(double, double, double, double, double, double, IEnumerable\<RayContribution\>, double, Complex, double, double\) Constructor
 
 Initializes a new instance of the [EllipsoidComponent](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.EllipsoidComponent 'DiGi\.Communication\.Obselete\.Classes\.EllipsoidComponent') class\.
 
 ```csharp
-public EllipsoidComponent(double delay, double fractionalPower, double mappingErrorCorrectionCoefficient, double measuredFractionalPower, double power, double powerEquivalenceCoefficient, System.Collections.Generic.IEnumerable<DiGi.Communication.Classes.RayContribution>? rayContributions, double referencePower, System.Numerics.Complex reflectionCoefficientSum, double semiMajorAxis, double semiMinorAxis);
+public EllipsoidComponent(double delay, double fractionalPower, double mappingErrorCorrectionCoefficient, double measuredFractionalPower, double power, double powerEquivalenceCoefficient, System.Collections.Generic.IEnumerable<DiGi.Communication.Obselete.Classes.RayContribution>? rayContributions, double referencePower, System.Numerics.Complex reflectionCoefficientSum, double semiMajorAxis, double semiMinorAxis);
 ```
 #### Parameters
 
-<a name='DiGi.Communication.Obselete.Classes.EllipsoidComponent.EllipsoidComponent(double,double,double,double,double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.RayContribution_,double,System.Numerics.Complex,double,double).delay'></a>
+<a name='DiGi.Communication.Obselete.Classes.EllipsoidComponent.EllipsoidComponent(double,double,double,double,double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.RayContribution_,double,System.Numerics.Complex,double,double).delay'></a>
 
 `delay` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
 
 Delay tau\_n \[s\] related to the ellipsoid\.
 
-<a name='DiGi.Communication.Obselete.Classes.EllipsoidComponent.EllipsoidComponent(double,double,double,double,double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.RayContribution_,double,System.Numerics.Complex,double,double).fractionalPower'></a>
+<a name='DiGi.Communication.Obselete.Classes.EllipsoidComponent.EllipsoidComponent(double,double,double,double,double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.RayContribution_,double,System.Numerics.Complex,double,double).fractionalPower'></a>
 
 `fractionalPower` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
 
 Normalized power p\_n = P\_n / P resulting from the model \[\-\]\. Calculated in Stage II\.
 
-<a name='DiGi.Communication.Obselete.Classes.EllipsoidComponent.EllipsoidComponent(double,double,double,double,double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.RayContribution_,double,System.Numerics.Complex,double,double).mappingErrorCorrectionCoefficient'></a>
+<a name='DiGi.Communication.Obselete.Classes.EllipsoidComponent.EllipsoidComponent(double,double,double,double,double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.RayContribution_,double,System.Numerics.Complex,double,double).mappingErrorCorrectionCoefficient'></a>
 
 `mappingErrorCorrectionCoefficient` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
 
 Correction coefficient w\_0n = p'\_n / p\_n for ray scattering object mapping errors \[\-\]\. Calculated in Stage II\.
 
-<a name='DiGi.Communication.Obselete.Classes.EllipsoidComponent.EllipsoidComponent(double,double,double,double,double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.RayContribution_,double,System.Numerics.Complex,double,double).measuredFractionalPower'></a>
+<a name='DiGi.Communication.Obselete.Classes.EllipsoidComponent.EllipsoidComponent(double,double,double,double,double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.RayContribution_,double,System.Numerics.Complex,double,double).measuredFractionalPower'></a>
 
 `measuredFractionalPower` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
 
 Normalized \(fractional\) power p'\_n retrieved directly from the measured Power Delay Profile \[\-\]\.
 
-<a name='DiGi.Communication.Obselete.Classes.EllipsoidComponent.EllipsoidComponent(double,double,double,double,double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.RayContribution_,double,System.Numerics.Complex,double,double).power'></a>
+<a name='DiGi.Communication.Obselete.Classes.EllipsoidComponent.EllipsoidComponent(double,double,double,double,double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.RayContribution_,double,System.Numerics.Complex,double,double).power'></a>
 
 `power` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
 
 Component power P\_n = \|Gamma\_n\|^2 \[\-\]\.
 
-<a name='DiGi.Communication.Obselete.Classes.EllipsoidComponent.EllipsoidComponent(double,double,double,double,double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.RayContribution_,double,System.Numerics.Complex,double,double).powerEquivalenceCoefficient'></a>
+<a name='DiGi.Communication.Obselete.Classes.EllipsoidComponent.EllipsoidComponent(double,double,double,double,double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.RayContribution_,double,System.Numerics.Complex,double,double).powerEquivalenceCoefficient'></a>
 
 `powerEquivalenceCoefficient` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
 
 Power equivalence coefficient w\_Pn = P\_n / P'\_n \[\-\]\. Calculated in Stage II\.
 
-<a name='DiGi.Communication.Obselete.Classes.EllipsoidComponent.EllipsoidComponent(double,double,double,double,double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.RayContribution_,double,System.Numerics.Complex,double,double).rayContributions'></a>
+<a name='DiGi.Communication.Obselete.Classes.EllipsoidComponent.EllipsoidComponent(double,double,double,double,double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.RayContribution_,double,System.Numerics.Complex,double,double).rayContributions'></a>
 
-`rayContributions` [System\.Collections\.Generic\.IEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')[RayContribution](DiGi.Communication.Classes.md#DiGi.Communication.Classes.RayContribution 'DiGi\.Communication\.Classes\.RayContribution')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')
+`rayContributions` [System\.Collections\.Generic\.IEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')[RayContribution](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.RayContribution 'DiGi\.Communication\.Obselete\.Classes\.RayContribution')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')
 
 Contributions of the mesh cells assigned to the ellipsoid\.
 
-<a name='DiGi.Communication.Obselete.Classes.EllipsoidComponent.EllipsoidComponent(double,double,double,double,double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.RayContribution_,double,System.Numerics.Complex,double,double).referencePower'></a>
+<a name='DiGi.Communication.Obselete.Classes.EllipsoidComponent.EllipsoidComponent(double,double,double,double,double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.RayContribution_,double,System.Numerics.Complex,double,double).referencePower'></a>
 
 `referencePower` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
 
 Reference power P'\_n: sum of squared moduli of the weighted reflection coefficients \[\-\]\.
 
-<a name='DiGi.Communication.Obselete.Classes.EllipsoidComponent.EllipsoidComponent(double,double,double,double,double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.RayContribution_,double,System.Numerics.Complex,double,double).reflectionCoefficientSum'></a>
+<a name='DiGi.Communication.Obselete.Classes.EllipsoidComponent.EllipsoidComponent(double,double,double,double,double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.RayContribution_,double,System.Numerics.Complex,double,double).reflectionCoefficientSum'></a>
 
 `reflectionCoefficientSum` [System\.Numerics\.Complex](https://learn.microsoft.com/en-us/dotnet/api/system.numerics.complex 'System\.Numerics\.Complex')
 
 Sum Gamma\_n of the weighted complex reflection coefficients of the whole ellipsoid \[\-\]\.
 
-<a name='DiGi.Communication.Obselete.Classes.EllipsoidComponent.EllipsoidComponent(double,double,double,double,double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.RayContribution_,double,System.Numerics.Complex,double,double).semiMajorAxis'></a>
+<a name='DiGi.Communication.Obselete.Classes.EllipsoidComponent.EllipsoidComponent(double,double,double,double,double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.RayContribution_,double,System.Numerics.Complex,double,double).semiMajorAxis'></a>
 
 `semiMajorAxis` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
 
 Semi\-major axis a\_n of the ellipsoid \[m\]\.
 
-<a name='DiGi.Communication.Obselete.Classes.EllipsoidComponent.EllipsoidComponent(double,double,double,double,double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.RayContribution_,double,System.Numerics.Complex,double,double).semiMinorAxis'></a>
+<a name='DiGi.Communication.Obselete.Classes.EllipsoidComponent.EllipsoidComponent(double,double,double,double,double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.RayContribution_,double,System.Numerics.Complex,double,double).semiMinorAxis'></a>
 
 `semiMinorAxis` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
 
@@ -377,7 +377,7 @@ private readonly List<RayContribution>? rayContributions;
 ```
 
 #### Field Value
-[System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[RayContribution](DiGi.Communication.Classes.md#DiGi.Communication.Classes.RayContribution 'DiGi\.Communication\.Classes\.RayContribution')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')
+[System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[RayContribution](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.RayContribution 'DiGi\.Communication\.Obselete\.Classes\.RayContribution')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')
 
 <a name='DiGi.Communication.Obselete.Classes.EllipsoidComponent.referencePower'></a>
 
@@ -517,11 +517,11 @@ public double PowerEquivalenceCoefficient { get; }
 Contributions of the mesh cells assigned to the ellipsoid\.
 
 ```csharp
-public System.Collections.Generic.List<DiGi.Communication.Classes.RayContribution>? RayContributions { get; }
+public System.Collections.Generic.List<DiGi.Communication.Obselete.Classes.RayContribution>? RayContributions { get; }
 ```
 
 #### Property Value
-[System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[RayContribution](DiGi.Communication.Classes.md#DiGi.Communication.Classes.RayContribution 'DiGi\.Communication\.Classes\.RayContribution')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')
+[System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[RayContribution](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.RayContribution 'DiGi\.Communication\.Obselete\.Classes\.RayContribution')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')
 
 <a name='DiGi.Communication.Obselete.Classes.EllipsoidComponent.ReferencePower'></a>
 
@@ -891,68 +891,68 @@ public PropagationModel(DiGi.Communication.Obselete.Classes.PropagationModel? pr
 
 The source propagation model to copy from\.
 
-<a name='DiGi.Communication.Obselete.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.MeshCell_,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic)'></a>
+<a name='DiGi.Communication.Obselete.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.MeshCell_,DiGi.Communication.Obselete.Enums.Polarization,DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic)'></a>
 
 ## PropagationModel\(double, double, IEnumerable\<MeshCell\>, Polarization, SimpleMultipathPowerDelayProfile, AntennaCharacteristic, AntennaCharacteristic, AntennaCharacteristic, AntennaCharacteristic\) Constructor
 
 Initializes a new instance of the [PropagationModel](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.PropagationModel 'DiGi\.Communication\.Obselete\.Classes\.PropagationModel') class\.
 
 ```csharp
-public PropagationModel(double distance, double frequency, System.Collections.Generic.IEnumerable<DiGi.Communication.Obselete.Classes.MeshCell>? meshCells, DiGi.Communication.Enums.Polarization polarization, DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile? simpleMultipathPowerDelayProfile, DiGi.Communication.AntennaCharacteristic? receivingDirectionalCharacteristic, DiGi.Communication.AntennaCharacteristic? receivingOmnidirectionalCharacteristic, DiGi.Communication.AntennaCharacteristic? transmittingDirectionalCharacteristic, DiGi.Communication.AntennaCharacteristic? transmittingOmnidirectionalCharacteristic);
+public PropagationModel(double distance, double frequency, System.Collections.Generic.IEnumerable<DiGi.Communication.Obselete.Classes.MeshCell>? meshCells, DiGi.Communication.Obselete.Enums.Polarization polarization, DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile? simpleMultipathPowerDelayProfile, DiGi.Communication.Obselete.Delegates.AntennaCharacteristic? receivingDirectionalCharacteristic, DiGi.Communication.Obselete.Delegates.AntennaCharacteristic? receivingOmnidirectionalCharacteristic, DiGi.Communication.Obselete.Delegates.AntennaCharacteristic? transmittingDirectionalCharacteristic, DiGi.Communication.Obselete.Delegates.AntennaCharacteristic? transmittingOmnidirectionalCharacteristic);
 ```
 #### Parameters
 
-<a name='DiGi.Communication.Obselete.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.MeshCell_,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic).distance'></a>
+<a name='DiGi.Communication.Obselete.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.MeshCell_,DiGi.Communication.Obselete.Enums.Polarization,DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic).distance'></a>
 
 `distance` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
 
 Distance d between the transmitter and receiver \[m\]\.
 
-<a name='DiGi.Communication.Obselete.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.MeshCell_,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic).frequency'></a>
+<a name='DiGi.Communication.Obselete.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.MeshCell_,DiGi.Communication.Obselete.Enums.Polarization,DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic).frequency'></a>
 
 `frequency` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
 
 Frequency f of the propagating electromagnetic wave \[MHz\]\.
 
-<a name='DiGi.Communication.Obselete.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.MeshCell_,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic).meshCells'></a>
+<a name='DiGi.Communication.Obselete.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.MeshCell_,DiGi.Communication.Obselete.Enums.Polarization,DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic).meshCells'></a>
 
 `meshCells` [System\.Collections\.Generic\.IEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')[MeshCell](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.MeshCell 'DiGi\.Communication\.Obselete\.Classes\.MeshCell')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')
 
 Triangular spatial cells representing the scattering objects\.
 
-<a name='DiGi.Communication.Obselete.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.MeshCell_,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic).polarization'></a>
+<a name='DiGi.Communication.Obselete.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.MeshCell_,DiGi.Communication.Obselete.Enums.Polarization,DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic).polarization'></a>
 
-`polarization` [Polarization](DiGi.Communication.Enums.md#DiGi.Communication.Enums.Polarization 'DiGi\.Communication\.Enums\.Polarization')
+`polarization` [Polarization](DiGi.Communication.Obselete.Enums.md#DiGi.Communication.Obselete.Enums.Polarization 'DiGi\.Communication\.Obselete\.Enums\.Polarization')
 
 Polarization type of the propagating electromagnetic wave\.
 
-<a name='DiGi.Communication.Obselete.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.MeshCell_,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic).simpleMultipathPowerDelayProfile'></a>
+<a name='DiGi.Communication.Obselete.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.MeshCell_,DiGi.Communication.Obselete.Enums.Polarization,DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic).simpleMultipathPowerDelayProfile'></a>
 
 `simpleMultipathPowerDelayProfile` [SimpleMultipathPowerDelayProfile](DiGi.Communication.Classes.md#DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile 'DiGi\.Communication\.Classes\.SimpleMultipathPowerDelayProfile')
 
 Normalized Power Delay Profile \(PDP\): delays tau\_n mapped to the normalized \(fractional\) powers p'\_n\.
 
-<a name='DiGi.Communication.Obselete.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.MeshCell_,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic).receivingDirectionalCharacteristic'></a>
+<a name='DiGi.Communication.Obselete.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.MeshCell_,DiGi.Communication.Obselete.Enums.Polarization,DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic).receivingDirectionalCharacteristic'></a>
 
-`receivingDirectionalCharacteristic` [AntennaCharacteristic\(double, double\)](DiGi.Communication.md#DiGi.Communication.AntennaCharacteristic(double,double) 'DiGi\.Communication\.AntennaCharacteristic\(double, double\)')
+`receivingDirectionalCharacteristic` [AntennaCharacteristic\(double, double\)](DiGi.Communication.Obselete.Delegates.md#DiGi.Communication.Obselete.Delegates.AntennaCharacteristic(double,double) 'DiGi\.Communication\.Obselete\.Delegates\.AntennaCharacteristic\(double, double\)')
 
 Normalized reception characteristic g\(theta, phi\) of the directional receiving antenna\.
 
-<a name='DiGi.Communication.Obselete.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.MeshCell_,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic).receivingOmnidirectionalCharacteristic'></a>
+<a name='DiGi.Communication.Obselete.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.MeshCell_,DiGi.Communication.Obselete.Enums.Polarization,DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic).receivingOmnidirectionalCharacteristic'></a>
 
-`receivingOmnidirectionalCharacteristic` [AntennaCharacteristic\(double, double\)](DiGi.Communication.md#DiGi.Communication.AntennaCharacteristic(double,double) 'DiGi\.Communication\.AntennaCharacteristic\(double, double\)')
+`receivingOmnidirectionalCharacteristic` [AntennaCharacteristic\(double, double\)](DiGi.Communication.Obselete.Delegates.md#DiGi.Communication.Obselete.Delegates.AntennaCharacteristic(double,double) 'DiGi\.Communication\.Obselete\.Delegates\.AntennaCharacteristic\(double, double\)')
 
 Normalized reception characteristic g\_0\(theta, phi\) of the omnidirectional receiving antenna\.
 
-<a name='DiGi.Communication.Obselete.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.MeshCell_,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic).transmittingDirectionalCharacteristic'></a>
+<a name='DiGi.Communication.Obselete.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.MeshCell_,DiGi.Communication.Obselete.Enums.Polarization,DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic).transmittingDirectionalCharacteristic'></a>
 
-`transmittingDirectionalCharacteristic` [AntennaCharacteristic\(double, double\)](DiGi.Communication.md#DiGi.Communication.AntennaCharacteristic(double,double) 'DiGi\.Communication\.AntennaCharacteristic\(double, double\)')
+`transmittingDirectionalCharacteristic` [AntennaCharacteristic\(double, double\)](DiGi.Communication.Obselete.Delegates.md#DiGi.Communication.Obselete.Delegates.AntennaCharacteristic(double,double) 'DiGi\.Communication\.Obselete\.Delegates\.AntennaCharacteristic\(double, double\)')
 
 Normalized radiation characteristic g\_T\(theta, phi\) of the directional transmitting antenna\.
 
-<a name='DiGi.Communication.Obselete.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.MeshCell_,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic).transmittingOmnidirectionalCharacteristic'></a>
+<a name='DiGi.Communication.Obselete.Classes.PropagationModel.PropagationModel(double,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.MeshCell_,DiGi.Communication.Obselete.Enums.Polarization,DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic).transmittingOmnidirectionalCharacteristic'></a>
 
-`transmittingOmnidirectionalCharacteristic` [AntennaCharacteristic\(double, double\)](DiGi.Communication.md#DiGi.Communication.AntennaCharacteristic(double,double) 'DiGi\.Communication\.AntennaCharacteristic\(double, double\)')
+`transmittingOmnidirectionalCharacteristic` [AntennaCharacteristic\(double, double\)](DiGi.Communication.Obselete.Delegates.md#DiGi.Communication.Obselete.Delegates.AntennaCharacteristic(double,double) 'DiGi\.Communication\.Obselete\.Delegates\.AntennaCharacteristic\(double, double\)')
 
 Normalized radiation characteristic g\_T0\(theta, phi\) of the omnidirectional transmitting antenna\.
 
@@ -1024,7 +1024,7 @@ private readonly Polarization polarization;
 ```
 
 #### Field Value
-[Polarization](DiGi.Communication.Enums.md#DiGi.Communication.Enums.Polarization 'DiGi\.Communication\.Enums\.Polarization')
+[Polarization](DiGi.Communication.Obselete.Enums.md#DiGi.Communication.Obselete.Enums.Polarization 'DiGi\.Communication\.Obselete\.Enums\.Polarization')
 
 <a name='DiGi.Communication.Obselete.Classes.PropagationModel.receivingDirectionalCharacteristic'></a>
 
@@ -1037,7 +1037,7 @@ private readonly AntennaCharacteristic? receivingDirectionalCharacteristic;
 ```
 
 #### Field Value
-[AntennaCharacteristic\(double, double\)](DiGi.Communication.md#DiGi.Communication.AntennaCharacteristic(double,double) 'DiGi\.Communication\.AntennaCharacteristic\(double, double\)')
+[AntennaCharacteristic\(double, double\)](DiGi.Communication.Obselete.Delegates.md#DiGi.Communication.Obselete.Delegates.AntennaCharacteristic(double,double) 'DiGi\.Communication\.Obselete\.Delegates\.AntennaCharacteristic\(double, double\)')
 
 <a name='DiGi.Communication.Obselete.Classes.PropagationModel.receivingOmnidirectionalCharacteristic'></a>
 
@@ -1050,7 +1050,7 @@ private readonly AntennaCharacteristic? receivingOmnidirectionalCharacteristic;
 ```
 
 #### Field Value
-[AntennaCharacteristic\(double, double\)](DiGi.Communication.md#DiGi.Communication.AntennaCharacteristic(double,double) 'DiGi\.Communication\.AntennaCharacteristic\(double, double\)')
+[AntennaCharacteristic\(double, double\)](DiGi.Communication.Obselete.Delegates.md#DiGi.Communication.Obselete.Delegates.AntennaCharacteristic(double,double) 'DiGi\.Communication\.Obselete\.Delegates\.AntennaCharacteristic\(double, double\)')
 
 <a name='DiGi.Communication.Obselete.Classes.PropagationModel.simpleMultipathPowerDelayProfile'></a>
 
@@ -1076,7 +1076,7 @@ private readonly AntennaCharacteristic? transmittingDirectionalCharacteristic;
 ```
 
 #### Field Value
-[AntennaCharacteristic\(double, double\)](DiGi.Communication.md#DiGi.Communication.AntennaCharacteristic(double,double) 'DiGi\.Communication\.AntennaCharacteristic\(double, double\)')
+[AntennaCharacteristic\(double, double\)](DiGi.Communication.Obselete.Delegates.md#DiGi.Communication.Obselete.Delegates.AntennaCharacteristic(double,double) 'DiGi\.Communication\.Obselete\.Delegates\.AntennaCharacteristic\(double, double\)')
 
 <a name='DiGi.Communication.Obselete.Classes.PropagationModel.transmittingOmnidirectionalCharacteristic'></a>
 
@@ -1089,7 +1089,7 @@ private readonly AntennaCharacteristic? transmittingOmnidirectionalCharacteristi
 ```
 
 #### Field Value
-[AntennaCharacteristic\(double, double\)](DiGi.Communication.md#DiGi.Communication.AntennaCharacteristic(double,double) 'DiGi\.Communication\.AntennaCharacteristic\(double, double\)')
+[AntennaCharacteristic\(double, double\)](DiGi.Communication.Obselete.Delegates.md#DiGi.Communication.Obselete.Delegates.AntennaCharacteristic(double,double) 'DiGi\.Communication\.Obselete\.Delegates\.AntennaCharacteristic\(double, double\)')
 ### Properties
 
 <a name='DiGi.Communication.Obselete.Classes.PropagationModel.Distance'></a>
@@ -1138,11 +1138,11 @@ public System.Collections.Generic.List<DiGi.Communication.Obselete.Classes.MeshC
 Polarization type of the propagating electromagnetic wave\.
 
 ```csharp
-public DiGi.Communication.Enums.Polarization Polarization { get; }
+public DiGi.Communication.Obselete.Enums.Polarization Polarization { get; }
 ```
 
 #### Property Value
-[Polarization](DiGi.Communication.Enums.md#DiGi.Communication.Enums.Polarization 'DiGi\.Communication\.Enums\.Polarization')
+[Polarization](DiGi.Communication.Obselete.Enums.md#DiGi.Communication.Obselete.Enums.Polarization 'DiGi\.Communication\.Obselete\.Enums\.Polarization')
 
 <a name='DiGi.Communication.Obselete.Classes.PropagationModel.ReceivingDirectionalCharacteristic'></a>
 
@@ -1151,11 +1151,11 @@ public DiGi.Communication.Enums.Polarization Polarization { get; }
 Normalized reception characteristic g\(theta, phi\) of the directional receiving antenna\.
 
 ```csharp
-public DiGi.Communication.AntennaCharacteristic? ReceivingDirectionalCharacteristic { get; }
+public DiGi.Communication.Obselete.Delegates.AntennaCharacteristic? ReceivingDirectionalCharacteristic { get; }
 ```
 
 #### Property Value
-[AntennaCharacteristic\(double, double\)](DiGi.Communication.md#DiGi.Communication.AntennaCharacteristic(double,double) 'DiGi\.Communication\.AntennaCharacteristic\(double, double\)')
+[AntennaCharacteristic\(double, double\)](DiGi.Communication.Obselete.Delegates.md#DiGi.Communication.Obselete.Delegates.AntennaCharacteristic(double,double) 'DiGi\.Communication\.Obselete\.Delegates\.AntennaCharacteristic\(double, double\)')
 
 <a name='DiGi.Communication.Obselete.Classes.PropagationModel.ReceivingOmnidirectionalCharacteristic'></a>
 
@@ -1164,11 +1164,11 @@ public DiGi.Communication.AntennaCharacteristic? ReceivingDirectionalCharacteris
 Normalized reception characteristic g\_0\(theta, phi\) of the omnidirectional receiving antenna\.
 
 ```csharp
-public DiGi.Communication.AntennaCharacteristic? ReceivingOmnidirectionalCharacteristic { get; }
+public DiGi.Communication.Obselete.Delegates.AntennaCharacteristic? ReceivingOmnidirectionalCharacteristic { get; }
 ```
 
 #### Property Value
-[AntennaCharacteristic\(double, double\)](DiGi.Communication.md#DiGi.Communication.AntennaCharacteristic(double,double) 'DiGi\.Communication\.AntennaCharacteristic\(double, double\)')
+[AntennaCharacteristic\(double, double\)](DiGi.Communication.Obselete.Delegates.md#DiGi.Communication.Obselete.Delegates.AntennaCharacteristic(double,double) 'DiGi\.Communication\.Obselete\.Delegates\.AntennaCharacteristic\(double, double\)')
 
 <a name='DiGi.Communication.Obselete.Classes.PropagationModel.SimpleMultipathPowerDelayProfile'></a>
 
@@ -1190,11 +1190,11 @@ public DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile? SimpleMultip
 Normalized radiation characteristic g\_T\(theta, phi\) of the directional transmitting antenna\. Reserved for the transmitting\-side comparison; not used by the receiving\-side comparative analysis\.
 
 ```csharp
-public DiGi.Communication.AntennaCharacteristic? TransmittingDirectionalCharacteristic { get; }
+public DiGi.Communication.Obselete.Delegates.AntennaCharacteristic? TransmittingDirectionalCharacteristic { get; }
 ```
 
 #### Property Value
-[AntennaCharacteristic\(double, double\)](DiGi.Communication.md#DiGi.Communication.AntennaCharacteristic(double,double) 'DiGi\.Communication\.AntennaCharacteristic\(double, double\)')
+[AntennaCharacteristic\(double, double\)](DiGi.Communication.Obselete.Delegates.md#DiGi.Communication.Obselete.Delegates.AntennaCharacteristic(double,double) 'DiGi\.Communication\.Obselete\.Delegates\.AntennaCharacteristic\(double, double\)')
 
 <a name='DiGi.Communication.Obselete.Classes.PropagationModel.TransmittingOmnidirectionalCharacteristic'></a>
 
@@ -1203,11 +1203,11 @@ public DiGi.Communication.AntennaCharacteristic? TransmittingDirectionalCharacte
 Normalized radiation characteristic g\_T0\(theta, phi\) of the omnidirectional transmitting antenna\.
 
 ```csharp
-public DiGi.Communication.AntennaCharacteristic? TransmittingOmnidirectionalCharacteristic { get; }
+public DiGi.Communication.Obselete.Delegates.AntennaCharacteristic? TransmittingOmnidirectionalCharacteristic { get; }
 ```
 
 #### Property Value
-[AntennaCharacteristic\(double, double\)](DiGi.Communication.md#DiGi.Communication.AntennaCharacteristic(double,double) 'DiGi\.Communication\.AntennaCharacteristic\(double, double\)')
+[AntennaCharacteristic\(double, double\)](DiGi.Communication.Obselete.Delegates.md#DiGi.Communication.Obselete.Delegates.AntennaCharacteristic(double,double) 'DiGi\.Communication\.Obselete\.Delegates\.AntennaCharacteristic\(double, double\)')
 
 <a name='DiGi.Communication.Obselete.Classes.PropagationResult'></a>
 
@@ -1398,3 +1398,353 @@ public double TotalPower { get; }
 
 #### Property Value
 [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution'></a>
+
+## RayContribution Class
+
+Contribution of a single mesh cell \(cell l of subset k\) to an ellipsoid component: ray directions, antenna gains and reflection coefficients\.
+
+```csharp
+public class RayContribution : DiGi.Core.Classes.SerializableObject, DiGi.Communication.Interfaces.ICommunicationSerializableObject, DiGi.Core.Interfaces.ISerializableObject, DiGi.Core.Interfaces.ICloneableObject<DiGi.Core.Interfaces.ISerializableObject>, DiGi.Core.Interfaces.ICloneableObject, DiGi.Core.Interfaces.IObject, DiGi.Communication.Interfaces.ICommunicationObject
+```
+
+Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → RayContribution
+
+Implements [ICommunicationSerializableObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationSerializableObject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject')
+### Constructors
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution.RayContribution(DiGi.Communication.Obselete.Classes.RayContribution)'></a>
+
+## RayContribution\(RayContribution\) Constructor
+
+Initializes a new instance of the [RayContribution](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.RayContribution 'DiGi\.Communication\.Obselete\.Classes\.RayContribution') class by copying another ray contribution\.
+
+```csharp
+public RayContribution(DiGi.Communication.Obselete.Classes.RayContribution? rayContribution);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution.RayContribution(DiGi.Communication.Obselete.Classes.RayContribution).rayContribution'></a>
+
+`rayContribution` [RayContribution](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.RayContribution 'DiGi\.Communication\.Obselete\.Classes\.RayContribution')
+
+The source ray contribution to copy from\.
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution.RayContribution(double,double,double,double,System.Numerics.Complex,double,double,double,System.Numerics.Complex)'></a>
+
+## RayContribution\(double, double, double, double, Complex, double, double, double, Complex\) Constructor
+
+Initializes a new instance of the [RayContribution](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.RayContribution 'DiGi\.Communication\.Obselete\.Classes\.RayContribution') class\.
+
+```csharp
+public RayContribution(double incidenceAngle, double phiReceiver, double phiTransmitter, double receivingGain, System.Numerics.Complex reflectionCoefficient, double thetaReceiver, double thetaTransmitter, double transmittingGain, System.Numerics.Complex weightedReflectionCoefficient);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution.RayContribution(double,double,double,double,System.Numerics.Complex,double,double,double,System.Numerics.Complex).incidenceAngle'></a>
+
+`incidenceAngle` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+Angle of incidence gamma\_kl \[rad\] of the ray on the cell plane, measured from the plane \(grazing angle\)\.
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution.RayContribution(double,double,double,double,System.Numerics.Complex,double,double,double,System.Numerics.Complex).phiReceiver'></a>
+
+`phiReceiver` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+Azimuth angle phi\_kl \[rad\] of the received ray, with origin at the receiver\.
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution.RayContribution(double,double,double,double,System.Numerics.Complex,double,double,double,System.Numerics.Complex).phiTransmitter'></a>
+
+`phiTransmitter` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+Azimuth angle phi\_Tkl \[rad\] of the emitted ray, with origin at the transmitter\.
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution.RayContribution(double,double,double,double,System.Numerics.Complex,double,double,double,System.Numerics.Complex).receivingGain'></a>
+
+`receivingGain` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+Normalized reception characteristic value g\_0kl of the omnidirectional receiving antenna for the received ray direction \[\-\]\.
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution.RayContribution(double,double,double,double,System.Numerics.Complex,double,double,double,System.Numerics.Complex).reflectionCoefficient'></a>
+
+`reflectionCoefficient` [System\.Numerics\.Complex](https://learn.microsoft.com/en-us/dotnet/api/system.numerics.complex 'System\.Numerics\.Complex')
+
+Complex reflection coefficient Gamma\_kl of the cell \[\-\]\.
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution.RayContribution(double,double,double,double,System.Numerics.Complex,double,double,double,System.Numerics.Complex).thetaReceiver'></a>
+
+`thetaReceiver` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+Polar angle theta\_kl \[rad\] of the received ray, with origin at the receiver\.
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution.RayContribution(double,double,double,double,System.Numerics.Complex,double,double,double,System.Numerics.Complex).thetaTransmitter'></a>
+
+`thetaTransmitter` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+Polar angle theta\_Tkl \[rad\] of the emitted ray, with origin at the transmitter\.
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution.RayContribution(double,double,double,double,System.Numerics.Complex,double,double,double,System.Numerics.Complex).transmittingGain'></a>
+
+`transmittingGain` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+Normalized radiation characteristic value g\_T0kl of the omnidirectional transmitting antenna for the emitted ray direction \[\-\]\.
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution.RayContribution(double,double,double,double,System.Numerics.Complex,double,double,double,System.Numerics.Complex).weightedReflectionCoefficient'></a>
+
+`weightedReflectionCoefficient` [System\.Numerics\.Complex](https://learn.microsoft.com/en-us/dotnet/api/system.numerics.complex 'System\.Numerics\.Complex')
+
+Weighted complex reflection coefficient Gamma'\_kl = g\_T0kl \* g\_0kl \* Gamma\_kl \[\-\]\.
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution.RayContribution(System.Text.Json.Nodes.JsonObject)'></a>
+
+## RayContribution\(JsonObject\) Constructor
+
+Initializes a new instance of the [RayContribution](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.RayContribution 'DiGi\.Communication\.Obselete\.Classes\.RayContribution') class from a JsonObject\.
+
+```csharp
+public RayContribution(System.Text.Json.Nodes.JsonObject? jsonObject);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution.RayContribution(System.Text.Json.Nodes.JsonObject).jsonObject'></a>
+
+`jsonObject` [System\.Text\.Json\.Nodes\.JsonObject](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.nodes.jsonobject 'System\.Text\.Json\.Nodes\.JsonObject')
+
+The JSON object containing serializable data\.
+### Fields
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution.incidenceAngle'></a>
+
+## RayContribution\.incidenceAngle Field
+
+Angle of incidence gamma\_kl \[rad\] of the ray on the cell plane, measured from the plane \(grazing angle\)\.
+
+```csharp
+private readonly double incidenceAngle;
+```
+
+#### Field Value
+[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution.phiReceiver'></a>
+
+## RayContribution\.phiReceiver Field
+
+Azimuth angle phi\_kl \[rad\] of the received ray, with origin at the receiver\.
+
+```csharp
+private readonly double phiReceiver;
+```
+
+#### Field Value
+[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution.phiTransmitter'></a>
+
+## RayContribution\.phiTransmitter Field
+
+Azimuth angle phi\_Tkl \[rad\] of the emitted ray, with origin at the transmitter\.
+
+```csharp
+private readonly double phiTransmitter;
+```
+
+#### Field Value
+[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution.receivingGain'></a>
+
+## RayContribution\.receivingGain Field
+
+Normalized reception characteristic value g\_0kl of the omnidirectional receiving antenna for the received ray direction \[\-\]\.
+
+```csharp
+private readonly double receivingGain;
+```
+
+#### Field Value
+[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution.reflectionCoefficient'></a>
+
+## RayContribution\.reflectionCoefficient Field
+
+Complex reflection coefficient Gamma\_kl of the cell \[\-\]\.
+
+```csharp
+private readonly Complex reflectionCoefficient;
+```
+
+#### Field Value
+[System\.Numerics\.Complex](https://learn.microsoft.com/en-us/dotnet/api/system.numerics.complex 'System\.Numerics\.Complex')
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution.thetaReceiver'></a>
+
+## RayContribution\.thetaReceiver Field
+
+Polar angle theta\_kl \[rad\] of the received ray, with origin at the receiver\.
+
+```csharp
+private readonly double thetaReceiver;
+```
+
+#### Field Value
+[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution.thetaTransmitter'></a>
+
+## RayContribution\.thetaTransmitter Field
+
+Polar angle theta\_Tkl \[rad\] of the emitted ray, with origin at the transmitter\.
+
+```csharp
+private readonly double thetaTransmitter;
+```
+
+#### Field Value
+[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution.transmittingGain'></a>
+
+## RayContribution\.transmittingGain Field
+
+Normalized radiation characteristic value g\_T0kl of the omnidirectional transmitting antenna for the emitted ray direction \[\-\]\.
+
+```csharp
+private readonly double transmittingGain;
+```
+
+#### Field Value
+[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution.weightedReflectionCoefficient'></a>
+
+## RayContribution\.weightedReflectionCoefficient Field
+
+Weighted complex reflection coefficient Gamma'\_kl = g\_T0kl \* g\_0kl \* Gamma\_kl \[\-\]\.
+
+```csharp
+private readonly Complex weightedReflectionCoefficient;
+```
+
+#### Field Value
+[System\.Numerics\.Complex](https://learn.microsoft.com/en-us/dotnet/api/system.numerics.complex 'System\.Numerics\.Complex')
+### Properties
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution.IncidenceAngle'></a>
+
+## RayContribution\.IncidenceAngle Property
+
+Angle of incidence gamma\_kl \[rad\] of the ray on the cell plane, measured from the plane \(grazing angle\)\.
+
+```csharp
+public double IncidenceAngle { get; }
+```
+
+#### Property Value
+[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution.PhiReceiver'></a>
+
+## RayContribution\.PhiReceiver Property
+
+Azimuth angle phi\_kl \[rad\] of the received ray, with origin at the receiver\.
+
+```csharp
+public double PhiReceiver { get; }
+```
+
+#### Property Value
+[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution.PhiTransmitter'></a>
+
+## RayContribution\.PhiTransmitter Property
+
+Azimuth angle phi\_Tkl \[rad\] of the emitted ray, with origin at the transmitter\.
+
+```csharp
+public double PhiTransmitter { get; }
+```
+
+#### Property Value
+[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution.ReceivingGain'></a>
+
+## RayContribution\.ReceivingGain Property
+
+Normalized reception characteristic value g\_0kl of the omnidirectional receiving antenna for the received ray direction \[\-\]\.
+
+```csharp
+public double ReceivingGain { get; }
+```
+
+#### Property Value
+[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution.ReflectionCoefficient'></a>
+
+## RayContribution\.ReflectionCoefficient Property
+
+Complex reflection coefficient Gamma\_kl of the cell \[\-\]\.
+
+```csharp
+public System.Numerics.Complex ReflectionCoefficient { get; }
+```
+
+#### Property Value
+[System\.Numerics\.Complex](https://learn.microsoft.com/en-us/dotnet/api/system.numerics.complex 'System\.Numerics\.Complex')
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution.ThetaReceiver'></a>
+
+## RayContribution\.ThetaReceiver Property
+
+Polar angle theta\_kl \[rad\] of the received ray, with origin at the receiver\.
+
+```csharp
+public double ThetaReceiver { get; }
+```
+
+#### Property Value
+[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution.ThetaTransmitter'></a>
+
+## RayContribution\.ThetaTransmitter Property
+
+Polar angle theta\_Tkl \[rad\] of the emitted ray, with origin at the transmitter\.
+
+```csharp
+public double ThetaTransmitter { get; }
+```
+
+#### Property Value
+[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution.TransmittingGain'></a>
+
+## RayContribution\.TransmittingGain Property
+
+Normalized radiation characteristic value g\_T0kl of the omnidirectional transmitting antenna for the emitted ray direction \[\-\]\.
+
+```csharp
+public double TransmittingGain { get; }
+```
+
+#### Property Value
+[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+<a name='DiGi.Communication.Obselete.Classes.RayContribution.WeightedReflectionCoefficient'></a>
+
+## RayContribution\.WeightedReflectionCoefficient Property
+
+Weighted complex reflection coefficient Gamma'\_kl = g\_T0kl \* g\_0kl \* Gamma\_kl \[\-\]\.
+
+```csharp
+public System.Numerics.Complex WeightedReflectionCoefficient { get; }
+```
+
+#### Property Value
+[System\.Numerics\.Complex](https://learn.microsoft.com/en-us/dotnet/api/system.numerics.complex 'System\.Numerics\.Complex')

@@ -111,60 +111,60 @@ Input data of the multi\-ellipsoidal propagation model\.
 [System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[EllipsoidComponent](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.EllipsoidComponent 'DiGi\.Communication\.Obselete\.Classes\.EllipsoidComponent')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')  
 Ellipsoid components ordered by delay or [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null') for invalid input\.
 
-<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Obselete.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Obselete.Classes.MaterialProperties_)'></a>
+<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Obselete.Enums.Polarization,DiGi.Communication.Obselete.Classes.MaterialProperties,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Obselete.Classes.MaterialProperties_)'></a>
 
 ## Create\.PropagationResult\(this GeometricalPropagationModel, double, Polarization, MaterialProperties, AntennaCharacteristic, AntennaCharacteristic, AntennaCharacteristic, Dictionary\<string,MaterialProperties\>\) Method
 
-Executes the full comparative analysis cascade of the multi\-ellipsoidal propagation model directly from a geometrical propagation model\. The geometrical input is first converted into the input data of the multi\-ellipsoidal propagation model \(see [ToPropagation\_PropagationModel\(this GeometricalPropagationModel, double, Polarization, MaterialProperties, AntennaCharacteristic, AntennaCharacteristic, AntennaCharacteristic, AntennaCharacteristic, Dictionary&lt;string,MaterialProperties&gt;\)](DiGi.Communication.Obselete.Convert.md#DiGi.Communication.Obselete.Convert.Convert.ToPropagation_PropagationModel(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Obselete.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Obselete.Classes.MaterialProperties_) 'DiGi\.Communication\.Obselete\.Convert\.Convert\.ToPropagation\_PropagationModel\(this DiGi\.Communication\.Classes\.GeometricalPropagationModel, double, DiGi\.Communication\.Enums\.Polarization, DiGi\.Communication\.Obselete\.Classes\.MaterialProperties, DiGi\.Communication\.AntennaCharacteristic, DiGi\.Communication\.AntennaCharacteristic, DiGi\.Communication\.AntennaCharacteristic, DiGi\.Communication\.AntennaCharacteristic, System\.Collections\.Generic\.Dictionary\<string,DiGi\.Communication\.Obselete\.Classes\.MaterialProperties\>\)')\) and afterwards the standard three stage cascade is executed\.
+Executes the full comparative analysis cascade of the multi\-ellipsoidal propagation model directly from a geometrical propagation model\. The geometrical input is first converted into the input data of the multi\-ellipsoidal propagation model \(see [ToPropagation\_PropagationModel\(this GeometricalPropagationModel, double, Polarization, MaterialProperties, AntennaCharacteristic, AntennaCharacteristic, AntennaCharacteristic, AntennaCharacteristic, Dictionary&lt;string,MaterialProperties&gt;\)](DiGi.Communication.Obselete.Convert.md#DiGi.Communication.Obselete.Convert.Convert.ToPropagation_PropagationModel(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Obselete.Enums.Polarization,DiGi.Communication.Obselete.Classes.MaterialProperties,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Obselete.Classes.MaterialProperties_) 'DiGi\.Communication\.Obselete\.Convert\.Convert\.ToPropagation\_PropagationModel\(this DiGi\.Communication\.Classes\.GeometricalPropagationModel, double, DiGi\.Communication\.Obselete\.Enums\.Polarization, DiGi\.Communication\.Obselete\.Classes\.MaterialProperties, DiGi\.Communication\.Obselete\.Delegates\.AntennaCharacteristic, DiGi\.Communication\.Obselete\.Delegates\.AntennaCharacteristic, DiGi\.Communication\.Obselete\.Delegates\.AntennaCharacteristic, DiGi\.Communication\.Obselete\.Delegates\.AntennaCharacteristic, System\.Collections\.Generic\.Dictionary\<string,DiGi\.Communication\.Obselete\.Classes\.MaterialProperties\>\)')\) and afterwards the standard three stage cascade is executed\.
 
 ```csharp
-public static DiGi.Communication.Obselete.Classes.PropagationResult? PropagationResult(this DiGi.Communication.Classes.GeometricalPropagationModel? geometricalPropagationModel, double frequency, DiGi.Communication.Enums.Polarization polarization, DiGi.Communication.Obselete.Classes.MaterialProperties? materialProperties, DiGi.Communication.AntennaCharacteristic? receivingDirectionalCharacteristic, DiGi.Communication.AntennaCharacteristic? receivingOmnidirectionalCharacteristic, DiGi.Communication.AntennaCharacteristic? transmittingOmnidirectionalCharacteristic, System.Collections.Generic.Dictionary<string,DiGi.Communication.Obselete.Classes.MaterialProperties>? materialPropertiesDictionary=null);
+public static DiGi.Communication.Obselete.Classes.PropagationResult? PropagationResult(this DiGi.Communication.Classes.GeometricalPropagationModel? geometricalPropagationModel, double frequency, DiGi.Communication.Obselete.Enums.Polarization polarization, DiGi.Communication.Obselete.Classes.MaterialProperties? materialProperties, DiGi.Communication.Obselete.Delegates.AntennaCharacteristic? receivingDirectionalCharacteristic, DiGi.Communication.Obselete.Delegates.AntennaCharacteristic? receivingOmnidirectionalCharacteristic, DiGi.Communication.Obselete.Delegates.AntennaCharacteristic? transmittingOmnidirectionalCharacteristic, System.Collections.Generic.Dictionary<string,DiGi.Communication.Obselete.Classes.MaterialProperties>? materialPropertiesDictionary=null);
 ```
 #### Parameters
 
-<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Obselete.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Obselete.Classes.MaterialProperties_).geometricalPropagationModel'></a>
+<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Obselete.Enums.Polarization,DiGi.Communication.Obselete.Classes.MaterialProperties,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Obselete.Classes.MaterialProperties_).geometricalPropagationModel'></a>
 
 `geometricalPropagationModel` [GeometricalPropagationModel](DiGi.Communication.Classes.md#DiGi.Communication.Classes.GeometricalPropagationModel 'DiGi\.Communication\.Classes\.GeometricalPropagationModel')
 
 Geometrical propagation model holding the antennas, the scattering objects and the multipath power delay profile\.
 
-<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Obselete.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Obselete.Classes.MaterialProperties_).frequency'></a>
+<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Obselete.Enums.Polarization,DiGi.Communication.Obselete.Classes.MaterialProperties,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Obselete.Classes.MaterialProperties_).frequency'></a>
 
 `frequency` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
 
 Frequency f of the propagating electromagnetic wave \[MHz\]\.
 
-<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Obselete.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Obselete.Classes.MaterialProperties_).polarization'></a>
+<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Obselete.Enums.Polarization,DiGi.Communication.Obselete.Classes.MaterialProperties,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Obselete.Classes.MaterialProperties_).polarization'></a>
 
-`polarization` [Polarization](DiGi.Communication.Enums.md#DiGi.Communication.Enums.Polarization 'DiGi\.Communication\.Enums\.Polarization')
+`polarization` [Polarization](DiGi.Communication.Obselete.Enums.md#DiGi.Communication.Obselete.Enums.Polarization 'DiGi\.Communication\.Obselete\.Enums\.Polarization')
 
 Polarization type of the propagating electromagnetic wave\.
 
-<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Obselete.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Obselete.Classes.MaterialProperties_).materialProperties'></a>
+<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Obselete.Enums.Polarization,DiGi.Communication.Obselete.Classes.MaterialProperties,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Obselete.Classes.MaterialProperties_).materialProperties'></a>
 
 `materialProperties` [MaterialProperties](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.MaterialProperties 'DiGi\.Communication\.Obselete\.Classes\.MaterialProperties')
 
 Default electrical material properties applied to the mesh cells of the scattering objects\.
 
-<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Obselete.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Obselete.Classes.MaterialProperties_).receivingDirectionalCharacteristic'></a>
+<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Obselete.Enums.Polarization,DiGi.Communication.Obselete.Classes.MaterialProperties,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Obselete.Classes.MaterialProperties_).receivingDirectionalCharacteristic'></a>
 
-`receivingDirectionalCharacteristic` [AntennaCharacteristic\(double, double\)](DiGi.Communication.md#DiGi.Communication.AntennaCharacteristic(double,double) 'DiGi\.Communication\.AntennaCharacteristic\(double, double\)')
+`receivingDirectionalCharacteristic` [AntennaCharacteristic\(double, double\)](DiGi.Communication.Obselete.Delegates.md#DiGi.Communication.Obselete.Delegates.AntennaCharacteristic(double,double) 'DiGi\.Communication\.Obselete\.Delegates\.AntennaCharacteristic\(double, double\)')
 
 Normalized reception characteristic g\(theta, phi\) of the directional receiving antenna\.
 
-<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Obselete.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Obselete.Classes.MaterialProperties_).receivingOmnidirectionalCharacteristic'></a>
+<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Obselete.Enums.Polarization,DiGi.Communication.Obselete.Classes.MaterialProperties,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Obselete.Classes.MaterialProperties_).receivingOmnidirectionalCharacteristic'></a>
 
-`receivingOmnidirectionalCharacteristic` [AntennaCharacteristic\(double, double\)](DiGi.Communication.md#DiGi.Communication.AntennaCharacteristic(double,double) 'DiGi\.Communication\.AntennaCharacteristic\(double, double\)')
+`receivingOmnidirectionalCharacteristic` [AntennaCharacteristic\(double, double\)](DiGi.Communication.Obselete.Delegates.md#DiGi.Communication.Obselete.Delegates.AntennaCharacteristic(double,double) 'DiGi\.Communication\.Obselete\.Delegates\.AntennaCharacteristic\(double, double\)')
 
 Normalized reception characteristic g\_0\(theta, phi\) of the omnidirectional receiving antenna\.
 
-<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Obselete.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Obselete.Classes.MaterialProperties_).transmittingOmnidirectionalCharacteristic'></a>
+<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Obselete.Enums.Polarization,DiGi.Communication.Obselete.Classes.MaterialProperties,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Obselete.Classes.MaterialProperties_).transmittingOmnidirectionalCharacteristic'></a>
 
-`transmittingOmnidirectionalCharacteristic` [AntennaCharacteristic\(double, double\)](DiGi.Communication.md#DiGi.Communication.AntennaCharacteristic(double,double) 'DiGi\.Communication\.AntennaCharacteristic\(double, double\)')
+`transmittingOmnidirectionalCharacteristic` [AntennaCharacteristic\(double, double\)](DiGi.Communication.Obselete.Delegates.md#DiGi.Communication.Obselete.Delegates.AntennaCharacteristic(double,double) 'DiGi\.Communication\.Obselete\.Delegates\.AntennaCharacteristic\(double, double\)')
 
 Normalized radiation characteristic g\_T0\(theta, phi\) of the omnidirectional transmitting antenna\.
 
-<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Obselete.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Obselete.Classes.MaterialProperties_).materialPropertiesDictionary'></a>
+<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Obselete.Enums.Polarization,DiGi.Communication.Obselete.Classes.MaterialProperties,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,DiGi.Communication.Obselete.Delegates.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Obselete.Classes.MaterialProperties_).materialPropertiesDictionary'></a>
 
 `materialPropertiesDictionary` [System\.Collections\.Generic\.Dictionary&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2 'System\.Collections\.Generic\.Dictionary\`2')[System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')[,](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2 'System\.Collections\.Generic\.Dictionary\`2')[MaterialProperties](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.MaterialProperties 'DiGi\.Communication\.Obselete\.Classes\.MaterialProperties')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2 'System\.Collections\.Generic\.Dictionary\`2')
 
@@ -416,7 +416,7 @@ An optional collection of reference strings to further filter the results\.
 [System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[DiGi\.Geometry\.Spatial\.Classes\.Polyline3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.polyline3d 'DiGi\.Geometry\.Spatial\.Classes\.Polyline3D')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')  
 A list of [DiGi\.Geometry\.Spatial\.Classes\.Polyline3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.polyline3d 'DiGi\.Geometry\.Spatial\.Classes\.Polyline3D') objects if successful; otherwise, `null` if the scattering profile is null\.
 
-<a name='DiGi.Communication.Query.ReflectionCoefficient(System.Numerics.Complex,double,DiGi.Communication.Enums.Polarization)'></a>
+<a name='DiGi.Communication.Query.ReflectionCoefficient(System.Numerics.Complex,double,DiGi.Communication.Obselete.Enums.Polarization)'></a>
 
 ## Query\.ReflectionCoefficient\(Complex, double, Polarization\) Method
 
@@ -427,25 +427,25 @@ Vertical: Gamma = (epsilon' * sin(gamma) - sqrt(epsilon' - cos^2(gamma))) / (eps
 Horizontal: Gamma = (sin(gamma) - sqrt(epsilon' - cos^2(gamma))) / (sin(gamma) + sqrt(epsilon' - cos^2(gamma))).
 
 ```csharp
-public static System.Numerics.Complex ReflectionCoefficient(System.Numerics.Complex complexRelativePermittivity, double incidenceAngle, DiGi.Communication.Enums.Polarization polarization);
+public static System.Numerics.Complex ReflectionCoefficient(System.Numerics.Complex complexRelativePermittivity, double incidenceAngle, DiGi.Communication.Obselete.Enums.Polarization polarization);
 ```
 #### Parameters
 
-<a name='DiGi.Communication.Query.ReflectionCoefficient(System.Numerics.Complex,double,DiGi.Communication.Enums.Polarization).complexRelativePermittivity'></a>
+<a name='DiGi.Communication.Query.ReflectionCoefficient(System.Numerics.Complex,double,DiGi.Communication.Obselete.Enums.Polarization).complexRelativePermittivity'></a>
 
 `complexRelativePermittivity` [System\.Numerics\.Complex](https://learn.microsoft.com/en-us/dotnet/api/system.numerics.complex 'System\.Numerics\.Complex')
 
 Complex relative electrical permittivity epsilon'\_k of the object \[\-\]\.
 
-<a name='DiGi.Communication.Query.ReflectionCoefficient(System.Numerics.Complex,double,DiGi.Communication.Enums.Polarization).incidenceAngle'></a>
+<a name='DiGi.Communication.Query.ReflectionCoefficient(System.Numerics.Complex,double,DiGi.Communication.Obselete.Enums.Polarization).incidenceAngle'></a>
 
 `incidenceAngle` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
 
 Angle of incidence gamma\_kl \[rad\] measured from the cell plane \(grazing angle\)\.
 
-<a name='DiGi.Communication.Query.ReflectionCoefficient(System.Numerics.Complex,double,DiGi.Communication.Enums.Polarization).polarization'></a>
+<a name='DiGi.Communication.Query.ReflectionCoefficient(System.Numerics.Complex,double,DiGi.Communication.Obselete.Enums.Polarization).polarization'></a>
 
-`polarization` [Polarization](DiGi.Communication.Enums.md#DiGi.Communication.Enums.Polarization 'DiGi\.Communication\.Enums\.Polarization')
+`polarization` [Polarization](DiGi.Communication.Obselete.Enums.md#DiGi.Communication.Obselete.Enums.Polarization 'DiGi\.Communication\.Obselete\.Enums\.Polarization')
 
 Polarization type of the propagating electromagnetic wave\.
 
@@ -623,31 +623,3 @@ Frequency f of the propagating electromagnetic wave \[MHz\]\.
 #### Returns
 [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')  
 Wavelength \[m\] or [System\.Double\.NaN](https://learn.microsoft.com/en-us/dotnet/api/system.double.nan 'System\.Double\.NaN') for a non\-positive frequency\.
-### Delegates
-
-<a name='DiGi.Communication.AntennaCharacteristic(double,double)'></a>
-
-## AntennaCharacteristic\(double, double\) Delegate
-
-Normalized antenna radiation characteristic g\(theta, phi\)\. The normalization condition is the integral of \|g\(theta, phi\)\|^2 over the full solid angle equal to 1\.
-
-```csharp
-public delegate double AntennaCharacteristic(double theta, double phi);
-```
-#### Parameters
-
-<a name='DiGi.Communication.AntennaCharacteristic(double,double).theta'></a>
-
-`theta` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
-
-Polar angle theta \[rad\] measured from the OZ axis\.
-
-<a name='DiGi.Communication.AntennaCharacteristic(double,double).phi'></a>
-
-`phi` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
-
-Azimuth angle phi \[rad\] measured in the XOY plane from the OX axis\.
-
-#### Returns
-[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')  
-Value of the normalized radiation characteristic for the given direction\.
