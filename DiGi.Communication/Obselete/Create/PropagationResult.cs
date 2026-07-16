@@ -1,5 +1,8 @@
 using DiGi.Communication.Classes;
-using DiGi.Communication.Enums;
+using DiGi.Communication.Obselete.Classes;
+using DiGi.Communication.Obselete.Convert;
+using DiGi.Communication.Obselete.Delegates;
+using DiGi.Communication.Obselete.Enums;
 using System.Collections.Generic;
 
 namespace DiGi.Communication

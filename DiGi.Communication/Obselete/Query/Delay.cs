@@ -1,4 +1,5 @@
-using DiGi.Communication.Classes;
+using DiGi.Communication.Constants;
+using DiGi.Communication.Obselete.Classes;
 using DiGi.Geometry.Spatial.Classes;
 
 namespace DiGi.Communication
@@ -25,7 +26,7 @@ namespace DiGi.Communication
             double distance_Transmitter = center.Distance(point3D_Transmitter);
             double distance_Receiver = center.Distance(point3D_Receiver);
 
-            return (distance_Transmitter + distance_Receiver - distance) / Constants.Physical.LightSpeed;
+            return (distance_Transmitter + distance_Receiver - distance) / Physical.LightSpeed;
         }
     }
 }

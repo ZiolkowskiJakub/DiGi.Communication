@@ -4,7 +4,7 @@ using DiGi.Geometry.Spatial.Classes;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 
-namespace DiGi.Communication.Classes
+namespace DiGi.Communication.Obselete.Classes
 {
     /// <summary>
     /// Triangular spatial cell of the scattering object mesh. Coordinates are expressed in the model coordinate system: the transmitter is placed at the origin, the transmitter-receiver direction determines the OX axis and the earth surface forms the XOY plane.

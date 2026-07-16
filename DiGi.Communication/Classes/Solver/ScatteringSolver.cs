@@ -1,3 +1,4 @@
+using DiGi.Communication.Constants;
 using DiGi.Communication.Interfaces;
 using DiGi.Core.Interfaces;
 using DiGi.Geometry.Spatial;
@@ -1046,7 +1047,7 @@ namespace DiGi.Communication.Classes
                         return;
                     }
 
-                    double sumDistance_Delay = (Constants.Physical.LightSpeed * delay) + distance_Antennas;
+                    double sumDistance_Delay = (Physical.LightSpeed * delay) + distance_Antennas;
 
                     for (int j = triangle3Ds_Ellipsoid.Count - 1; j >= 0; j--)
                     {
@@ -1147,7 +1148,7 @@ namespace DiGi.Communication.Classes
                     List<ScatteringPointGroup> scatteringPointGroups = [];
                     List<IntersectionSegment> intersectionSegments = [];
 
-                    double sumDistance_Delay = (Constants.Physical.LightSpeed * delay) + distance_Antennas;
+                    double sumDistance_Delay = (Physical.LightSpeed * delay) + distance_Antennas;
 
                     foreach (Triangle3D triangleEllipsoid in triangle3Ds_Ellipsoid)
                     {

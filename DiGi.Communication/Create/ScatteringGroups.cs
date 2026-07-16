@@ -15,7 +15,7 @@ namespace DiGi.Communication
         /// <param name="scatteringObjects">The scattering objects to group. If <see langword="null"/>, ungrouped scattering objects of the <paramref name="geometricalPropagationModel"/> are used.</param>
         /// <param name="tolerance">The distance tolerance [m] by which bounding boxes are expanded while testing for intersection.</param>
         /// <returns>The created scattering groups if any; otherwise, <see langword="null"/>.</returns>
-        public static IEnumerable<IScatteringGroup>? CreateScatteringGroups(this GeometricalPropagationModel? geometricalPropagationModel, IEnumerable<IScatteringObject>? scatteringObjects = null, double tolerance = Tolerance.Distance)
+        public static IEnumerable<IScatteringGroup>? ScatteringGroups(this GeometricalPropagationModel? geometricalPropagationModel, IEnumerable<IScatteringObject>? scatteringObjects = null, double tolerance = Tolerance.Distance)
         {
             if (geometricalPropagationModel is null)
             {

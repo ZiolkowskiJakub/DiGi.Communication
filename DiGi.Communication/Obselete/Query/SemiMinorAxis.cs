@@ -1,3 +1,4 @@
+using DiGi.Communication.Constants;
 using System;
 
 namespace DiGi.Communication
@@ -17,7 +18,7 @@ namespace DiGi.Communication
                 return double.NaN;
             }
 
-            double delayDistance = Constants.Physical.LightSpeed * delay;
+            double delayDistance = Physical.LightSpeed * delay;
 
             return 0.5 * Math.Sqrt(delayDistance * (delayDistance + (2.0 * distance)));
         }

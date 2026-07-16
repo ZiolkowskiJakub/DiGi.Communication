@@ -1,4 +1,5 @@
-﻿using DiGi.Communication.Interfaces;
+using DiGi.Communication.Constants;
+using DiGi.Communication.Interfaces;
 using DiGi.Core.Constants;
 using DiGi.Geometry.Spatial;
 using DiGi.Geometry.Spatial.Classes;
@@ -58,8 +59,8 @@ namespace DiGi.Communication
                 return null;
             }
 
-            double a = ((Constants.Physical.LightSpeed * delay) + distance) / 2;
-            double b = System.Math.Sqrt(Constants.Physical.LightSpeed * delay * ((Constants.Physical.LightSpeed * delay) + (2 * distance))) / 2;
+            double a = ((Physical.LightSpeed * delay) + distance) / 2;
+            double b = System.Math.Sqrt(Physical.LightSpeed * delay * ((Physical.LightSpeed * delay) + (2 * distance))) / 2;
 
             Point3D? center = location_1.Mid(location_2);
 

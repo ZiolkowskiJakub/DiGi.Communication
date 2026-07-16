@@ -3,7 +3,7 @@ using DiGi.Core.Classes;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 
-namespace DiGi.Communication.Classes
+namespace DiGi.Communication.Obselete.Classes
 {
     /// <summary>
     /// Ray arriving at the receiving antenna: an arrival direction (theta, phi) with its assigned corrected power p_nkl.

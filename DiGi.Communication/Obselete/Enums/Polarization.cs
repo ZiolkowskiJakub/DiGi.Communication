@@ -1,4 +1,4 @@
-namespace DiGi.Communication.Enums
+namespace DiGi.Communication.Obselete.Enums
 {
     /// <summary>
     /// Polarization type of a propagating electromagnetic wave.

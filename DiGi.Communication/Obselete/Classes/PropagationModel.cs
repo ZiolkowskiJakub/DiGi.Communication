@@ -1,11 +1,13 @@
-using DiGi.Communication.Enums;
+using DiGi.Communication.Classes;
 using DiGi.Communication.Interfaces;
+using DiGi.Communication.Obselete.Delegates;
+using DiGi.Communication.Obselete.Enums;
 using DiGi.Core.Classes;
 using System.Collections.Generic;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 
-namespace DiGi.Communication.Classes
+namespace DiGi.Communication.Obselete.Classes
 {
     /// <summary>
     /// Input data of the multi-ellipsoidal propagation model. The model coordinate system places the transmitter (Tx) at the origin, the receiver (Rx) at (Distance, 0, 0) — the Tx-Rx direction determines the OX axis — and the earth surface forms the XOY plane.

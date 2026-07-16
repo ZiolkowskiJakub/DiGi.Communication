@@ -1,10 +1,13 @@
 using DiGi.Communication.Classes;
 using DiGi.Communication.Enums;
+using DiGi.Communication.Obselete.Classes;
+using DiGi.Communication.Obselete.Delegates;
+using DiGi.Communication.Obselete.Enums;
 using DiGi.Geometry.Spatial.Classes;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DiGi.Communication
+namespace DiGi.Communication.Obselete.Convert
 {
     public static partial class Convert
     {

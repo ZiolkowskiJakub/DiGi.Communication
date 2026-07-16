@@ -5,7 +5,7 @@ using System.Numerics;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 
-namespace DiGi.Communication.Classes
+namespace DiGi.Communication.Obselete.Classes
 {
     /// <summary>
     /// Power component P_n of a single propagation ellipsoid related to the delay tau_n of the Power Delay Profile.

@@ -1,4 +1,6 @@
 using DiGi.Communication.Classes;
+using DiGi.Communication.Obselete.Classes;
+using DiGi.Communication.Obselete.Delegates;
 using DiGi.Geometry.Spatial.Classes;
 using System;
 using System.Collections.Generic;

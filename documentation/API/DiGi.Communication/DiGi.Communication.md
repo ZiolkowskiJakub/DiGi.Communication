@@ -3,90 +3,6 @@
 ## DiGi\.Communication Namespace
 ### Classes
 
-<a name='DiGi.Communication.Convert'></a>
-
-## Convert Class
-
-```csharp
-public static class Convert
-```
-
-Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → Convert
-### Methods
-
-<a name='DiGi.Communication.Convert.ToPropagation_PropagationModel(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Classes.MaterialProperties_)'></a>
-
-## Convert\.ToPropagation\_PropagationModel\(this GeometricalPropagationModel, double, Polarization, MaterialProperties, AntennaCharacteristic, AntennaCharacteristic, AntennaCharacteristic, AntennaCharacteristic, Dictionary\<string,MaterialProperties\>\) Method
-
-Converts a geometrical propagation model into the input data of the multi\-ellipsoidal propagation model\.
-
-The transmitter-receiver distance is taken from the locations of the transmitting and receiving antennas assigned to the first simple multipath power delay profile of the geometrical propagation model. The mesh cells of the scattering objects are expressed in the model coordinate system: the transmitter at the origin, the OX axis towards the receiver and the OZ axis as close to the world vertical as possible. The fractional powers of the power delay profile are normalized so they sum to 1.
-
-The frequency, polarization, electrical material properties and antenna characteristics are not part of the geometrical propagation model and have to be provided separately.
-
-```csharp
-public static DiGi.Communication.Classes.PropagationModel? ToPropagation_PropagationModel(this DiGi.Communication.Classes.GeometricalPropagationModel? geometricalPropagationModel, double frequency, DiGi.Communication.Enums.Polarization polarization, DiGi.Communication.Classes.MaterialProperties? materialProperties, DiGi.Communication.AntennaCharacteristic? receivingDirectionalCharacteristic, DiGi.Communication.AntennaCharacteristic? receivingOmnidirectionalCharacteristic, DiGi.Communication.AntennaCharacteristic? transmittingDirectionalCharacteristic, DiGi.Communication.AntennaCharacteristic? transmittingOmnidirectionalCharacteristic, System.Collections.Generic.Dictionary<string,DiGi.Communication.Classes.MaterialProperties>? materialPropertiesDictionary=null);
-```
-#### Parameters
-
-<a name='DiGi.Communication.Convert.ToPropagation_PropagationModel(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Classes.MaterialProperties_).geometricalPropagationModel'></a>
-
-`geometricalPropagationModel` [GeometricalPropagationModel](DiGi.Communication.Classes.md#DiGi.Communication.Classes.GeometricalPropagationModel 'DiGi\.Communication\.Classes\.GeometricalPropagationModel')
-
-Geometrical propagation model holding the antennas, the scattering objects and the multipath power delay profile\.
-
-<a name='DiGi.Communication.Convert.ToPropagation_PropagationModel(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Classes.MaterialProperties_).frequency'></a>
-
-`frequency` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
-
-Frequency f of the propagating electromagnetic wave \[MHz\]\.
-
-<a name='DiGi.Communication.Convert.ToPropagation_PropagationModel(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Classes.MaterialProperties_).polarization'></a>
-
-`polarization` [Polarization](DiGi.Communication.Enums.md#DiGi.Communication.Enums.Polarization 'DiGi\.Communication\.Enums\.Polarization')
-
-Polarization type of the propagating electromagnetic wave\.
-
-<a name='DiGi.Communication.Convert.ToPropagation_PropagationModel(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Classes.MaterialProperties_).materialProperties'></a>
-
-`materialProperties` [MaterialProperties](DiGi.Communication.Classes.md#DiGi.Communication.Classes.MaterialProperties 'DiGi\.Communication\.Classes\.MaterialProperties')
-
-Default electrical material properties applied to the mesh cells of the scattering objects\.
-
-<a name='DiGi.Communication.Convert.ToPropagation_PropagationModel(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Classes.MaterialProperties_).receivingDirectionalCharacteristic'></a>
-
-`receivingDirectionalCharacteristic` [AntennaCharacteristic\(double, double\)](DiGi.Communication.md#DiGi.Communication.AntennaCharacteristic(double,double) 'DiGi\.Communication\.AntennaCharacteristic\(double, double\)')
-
-Normalized reception characteristic g\(theta, phi\) of the directional receiving antenna\.
-
-<a name='DiGi.Communication.Convert.ToPropagation_PropagationModel(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Classes.MaterialProperties_).receivingOmnidirectionalCharacteristic'></a>
-
-`receivingOmnidirectionalCharacteristic` [AntennaCharacteristic\(double, double\)](DiGi.Communication.md#DiGi.Communication.AntennaCharacteristic(double,double) 'DiGi\.Communication\.AntennaCharacteristic\(double, double\)')
-
-Normalized reception characteristic g\_0\(theta, phi\) of the omnidirectional receiving antenna\.
-
-<a name='DiGi.Communication.Convert.ToPropagation_PropagationModel(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Classes.MaterialProperties_).transmittingDirectionalCharacteristic'></a>
-
-`transmittingDirectionalCharacteristic` [AntennaCharacteristic\(double, double\)](DiGi.Communication.md#DiGi.Communication.AntennaCharacteristic(double,double) 'DiGi\.Communication\.AntennaCharacteristic\(double, double\)')
-
-Normalized radiation characteristic g\_T\(theta, phi\) of the directional transmitting antenna\.
-
-<a name='DiGi.Communication.Convert.ToPropagation_PropagationModel(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Classes.MaterialProperties_).transmittingOmnidirectionalCharacteristic'></a>
-
-`transmittingOmnidirectionalCharacteristic` [AntennaCharacteristic\(double, double\)](DiGi.Communication.md#DiGi.Communication.AntennaCharacteristic(double,double) 'DiGi\.Communication\.AntennaCharacteristic\(double, double\)')
-
-Normalized radiation characteristic g\_T0\(theta, phi\) of the omnidirectional transmitting antenna\.
-
-<a name='DiGi.Communication.Convert.ToPropagation_PropagationModel(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Classes.MaterialProperties_).materialPropertiesDictionary'></a>
-
-`materialPropertiesDictionary` [System\.Collections\.Generic\.Dictionary&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2 'System\.Collections\.Generic\.Dictionary\`2')[System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')[,](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2 'System\.Collections\.Generic\.Dictionary\`2')[MaterialProperties](DiGi.Communication.Classes.md#DiGi.Communication.Classes.MaterialProperties 'DiGi\.Communication\.Classes\.MaterialProperties')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2 'System\.Collections\.Generic\.Dictionary\`2')
-
-Optional electrical material properties per scattering object keyed by the scattering object reference\. Scattering objects without an entry use the default material properties\.
-
-#### Returns
-[PropagationModel](DiGi.Communication.Classes.md#DiGi.Communication.Classes.PropagationModel 'DiGi\.Communication\.Classes\.PropagationModel')  
-Input data of the multi\-ellipsoidal propagation model or [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null') for invalid input\.
-
 <a name='DiGi.Communication.Create'></a>
 
 ## Create Class
@@ -97,39 +13,6 @@ public static class Create
 
 Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → Create
 ### Methods
-
-<a name='DiGi.Communication.Create.CreateScatteringGroups(thisDiGi.Communication.Classes.GeometricalPropagationModel,System.Collections.Generic.IEnumerable_DiGi.Communication.Interfaces.IScatteringObject_,double)'></a>
-
-## Create\.CreateScatteringGroups\(this GeometricalPropagationModel, IEnumerable\<IScatteringObject\>, double\) Method
-
-Creates scattering groups by clustering scattering objects into connected components based on intersection of their bounding boxes expanded by the given tolerance\.
-
-```csharp
-public static System.Collections.Generic.IEnumerable<DiGi.Communication.Interfaces.IScatteringGroup>? CreateScatteringGroups(this DiGi.Communication.Classes.GeometricalPropagationModel? geometricalPropagationModel, System.Collections.Generic.IEnumerable<DiGi.Communication.Interfaces.IScatteringObject>? scatteringObjects=null, double tolerance=1E-06);
-```
-#### Parameters
-
-<a name='DiGi.Communication.Create.CreateScatteringGroups(thisDiGi.Communication.Classes.GeometricalPropagationModel,System.Collections.Generic.IEnumerable_DiGi.Communication.Interfaces.IScatteringObject_,double).geometricalPropagationModel'></a>
-
-`geometricalPropagationModel` [GeometricalPropagationModel](DiGi.Communication.Classes.md#DiGi.Communication.Classes.GeometricalPropagationModel 'DiGi\.Communication\.Classes\.GeometricalPropagationModel')
-
-The geometrical propagation model providing the scattering objects when [scatteringObjects](DiGi.Communication.md#DiGi.Communication.Create.CreateScatteringGroups(thisDiGi.Communication.Classes.GeometricalPropagationModel,System.Collections.Generic.IEnumerable_DiGi.Communication.Interfaces.IScatteringObject_,double).scatteringObjects 'DiGi\.Communication\.Create\.CreateScatteringGroups\(this DiGi\.Communication\.Classes\.GeometricalPropagationModel, System\.Collections\.Generic\.IEnumerable\<DiGi\.Communication\.Interfaces\.IScatteringObject\>, double\)\.scatteringObjects') is [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null')\.
-
-<a name='DiGi.Communication.Create.CreateScatteringGroups(thisDiGi.Communication.Classes.GeometricalPropagationModel,System.Collections.Generic.IEnumerable_DiGi.Communication.Interfaces.IScatteringObject_,double).scatteringObjects'></a>
-
-`scatteringObjects` [System\.Collections\.Generic\.IEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')[IScatteringObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringObject 'DiGi\.Communication\.Interfaces\.IScatteringObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')
-
-The scattering objects to group\. If [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null'), ungrouped scattering objects of the [geometricalPropagationModel](DiGi.Communication.md#DiGi.Communication.Create.CreateScatteringGroups(thisDiGi.Communication.Classes.GeometricalPropagationModel,System.Collections.Generic.IEnumerable_DiGi.Communication.Interfaces.IScatteringObject_,double).geometricalPropagationModel 'DiGi\.Communication\.Create\.CreateScatteringGroups\(this DiGi\.Communication\.Classes\.GeometricalPropagationModel, System\.Collections\.Generic\.IEnumerable\<DiGi\.Communication\.Interfaces\.IScatteringObject\>, double\)\.geometricalPropagationModel') are used\.
-
-<a name='DiGi.Communication.Create.CreateScatteringGroups(thisDiGi.Communication.Classes.GeometricalPropagationModel,System.Collections.Generic.IEnumerable_DiGi.Communication.Interfaces.IScatteringObject_,double).tolerance'></a>
-
-`tolerance` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
-
-The distance tolerance \[m\] by which bounding boxes are expanded while testing for intersection\.
-
-#### Returns
-[System\.Collections\.Generic\.IEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')[IScatteringGroup](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringGroup 'DiGi\.Communication\.Interfaces\.IScatteringGroup')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')  
-The created scattering groups if any; otherwise, [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null')\.
 
 <a name='DiGi.Communication.Create.Ellipsoid(DiGi.Communication.Interfaces.IAntenna,DiGi.Communication.Interfaces.IAntenna,double,double)'></a>
 
@@ -207,91 +90,91 @@ Tolerance \[m\]
 #### Returns
 [DiGi\.Geometry\.Spatial\.Classes\.Ellipsoid](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.ellipsoid 'DiGi\.Geometry\.Spatial\.Classes\.Ellipsoid')
 
-<a name='DiGi.Communication.Create.EllipsoidComponents(thisDiGi.Communication.Classes.PropagationModel)'></a>
+<a name='DiGi.Communication.Create.EllipsoidComponents(thisDiGi.Communication.Obselete.Classes.PropagationModel)'></a>
 
 ## Create\.EllipsoidComponents\(this PropagationModel\) Method
 
 Stage I of the multi\-ellipsoidal model: determines the power components P\_n from the individual propagation ellipsoids\. Each mesh cell is assigned to the ellipsoid with the nearest delay, the complex reflection coefficients are weighted by the omnidirectional antenna characteristics and summed per ellipsoid\.
 
 ```csharp
-public static System.Collections.Generic.List<DiGi.Communication.Classes.EllipsoidComponent>? EllipsoidComponents(this DiGi.Communication.Classes.PropagationModel? propagationModel);
+public static System.Collections.Generic.List<DiGi.Communication.Obselete.Classes.EllipsoidComponent>? EllipsoidComponents(this DiGi.Communication.Obselete.Classes.PropagationModel? propagationModel);
 ```
 #### Parameters
 
-<a name='DiGi.Communication.Create.EllipsoidComponents(thisDiGi.Communication.Classes.PropagationModel).propagationModel'></a>
+<a name='DiGi.Communication.Create.EllipsoidComponents(thisDiGi.Communication.Obselete.Classes.PropagationModel).propagationModel'></a>
 
-`propagationModel` [PropagationModel](DiGi.Communication.Classes.md#DiGi.Communication.Classes.PropagationModel 'DiGi\.Communication\.Classes\.PropagationModel')
+`propagationModel` [PropagationModel](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.PropagationModel 'DiGi\.Communication\.Obselete\.Classes\.PropagationModel')
 
 Input data of the multi\-ellipsoidal propagation model\.
 
 #### Returns
-[System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[EllipsoidComponent](DiGi.Communication.Classes.md#DiGi.Communication.Classes.EllipsoidComponent 'DiGi\.Communication\.Classes\.EllipsoidComponent')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')  
+[System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[EllipsoidComponent](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.EllipsoidComponent 'DiGi\.Communication\.Obselete\.Classes\.EllipsoidComponent')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')  
 Ellipsoid components ordered by delay or [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null') for invalid input\.
 
-<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Classes.MaterialProperties_)'></a>
+<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Obselete.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Obselete.Classes.MaterialProperties_)'></a>
 
 ## Create\.PropagationResult\(this GeometricalPropagationModel, double, Polarization, MaterialProperties, AntennaCharacteristic, AntennaCharacteristic, AntennaCharacteristic, Dictionary\<string,MaterialProperties\>\) Method
 
-Executes the full comparative analysis cascade of the multi\-ellipsoidal propagation model directly from a geometrical propagation model\. The geometrical input is first converted into the input data of the multi\-ellipsoidal propagation model \(see [ToPropagation\_PropagationModel\(this GeometricalPropagationModel, double, Polarization, MaterialProperties, AntennaCharacteristic, AntennaCharacteristic, AntennaCharacteristic, AntennaCharacteristic, Dictionary&lt;string,MaterialProperties&gt;\)](DiGi.Communication.md#DiGi.Communication.Convert.ToPropagation_PropagationModel(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Classes.MaterialProperties_) 'DiGi\.Communication\.Convert\.ToPropagation\_PropagationModel\(this DiGi\.Communication\.Classes\.GeometricalPropagationModel, double, DiGi\.Communication\.Enums\.Polarization, DiGi\.Communication\.Classes\.MaterialProperties, DiGi\.Communication\.AntennaCharacteristic, DiGi\.Communication\.AntennaCharacteristic, DiGi\.Communication\.AntennaCharacteristic, DiGi\.Communication\.AntennaCharacteristic, System\.Collections\.Generic\.Dictionary\<string,DiGi\.Communication\.Classes\.MaterialProperties\>\)')\) and afterwards the standard three stage cascade is executed\.
+Executes the full comparative analysis cascade of the multi\-ellipsoidal propagation model directly from a geometrical propagation model\. The geometrical input is first converted into the input data of the multi\-ellipsoidal propagation model \(see [ToPropagation\_PropagationModel\(this GeometricalPropagationModel, double, Polarization, MaterialProperties, AntennaCharacteristic, AntennaCharacteristic, AntennaCharacteristic, AntennaCharacteristic, Dictionary&lt;string,MaterialProperties&gt;\)](DiGi.Communication.Obselete.Convert.md#DiGi.Communication.Obselete.Convert.Convert.ToPropagation_PropagationModel(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Obselete.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Obselete.Classes.MaterialProperties_) 'DiGi\.Communication\.Obselete\.Convert\.Convert\.ToPropagation\_PropagationModel\(this DiGi\.Communication\.Classes\.GeometricalPropagationModel, double, DiGi\.Communication\.Enums\.Polarization, DiGi\.Communication\.Obselete\.Classes\.MaterialProperties, DiGi\.Communication\.AntennaCharacteristic, DiGi\.Communication\.AntennaCharacteristic, DiGi\.Communication\.AntennaCharacteristic, DiGi\.Communication\.AntennaCharacteristic, System\.Collections\.Generic\.Dictionary\<string,DiGi\.Communication\.Obselete\.Classes\.MaterialProperties\>\)')\) and afterwards the standard three stage cascade is executed\.
 
 ```csharp
-public static DiGi.Communication.Classes.PropagationResult? PropagationResult(this DiGi.Communication.Classes.GeometricalPropagationModel? geometricalPropagationModel, double frequency, DiGi.Communication.Enums.Polarization polarization, DiGi.Communication.Classes.MaterialProperties? materialProperties, DiGi.Communication.AntennaCharacteristic? receivingDirectionalCharacteristic, DiGi.Communication.AntennaCharacteristic? receivingOmnidirectionalCharacteristic, DiGi.Communication.AntennaCharacteristic? transmittingOmnidirectionalCharacteristic, System.Collections.Generic.Dictionary<string,DiGi.Communication.Classes.MaterialProperties>? materialPropertiesDictionary=null);
+public static DiGi.Communication.Obselete.Classes.PropagationResult? PropagationResult(this DiGi.Communication.Classes.GeometricalPropagationModel? geometricalPropagationModel, double frequency, DiGi.Communication.Enums.Polarization polarization, DiGi.Communication.Obselete.Classes.MaterialProperties? materialProperties, DiGi.Communication.AntennaCharacteristic? receivingDirectionalCharacteristic, DiGi.Communication.AntennaCharacteristic? receivingOmnidirectionalCharacteristic, DiGi.Communication.AntennaCharacteristic? transmittingOmnidirectionalCharacteristic, System.Collections.Generic.Dictionary<string,DiGi.Communication.Obselete.Classes.MaterialProperties>? materialPropertiesDictionary=null);
 ```
 #### Parameters
 
-<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Classes.MaterialProperties_).geometricalPropagationModel'></a>
+<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Obselete.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Obselete.Classes.MaterialProperties_).geometricalPropagationModel'></a>
 
 `geometricalPropagationModel` [GeometricalPropagationModel](DiGi.Communication.Classes.md#DiGi.Communication.Classes.GeometricalPropagationModel 'DiGi\.Communication\.Classes\.GeometricalPropagationModel')
 
 Geometrical propagation model holding the antennas, the scattering objects and the multipath power delay profile\.
 
-<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Classes.MaterialProperties_).frequency'></a>
+<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Obselete.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Obselete.Classes.MaterialProperties_).frequency'></a>
 
 `frequency` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
 
 Frequency f of the propagating electromagnetic wave \[MHz\]\.
 
-<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Classes.MaterialProperties_).polarization'></a>
+<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Obselete.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Obselete.Classes.MaterialProperties_).polarization'></a>
 
 `polarization` [Polarization](DiGi.Communication.Enums.md#DiGi.Communication.Enums.Polarization 'DiGi\.Communication\.Enums\.Polarization')
 
 Polarization type of the propagating electromagnetic wave\.
 
-<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Classes.MaterialProperties_).materialProperties'></a>
+<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Obselete.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Obselete.Classes.MaterialProperties_).materialProperties'></a>
 
-`materialProperties` [MaterialProperties](DiGi.Communication.Classes.md#DiGi.Communication.Classes.MaterialProperties 'DiGi\.Communication\.Classes\.MaterialProperties')
+`materialProperties` [MaterialProperties](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.MaterialProperties 'DiGi\.Communication\.Obselete\.Classes\.MaterialProperties')
 
 Default electrical material properties applied to the mesh cells of the scattering objects\.
 
-<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Classes.MaterialProperties_).receivingDirectionalCharacteristic'></a>
+<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Obselete.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Obselete.Classes.MaterialProperties_).receivingDirectionalCharacteristic'></a>
 
 `receivingDirectionalCharacteristic` [AntennaCharacteristic\(double, double\)](DiGi.Communication.md#DiGi.Communication.AntennaCharacteristic(double,double) 'DiGi\.Communication\.AntennaCharacteristic\(double, double\)')
 
 Normalized reception characteristic g\(theta, phi\) of the directional receiving antenna\.
 
-<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Classes.MaterialProperties_).receivingOmnidirectionalCharacteristic'></a>
+<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Obselete.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Obselete.Classes.MaterialProperties_).receivingOmnidirectionalCharacteristic'></a>
 
 `receivingOmnidirectionalCharacteristic` [AntennaCharacteristic\(double, double\)](DiGi.Communication.md#DiGi.Communication.AntennaCharacteristic(double,double) 'DiGi\.Communication\.AntennaCharacteristic\(double, double\)')
 
 Normalized reception characteristic g\_0\(theta, phi\) of the omnidirectional receiving antenna\.
 
-<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Classes.MaterialProperties_).transmittingOmnidirectionalCharacteristic'></a>
+<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Obselete.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Obselete.Classes.MaterialProperties_).transmittingOmnidirectionalCharacteristic'></a>
 
 `transmittingOmnidirectionalCharacteristic` [AntennaCharacteristic\(double, double\)](DiGi.Communication.md#DiGi.Communication.AntennaCharacteristic(double,double) 'DiGi\.Communication\.AntennaCharacteristic\(double, double\)')
 
 Normalized radiation characteristic g\_T0\(theta, phi\) of the omnidirectional transmitting antenna\.
 
-<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Classes.MaterialProperties_).materialPropertiesDictionary'></a>
+<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.GeometricalPropagationModel,double,DiGi.Communication.Enums.Polarization,DiGi.Communication.Obselete.Classes.MaterialProperties,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,DiGi.Communication.AntennaCharacteristic,System.Collections.Generic.Dictionary_string,DiGi.Communication.Obselete.Classes.MaterialProperties_).materialPropertiesDictionary'></a>
 
-`materialPropertiesDictionary` [System\.Collections\.Generic\.Dictionary&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2 'System\.Collections\.Generic\.Dictionary\`2')[System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')[,](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2 'System\.Collections\.Generic\.Dictionary\`2')[MaterialProperties](DiGi.Communication.Classes.md#DiGi.Communication.Classes.MaterialProperties 'DiGi\.Communication\.Classes\.MaterialProperties')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2 'System\.Collections\.Generic\.Dictionary\`2')
+`materialPropertiesDictionary` [System\.Collections\.Generic\.Dictionary&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2 'System\.Collections\.Generic\.Dictionary\`2')[System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')[,](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2 'System\.Collections\.Generic\.Dictionary\`2')[MaterialProperties](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.MaterialProperties 'DiGi\.Communication\.Obselete\.Classes\.MaterialProperties')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2 'System\.Collections\.Generic\.Dictionary\`2')
 
 Optional electrical material properties per scattering object keyed by the scattering object reference\. Scattering objects without an entry use the default material properties\.
 
 #### Returns
-[PropagationResult](DiGi.Communication.Classes.md#DiGi.Communication.Classes.PropagationResult 'DiGi\.Communication\.Classes\.PropagationResult')  
+[PropagationResult](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.PropagationResult 'DiGi\.Communication\.Obselete\.Classes\.PropagationResult')  
 Result of the comparative analysis or [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null') for invalid input\.
 
-<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.PropagationModel)'></a>
+<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Obselete.Classes.PropagationModel)'></a>
 
 ## Create\.PropagationResult\(this PropagationModel\) Method
 
@@ -304,18 +187,18 @@ Stage II: assigns the corrected power p_nkl = w_0n * w_Pn * g_T0kl * g_0kl * |Ga
 Stage III: applies the directional reception characteristic gain G_kl = g / g_0 to the angular power distribution and sums the total power P_0 received by the directional antenna.
 
 ```csharp
-public static DiGi.Communication.Classes.PropagationResult? PropagationResult(this DiGi.Communication.Classes.PropagationModel? propagationModel);
+public static DiGi.Communication.Obselete.Classes.PropagationResult? PropagationResult(this DiGi.Communication.Obselete.Classes.PropagationModel? propagationModel);
 ```
 #### Parameters
 
-<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Classes.PropagationModel).propagationModel'></a>
+<a name='DiGi.Communication.Create.PropagationResult(thisDiGi.Communication.Obselete.Classes.PropagationModel).propagationModel'></a>
 
-`propagationModel` [PropagationModel](DiGi.Communication.Classes.md#DiGi.Communication.Classes.PropagationModel 'DiGi\.Communication\.Classes\.PropagationModel')
+`propagationModel` [PropagationModel](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.PropagationModel 'DiGi\.Communication\.Obselete\.Classes\.PropagationModel')
 
 Input data of the multi\-ellipsoidal propagation model\.
 
 #### Returns
-[PropagationResult](DiGi.Communication.Classes.md#DiGi.Communication.Classes.PropagationResult 'DiGi\.Communication\.Classes\.PropagationResult')  
+[PropagationResult](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.PropagationResult 'DiGi\.Communication\.Obselete\.Classes\.PropagationResult')  
 Result of the comparative analysis or [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null') for invalid input\.
 
 <a name='DiGi.Communication.Create.Report(thisDiGi.Communication.Classes.GeometricalPropagationModel)'></a>
@@ -338,6 +221,39 @@ The geometrical propagation model to use for the report\.
 #### Returns
 [DiGi\.Core\.IO\.Classes\.Report](https://learn.microsoft.com/en-us/dotnet/api/digi.core.io.classes.report 'DiGi\.Core\.IO\.Classes\.Report')  
 A new [Report\(this GeometricalPropagationModel\)](DiGi.Communication.md#DiGi.Communication.Create.Report(thisDiGi.Communication.Classes.GeometricalPropagationModel) 'DiGi\.Communication\.Create\.Report\(this DiGi\.Communication\.Classes\.GeometricalPropagationModel\)') instance used for collecting and exporting data\.
+
+<a name='DiGi.Communication.Create.ScatteringGroups(thisDiGi.Communication.Classes.GeometricalPropagationModel,System.Collections.Generic.IEnumerable_DiGi.Communication.Interfaces.IScatteringObject_,double)'></a>
+
+## Create\.ScatteringGroups\(this GeometricalPropagationModel, IEnumerable\<IScatteringObject\>, double\) Method
+
+Creates scattering groups by clustering scattering objects into connected components based on intersection of their bounding boxes expanded by the given tolerance\.
+
+```csharp
+public static System.Collections.Generic.IEnumerable<DiGi.Communication.Interfaces.IScatteringGroup>? ScatteringGroups(this DiGi.Communication.Classes.GeometricalPropagationModel? geometricalPropagationModel, System.Collections.Generic.IEnumerable<DiGi.Communication.Interfaces.IScatteringObject>? scatteringObjects=null, double tolerance=1E-06);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Create.ScatteringGroups(thisDiGi.Communication.Classes.GeometricalPropagationModel,System.Collections.Generic.IEnumerable_DiGi.Communication.Interfaces.IScatteringObject_,double).geometricalPropagationModel'></a>
+
+`geometricalPropagationModel` [GeometricalPropagationModel](DiGi.Communication.Classes.md#DiGi.Communication.Classes.GeometricalPropagationModel 'DiGi\.Communication\.Classes\.GeometricalPropagationModel')
+
+The geometrical propagation model providing the scattering objects when [scatteringObjects](DiGi.Communication.md#DiGi.Communication.Create.ScatteringGroups(thisDiGi.Communication.Classes.GeometricalPropagationModel,System.Collections.Generic.IEnumerable_DiGi.Communication.Interfaces.IScatteringObject_,double).scatteringObjects 'DiGi\.Communication\.Create\.ScatteringGroups\(this DiGi\.Communication\.Classes\.GeometricalPropagationModel, System\.Collections\.Generic\.IEnumerable\<DiGi\.Communication\.Interfaces\.IScatteringObject\>, double\)\.scatteringObjects') is [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null')\.
+
+<a name='DiGi.Communication.Create.ScatteringGroups(thisDiGi.Communication.Classes.GeometricalPropagationModel,System.Collections.Generic.IEnumerable_DiGi.Communication.Interfaces.IScatteringObject_,double).scatteringObjects'></a>
+
+`scatteringObjects` [System\.Collections\.Generic\.IEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')[IScatteringObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringObject 'DiGi\.Communication\.Interfaces\.IScatteringObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')
+
+The scattering objects to group\. If [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null'), ungrouped scattering objects of the [geometricalPropagationModel](DiGi.Communication.md#DiGi.Communication.Create.ScatteringGroups(thisDiGi.Communication.Classes.GeometricalPropagationModel,System.Collections.Generic.IEnumerable_DiGi.Communication.Interfaces.IScatteringObject_,double).geometricalPropagationModel 'DiGi\.Communication\.Create\.ScatteringGroups\(this DiGi\.Communication\.Classes\.GeometricalPropagationModel, System\.Collections\.Generic\.IEnumerable\<DiGi\.Communication\.Interfaces\.IScatteringObject\>, double\)\.geometricalPropagationModel') are used\.
+
+<a name='DiGi.Communication.Create.ScatteringGroups(thisDiGi.Communication.Classes.GeometricalPropagationModel,System.Collections.Generic.IEnumerable_DiGi.Communication.Interfaces.IScatteringObject_,double).tolerance'></a>
+
+`tolerance` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+The distance tolerance \[m\] by which bounding boxes are expanded while testing for intersection\.
+
+#### Returns
+[System\.Collections\.Generic\.IEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')[IScatteringGroup](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringGroup 'DiGi\.Communication\.Interfaces\.IScatteringGroup')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')  
+The created scattering groups if any; otherwise, [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null')\.
 
 <a name='DiGi.Communication.Create.SimpleMultipathPowerDelayProfile(DiGi.Communication.Enums.DefaultSimpleMultipathPowerDelayProfile)'></a>
 
@@ -371,24 +287,24 @@ public static class Query
 Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → Query
 ### Methods
 
-<a name='DiGi.Communication.Query.ComplexRelativePermittivity(thisDiGi.Communication.Classes.MaterialProperties,double)'></a>
+<a name='DiGi.Communication.Query.ComplexRelativePermittivity(thisDiGi.Communication.Obselete.Classes.MaterialProperties,double)'></a>
 
 ## Query\.ComplexRelativePermittivity\(this MaterialProperties, double\) Method
 
 Complex relative electrical permittivity epsilon'\_k = epsilon\_wk \- j \* 60 \* lambda \* sigma\_k of the scattering object\.
 
 ```csharp
-public static System.Numerics.Complex ComplexRelativePermittivity(this DiGi.Communication.Classes.MaterialProperties materialProperties, double wavelength);
+public static System.Numerics.Complex ComplexRelativePermittivity(this DiGi.Communication.Obselete.Classes.MaterialProperties materialProperties, double wavelength);
 ```
 #### Parameters
 
-<a name='DiGi.Communication.Query.ComplexRelativePermittivity(thisDiGi.Communication.Classes.MaterialProperties,double).materialProperties'></a>
+<a name='DiGi.Communication.Query.ComplexRelativePermittivity(thisDiGi.Communication.Obselete.Classes.MaterialProperties,double).materialProperties'></a>
 
-`materialProperties` [MaterialProperties](DiGi.Communication.Classes.md#DiGi.Communication.Classes.MaterialProperties 'DiGi\.Communication\.Classes\.MaterialProperties')
+`materialProperties` [MaterialProperties](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.MaterialProperties 'DiGi\.Communication\.Obselete\.Classes\.MaterialProperties')
 
 Electrical material properties of the object\.
 
-<a name='DiGi.Communication.Query.ComplexRelativePermittivity(thisDiGi.Communication.Classes.MaterialProperties,double).wavelength'></a>
+<a name='DiGi.Communication.Query.ComplexRelativePermittivity(thisDiGi.Communication.Obselete.Classes.MaterialProperties,double).wavelength'></a>
 
 `wavelength` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
 
@@ -398,24 +314,24 @@ Wavelength lambda of the propagating electromagnetic wave \[m\]\.
 [System\.Numerics\.Complex](https://learn.microsoft.com/en-us/dotnet/api/system.numerics.complex 'System\.Numerics\.Complex')  
 Complex relative electrical permittivity \[\-\]\.
 
-<a name='DiGi.Communication.Query.Delay(thisDiGi.Communication.Classes.MeshCell,double)'></a>
+<a name='DiGi.Communication.Query.Delay(thisDiGi.Communication.Obselete.Classes.MeshCell,double)'></a>
 
 ## Query\.Delay\(this MeshCell, double\) Method
 
 Excess propagation delay tau \[s\] of the mesh cell relative to the direct transmitter\-receiver path: tau = \(r\_1 \+ r\_2 \- d\) / c, with r\_1 and r\_2 the distances from the transmitter \(origin\) and receiver to the cell center\.
 
 ```csharp
-public static double Delay(this DiGi.Communication.Classes.MeshCell meshCell, double distance);
+public static double Delay(this DiGi.Communication.Obselete.Classes.MeshCell meshCell, double distance);
 ```
 #### Parameters
 
-<a name='DiGi.Communication.Query.Delay(thisDiGi.Communication.Classes.MeshCell,double).meshCell'></a>
+<a name='DiGi.Communication.Query.Delay(thisDiGi.Communication.Obselete.Classes.MeshCell,double).meshCell'></a>
 
-`meshCell` [MeshCell](DiGi.Communication.Classes.md#DiGi.Communication.Classes.MeshCell 'DiGi\.Communication\.Classes\.MeshCell')
+`meshCell` [MeshCell](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.MeshCell 'DiGi\.Communication\.Obselete\.Classes\.MeshCell')
 
 Mesh cell of the scattering object\.
 
-<a name='DiGi.Communication.Query.Delay(thisDiGi.Communication.Classes.MeshCell,double).distance'></a>
+<a name='DiGi.Communication.Query.Delay(thisDiGi.Communication.Obselete.Classes.MeshCell,double).distance'></a>
 
 `distance` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
 
@@ -425,20 +341,20 @@ Distance d between the transmitter and receiver \[m\]\.
 [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')  
 Excess propagation delay \[s\] or [System\.Double\.NaN](https://learn.microsoft.com/en-us/dotnet/api/system.double.nan 'System\.Double\.NaN') for invalid input\.
 
-<a name='DiGi.Communication.Query.IncidenceAngle(thisDiGi.Communication.Classes.MeshCell)'></a>
+<a name='DiGi.Communication.Query.IncidenceAngle(thisDiGi.Communication.Obselete.Classes.MeshCell)'></a>
 
 ## Query\.IncidenceAngle\(this MeshCell\) Method
 
 Angle of incidence gamma\_kl \[rad\] of the ray emitted from the transmitter \(placed at the origin\) on the mesh cell plane, measured from the plane \(grazing angle\)\.
 
 ```csharp
-public static double IncidenceAngle(this DiGi.Communication.Classes.MeshCell meshCell);
+public static double IncidenceAngle(this DiGi.Communication.Obselete.Classes.MeshCell meshCell);
 ```
 #### Parameters
 
-<a name='DiGi.Communication.Query.IncidenceAngle(thisDiGi.Communication.Classes.MeshCell).meshCell'></a>
+<a name='DiGi.Communication.Query.IncidenceAngle(thisDiGi.Communication.Obselete.Classes.MeshCell).meshCell'></a>
 
-`meshCell` [MeshCell](DiGi.Communication.Classes.md#DiGi.Communication.Classes.MeshCell 'DiGi\.Communication\.Classes\.MeshCell')
+`meshCell` [MeshCell](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.MeshCell 'DiGi\.Communication\.Obselete\.Classes\.MeshCell')
 
 Mesh cell of the scattering object\.
 
@@ -666,20 +582,20 @@ Direction vector\.
 [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')  
 Polar angle \[rad\] in range \[0, pi\] or [System\.Double\.NaN](https://learn.microsoft.com/en-us/dotnet/api/system.double.nan 'System\.Double\.NaN') for a zero\-length vector\.
 
-<a name='DiGi.Communication.Query.TotalPower(thisSystem.Collections.Generic.IEnumerable_DiGi.Communication.Classes.ArrivalRay_)'></a>
+<a name='DiGi.Communication.Query.TotalPower(thisSystem.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.ArrivalRay_)'></a>
 
 ## Query\.TotalPower\(this IEnumerable\<ArrivalRay\>\) Method
 
 Sum of the powers assigned to the rays\. For rays created from a normalized Power Delay Profile the sum equals 1\.
 
 ```csharp
-public static double TotalPower(this System.Collections.Generic.IEnumerable<DiGi.Communication.Classes.ArrivalRay>? arrivalRays);
+public static double TotalPower(this System.Collections.Generic.IEnumerable<DiGi.Communication.Obselete.Classes.ArrivalRay>? arrivalRays);
 ```
 #### Parameters
 
-<a name='DiGi.Communication.Query.TotalPower(thisSystem.Collections.Generic.IEnumerable_DiGi.Communication.Classes.ArrivalRay_).arrivalRays'></a>
+<a name='DiGi.Communication.Query.TotalPower(thisSystem.Collections.Generic.IEnumerable_DiGi.Communication.Obselete.Classes.ArrivalRay_).arrivalRays'></a>
 
-`arrivalRays` [System\.Collections\.Generic\.IEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')[ArrivalRay](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ArrivalRay 'DiGi\.Communication\.Classes\.ArrivalRay')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')
+`arrivalRays` [System\.Collections\.Generic\.IEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')[ArrivalRay](DiGi.Communication.Obselete.Classes.md#DiGi.Communication.Obselete.Classes.ArrivalRay 'DiGi\.Communication\.Obselete\.Classes\.ArrivalRay')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')
 
 Rays with assigned corrected powers p\_nkl\.
 

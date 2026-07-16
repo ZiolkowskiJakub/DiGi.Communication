@@ -9,3 +9,5 @@
 | [DiGi\.Communication\.Constants](DiGi.Communication.Constants.md 'DiGi\.Communication\.Constants') | |
 | [DiGi\.Communication\.Enums](DiGi.Communication.Enums.md 'DiGi\.Communication\.Enums') | |
 | [DiGi\.Communication\.Interfaces](DiGi.Communication.Interfaces.md 'DiGi\.Communication\.Interfaces') | |
+| [DiGi\.Communication\.Obselete\.Classes](DiGi.Communication.Obselete.Classes.md 'DiGi\.Communication\.Obselete\.Classes') | |
+| [DiGi\.Communication\.Obselete\.Convert](DiGi.Communication.Obselete.Convert.md 'DiGi\.Communication\.Obselete\.Convert') | |

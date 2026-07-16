@@ -1,4 +1,4 @@
-﻿namespace DiGi.Communication.Constants
+namespace DiGi.Communication.Constants
 {
     /// <summary>
     /// Provides a collection of physical constants used in communication calculations.

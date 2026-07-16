@@ -4,7 +4,7 @@ using System.Numerics;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 
-namespace DiGi.Communication.Classes
+namespace DiGi.Communication.Obselete.Classes
 {
     /// <summary>
     /// Contribution of a single mesh cell (cell l of subset k) to an ellipsoid component: ray directions, antenna gains and reflection coefficients.

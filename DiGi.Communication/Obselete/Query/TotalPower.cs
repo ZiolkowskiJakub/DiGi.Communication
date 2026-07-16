@@ -1,4 +1,4 @@
-using DiGi.Communication.Classes;
+using DiGi.Communication.Obselete.Classes;
 using System.Collections.Generic;
 
 namespace DiGi.Communication

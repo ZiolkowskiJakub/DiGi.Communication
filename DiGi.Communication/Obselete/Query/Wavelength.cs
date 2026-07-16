@@ -1,3 +1,5 @@
+using DiGi.Communication.Constants;
+
 namespace DiGi.Communication
 {
     public static partial class Query
@@ -14,7 +16,7 @@ namespace DiGi.Communication
                 return double.NaN;
             }
 
-            return (Constants.Physical.LightSpeed / 1e6) / frequency;
+            return (Physical.LightSpeed / 1e6) / frequency;
         }
     }
 }

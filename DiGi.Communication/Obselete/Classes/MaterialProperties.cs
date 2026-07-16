@@ -3,7 +3,7 @@ using DiGi.Core.Classes;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 
-namespace DiGi.Communication.Classes
+namespace DiGi.Communication.Obselete.Classes
 {
     /// <summary>
     /// Electrical material properties of a scattering object.
