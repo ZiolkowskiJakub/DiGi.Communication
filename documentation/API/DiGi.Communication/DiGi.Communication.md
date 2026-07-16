@@ -98,6 +98,39 @@ public static class Create
 Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → Create
 ### Methods
 
+<a name='DiGi.Communication.Create.CreateScatteringGroups(thisDiGi.Communication.Classes.GeometricalPropagationModel,System.Collections.Generic.IEnumerable_DiGi.Communication.Interfaces.IScatteringObject_,double)'></a>
+
+## Create\.CreateScatteringGroups\(this GeometricalPropagationModel, IEnumerable\<IScatteringObject\>, double\) Method
+
+Creates scattering groups by clustering scattering objects into connected components based on intersection of their bounding boxes expanded by the given tolerance\.
+
+```csharp
+public static System.Collections.Generic.IEnumerable<DiGi.Communication.Interfaces.IScatteringGroup>? CreateScatteringGroups(this DiGi.Communication.Classes.GeometricalPropagationModel? geometricalPropagationModel, System.Collections.Generic.IEnumerable<DiGi.Communication.Interfaces.IScatteringObject>? scatteringObjects=null, double tolerance=1E-06);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Create.CreateScatteringGroups(thisDiGi.Communication.Classes.GeometricalPropagationModel,System.Collections.Generic.IEnumerable_DiGi.Communication.Interfaces.IScatteringObject_,double).geometricalPropagationModel'></a>
+
+`geometricalPropagationModel` [GeometricalPropagationModel](DiGi.Communication.Classes.md#DiGi.Communication.Classes.GeometricalPropagationModel 'DiGi\.Communication\.Classes\.GeometricalPropagationModel')
+
+The geometrical propagation model providing the scattering objects when [scatteringObjects](DiGi.Communication.md#DiGi.Communication.Create.CreateScatteringGroups(thisDiGi.Communication.Classes.GeometricalPropagationModel,System.Collections.Generic.IEnumerable_DiGi.Communication.Interfaces.IScatteringObject_,double).scatteringObjects 'DiGi\.Communication\.Create\.CreateScatteringGroups\(this DiGi\.Communication\.Classes\.GeometricalPropagationModel, System\.Collections\.Generic\.IEnumerable\<DiGi\.Communication\.Interfaces\.IScatteringObject\>, double\)\.scatteringObjects') is [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null')\.
+
+<a name='DiGi.Communication.Create.CreateScatteringGroups(thisDiGi.Communication.Classes.GeometricalPropagationModel,System.Collections.Generic.IEnumerable_DiGi.Communication.Interfaces.IScatteringObject_,double).scatteringObjects'></a>
+
+`scatteringObjects` [System\.Collections\.Generic\.IEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')[IScatteringObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringObject 'DiGi\.Communication\.Interfaces\.IScatteringObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')
+
+The scattering objects to group\. If [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null'), ungrouped scattering objects of the [geometricalPropagationModel](DiGi.Communication.md#DiGi.Communication.Create.CreateScatteringGroups(thisDiGi.Communication.Classes.GeometricalPropagationModel,System.Collections.Generic.IEnumerable_DiGi.Communication.Interfaces.IScatteringObject_,double).geometricalPropagationModel 'DiGi\.Communication\.Create\.CreateScatteringGroups\(this DiGi\.Communication\.Classes\.GeometricalPropagationModel, System\.Collections\.Generic\.IEnumerable\<DiGi\.Communication\.Interfaces\.IScatteringObject\>, double\)\.geometricalPropagationModel') are used\.
+
+<a name='DiGi.Communication.Create.CreateScatteringGroups(thisDiGi.Communication.Classes.GeometricalPropagationModel,System.Collections.Generic.IEnumerable_DiGi.Communication.Interfaces.IScatteringObject_,double).tolerance'></a>
+
+`tolerance` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+The distance tolerance \[m\] by which bounding boxes are expanded while testing for intersection\.
+
+#### Returns
+[System\.Collections\.Generic\.IEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')[IScatteringGroup](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringGroup 'DiGi\.Communication\.Interfaces\.IScatteringGroup')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')  
+The created scattering groups if any; otherwise, [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null')\.
+
 <a name='DiGi.Communication.Create.Ellipsoid(DiGi.Communication.Interfaces.IAntenna,DiGi.Communication.Interfaces.IAntenna,double,double)'></a>
 
 ## Create\.Ellipsoid\(IAntenna, IAntenna, double, double\) Method
@@ -111,13 +144,13 @@ public static DiGi.Geometry.Spatial.Classes.Ellipsoid? Ellipsoid(DiGi.Communicat
 
 <a name='DiGi.Communication.Create.Ellipsoid(DiGi.Communication.Interfaces.IAntenna,DiGi.Communication.Interfaces.IAntenna,double,double).antenna_1'></a>
 
-`antenna_1` [DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna')
+`antenna_1` [IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna')
 
 First antenna
 
 <a name='DiGi.Communication.Create.Ellipsoid(DiGi.Communication.Interfaces.IAntenna,DiGi.Communication.Interfaces.IAntenna,double,double).antenna_2'></a>
 
-`antenna_2` [DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna')
+`antenna_2` [IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna')
 
 Second antenna
 
@@ -447,7 +480,7 @@ public static System.Collections.Generic.List<DiGi.Geometry.Spatial.Classes.Poly
 
 <a name='DiGi.Communication.Query.Polyline3Ds(thisDiGi.Communication.Interfaces.IScatteringProfile,double,System.Collections.Generic.IEnumerable_string_).scatteringProfile'></a>
 
-`scatteringProfile` [DiGi\.Communication\.Interfaces\.IScatteringProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscatteringprofile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')
+`scatteringProfile` [IScatteringProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringProfile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')
 
 The scattering profile to query for polyline data\.
 

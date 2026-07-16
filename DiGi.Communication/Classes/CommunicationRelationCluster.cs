@@ -159,5 +159,27 @@ namespace DiGi.Communication.Classes
 
             return AddRelation(new AngularPowerDistributionProfileAntennaRelation(angularPowerDistributionProfile, antenna));
         }
+
+        /// <summary>
+        /// Adds a relation between the specified scattering group and its scattering objects, replacing any existing relation for that group.
+        /// </summary>
+        /// <param name="scatteringGroup">The scattering group to associate.</param>
+        /// <param name="scatteringObjects">The scattering objects to associate with the scattering group.</param>
+        /// <returns>The created <see cref="ScatteringGroupScatteringObjectsRelation"/> if successful; otherwise, <c>null</c>.</returns>
+        public ScatteringGroupScatteringObjectsRelation? AddRelation(IScatteringGroup? scatteringGroup, IEnumerable<IScatteringObject>? scatteringObjects)
+        {
+            if (scatteringGroup == null || scatteringObjects == null)
+            {
+                return null;
+            }
+
+            ScatteringGroupScatteringObjectsRelation? scatteringGroupScatteringObjectsRelation = GetRelation<ScatteringGroupScatteringObjectsRelation>(Core.Create.UniqueReference(scatteringGroup));
+            if (scatteringGroupScatteringObjectsRelation != null)
+            {
+                Remove(scatteringGroupScatteringObjectsRelation);
+            }
+
+            return AddRelation(new ScatteringGroupScatteringObjectsRelation(scatteringGroup, scatteringObjects));
+        }
     }
 }

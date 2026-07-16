@@ -2,8 +2,10 @@ using DiGi.Communication.Interfaces;
 using DiGi.Core;
 using DiGi.Core.Classes;
 using DiGi.Core.Interfaces;
+using DiGi.Geometry.Spatial.Classes;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 
@@ -426,6 +428,177 @@ namespace DiGi.Communication.Classes
         public List<TScatteringProfile>? GetScatteringProfiles<TScatteringProfile>() where TScatteringProfile : IScatteringProfile
         {
             return communicationRelationCluster.GetValues<TScatteringProfile>()?.CloneAndFilterNulls();
+        }
+
+        /// <summary>
+        /// Creates a scattering group from the specified collection of scattering objects and adds it to the model.
+        /// <para>The bounding box of the resulting group encloses all provided scattering objects.</para>
+        /// </summary>
+        /// <typeparam name="TScatteringObject">The type of the scattering objects, which must implement <see cref="IScatteringObject"/>.</typeparam>
+        /// <param name="reference">The reference identifier for the new scattering group.</param>
+        /// <param name="scatteringObjects">The collection of scattering objects to group together.</param>
+        /// <returns>The newly created <see cref="ScatteringGroup"/> if successful; otherwise, <see langword="null"/>.</returns>
+        public ScatteringGroup? Group<TScatteringObject>(string? reference, IEnumerable<TScatteringObject>? scatteringObjects) where TScatteringObject : IScatteringObject
+        {
+            if (scatteringObjects is null || !scatteringObjects.Any())
+            {
+                return null;
+            }
+
+            BoundingBox3D? boundingBox3D = null;
+            List<IScatteringObject> scatteringObjects_Temp = [];
+            foreach (IScatteringObject scatteringObject in scatteringObjects)
+            {
+                Update(scatteringObject);
+
+                if (scatteringObject is not null)
+                {
+                    scatteringObjects_Temp.Add(scatteringObject);
+                }
+
+                if (scatteringObject?.Mesh3D?.GetBoundingBox() is not BoundingBox3D boundingBox3D_ScatteringObject)
+                {
+                    continue;
+                }
+
+                if (boundingBox3D is null)
+                {
+                    boundingBox3D = boundingBox3D_ScatteringObject;
+                    continue;
+                }
+
+                boundingBox3D.Add(boundingBox3D_ScatteringObject);
+            }
+
+            if (boundingBox3D is null)
+            {
+                return null;
+            }
+
+            ScatteringGroup result = new(reference, boundingBox3D);
+
+            if (!communicationRelationCluster.Add(Core.Query.Clone(result)))
+            {
+                return null;
+            }
+
+            if (communicationRelationCluster.AddRelation(result, scatteringObjects_Temp) == null)
+            {
+                return null;
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Gets all scattering groups of the specified type from the model.
+        /// </summary>
+        /// <typeparam name="TScatteringGroup">The type of scattering group to retrieve, which must implement <see cref="IScatteringGroup"/>.</typeparam>
+        /// <returns>A list of scattering groups of type <typeparamref name="TScatteringGroup"/> if any are found; otherwise, <see langword="null"/>.</returns>
+        public List<TScatteringGroup>? GetScatteringGroups<TScatteringGroup>() where TScatteringGroup : IScatteringGroup
+        {
+            return communicationRelationCluster.GetValues<TScatteringGroup>()?.CloneAndFilterNulls();
+        }
+
+        /// <summary>
+        /// Gets all scattering objects of the specified type associated with the given scattering group.
+        /// </summary>
+        /// <typeparam name="TScatteringObject">The type of scattering object to retrieve, which must implement <see cref="IScatteringObject"/>.</typeparam>
+        /// <param name="scatteringGroup">The scattering group whose scattering objects to retrieve.</param>
+        /// <returns>A list of scattering objects of type <typeparamref name="TScatteringObject"/> if any are found; otherwise, <see langword="null"/>.</returns>
+        public List<TScatteringObject>? GetScatteringObjects<TScatteringObject>(IScatteringGroup? scatteringGroup) where TScatteringObject : IScatteringObject
+        {
+            if (scatteringGroup == null)
+            {
+                return null;
+            }
+
+            List<ScatteringGroupScatteringObjectsRelation>? scatteringGroupScatteringObjectsRelations = communicationRelationCluster.GetRelations<ScatteringGroupScatteringObjectsRelation>(Core.Create.UniqueReference(scatteringGroup));
+            if (scatteringGroupScatteringObjectsRelations == null)
+            {
+                return null;
+            }
+
+            List<TScatteringObject> result = [];
+            foreach (ScatteringGroupScatteringObjectsRelation scatteringGroupScatteringObjectsRelation in scatteringGroupScatteringObjectsRelations)
+            {
+                List<TScatteringObject>? scatteringObjects = communicationRelationCluster.GetValues<TScatteringObject>(scatteringGroupScatteringObjectsRelation, Core.Relation.Enums.RelationSide.To);
+                if (scatteringObjects == null)
+                {
+                    continue;
+                }
+
+                result.AddRange(Core.Query.CloneAndFilterNulls(scatteringObjects));
+            }
+
+            return result;
+        }
+
+        public List<TScatteringObject>? GetScatteringObjects<TScatteringObject>(bool grouped) where TScatteringObject : IScatteringObject
+        {
+            List<IScatteringGroup> scatteringGroups = communicationRelationCluster.GetValues<IScatteringGroup>();
+            if (scatteringGroups == null || scatteringGroups.Count == 0)
+            {
+                if (!grouped)
+                {
+                    return GetScatteringObjects<TScatteringObject>();
+                }
+
+                return null;
+            }
+
+            Dictionary<System.Guid, TScatteringObject> dictionary_Grouped = [];
+            foreach (IScatteringGroup scatteringGroup in scatteringGroups)
+            {
+                ScatteringGroupScatteringObjectsRelation? scatteringGroupScatteringObjectsRelation = communicationRelationCluster.GetRelation<ScatteringGroupScatteringObjectsRelation>(scatteringGroup);
+                if (scatteringGroupScatteringObjectsRelation is null || communicationRelationCluster.GetValues<TScatteringObject>(scatteringGroupScatteringObjectsRelation, Core.Relation.Enums.RelationSide.To) is not List<TScatteringObject> scatteringObjects_ScatteringGroup)
+                {
+                    continue;
+                }
+
+                foreach (TScatteringObject scatteringObject in scatteringObjects_ScatteringGroup)
+                {
+                    dictionary_Grouped[scatteringObject.Guid] = scatteringObject;
+                }
+            }
+
+            if (grouped)
+            {
+                return dictionary_Grouped.Values.CloneAndFilterNulls();
+            }
+
+            List<TScatteringObject> scatteringObjects = communicationRelationCluster.GetValues<TScatteringObject>();
+            if (scatteringObjects is null || scatteringObjects.Count == 0)
+            {
+                return null;
+            }
+
+            if (dictionary_Grouped.Count == 0)
+            {
+                return scatteringObjects?.CloneAndFilterNulls();
+            }
+
+            if (dictionary_Grouped.Count == scatteringObjects.Count)
+            {
+                return [];
+            }
+
+            for (int i = scatteringObjects.Count - 1; i >= 0; i--)
+            {
+                if (scatteringObjects[i] is not TScatteringObject scatteringObject)
+                {
+                    scatteringObjects.RemoveAt(i);
+                    continue;
+                }
+
+                if (dictionary_Grouped.ContainsKey(scatteringObject.Guid))
+                {
+                    scatteringObjects.RemoveAt(i);
+                    continue;
+                }
+            }
+
+            return scatteringObjects.CloneAndFilterNulls();
         }
 
         /// <summary>

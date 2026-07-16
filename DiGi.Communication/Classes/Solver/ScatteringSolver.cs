@@ -24,6 +24,42 @@ namespace DiGi.Communication.Classes
             public Triangle3D Triangle;
         }
 
+        private class CachedScatteringGroup
+        {
+            public BoundingBox3D BoundingBox3D { get; }
+            public List<BoundingBox3D> BoundingBox3Ds { get; }
+            public CachedFaceInfo[] CachedFaceInfos { get; }
+
+            //Per face 6 doubles: minX, minY, minZ, maxX, maxY, maxZ (tight scan data for the scalar slab test)
+            public double[] FaceSlabs { get; }
+
+            //Per face 16 doubles: unit normal (3) + plane offset (1), then 3 x inward edge normal (3) + edge offset (1); NaN normal marks a face requiring the exact test
+            public double[] FaceTriangles { get; }
+
+            public double MinX { get; }
+            public double MinY { get; }
+            public double MinZ { get; }
+            public double MaxX { get; }
+            public double MaxY { get; }
+            public double MaxZ { get; }
+
+            public CachedScatteringGroup(BoundingBox3D boundingBox3D, List<BoundingBox3D> boundingBox3Ds, CachedFaceInfo[] cachedFaceInfos, double[] faceSlabs, double[] faceTriangles)
+            {
+                BoundingBox3D = boundingBox3D;
+                BoundingBox3Ds = boundingBox3Ds;
+                CachedFaceInfos = cachedFaceInfos;
+                FaceSlabs = faceSlabs;
+                FaceTriangles = faceTriangles;
+
+                MinX = boundingBox3D.MinX;
+                MinY = boundingBox3D.MinY;
+                MinZ = boundingBox3D.MinZ;
+                MaxX = boundingBox3D.MaxX;
+                MaxY = boundingBox3D.MaxY;
+                MaxZ = boundingBox3D.MaxZ;
+            }
+        }
+
         private class SegmentComponent
         {
             public string Reference { get; }
@@ -95,6 +131,9 @@ namespace DiGi.Communication.Classes
             double angleFactor = ScatteringSolverOptions.AngleFactor;
             double pointDensityFactor = ScatteringSolverOptions.PointDensityFactor;
 
+            //Safety band for the scalar occlusion fast path; decisions closer to the tolerance than this margin fall back to the exact intersection test
+            double margin = tolerance * 10.0;
+
             List<Tuple<IAntenna, IAntenna, IMultipathPowerDelayProfile>> tuples = [];
             foreach (IMultipathPowerDelayProfile multipathPowerDelayProfile in multipathPowerDelayProfiles)
             {
@@ -129,16 +168,46 @@ namespace DiGi.Communication.Classes
 
             scatteringProfiles = [];
 
-            List<IScatteringObject>? scatteringObjects = GeometricalPropagationModel.GetScatteringObjects<IScatteringObject>();
 
-            List<PolygonalFace3D> faces = [];
-            List<Triangle3D> triangles = [];
-            List<string> references = [];
-            List<BoundingBox3D> boundingBox3Ds = [];
+            //Scattering objects are processed per group so a single group bounding box can cull all objects of the group at once (broad-phase intersection check).
 
-            if (scatteringObjects != null)
+            List<Tuple<BoundingBox3D, List<IScatteringObject>>> tuples_ScatteringObjects = [];
+
+            //Get ungrouped scattering objects from the GeometricalPropagationModel. This will be used to create one bounding box for ungrouped scattering objects.
+            List<IScatteringObject>? scatteringObjects_Ungrouped = GeometricalPropagationModel.GetScatteringObjects<IScatteringObject>(false);
+            if(scatteringObjects_Ungrouped is not null && scatteringObjects_Ungrouped.Count > 0)
             {
-                foreach (IScatteringObject scatteringObject in scatteringObjects)
+                BoundingBox3D? boundingBox3D = Geometry.Spatial.Create.BoundingBox3D(scatteringObjects_Ungrouped.ConvertAll(x => x.Mesh3D?.GetBoundingBox()).FindAll(x => x is not null)!);
+                if(boundingBox3D is not null)
+                {
+                    tuples_ScatteringObjects.Add(new Tuple<BoundingBox3D, List<IScatteringObject>>(boundingBox3D, scatteringObjects_Ungrouped));
+                }
+            }
+
+            //Get grouped scattering objects from the GeometricalPropagationModel. This will be used to get one bounding box for each group of scattering objects.
+            List<IScatteringGroup>? scatteringGroups = GeometricalPropagationModel.GetScatteringGroups<IScatteringGroup>();
+            if(scatteringGroups is not null && scatteringGroups.Count > 0)
+            {
+                foreach (IScatteringGroup scatteringGroup in scatteringGroups)
+                {
+                    List<IScatteringObject>? scatteringObjects_Group = GeometricalPropagationModel.GetScatteringObjects<IScatteringObject>(scatteringGroup);
+                    if (scatteringObjects_Group is not null && scatteringObjects_Group.Count > 0)
+                    {
+                        if (scatteringGroup.BoundingBox3D is BoundingBox3D boundingBox3D)
+                        {
+                            tuples_ScatteringObjects.Add(new Tuple<BoundingBox3D, List<IScatteringObject>>(boundingBox3D, scatteringObjects_Group));
+                        }
+                    }
+                }
+            }
+
+            List<CachedScatteringGroup> cachedScatteringGroups = [];
+            foreach (Tuple<BoundingBox3D, List<IScatteringObject>> tuple_ScatteringObjects in tuples_ScatteringObjects)
+            {
+                List<CachedFaceInfo> cachedFaceInfos = [];
+                List<BoundingBox3D> boundingBox3Ds = [];
+
+                foreach (IScatteringObject scatteringObject in tuple_ScatteringObjects.Item2)
                 {
                     Mesh3D? mesh3D_ScatteringObject = scatteringObject?.Mesh3D;
                     if (mesh3D_ScatteringObject == null)
@@ -158,19 +227,137 @@ namespace DiGi.Communication.Classes
                     foreach (Triangle3D triangle3D in triangles_Temp)
                     {
                         PolygonalFace3D face = new(triangle3D);
-                        faces.Add(face);
-                        triangles.Add(triangle3D);
-                        references.Add(reference);
+
+                        BoundingBox3D? boundingBox3D_Face = face.GetBoundingBox();
+                        if (boundingBox3D_Face == null)
+                        {
+                            continue;
+                        }
+
+                        cachedFaceInfos.Add(new CachedFaceInfo
+                        {
+                            Face = face,
+                            BBox = boundingBox3D_Face,
+                            Reference = reference,
+                            Triangle = triangle3D
+                        });
                     }
 
-                    if (mesh3D_ScatteringObject.GetBoundingBox() is BoundingBox3D boundingBox3D)
+                    if (mesh3D_ScatteringObject.GetBoundingBox() is BoundingBox3D boundingBox3D_ScatteringObject)
                     {
-                        boundingBox3Ds.Add(boundingBox3D);
+                        boundingBox3Ds.Add(boundingBox3D_ScatteringObject);
                     }
                 }
+
+                if (cachedFaceInfos.Count == 0)
+                {
+                    continue;
+                }
+
+                double[] faceSlabs = new double[cachedFaceInfos.Count * 6];
+                double[] faceTriangles = new double[cachedFaceInfos.Count * 16];
+                for (int k = 0; k < cachedFaceInfos.Count; k++)
+                {
+                    CachedFaceInfo cachedFaceInfo = cachedFaceInfos[k];
+
+                    int offset_Slab = k * 6;
+                    faceSlabs[offset_Slab] = cachedFaceInfo.BBox.MinX;
+                    faceSlabs[offset_Slab + 1] = cachedFaceInfo.BBox.MinY;
+                    faceSlabs[offset_Slab + 2] = cachedFaceInfo.BBox.MinZ;
+                    faceSlabs[offset_Slab + 3] = cachedFaceInfo.BBox.MaxX;
+                    faceSlabs[offset_Slab + 4] = cachedFaceInfo.BBox.MaxY;
+                    faceSlabs[offset_Slab + 5] = cachedFaceInfo.BBox.MaxZ;
+
+                    int offset_Triangle = k * 16;
+                    faceTriangles[offset_Triangle] = double.NaN;
+
+                    Point3D? point3D_0 = cachedFaceInfo.Triangle[0];
+                    Point3D? point3D_1 = cachedFaceInfo.Triangle[1];
+                    Point3D? point3D_2 = cachedFaceInfo.Triangle[2];
+                    if (point3D_0 == null || point3D_1 == null || point3D_2 == null)
+                    {
+                        continue;
+                    }
+
+                    double vector1X = point3D_1.X - point3D_0.X;
+                    double vector1Y = point3D_1.Y - point3D_0.Y;
+                    double vector1Z = point3D_1.Z - point3D_0.Z;
+
+                    double vector2X = point3D_2.X - point3D_0.X;
+                    double vector2Y = point3D_2.Y - point3D_0.Y;
+                    double vector2Z = point3D_2.Z - point3D_0.Z;
+
+                    double normalX = (vector1Y * vector2Z) - (vector1Z * vector2Y);
+                    double normalY = (vector1Z * vector2X) - (vector1X * vector2Z);
+                    double normalZ = (vector1X * vector2Y) - (vector1Y * vector2X);
+
+                    double normalLength = Math.Sqrt((normalX * normalX) + (normalY * normalY) + (normalZ * normalZ));
+                    if (normalLength < 1e-12)
+                    {
+                        continue;
+                    }
+
+                    normalX /= normalLength;
+                    normalY /= normalLength;
+                    normalZ /= normalLength;
+
+                    //Per-edge inward normals oriented towards the opposite vertex; a degenerate edge leaves the NaN marker so the exact test is used
+                    Point3D[] point3Ds_Triangle = [point3D_0, point3D_1, point3D_2];
+                    bool valid = true;
+                    for (int m = 0; m < 3; m++)
+                    {
+                        Point3D point3D_From = point3Ds_Triangle[m];
+                        Point3D point3D_To = point3Ds_Triangle[(m + 1) % 3];
+                        Point3D point3D_Opposite = point3Ds_Triangle[(m + 2) % 3];
+
+                        double edgeX = point3D_To.X - point3D_From.X;
+                        double edgeY = point3D_To.Y - point3D_From.Y;
+                        double edgeZ = point3D_To.Z - point3D_From.Z;
+
+                        double inwardX = (normalY * edgeZ) - (normalZ * edgeY);
+                        double inwardY = (normalZ * edgeX) - (normalX * edgeZ);
+                        double inwardZ = (normalX * edgeY) - (normalY * edgeX);
+
+                        double inwardLength = Math.Sqrt((inwardX * inwardX) + (inwardY * inwardY) + (inwardZ * inwardZ));
+                        if (inwardLength < 1e-12)
+                        {
+                            valid = false;
+                            break;
+                        }
+
+                        inwardX /= inwardLength;
+                        inwardY /= inwardLength;
+                        inwardZ /= inwardLength;
+
+                        if (((inwardX * (point3D_Opposite.X - point3D_From.X)) + (inwardY * (point3D_Opposite.Y - point3D_From.Y)) + (inwardZ * (point3D_Opposite.Z - point3D_From.Z))) < 0)
+                        {
+                            inwardX = -inwardX;
+                            inwardY = -inwardY;
+                            inwardZ = -inwardZ;
+                        }
+
+                        int offset_Edge = offset_Triangle + 4 + (m * 4);
+                        faceTriangles[offset_Edge] = inwardX;
+                        faceTriangles[offset_Edge + 1] = inwardY;
+                        faceTriangles[offset_Edge + 2] = inwardZ;
+                        faceTriangles[offset_Edge + 3] = (inwardX * point3D_From.X) + (inwardY * point3D_From.Y) + (inwardZ * point3D_From.Z);
+                    }
+
+                    if (!valid)
+                    {
+                        continue;
+                    }
+
+                    faceTriangles[offset_Triangle] = normalX;
+                    faceTriangles[offset_Triangle + 1] = normalY;
+                    faceTriangles[offset_Triangle + 2] = normalZ;
+                    faceTriangles[offset_Triangle + 3] = (normalX * point3D_0.X) + (normalY * point3D_0.Y) + (normalZ * point3D_0.Z);
+                }
+
+                cachedScatteringGroups.Add(new CachedScatteringGroup(tuple_ScatteringObjects.Item1, boundingBox3Ds, [.. cachedFaceInfos], faceSlabs, faceTriangles));
             }
 
-            if (faces.Count == 0)
+            if (cachedScatteringGroups.Count == 0)
             {
                 for (int i = 0; i < tuples.Count; i++)
                 {
@@ -204,23 +391,158 @@ namespace DiGi.Communication.Classes
                 return true;
             }
 
-            List<CachedFaceInfo> cachedFaceInfos = [];
-            for (int k = 0; k < faces.Count; k++)
+            //Scalar counterpart of BoundingBox3D.InRange(Point3D, Point3D, true, true, tolerance) working on flat data (no object graph traversal)
+            static bool InRangeSlab(
+                double minX,
+                double minY,
+                double minZ,
+                double maxX,
+                double maxY,
+                double maxZ,
+                double originX,
+                double originY,
+                double originZ,
+                double directionX,
+                double directionY,
+                double directionZ,
+                double tolerance)
             {
-                BoundingBox3D? boundingBox3D = faces[k].GetBoundingBox();
-                if (boundingBox3D != null)
+                double tMin = 0.0;
+                double tMax = 1.0;
+
+                if (Math.Abs(directionX) < 1e-12)
                 {
-                    cachedFaceInfos.Add(new CachedFaceInfo
+                    if (originX < minX - tolerance || originX > maxX + tolerance)
                     {
-                        Face = faces[k],
-                        BBox = boundingBox3D,
-                        Reference = references[k],
-                        Triangle = triangles[k]
-                    });
+                        return false;
+                    }
                 }
+                else
+                {
+                    double t0 = (minX - tolerance - originX) / directionX;
+                    double t1 = (maxX + tolerance - originX) / directionX;
+                    if (t0 > t1)
+                    {
+                        (t1, t0) = (t0, t1);
+                    }
+                    if (t0 > tMin) tMin = t0;
+                    if (t1 < tMax) tMax = t1;
+                    if (tMin > tMax) return false;
+                }
+
+                if (Math.Abs(directionY) < 1e-12)
+                {
+                    if (originY < minY - tolerance || originY > maxY + tolerance)
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    double t0 = (minY - tolerance - originY) / directionY;
+                    double t1 = (maxY + tolerance - originY) / directionY;
+                    if (t0 > t1)
+                    {
+                        (t1, t0) = (t0, t1);
+                    }
+                    if (t0 > tMin) tMin = t0;
+                    if (t1 < tMax) tMax = t1;
+                    if (tMin > tMax) return false;
+                }
+
+                if (Math.Abs(directionZ) < 1e-12)
+                {
+                    if (originZ < minZ - tolerance || originZ > maxZ + tolerance)
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    double t0 = (minZ - tolerance - originZ) / directionZ;
+                    double t1 = (maxZ + tolerance - originZ) / directionZ;
+                    if (t0 > t1)
+                    {
+                        (t1, t0) = (t0, t1);
+                    }
+                    if (t0 > tMin) tMin = t0;
+                    if (t1 < tMax) tMax = t1;
+                    if (tMin > tMax) return false;
+                }
+
+                return true;
             }
 
-            CachedFaceInfo[] cachedFaces = [.. cachedFaceInfos];
+            //Conservative scalar segment-triangle occlusion test matching Query.Intersect(face, segment, tolerance, false, false) decisions.
+            //Returns -1 (definitely no intersection), 1 (definitely intersects away from segment ends) or 0 (near-tolerance case - caller must run the exact test).
+            static int SegmentTriangleIntersectionState(
+                double[] faceTriangles,
+                int offset,
+                double startX,
+                double startY,
+                double startZ,
+                double endX,
+                double endY,
+                double endZ,
+                double length,
+                double margin)
+            {
+                double normalX = faceTriangles[offset];
+                if (double.IsNaN(normalX))
+                {
+                    return 0;
+                }
+
+                double normalY = faceTriangles[offset + 1];
+                double normalZ = faceTriangles[offset + 2];
+                double planeOffset = faceTriangles[offset + 3];
+
+                double distance_Start = (normalX * startX) + (normalY * startY) + (normalZ * startZ) - planeOffset;
+                double distance_End = (normalX * endX) + (normalY * endY) + (normalZ * endZ) - planeOffset;
+
+                if (distance_Start > margin && distance_End > margin)
+                {
+                    return -1;
+                }
+
+                if (distance_Start < -margin && distance_End < -margin)
+                {
+                    return -1;
+                }
+
+                if (Math.Abs(distance_Start) <= margin || Math.Abs(distance_End) <= margin)
+                {
+                    return 0;
+                }
+
+                double t = distance_Start / (distance_Start - distance_End);
+                if (t * length <= margin || (1.0 - t) * length <= margin)
+                {
+                    return 0;
+                }
+
+                double pointX = startX + (t * (endX - startX));
+                double pointY = startY + (t * (endY - startY));
+                double pointZ = startZ + (t * (endZ - startZ));
+
+                bool uncertain = false;
+                for (int m = 0; m < 3; m++)
+                {
+                    int offset_Edge = offset + 4 + (m * 4);
+                    double distance_Edge = (faceTriangles[offset_Edge] * pointX) + (faceTriangles[offset_Edge + 1] * pointY) + (faceTriangles[offset_Edge + 2] * pointZ) - faceTriangles[offset_Edge + 3];
+                    if (distance_Edge <= -margin)
+                    {
+                        return -1;
+                    }
+
+                    if (distance_Edge < margin)
+                    {
+                        uncertain = true;
+                    }
+                }
+
+                return uncertain ? 0 : 1;
+            }
 
             static List<Segment3D> GetTriangleTriangleIntersectionSegments(Triangle3D triangle3D_First, PolygonalFace3D polygonalFace3D_First, PolygonalFace3D polygonalFace3D_Second, double tolerance)
             {
@@ -296,12 +618,12 @@ namespace DiGi.Communication.Classes
                         {
                             foreach (Segment3D segment3D_Temp in segment3Ds_Temp)
                             {
-                                if(segment3D_Temp.Start is Point3D point3D_Start)
+                                if (segment3D_Temp.Start is Point3D point3D_Start)
                                 {
                                     point3Ds_Intersection.Add(point3D_Start);
                                 }
 
-                                if(segment3D_Temp.End is Point3D point3D_End)
+                                if (segment3D_Temp.End is Point3D point3D_End)
                                 {
                                     point3Ds_Intersection.Add(point3D_End);
                                 }
@@ -550,16 +872,30 @@ namespace DiGi.Communication.Classes
 
                 Segment3D segment = new(point_1, point_2);
                 bool hasIntersection = false;
-                foreach (CachedFaceInfo cachedFace in cachedFaces)
+                foreach (CachedScatteringGroup cachedScatteringGroup in cachedScatteringGroups)
                 {
-                    if (!cachedFace.BBox.InRange(segment, tolerance))
+                    // Group bounding box broad-phase check culls all faces of the group at once
+                    if (!cachedScatteringGroup.BoundingBox3D.InRange(segment, tolerance))
                     {
                         continue;
                     }
 
-                    if (cachedFace.Face.Intersect(segment, tolerance, true, true))
+                    foreach (CachedFaceInfo cachedFace in cachedScatteringGroup.CachedFaceInfos)
                     {
-                        hasIntersection = true;
+                        if (!cachedFace.BBox.InRange(segment, tolerance))
+                        {
+                            continue;
+                        }
+
+                        if (cachedFace.Face.Intersect(segment, tolerance, true, true))
+                        {
+                            hasIntersection = true;
+                            break;
+                        }
+                    }
+
+                    if (hasIntersection)
+                    {
                         break;
                     }
                 }
@@ -626,8 +962,23 @@ namespace DiGi.Communication.Classes
 
                         BoundingBox3D? boundingBox3D_Triangle3D = triangle3D.GetBoundingBox();
 
-                        int index = boundingBox3Ds.FindIndex(x => x.InRange(boundingBox3D_Triangle3D, tolerance));
-                        if (index >= 0)
+                        bool inRange = false;
+                        foreach (CachedScatteringGroup cachedScatteringGroup in cachedScatteringGroups)
+                        {
+                            // Group bounding box broad-phase check culls all scattering objects of the group at once
+                            if (!cachedScatteringGroup.BoundingBox3D.InRange(boundingBox3D_Triangle3D, tolerance))
+                            {
+                                continue;
+                            }
+
+                            if (cachedScatteringGroup.BoundingBox3Ds.FindIndex(x => x.InRange(boundingBox3D_Triangle3D, tolerance)) >= 0)
+                            {
+                                inRange = true;
+                                break;
+                            }
+                        }
+
+                        if (inRange)
                         {
                             continue;
                         }
@@ -681,25 +1032,34 @@ namespace DiGi.Communication.Classes
 
                         PolygonalFace3D polygonalFace3D_Ellipsoid = new(triangleEllipsoid);
 
-                        foreach (CachedFaceInfo cachedFace in cachedFaces)
+                        foreach (CachedScatteringGroup cachedScatteringGroup in cachedScatteringGroups)
                         {
-                            // Bounding box overlapping check prevents expensive face-face intersection checks
-                            if (!boundingBox3D_Ellipsoid.InRange(cachedFace.BBox, tolerance))
+                            // Group bounding box broad-phase check culls all faces of the group at once
+                            if (!boundingBox3D_Ellipsoid.InRange(cachedScatteringGroup.BoundingBox3D, tolerance))
                             {
                                 continue;
                             }
 
-                            List<Segment3D> segment3Ds_Temp = GetTriangleTriangleIntersectionSegments(triangleEllipsoid, polygonalFace3D_Ellipsoid, cachedFace.Face, tolerance);
-                            if (segment3Ds_Temp.Count > 0)
+                            foreach (CachedFaceInfo cachedFace in cachedScatteringGroup.CachedFaceInfos)
                             {
-                                string reference = cachedFace.Reference ?? string.Empty;
-                                foreach (Segment3D segment3D in segment3Ds_Temp)
+                                // Bounding box overlapping check prevents expensive face-face intersection checks
+                                if (!boundingBox3D_Ellipsoid.InRange(cachedFace.BBox, tolerance))
                                 {
-                                    intersectionSegments.Add(new IntersectionSegment
+                                    continue;
+                                }
+
+                                List<Segment3D> segment3Ds_Temp = GetTriangleTriangleIntersectionSegments(triangleEllipsoid, polygonalFace3D_Ellipsoid, cachedFace.Face, tolerance);
+                                if (segment3Ds_Temp.Count > 0)
+                                {
+                                    string reference = cachedFace.Reference ?? string.Empty;
+                                    foreach (Segment3D segment3D in segment3Ds_Temp)
                                     {
-                                        Segment = segment3D,
-                                        Reference = reference
-                                    });
+                                        intersectionSegments.Add(new IntersectionSegment
+                                        {
+                                            Segment = segment3D,
+                                            Reference = reference
+                                        });
+                                    }
                                 }
                             }
                         }
@@ -755,21 +1115,59 @@ namespace DiGi.Communication.Classes
 
                         if (candidates_First.Count != 0)
                         {
+                            double originX = location_1.X;
+                            double originY = location_1.Y;
+                            double originZ = location_1.Z;
+
                             List<CandidatePoint> candidates_Second = [];
                             foreach (CandidatePoint candidate_First in candidates_First)
                             {
+                                double endX = candidate_First.Point.X;
+                                double endY = candidate_First.Point.Y;
+                                double endZ = candidate_First.Point.Z;
+
+                                double directionX = endX - originX;
+                                double directionY = endY - originY;
+                                double directionZ = endZ - originZ;
+                                double length = Math.Sqrt((directionX * directionX) + (directionY * directionY) + (directionZ * directionZ));
+
                                 bool hasIntersection = false;
-                                foreach (CachedFaceInfo cachedFace in cachedFaces)
+                                foreach (CachedScatteringGroup cachedScatteringGroup in cachedScatteringGroups)
                                 {
-                                    // Bounding box range check prevents expensive segment-face intersection checks
-                                    if (!cachedFace.BBox.InRange(candidate_First.SegmentToLoc, tolerance))
+                                    // Group bounding box broad-phase check culls all faces of the group at once
+                                    if (!InRangeSlab(cachedScatteringGroup.MinX, cachedScatteringGroup.MinY, cachedScatteringGroup.MinZ, cachedScatteringGroup.MaxX, cachedScatteringGroup.MaxY, cachedScatteringGroup.MaxZ, originX, originY, originZ, directionX, directionY, directionZ, tolerance))
                                     {
                                         continue;
                                     }
 
-                                    if (cachedFace.Face.Intersect(candidate_First.SegmentToLoc, tolerance, false, false))
+                                    double[] faceSlabs = cachedScatteringGroup.FaceSlabs;
+                                    double[] faceTriangles = cachedScatteringGroup.FaceTriangles;
+                                    CachedFaceInfo[] cachedFaceInfos_Group = cachedScatteringGroup.CachedFaceInfos;
+
+                                    for (int k = 0; k < cachedFaceInfos_Group.Length; k++)
                                     {
-                                        hasIntersection = true;
+                                        // Bounding box range check prevents expensive segment-face intersection checks
+                                        int offset_Slab = k * 6;
+                                        if (!InRangeSlab(faceSlabs[offset_Slab], faceSlabs[offset_Slab + 1], faceSlabs[offset_Slab + 2], faceSlabs[offset_Slab + 3], faceSlabs[offset_Slab + 4], faceSlabs[offset_Slab + 5], originX, originY, originZ, directionX, directionY, directionZ, tolerance))
+                                        {
+                                            continue;
+                                        }
+
+                                        int state = SegmentTriangleIntersectionState(faceTriangles, k * 16, originX, originY, originZ, endX, endY, endZ, length, margin);
+                                        if (state == -1)
+                                        {
+                                            continue;
+                                        }
+
+                                        if (state == 1 || cachedFaceInfos_Group[k].Face.Intersect(candidate_First.SegmentToLoc, tolerance, false, false))
+                                        {
+                                            hasIntersection = true;
+                                            break;
+                                        }
+                                    }
+
+                                    if (hasIntersection)
+                                    {
                                         break;
                                     }
                                 }
@@ -788,21 +1186,59 @@ namespace DiGi.Communication.Classes
 
                             if (candidates_Second.Count != 0)
                             {
+                                double originX_2 = location_2.X;
+                                double originY_2 = location_2.Y;
+                                double originZ_2 = location_2.Z;
+
                                 List<CandidatePoint> candidates_Visible = [];
                                 foreach (CandidatePoint candidate_Second in candidates_Second)
                                 {
+                                    double endX = candidate_Second.Point.X;
+                                    double endY = candidate_Second.Point.Y;
+                                    double endZ = candidate_Second.Point.Z;
+
+                                    double directionX = endX - originX_2;
+                                    double directionY = endY - originY_2;
+                                    double directionZ = endZ - originZ_2;
+                                    double length = Math.Sqrt((directionX * directionX) + (directionY * directionY) + (directionZ * directionZ));
+
                                     bool hasIntersection = false;
-                                    foreach (CachedFaceInfo cachedFace in cachedFaces)
+                                    foreach (CachedScatteringGroup cachedScatteringGroup in cachedScatteringGroups)
                                     {
-                                        // Bounding box range check prevents expensive segment-face intersection checks
-                                        if (!cachedFace.BBox.InRange(candidate_Second.SegmentToLoc, tolerance))
+                                        // Group bounding box broad-phase check culls all faces of the group at once
+                                        if (!InRangeSlab(cachedScatteringGroup.MinX, cachedScatteringGroup.MinY, cachedScatteringGroup.MinZ, cachedScatteringGroup.MaxX, cachedScatteringGroup.MaxY, cachedScatteringGroup.MaxZ, originX_2, originY_2, originZ_2, directionX, directionY, directionZ, tolerance))
                                         {
                                             continue;
                                         }
 
-                                        if (cachedFace.Face.Intersect(candidate_Second.SegmentToLoc, tolerance, false, false))
+                                        double[] faceSlabs = cachedScatteringGroup.FaceSlabs;
+                                        double[] faceTriangles = cachedScatteringGroup.FaceTriangles;
+                                        CachedFaceInfo[] cachedFaceInfos_Group = cachedScatteringGroup.CachedFaceInfos;
+
+                                        for (int k = 0; k < cachedFaceInfos_Group.Length; k++)
                                         {
-                                            hasIntersection = true;
+                                            // Bounding box range check prevents expensive segment-face intersection checks
+                                            int offset_Slab = k * 6;
+                                            if (!InRangeSlab(faceSlabs[offset_Slab], faceSlabs[offset_Slab + 1], faceSlabs[offset_Slab + 2], faceSlabs[offset_Slab + 3], faceSlabs[offset_Slab + 4], faceSlabs[offset_Slab + 5], originX_2, originY_2, originZ_2, directionX, directionY, directionZ, tolerance))
+                                            {
+                                                continue;
+                                            }
+
+                                            int state = SegmentTriangleIntersectionState(faceTriangles, k * 16, originX_2, originY_2, originZ_2, endX, endY, endZ, length, margin);
+                                            if (state == -1)
+                                            {
+                                                continue;
+                                            }
+
+                                            if (state == 1 || cachedFaceInfos_Group[k].Face.Intersect(candidate_Second.SegmentToLoc, tolerance, false, false))
+                                            {
+                                                hasIntersection = true;
+                                                break;
+                                            }
+                                        }
+
+                                        if (hasIntersection)
+                                        {
                                             break;
                                         }
                                     }

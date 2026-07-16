@@ -8,3 +8,4 @@
 | [DiGi\.Communication\.Classes](DiGi.Communication.Classes.md 'DiGi\.Communication\.Classes') | |
 | [DiGi\.Communication\.Constants](DiGi.Communication.Constants.md 'DiGi\.Communication\.Constants') | |
 | [DiGi\.Communication\.Enums](DiGi.Communication.Enums.md 'DiGi\.Communication\.Enums') | |
+| [DiGi\.Communication\.Interfaces](DiGi.Communication.Interfaces.md 'DiGi\.Communication\.Interfaces') | |

@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 
 namespace DiGi.Communication.Enums
 {
@@ -12,6 +12,7 @@ namespace DiGi.Communication.Enums
         /// Represents the transmitter function.
         /// </summary>
         [Description("Transmitter")] Transmitter,
+
         /// <summary>
         /// Represents the receiver function.
         /// </summary>

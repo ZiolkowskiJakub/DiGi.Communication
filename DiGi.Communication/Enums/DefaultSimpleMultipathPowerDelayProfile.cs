@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 
 namespace DiGi.Communication.Enums
 {
@@ -12,6 +12,7 @@ namespace DiGi.Communication.Enums
         /// Represents the typical urban multipath power delay profile.
         /// </summary>
         [Description("Typical Urban")] TypicalUrban,
+
         /// <summary>
         /// Represents a bad urban multipath power delay profile.
         /// </summary>

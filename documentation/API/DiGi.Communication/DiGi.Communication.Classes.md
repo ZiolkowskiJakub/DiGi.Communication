@@ -15,7 +15,7 @@ public class AngularPowerDistribution : DiGi.Core.Classes.SerializableObject, Di
 
 Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → AngularPowerDistribution
 
-Implements [DiGi\.Communication\.Interfaces\.IAngularPowerDistribution](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iangularpowerdistribution 'DiGi\.Communication\.Interfaces\.IAngularPowerDistribution'), [DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationserializableobject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Communication\.Interfaces\.ICommunicationObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationobject 'DiGi\.Communication\.Interfaces\.ICommunicationObject')
+Implements [IAngularPowerDistribution](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAngularPowerDistribution 'DiGi\.Communication\.Interfaces\.IAngularPowerDistribution'), [ICommunicationSerializableObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationSerializableObject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject')
 ### Constructors
 
 <a name='DiGi.Communication.Classes.AngularPowerDistribution.AngularPowerDistribution(DiGi.Communication.Classes.AngularPowerDistribution)'></a>
@@ -86,7 +86,7 @@ Gets the delay associated with the angular power distribution\.
 public double Delay { get; }
 ```
 
-Implements [Delay](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iangularpowerdistribution.delay 'DiGi\.Communication\.Interfaces\.IAngularPowerDistribution\.Delay')
+Implements [Delay](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAngularPowerDistribution.Delay 'DiGi\.Communication\.Interfaces\.IAngularPowerDistribution\.Delay')
 
 #### Property Value
 [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
@@ -101,7 +101,7 @@ Gets the collection of three\-dimensional vectors associated with the angular po
 public System.Collections.Generic.List<DiGi.Geometry.Spatial.Classes.Vector3D>? Vectors { get; }
 ```
 
-Implements [Vectors](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iangularpowerdistribution.vectors 'DiGi\.Communication\.Interfaces\.IAngularPowerDistribution\.Vectors')
+Implements [Vectors](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAngularPowerDistribution.Vectors 'DiGi\.Communication\.Interfaces\.IAngularPowerDistribution\.Vectors')
 
 #### Property Value
 [System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[DiGi\.Geometry\.Spatial\.Classes\.Vector3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.vector3d 'DiGi\.Geometry\.Spatial\.Classes\.Vector3D')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')
@@ -117,7 +117,7 @@ Calculates the total power by summing the lengths of all stored vectors\.
 public double GetPower();
 ```
 
-Implements [GetPower\(\)](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iangularpowerdistribution.getpower 'DiGi\.Communication\.Interfaces\.IAngularPowerDistribution\.GetPower')
+Implements [GetPower\(\)](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAngularPowerDistribution.GetPower() 'DiGi\.Communication\.Interfaces\.IAngularPowerDistribution\.GetPower\(\)')
 
 #### Returns
 [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')  
@@ -135,7 +135,7 @@ public class AngularPowerDistributionProfile : DiGi.Core.Classes.GuidObject, DiG
 
 Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → [DiGi\.Core\.Classes\.UniqueObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.uniqueobject 'DiGi\.Core\.Classes\.UniqueObject') → [DiGi\.Core\.Classes\.GuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.guidobject 'DiGi\.Core\.Classes\.GuidObject') → AngularPowerDistributionProfile
 
-Implements [DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iangularpowerdistributionprofile 'DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile'), [DiGi\.Communication\.Interfaces\.ICommunicationGuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationguidobject 'DiGi\.Communication\.Interfaces\.ICommunicationGuidObject'), [DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationserializableobject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Communication\.Interfaces\.ICommunicationObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationobject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IGuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iguidobject 'DiGi\.Core\.Interfaces\.IGuidObject'), [DiGi\.Core\.Interfaces\.IUniqueObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iuniqueobject 'DiGi\.Core\.Interfaces\.IUniqueObject')
+Implements [IAngularPowerDistributionProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAngularPowerDistributionProfile 'DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile'), [ICommunicationGuidObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationGuidObject 'DiGi\.Communication\.Interfaces\.ICommunicationGuidObject'), [ICommunicationSerializableObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationSerializableObject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IGuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iguidobject 'DiGi\.Core\.Interfaces\.IGuidObject'), [DiGi\.Core\.Interfaces\.IUniqueObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iuniqueobject 'DiGi\.Core\.Interfaces\.IUniqueObject')
 ### Constructors
 
 <a name='DiGi.Communication.Classes.AngularPowerDistributionProfile.AngularPowerDistributionProfile(DiGi.Communication.Classes.AngularPowerDistributionProfile)'></a>
@@ -235,7 +235,7 @@ Gets or sets the collection of angular power distributions associated with this 
 public System.Collections.Generic.IEnumerable<DiGi.Communication.Classes.AngularPowerDistribution>? AngularPowerDistributions { get; private set; }
 ```
 
-Implements [AngularPowerDistributions](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iangularpowerdistributionprofile.angularpowerdistributions 'DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile\.AngularPowerDistributions')
+Implements [AngularPowerDistributions](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAngularPowerDistributionProfile.AngularPowerDistributions 'DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile\.AngularPowerDistributions')
 
 #### Property Value
 [System\.Collections\.Generic\.IEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')[AngularPowerDistribution](DiGi.Communication.Classes.md#DiGi.Communication.Classes.AngularPowerDistribution 'DiGi\.Communication\.Classes\.AngularPowerDistribution')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')
@@ -250,7 +250,7 @@ Gets the location of the angular power distribution profile in three\-dimensiona
 public DiGi.Geometry.Spatial.Classes.Point3D? Location { get; }
 ```
 
-Implements [Location](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iangularpowerdistributionprofile.location 'DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile\.Location')
+Implements [Location](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAngularPowerDistributionProfile.Location 'DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile\.Location')
 
 #### Property Value
 [DiGi\.Geometry\.Spatial\.Classes\.Point3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.point3d 'DiGi\.Geometry\.Spatial\.Classes\.Point3D')
@@ -273,7 +273,7 @@ public System.Collections.Generic.List<DiGi.Communication.Classes.Ray>? GetRays(
 
 The time delay used to look up the angular power distribution\.
 
-Implements [GetRays\(double\)](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iangularpowerdistributionprofile.getrays#digi-communication-interfaces-iangularpowerdistributionprofile-getrays(system-double) 'DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile\.GetRays\(System\.Double\)')
+Implements [GetRays\(double\)](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAngularPowerDistributionProfile.GetRays(double) 'DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile\.GetRays\(double\)')
 
 #### Returns
 [System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[Ray](DiGi.Communication.Classes.md#DiGi.Communication.Classes.Ray 'DiGi\.Communication\.Classes\.Ray')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')  
@@ -289,9 +289,9 @@ Represents a one\-to\-one directional relationship between an angular power dist
 public class AngularPowerDistributionProfileAntennaRelation : DiGi.Core.Relation.Classes.OneToOneDirectionalRelation<DiGi.Communication.Interfaces.IAngularPowerDistributionProfile, DiGi.Communication.Interfaces.IAntenna>, DiGi.Communication.Interfaces.ICommunicationRelation, DiGi.Communication.Interfaces.ICommunicationObject, DiGi.Core.Interfaces.IObject, DiGi.Core.Relation.Interfaces.IRelation, DiGi.Core.Interfaces.ISerializableObject, DiGi.Core.Interfaces.ICloneableObject<DiGi.Core.Interfaces.ISerializableObject>, DiGi.Core.Interfaces.ICloneableObject
 ```
 
-Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → [DiGi\.Core\.Relation\.Classes\.Relation](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation 'DiGi\.Core\.Relation\.Classes\.Relation') → [DiGi\.Core\.Relation\.Classes\.Relation&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation-2 'DiGi\.Core\.Relation\.Classes\.Relation\`2')[DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iangularpowerdistributionprofile 'DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation-2 'DiGi\.Core\.Relation\.Classes\.Relation\`2')[DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation-2 'DiGi\.Core\.Relation\.Classes\.Relation\`2') → [DiGi\.Core\.Relation\.Classes\.OneToOneRelation&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetoonerelation-2 'DiGi\.Core\.Relation\.Classes\.OneToOneRelation\`2')[DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iangularpowerdistributionprofile 'DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetoonerelation-2 'DiGi\.Core\.Relation\.Classes\.OneToOneRelation\`2')[DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetoonerelation-2 'DiGi\.Core\.Relation\.Classes\.OneToOneRelation\`2') → [DiGi\.Core\.Relation\.Classes\.OneToOneDirectionalRelation&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetoonedirectionalrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToOneDirectionalRelation\`2')[DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iangularpowerdistributionprofile 'DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetoonedirectionalrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToOneDirectionalRelation\`2')[DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetoonedirectionalrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToOneDirectionalRelation\`2') → AngularPowerDistributionProfileAntennaRelation
+Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → [DiGi\.Core\.Relation\.Classes\.Relation](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation 'DiGi\.Core\.Relation\.Classes\.Relation') → [DiGi\.Core\.Relation\.Classes\.Relation&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation-2 'DiGi\.Core\.Relation\.Classes\.Relation\`2')[IAngularPowerDistributionProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAngularPowerDistributionProfile 'DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation-2 'DiGi\.Core\.Relation\.Classes\.Relation\`2')[IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation-2 'DiGi\.Core\.Relation\.Classes\.Relation\`2') → [DiGi\.Core\.Relation\.Classes\.OneToOneRelation&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetoonerelation-2 'DiGi\.Core\.Relation\.Classes\.OneToOneRelation\`2')[IAngularPowerDistributionProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAngularPowerDistributionProfile 'DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetoonerelation-2 'DiGi\.Core\.Relation\.Classes\.OneToOneRelation\`2')[IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetoonerelation-2 'DiGi\.Core\.Relation\.Classes\.OneToOneRelation\`2') → [DiGi\.Core\.Relation\.Classes\.OneToOneDirectionalRelation&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetoonedirectionalrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToOneDirectionalRelation\`2')[IAngularPowerDistributionProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAngularPowerDistributionProfile 'DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetoonedirectionalrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToOneDirectionalRelation\`2')[IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetoonedirectionalrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToOneDirectionalRelation\`2') → AngularPowerDistributionProfileAntennaRelation
 
-Implements [DiGi\.Communication\.Interfaces\.ICommunicationRelation](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationrelation 'DiGi\.Communication\.Interfaces\.ICommunicationRelation'), [DiGi\.Communication\.Interfaces\.ICommunicationObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationobject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Core\.Relation\.Interfaces\.IRelation](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.interfaces.irelation 'DiGi\.Core\.Relation\.Interfaces\.IRelation'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject')
+Implements [ICommunicationRelation](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationRelation 'DiGi\.Communication\.Interfaces\.ICommunicationRelation'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Core\.Relation\.Interfaces\.IRelation](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.interfaces.irelation 'DiGi\.Core\.Relation\.Interfaces\.IRelation'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject')
 ### Constructors
 
 <a name='DiGi.Communication.Classes.AngularPowerDistributionProfileAntennaRelation.AngularPowerDistributionProfileAntennaRelation(DiGi.Communication.Classes.AngularPowerDistributionProfileAntennaRelation)'></a>
@@ -324,13 +324,13 @@ public AngularPowerDistributionProfileAntennaRelation(DiGi.Communication.Interfa
 
 <a name='DiGi.Communication.Classes.AngularPowerDistributionProfileAntennaRelation.AngularPowerDistributionProfileAntennaRelation(DiGi.Communication.Interfaces.IAngularPowerDistributionProfile,DiGi.Communication.Interfaces.IAntenna).angularPowerDistributionProfile'></a>
 
-`angularPowerDistributionProfile` [DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iangularpowerdistributionprofile 'DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile')
+`angularPowerDistributionProfile` [IAngularPowerDistributionProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAngularPowerDistributionProfile 'DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile')
 
 The angular power distribution profile to be associated\.
 
 <a name='DiGi.Communication.Classes.AngularPowerDistributionProfileAntennaRelation.AngularPowerDistributionProfileAntennaRelation(DiGi.Communication.Interfaces.IAngularPowerDistributionProfile,DiGi.Communication.Interfaces.IAntenna).antenna'></a>
 
-`antenna` [DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna')
+`antenna` [IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna')
 
 The antenna to be associated\.
 
@@ -363,7 +363,7 @@ public class AngularPowerDistributionSolver : DiGi.Communication.Interfaces.ICom
 
 Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → AngularPowerDistributionSolver
 
-Implements [DiGi\.Communication\.Interfaces\.ICommunicationObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationobject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Core\.Interfaces\.ISolver](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.isolver 'DiGi\.Core\.Interfaces\.ISolver'), [DiGi\.Core\.Interfaces\.IEvaluator](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.ievaluator 'DiGi\.Core\.Interfaces\.IEvaluator')
+Implements [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Core\.Interfaces\.ISolver](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.isolver 'DiGi\.Core\.Interfaces\.ISolver'), [DiGi\.Core\.Interfaces\.IEvaluator](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.ievaluator 'DiGi\.Core\.Interfaces\.IEvaluator')
 ### Properties
 
 <a name='DiGi.Communication.Classes.AngularPowerDistributionSolver.AngularPowerDistributionProfiles'></a>
@@ -377,7 +377,7 @@ public System.Collections.Generic.List<DiGi.Communication.Interfaces.IAngularPow
 ```
 
 #### Property Value
-[System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iangularpowerdistributionprofile 'DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')
+[System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[IAngularPowerDistributionProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAngularPowerDistributionProfile 'DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')
 
 <a name='DiGi.Communication.Classes.AngularPowerDistributionSolver.AngularPowerDistributionSolverOptions'></a>
 
@@ -434,7 +434,7 @@ public class AngularPowerDistributionSolverOptions : DiGi.Core.Classes.Serializa
 
 Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → AngularPowerDistributionSolverOptions
 
-Implements [DiGi\.Communication\.Interfaces\.ICommunicationObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationobject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Core\.Interfaces\.IOptions](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.ioptions 'DiGi\.Core\.Interfaces\.IOptions')
+Implements [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Core\.Interfaces\.IOptions](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.ioptions 'DiGi\.Core\.Interfaces\.IOptions')
 ### Properties
 
 <a name='DiGi.Communication.Classes.AngularPowerDistributionSolverOptions.RayCount'></a>
@@ -475,7 +475,7 @@ public class Antenna : DiGi.Core.Classes.GuidObject, DiGi.Communication.Interfac
 
 Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → [DiGi\.Core\.Classes\.UniqueObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.uniqueobject 'DiGi\.Core\.Classes\.UniqueObject') → [DiGi\.Core\.Classes\.GuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.guidobject 'DiGi\.Core\.Classes\.GuidObject') → Antenna
 
-Implements [DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna'), [DiGi\.Communication\.Interfaces\.ICommunicationGuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationguidobject 'DiGi\.Communication\.Interfaces\.ICommunicationGuidObject'), [DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationserializableobject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Communication\.Interfaces\.ICommunicationObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationobject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IGuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iguidobject 'DiGi\.Core\.Interfaces\.IGuidObject'), [DiGi\.Core\.Interfaces\.IUniqueObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iuniqueobject 'DiGi\.Core\.Interfaces\.IUniqueObject')
+Implements [IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna'), [ICommunicationGuidObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationGuidObject 'DiGi\.Communication\.Interfaces\.ICommunicationGuidObject'), [ICommunicationSerializableObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationSerializableObject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IGuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iguidobject 'DiGi\.Core\.Interfaces\.IGuidObject'), [DiGi\.Core\.Interfaces\.IUniqueObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iuniqueobject 'DiGi\.Core\.Interfaces\.IUniqueObject')
 ### Constructors
 
 <a name='DiGi.Communication.Classes.Antenna.Antenna(DiGi.Communication.Classes.Antenna)'></a>
@@ -575,7 +575,7 @@ Gets the set of functions associated with the antenna\.
 public System.Collections.Generic.HashSet<DiGi.Communication.Enums.Function>? Functions { get; }
 ```
 
-Implements [Functions](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna.functions 'DiGi\.Communication\.Interfaces\.IAntenna\.Functions')
+Implements [Functions](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna.Functions 'DiGi\.Communication\.Interfaces\.IAntenna\.Functions')
 
 #### Property Value
 [System\.Collections\.Generic\.HashSet&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.hashset-1 'System\.Collections\.Generic\.HashSet\`1')[Function](DiGi.Communication.Enums.md#DiGi.Communication.Enums.Function 'DiGi\.Communication\.Enums\.Function')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.hashset-1 'System\.Collections\.Generic\.HashSet\`1')  
@@ -591,7 +591,7 @@ Gets the three\-dimensional location of the antenna\.
 public DiGi.Geometry.Spatial.Classes.Point3D? Location { get; }
 ```
 
-Implements [Location](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna.location 'DiGi\.Communication\.Interfaces\.IAntenna\.Location')
+Implements [Location](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna.Location 'DiGi\.Communication\.Interfaces\.IAntenna\.Location')
 
 #### Property Value
 [DiGi\.Geometry\.Spatial\.Classes\.Point3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.point3d 'DiGi\.Geometry\.Spatial\.Classes\.Point3D')
@@ -608,7 +608,7 @@ public class ArrivalRay : DiGi.Core.Classes.SerializableObject, DiGi.Communicati
 
 Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → ArrivalRay
 
-Implements [DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationserializableobject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Communication\.Interfaces\.ICommunicationObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationobject 'DiGi\.Communication\.Interfaces\.ICommunicationObject')
+Implements [ICommunicationSerializableObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationSerializableObject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject')
 ### Constructors
 
 <a name='DiGi.Communication.Classes.ArrivalRay.ArrivalRay(DiGi.Communication.Classes.ArrivalRay)'></a>
@@ -764,9 +764,9 @@ Represents a cluster of communication relations, providing functionality to mana
 public class CommunicationRelationCluster : DiGi.Core.Relation.Classes.UniqueObjectRelationCluster<DiGi.Communication.Interfaces.ICommunicationGuidObject, DiGi.Communication.Interfaces.ICommunicationRelation>, DiGi.Communication.Interfaces.ICommunicationSerializableObject, DiGi.Core.Interfaces.ISerializableObject, DiGi.Core.Interfaces.ICloneableObject<DiGi.Core.Interfaces.ISerializableObject>, DiGi.Core.Interfaces.ICloneableObject, DiGi.Core.Interfaces.IObject, DiGi.Communication.Interfaces.ICommunicationObject
 ```
 
-Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Cluster&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.cluster-3 'DiGi\.Core\.Classes\.Cluster\`3')[DiGi\.Core\.Classes\.TypeReference](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.typereference 'DiGi\.Core\.Classes\.TypeReference')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.cluster-3 'DiGi\.Core\.Classes\.Cluster\`3')[DiGi\.Core\.Interfaces\.IUniqueReference](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iuniquereference 'DiGi\.Core\.Interfaces\.IUniqueReference')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.cluster-3 'DiGi\.Core\.Classes\.Cluster\`3')[DiGi\.Communication\.Interfaces\.ICommunicationGuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationguidobject 'DiGi\.Communication\.Interfaces\.ICommunicationGuidObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.cluster-3 'DiGi\.Core\.Classes\.Cluster\`3') → [DiGi\.Core\.Classes\.ValueCluster&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.valuecluster-3 'DiGi\.Core\.Classes\.ValueCluster\`3')[DiGi\.Core\.Classes\.TypeReference](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.typereference 'DiGi\.Core\.Classes\.TypeReference')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.valuecluster-3 'DiGi\.Core\.Classes\.ValueCluster\`3')[DiGi\.Core\.Interfaces\.IUniqueReference](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iuniquereference 'DiGi\.Core\.Interfaces\.IUniqueReference')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.valuecluster-3 'DiGi\.Core\.Classes\.ValueCluster\`3')[DiGi\.Communication\.Interfaces\.ICommunicationGuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationguidobject 'DiGi\.Communication\.Interfaces\.ICommunicationGuidObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.valuecluster-3 'DiGi\.Core\.Classes\.ValueCluster\`3') → [DiGi\.Core\.Classes\.SerializableObjectValueCluster&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobjectvaluecluster-3 'DiGi\.Core\.Classes\.SerializableObjectValueCluster\`3')[DiGi\.Core\.Classes\.TypeReference](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.typereference 'DiGi\.Core\.Classes\.TypeReference')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobjectvaluecluster-3 'DiGi\.Core\.Classes\.SerializableObjectValueCluster\`3')[DiGi\.Core\.Interfaces\.IUniqueReference](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iuniquereference 'DiGi\.Core\.Interfaces\.IUniqueReference')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobjectvaluecluster-3 'DiGi\.Core\.Classes\.SerializableObjectValueCluster\`3')[DiGi\.Communication\.Interfaces\.ICommunicationGuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationguidobject 'DiGi\.Communication\.Interfaces\.ICommunicationGuidObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobjectvaluecluster-3 'DiGi\.Core\.Classes\.SerializableObjectValueCluster\`3') → [DiGi\.Core\.Classes\.UniqueObjectValueCluster&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.uniqueobjectvaluecluster-1 'DiGi\.Core\.Classes\.UniqueObjectValueCluster\`1')[DiGi\.Communication\.Interfaces\.ICommunicationGuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationguidobject 'DiGi\.Communication\.Interfaces\.ICommunicationGuidObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.uniqueobjectvaluecluster-1 'DiGi\.Core\.Classes\.UniqueObjectValueCluster\`1') → [DiGi\.Core\.Relation\.Classes\.UniqueObjectRelationCluster&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.uniqueobjectrelationcluster-2 'DiGi\.Core\.Relation\.Classes\.UniqueObjectRelationCluster\`2')[DiGi\.Communication\.Interfaces\.ICommunicationGuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationguidobject 'DiGi\.Communication\.Interfaces\.ICommunicationGuidObject')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.uniqueobjectrelationcluster-2 'DiGi\.Core\.Relation\.Classes\.UniqueObjectRelationCluster\`2')[DiGi\.Communication\.Interfaces\.ICommunicationRelation](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationrelation 'DiGi\.Communication\.Interfaces\.ICommunicationRelation')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.uniqueobjectrelationcluster-2 'DiGi\.Core\.Relation\.Classes\.UniqueObjectRelationCluster\`2') → CommunicationRelationCluster
+Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Cluster&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.cluster-3 'DiGi\.Core\.Classes\.Cluster\`3')[DiGi\.Core\.Classes\.TypeReference](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.typereference 'DiGi\.Core\.Classes\.TypeReference')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.cluster-3 'DiGi\.Core\.Classes\.Cluster\`3')[DiGi\.Core\.Interfaces\.IUniqueReference](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iuniquereference 'DiGi\.Core\.Interfaces\.IUniqueReference')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.cluster-3 'DiGi\.Core\.Classes\.Cluster\`3')[ICommunicationGuidObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationGuidObject 'DiGi\.Communication\.Interfaces\.ICommunicationGuidObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.cluster-3 'DiGi\.Core\.Classes\.Cluster\`3') → [DiGi\.Core\.Classes\.ValueCluster&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.valuecluster-3 'DiGi\.Core\.Classes\.ValueCluster\`3')[DiGi\.Core\.Classes\.TypeReference](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.typereference 'DiGi\.Core\.Classes\.TypeReference')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.valuecluster-3 'DiGi\.Core\.Classes\.ValueCluster\`3')[DiGi\.Core\.Interfaces\.IUniqueReference](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iuniquereference 'DiGi\.Core\.Interfaces\.IUniqueReference')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.valuecluster-3 'DiGi\.Core\.Classes\.ValueCluster\`3')[ICommunicationGuidObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationGuidObject 'DiGi\.Communication\.Interfaces\.ICommunicationGuidObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.valuecluster-3 'DiGi\.Core\.Classes\.ValueCluster\`3') → [DiGi\.Core\.Classes\.SerializableObjectValueCluster&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobjectvaluecluster-3 'DiGi\.Core\.Classes\.SerializableObjectValueCluster\`3')[DiGi\.Core\.Classes\.TypeReference](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.typereference 'DiGi\.Core\.Classes\.TypeReference')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobjectvaluecluster-3 'DiGi\.Core\.Classes\.SerializableObjectValueCluster\`3')[DiGi\.Core\.Interfaces\.IUniqueReference](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iuniquereference 'DiGi\.Core\.Interfaces\.IUniqueReference')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobjectvaluecluster-3 'DiGi\.Core\.Classes\.SerializableObjectValueCluster\`3')[ICommunicationGuidObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationGuidObject 'DiGi\.Communication\.Interfaces\.ICommunicationGuidObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobjectvaluecluster-3 'DiGi\.Core\.Classes\.SerializableObjectValueCluster\`3') → [DiGi\.Core\.Classes\.UniqueObjectValueCluster&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.uniqueobjectvaluecluster-1 'DiGi\.Core\.Classes\.UniqueObjectValueCluster\`1')[ICommunicationGuidObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationGuidObject 'DiGi\.Communication\.Interfaces\.ICommunicationGuidObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.uniqueobjectvaluecluster-1 'DiGi\.Core\.Classes\.UniqueObjectValueCluster\`1') → [DiGi\.Core\.Relation\.Classes\.UniqueObjectRelationCluster&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.uniqueobjectrelationcluster-2 'DiGi\.Core\.Relation\.Classes\.UniqueObjectRelationCluster\`2')[ICommunicationGuidObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationGuidObject 'DiGi\.Communication\.Interfaces\.ICommunicationGuidObject')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.uniqueobjectrelationcluster-2 'DiGi\.Core\.Relation\.Classes\.UniqueObjectRelationCluster\`2')[ICommunicationRelation](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationRelation 'DiGi\.Communication\.Interfaces\.ICommunicationRelation')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.uniqueobjectrelationcluster-2 'DiGi\.Core\.Relation\.Classes\.UniqueObjectRelationCluster\`2') → CommunicationRelationCluster
 
-Implements [DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationserializableobject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Communication\.Interfaces\.ICommunicationObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationobject 'DiGi\.Communication\.Interfaces\.ICommunicationObject')
+Implements [ICommunicationSerializableObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationSerializableObject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject')
 ### Constructors
 
 <a name='DiGi.Communication.Classes.CommunicationRelationCluster.CommunicationRelationCluster()'></a>
@@ -827,13 +827,13 @@ public DiGi.Communication.Classes.AngularPowerDistributionProfileAntennaRelation
 
 <a name='DiGi.Communication.Classes.CommunicationRelationCluster.AddRelation(DiGi.Communication.Interfaces.IAngularPowerDistributionProfile,DiGi.Communication.Interfaces.IAntenna).angularPowerDistributionProfile'></a>
 
-`angularPowerDistributionProfile` [DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iangularpowerdistributionprofile 'DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile')
+`angularPowerDistributionProfile` [IAngularPowerDistributionProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAngularPowerDistributionProfile 'DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile')
 
 The angular power distribution profile to associate\.
 
 <a name='DiGi.Communication.Classes.CommunicationRelationCluster.AddRelation(DiGi.Communication.Interfaces.IAngularPowerDistributionProfile,DiGi.Communication.Interfaces.IAntenna).antenna'></a>
 
-`antenna` [DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna')
+`antenna` [IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna')
 
 The antenna to associate\.
 
@@ -854,25 +854,52 @@ public DiGi.Communication.Classes.MultipathPowerDelayProfileAntennasRelation? Ad
 
 <a name='DiGi.Communication.Classes.CommunicationRelationCluster.AddRelation(DiGi.Communication.Interfaces.IMultipathPowerDelayProfile,DiGi.Communication.Interfaces.IAntenna,DiGi.Communication.Interfaces.IAntenna).multipathPowerDelayProfile'></a>
 
-`multipathPowerDelayProfile` [DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.imultipathpowerdelayprofile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')
+`multipathPowerDelayProfile` [IMultipathPowerDelayProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IMultipathPowerDelayProfile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')
 
 The multipath power delay profile to be associated\.
 
 <a name='DiGi.Communication.Classes.CommunicationRelationCluster.AddRelation(DiGi.Communication.Interfaces.IMultipathPowerDelayProfile,DiGi.Communication.Interfaces.IAntenna,DiGi.Communication.Interfaces.IAntenna).antenna_1'></a>
 
-`antenna_1` [DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna')
+`antenna_1` [IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna')
 
 The first antenna involved in the relation\.
 
 <a name='DiGi.Communication.Classes.CommunicationRelationCluster.AddRelation(DiGi.Communication.Interfaces.IMultipathPowerDelayProfile,DiGi.Communication.Interfaces.IAntenna,DiGi.Communication.Interfaces.IAntenna).antenna_2'></a>
 
-`antenna_2` [DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna')
+`antenna_2` [IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna')
 
 The second antenna involved in the relation\.
 
 #### Returns
 [MultipathPowerDelayProfileAntennasRelation](DiGi.Communication.Classes.md#DiGi.Communication.Classes.MultipathPowerDelayProfileAntennasRelation 'DiGi\.Communication\.Classes\.MultipathPowerDelayProfileAntennasRelation')  
 The created [MultipathPowerDelayProfileAntennasRelation](DiGi.Communication.Classes.md#DiGi.Communication.Classes.MultipathPowerDelayProfileAntennasRelation 'DiGi\.Communication\.Classes\.MultipathPowerDelayProfileAntennasRelation') if successful; otherwise, `null`\.
+
+<a name='DiGi.Communication.Classes.CommunicationRelationCluster.AddRelation(DiGi.Communication.Interfaces.IScatteringGroup,System.Collections.Generic.IEnumerable_DiGi.Communication.Interfaces.IScatteringObject_)'></a>
+
+## CommunicationRelationCluster\.AddRelation\(IScatteringGroup, IEnumerable\<IScatteringObject\>\) Method
+
+Adds a relation between the specified scattering group and its scattering objects, replacing any existing relation for that group\.
+
+```csharp
+public DiGi.Communication.Classes.ScatteringGroupScatteringObjectsRelation? AddRelation(DiGi.Communication.Interfaces.IScatteringGroup? scatteringGroup, System.Collections.Generic.IEnumerable<DiGi.Communication.Interfaces.IScatteringObject>? scatteringObjects);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Classes.CommunicationRelationCluster.AddRelation(DiGi.Communication.Interfaces.IScatteringGroup,System.Collections.Generic.IEnumerable_DiGi.Communication.Interfaces.IScatteringObject_).scatteringGroup'></a>
+
+`scatteringGroup` [IScatteringGroup](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringGroup 'DiGi\.Communication\.Interfaces\.IScatteringGroup')
+
+The scattering group to associate\.
+
+<a name='DiGi.Communication.Classes.CommunicationRelationCluster.AddRelation(DiGi.Communication.Interfaces.IScatteringGroup,System.Collections.Generic.IEnumerable_DiGi.Communication.Interfaces.IScatteringObject_).scatteringObjects'></a>
+
+`scatteringObjects` [System\.Collections\.Generic\.IEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')[IScatteringObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringObject 'DiGi\.Communication\.Interfaces\.IScatteringObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')
+
+The scattering objects to associate with the scattering group\.
+
+#### Returns
+[ScatteringGroupScatteringObjectsRelation](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringGroupScatteringObjectsRelation 'DiGi\.Communication\.Classes\.ScatteringGroupScatteringObjectsRelation')  
+The created [ScatteringGroupScatteringObjectsRelation](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringGroupScatteringObjectsRelation 'DiGi\.Communication\.Classes\.ScatteringGroupScatteringObjectsRelation') if successful; otherwise, `null`\.
 
 <a name='DiGi.Communication.Classes.CommunicationRelationCluster.AddRelation(DiGi.Communication.Interfaces.IScatteringProfile,DiGi.Communication.Interfaces.IAntenna,DiGi.Communication.Interfaces.IAntenna)'></a>
 
@@ -887,19 +914,19 @@ public DiGi.Communication.Classes.ScatteringProfileAntennasRelation? AddRelation
 
 <a name='DiGi.Communication.Classes.CommunicationRelationCluster.AddRelation(DiGi.Communication.Interfaces.IScatteringProfile,DiGi.Communication.Interfaces.IAntenna,DiGi.Communication.Interfaces.IAntenna).scatteringProfile'></a>
 
-`scatteringProfile` [DiGi\.Communication\.Interfaces\.IScatteringProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscatteringprofile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')
+`scatteringProfile` [IScatteringProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringProfile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')
 
 The scattering profile to associate with the antennas\.
 
 <a name='DiGi.Communication.Classes.CommunicationRelationCluster.AddRelation(DiGi.Communication.Interfaces.IScatteringProfile,DiGi.Communication.Interfaces.IAntenna,DiGi.Communication.Interfaces.IAntenna).antenna_1'></a>
 
-`antenna_1` [DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna')
+`antenna_1` [IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna')
 
 The first antenna involved in the relation\.
 
 <a name='DiGi.Communication.Classes.CommunicationRelationCluster.AddRelation(DiGi.Communication.Interfaces.IScatteringProfile,DiGi.Communication.Interfaces.IAntenna,DiGi.Communication.Interfaces.IAntenna).antenna_2'></a>
 
-`antenna_2` [DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna')
+`antenna_2` [IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna')
 
 The second antenna involved in the relation\.
 
@@ -920,13 +947,13 @@ public DiGi.Communication.Classes.ScatteringProfileMultipathPowerDelayProfileRel
 
 <a name='DiGi.Communication.Classes.CommunicationRelationCluster.AddRelation(DiGi.Communication.Interfaces.IScatteringProfile,DiGi.Communication.Interfaces.IMultipathPowerDelayProfile).scatteringProfile'></a>
 
-`scatteringProfile` [DiGi\.Communication\.Interfaces\.IScatteringProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscatteringprofile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')
+`scatteringProfile` [IScatteringProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringProfile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')
 
 The scattering profile to associate\.
 
 <a name='DiGi.Communication.Classes.CommunicationRelationCluster.AddRelation(DiGi.Communication.Interfaces.IScatteringProfile,DiGi.Communication.Interfaces.IMultipathPowerDelayProfile).multipathPowerDelayProfile'></a>
 
-`multipathPowerDelayProfile` [DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.imultipathpowerdelayprofile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')
+`multipathPowerDelayProfile` [IMultipathPowerDelayProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IMultipathPowerDelayProfile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')
 
 The multipath power delay profile to associate\.
 
@@ -947,7 +974,7 @@ public class ComplexMultipathPowerDelayProfile : DiGi.Core.Classes.GuidObject, D
 
 Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → [DiGi\.Core\.Classes\.UniqueObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.uniqueobject 'DiGi\.Core\.Classes\.UniqueObject') → [DiGi\.Core\.Classes\.GuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.guidobject 'DiGi\.Core\.Classes\.GuidObject') → ComplexMultipathPowerDelayProfile
 
-Implements [DiGi\.Communication\.Interfaces\.IComplexMultipathPowerDelayProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icomplexmultipathpowerdelayprofile 'DiGi\.Communication\.Interfaces\.IComplexMultipathPowerDelayProfile'), [DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.imultipathpowerdelayprofile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile'), [DiGi\.Communication\.Interfaces\.ICommunicationGuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationguidobject 'DiGi\.Communication\.Interfaces\.ICommunicationGuidObject'), [DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationserializableobject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Communication\.Interfaces\.ICommunicationObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationobject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IGuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iguidobject 'DiGi\.Core\.Interfaces\.IGuidObject'), [DiGi\.Core\.Interfaces\.IUniqueObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iuniqueobject 'DiGi\.Core\.Interfaces\.IUniqueObject')
+Implements [IComplexMultipathPowerDelayProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IComplexMultipathPowerDelayProfile 'DiGi\.Communication\.Interfaces\.IComplexMultipathPowerDelayProfile'), [IMultipathPowerDelayProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IMultipathPowerDelayProfile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile'), [ICommunicationGuidObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationGuidObject 'DiGi\.Communication\.Interfaces\.ICommunicationGuidObject'), [ICommunicationSerializableObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationSerializableObject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IGuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iguidobject 'DiGi\.Core\.Interfaces\.IGuidObject'), [DiGi\.Core\.Interfaces\.IUniqueObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iuniqueobject 'DiGi\.Core\.Interfaces\.IUniqueObject')
 ### Constructors
 
 <a name='DiGi.Communication.Classes.ComplexMultipathPowerDelayProfile.ComplexMultipathPowerDelayProfile(DiGi.Communication.Classes.ComplexMultipathPowerDelayProfile)'></a>
@@ -980,13 +1007,13 @@ public ComplexMultipathPowerDelayProfile(DiGi.Communication.Interfaces.ISimpleMu
 
 <a name='DiGi.Communication.Classes.ComplexMultipathPowerDelayProfile.ComplexMultipathPowerDelayProfile(DiGi.Communication.Interfaces.ISimpleMultipathPowerDelayProfile,DiGi.Communication.Interfaces.ISimpleMultipathPowerDelayProfile).simpleMultipathPowerDelayProfile_Visible'></a>
 
-`simpleMultipathPowerDelayProfile_Visible` [DiGi\.Communication\.Interfaces\.ISimpleMultipathPowerDelayProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.isimplemultipathpowerdelayprofile 'DiGi\.Communication\.Interfaces\.ISimpleMultipathPowerDelayProfile')
+`simpleMultipathPowerDelayProfile_Visible` [ISimpleMultipathPowerDelayProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ISimpleMultipathPowerDelayProfile 'DiGi\.Communication\.Interfaces\.ISimpleMultipathPowerDelayProfile')
 
 The visible simple multipath power delay profile to be cloned and assigned\.
 
 <a name='DiGi.Communication.Classes.ComplexMultipathPowerDelayProfile.ComplexMultipathPowerDelayProfile(DiGi.Communication.Interfaces.ISimpleMultipathPowerDelayProfile,DiGi.Communication.Interfaces.ISimpleMultipathPowerDelayProfile).simpleMultipathPowerDelayProfile_Hidden'></a>
 
-`simpleMultipathPowerDelayProfile_Hidden` [DiGi\.Communication\.Interfaces\.ISimpleMultipathPowerDelayProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.isimplemultipathpowerdelayprofile 'DiGi\.Communication\.Interfaces\.ISimpleMultipathPowerDelayProfile')
+`simpleMultipathPowerDelayProfile_Hidden` [ISimpleMultipathPowerDelayProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ISimpleMultipathPowerDelayProfile 'DiGi\.Communication\.Interfaces\.ISimpleMultipathPowerDelayProfile')
 
 The hidden simple multipath power delay profile to be cloned and assigned\.
 
@@ -1009,13 +1036,13 @@ The unique identifier for the object\.
 
 <a name='DiGi.Communication.Classes.ComplexMultipathPowerDelayProfile.ComplexMultipathPowerDelayProfile(System.Guid,DiGi.Communication.Interfaces.ISimpleMultipathPowerDelayProfile,DiGi.Communication.Interfaces.ISimpleMultipathPowerDelayProfile).simpleMultipathPowerDelayProfile_Visible'></a>
 
-`simpleMultipathPowerDelayProfile_Visible` [DiGi\.Communication\.Interfaces\.ISimpleMultipathPowerDelayProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.isimplemultipathpowerdelayprofile 'DiGi\.Communication\.Interfaces\.ISimpleMultipathPowerDelayProfile')
+`simpleMultipathPowerDelayProfile_Visible` [ISimpleMultipathPowerDelayProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ISimpleMultipathPowerDelayProfile 'DiGi\.Communication\.Interfaces\.ISimpleMultipathPowerDelayProfile')
 
 The visible simple multipath power delay profile\.
 
 <a name='DiGi.Communication.Classes.ComplexMultipathPowerDelayProfile.ComplexMultipathPowerDelayProfile(System.Guid,DiGi.Communication.Interfaces.ISimpleMultipathPowerDelayProfile,DiGi.Communication.Interfaces.ISimpleMultipathPowerDelayProfile).simpleMultipathPowerDelayProfile_Hidden'></a>
 
-`simpleMultipathPowerDelayProfile_Hidden` [DiGi\.Communication\.Interfaces\.ISimpleMultipathPowerDelayProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.isimplemultipathpowerdelayprofile 'DiGi\.Communication\.Interfaces\.ISimpleMultipathPowerDelayProfile')
+`simpleMultipathPowerDelayProfile_Hidden` [ISimpleMultipathPowerDelayProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ISimpleMultipathPowerDelayProfile 'DiGi\.Communication\.Interfaces\.ISimpleMultipathPowerDelayProfile')
 
 The hidden simple multipath power delay profile\.
 
@@ -1054,11 +1081,11 @@ public DiGi.Communication.Interfaces.ISimpleMultipathPowerDelayProfile? GetSimpl
 
 A value indicating whether to retrieve the visible \(`true`\) or hidden \(`false`\) profile\.
 
-Implements [GetSimpleMultipathPowerDelay\(bool\)](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icomplexmultipathpowerdelayprofile.getsimplemultipathpowerdelay#digi-communication-interfaces-icomplexmultipathpowerdelayprofile-getsimplemultipathpowerdelay(system-boolean) 'DiGi\.Communication\.Interfaces\.IComplexMultipathPowerDelayProfile\.GetSimpleMultipathPowerDelay\(System\.Boolean\)')
+Implements [GetSimpleMultipathPowerDelay\(bool\)](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IComplexMultipathPowerDelayProfile.GetSimpleMultipathPowerDelay(bool) 'DiGi\.Communication\.Interfaces\.IComplexMultipathPowerDelayProfile\.GetSimpleMultipathPowerDelay\(bool\)')
 
 #### Returns
-[DiGi\.Communication\.Interfaces\.ISimpleMultipathPowerDelayProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.isimplemultipathpowerdelayprofile 'DiGi\.Communication\.Interfaces\.ISimpleMultipathPowerDelayProfile')  
-The cloned [DiGi\.Communication\.Interfaces\.ISimpleMultipathPowerDelayProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.isimplemultipathpowerdelayprofile 'DiGi\.Communication\.Interfaces\.ISimpleMultipathPowerDelayProfile') corresponding to the requested visibility, or `null` if it does not exist\.
+[ISimpleMultipathPowerDelayProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ISimpleMultipathPowerDelayProfile 'DiGi\.Communication\.Interfaces\.ISimpleMultipathPowerDelayProfile')  
+The cloned [ISimpleMultipathPowerDelayProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ISimpleMultipathPowerDelayProfile 'DiGi\.Communication\.Interfaces\.ISimpleMultipathPowerDelayProfile') corresponding to the requested visibility, or `null` if it does not exist\.
 
 <a name='DiGi.Communication.Classes.EllipsoidComponent'></a>
 
@@ -1072,7 +1099,7 @@ public class EllipsoidComponent : DiGi.Core.Classes.SerializableObject, DiGi.Com
 
 Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → EllipsoidComponent
 
-Implements [DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationserializableobject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Communication\.Interfaces\.ICommunicationObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationobject 'DiGi\.Communication\.Interfaces\.ICommunicationObject')
+Implements [ICommunicationSerializableObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationSerializableObject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject')
 ### Constructors
 
 <a name='DiGi.Communication.Classes.EllipsoidComponent.EllipsoidComponent(DiGi.Communication.Classes.EllipsoidComponent)'></a>
@@ -1486,7 +1513,7 @@ public class GeometricalPropagationModel : DiGi.Core.Classes.GuidObject, DiGi.Co
 
 Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → [DiGi\.Core\.Classes\.UniqueObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.uniqueobject 'DiGi\.Core\.Classes\.UniqueObject') → [DiGi\.Core\.Classes\.GuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.guidobject 'DiGi\.Core\.Classes\.GuidObject') → GeometricalPropagationModel
 
-Implements [DiGi\.Communication\.Interfaces\.ICommunicationGuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationguidobject 'DiGi\.Communication\.Interfaces\.ICommunicationGuidObject'), [DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationserializableobject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Communication\.Interfaces\.ICommunicationObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationobject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IGuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iguidobject 'DiGi\.Core\.Interfaces\.IGuidObject'), [DiGi\.Core\.Interfaces\.IUniqueObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iuniqueobject 'DiGi\.Core\.Interfaces\.IUniqueObject'), [DiGi\.Core\.Interfaces\.IGuidModel](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iguidmodel 'DiGi\.Core\.Interfaces\.IGuidModel'), [DiGi\.Core\.Interfaces\.ISerializableModel](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializablemodel 'DiGi\.Core\.Interfaces\.ISerializableModel'), [DiGi\.Core\.Interfaces\.IModel](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.imodel 'DiGi\.Core\.Interfaces\.IModel')
+Implements [ICommunicationGuidObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationGuidObject 'DiGi\.Communication\.Interfaces\.ICommunicationGuidObject'), [ICommunicationSerializableObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationSerializableObject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IGuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iguidobject 'DiGi\.Core\.Interfaces\.IGuidObject'), [DiGi\.Core\.Interfaces\.IUniqueObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iuniqueobject 'DiGi\.Core\.Interfaces\.IUniqueObject'), [DiGi\.Core\.Interfaces\.IGuidModel](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iguidmodel 'DiGi\.Core\.Interfaces\.IGuidModel'), [DiGi\.Core\.Interfaces\.ISerializableModel](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializablemodel 'DiGi\.Core\.Interfaces\.ISerializableModel'), [DiGi\.Core\.Interfaces\.IModel](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.imodel 'DiGi\.Core\.Interfaces\.IModel')
 ### Constructors
 
 <a name='DiGi.Communication.Classes.GeometricalPropagationModel.GeometricalPropagationModel()'></a>
@@ -1547,13 +1574,13 @@ public bool Assign(DiGi.Communication.Interfaces.IAngularPowerDistributionProfil
 
 <a name='DiGi.Communication.Classes.GeometricalPropagationModel.Assign(DiGi.Communication.Interfaces.IAngularPowerDistributionProfile,DiGi.Communication.Interfaces.IAntenna).angularPowerDistributionProfile'></a>
 
-`angularPowerDistributionProfile` [DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iangularpowerdistributionprofile 'DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile')
+`angularPowerDistributionProfile` [IAngularPowerDistributionProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAngularPowerDistributionProfile 'DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile')
 
 The angular power distribution profile to be assigned\.
 
 <a name='DiGi.Communication.Classes.GeometricalPropagationModel.Assign(DiGi.Communication.Interfaces.IAngularPowerDistributionProfile,DiGi.Communication.Interfaces.IAntenna).antenna'></a>
 
-`antenna` [DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna')
+`antenna` [IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna')
 
 The antenna to be assigned\.
 
@@ -1574,19 +1601,19 @@ public bool Assign(DiGi.Communication.Interfaces.IMultipathPowerDelayProfile? mu
 
 <a name='DiGi.Communication.Classes.GeometricalPropagationModel.Assign(DiGi.Communication.Interfaces.IMultipathPowerDelayProfile,DiGi.Communication.Interfaces.IAntenna,DiGi.Communication.Interfaces.IAntenna).multipathPowerDelayProfile'></a>
 
-`multipathPowerDelayProfile` [DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.imultipathpowerdelayprofile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')
+`multipathPowerDelayProfile` [IMultipathPowerDelayProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IMultipathPowerDelayProfile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')
 
 The multipath power delay profile to be assigned\.
 
 <a name='DiGi.Communication.Classes.GeometricalPropagationModel.Assign(DiGi.Communication.Interfaces.IMultipathPowerDelayProfile,DiGi.Communication.Interfaces.IAntenna,DiGi.Communication.Interfaces.IAntenna).antenna_1'></a>
 
-`antenna_1` [DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna')
+`antenna_1` [IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna')
 
 The first antenna to be associated with the propagation model\.
 
 <a name='DiGi.Communication.Classes.GeometricalPropagationModel.Assign(DiGi.Communication.Interfaces.IMultipathPowerDelayProfile,DiGi.Communication.Interfaces.IAntenna,DiGi.Communication.Interfaces.IAntenna).antenna_2'></a>
 
-`antenna_2` [DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna')
+`antenna_2` [IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna')
 
 The second antenna to be associated with the propagation model\.
 
@@ -1607,19 +1634,19 @@ public bool Assign(DiGi.Communication.Interfaces.IScatteringProfile? scatteringP
 
 <a name='DiGi.Communication.Classes.GeometricalPropagationModel.Assign(DiGi.Communication.Interfaces.IScatteringProfile,DiGi.Communication.Interfaces.IAntenna,DiGi.Communication.Interfaces.IAntenna).scatteringProfile'></a>
 
-`scatteringProfile` [DiGi\.Communication\.Interfaces\.IScatteringProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscatteringprofile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')
+`scatteringProfile` [IScatteringProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringProfile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')
 
 The scattering profile to be assigned\.
 
 <a name='DiGi.Communication.Classes.GeometricalPropagationModel.Assign(DiGi.Communication.Interfaces.IScatteringProfile,DiGi.Communication.Interfaces.IAntenna,DiGi.Communication.Interfaces.IAntenna).antenna_1'></a>
 
-`antenna_1` [DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna')
+`antenna_1` [IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna')
 
 The first antenna involved in the propagation\.
 
 <a name='DiGi.Communication.Classes.GeometricalPropagationModel.Assign(DiGi.Communication.Interfaces.IScatteringProfile,DiGi.Communication.Interfaces.IAntenna,DiGi.Communication.Interfaces.IAntenna).antenna_2'></a>
 
-`antenna_2` [DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna')
+`antenna_2` [IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna')
 
 The second antenna involved in the propagation\.
 
@@ -1640,13 +1667,13 @@ public bool Assign(DiGi.Communication.Interfaces.IScatteringProfile? scatteringP
 
 <a name='DiGi.Communication.Classes.GeometricalPropagationModel.Assign(DiGi.Communication.Interfaces.IScatteringProfile,DiGi.Communication.Interfaces.IMultipathPowerDelayProfile).scatteringProfile'></a>
 
-`scatteringProfile` [DiGi\.Communication\.Interfaces\.IScatteringProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscatteringprofile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')
+`scatteringProfile` [IScatteringProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringProfile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')
 
 The scattering profile to be assigned\.
 
 <a name='DiGi.Communication.Classes.GeometricalPropagationModel.Assign(DiGi.Communication.Interfaces.IScatteringProfile,DiGi.Communication.Interfaces.IMultipathPowerDelayProfile).multipathPowerDelayProfile'></a>
 
-`multipathPowerDelayProfile` [DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.imultipathpowerdelayprofile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')
+`multipathPowerDelayProfile` [IMultipathPowerDelayProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IMultipathPowerDelayProfile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')
 
 The multipath power delay profile to be assigned\.
 
@@ -1670,7 +1697,7 @@ public System.Collections.Generic.List<TAngularPowerDistributionProfile>? GetAng
 
 `TAngularPowerDistributionProfile`
 
-The type of the angular power distribution profile, which must implement [DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iangularpowerdistributionprofile 'DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile')\.
+The type of the angular power distribution profile, which must implement [IAngularPowerDistributionProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAngularPowerDistributionProfile 'DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile')\.
 
 #### Returns
 [System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[TAngularPowerDistributionProfile](DiGi.Communication.Classes.md#DiGi.Communication.Classes.GeometricalPropagationModel.GetAngularPowerDistributionProfiles_TAngularPowerDistributionProfile_().TAngularPowerDistributionProfile 'DiGi\.Communication\.Classes\.GeometricalPropagationModel\.GetAngularPowerDistributionProfiles\<TAngularPowerDistributionProfile\>\(\)\.TAngularPowerDistributionProfile')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')  
@@ -1692,7 +1719,7 @@ public System.Collections.Generic.List<TAntenna>? GetAntennas<TAntenna>()
 
 `TAntenna`
 
-The type of antenna to retrieve, which must implement [DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna')\.
+The type of antenna to retrieve, which must implement [IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna')\.
 
 #### Returns
 [System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[TAntenna](DiGi.Communication.Classes.md#DiGi.Communication.Classes.GeometricalPropagationModel.GetAntennas_TAntenna_().TAntenna 'DiGi\.Communication\.Classes\.GeometricalPropagationModel\.GetAntennas\<TAntenna\>\(\)\.TAntenna')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')  
@@ -1714,12 +1741,12 @@ public System.Collections.Generic.List<TAntenna>? GetAntennas<TAntenna>(DiGi.Com
 
 `TAntenna`
 
-The type of antenna, which must implement the [DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna') interface\.
+The type of antenna, which must implement the [IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna') interface\.
 #### Parameters
 
 <a name='DiGi.Communication.Classes.GeometricalPropagationModel.GetAntennas_TAntenna_(DiGi.Communication.Interfaces.IMultipathPowerDelayProfile).multipathPowerDelayProfile'></a>
 
-`multipathPowerDelayProfile` [DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.imultipathpowerdelayprofile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')
+`multipathPowerDelayProfile` [IMultipathPowerDelayProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IMultipathPowerDelayProfile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')
 
 The multipath power delay profile used to identify the associated antennas\. Can be null\.
 
@@ -1743,18 +1770,18 @@ public System.Collections.Generic.List<TAntenna>? GetAntennas<TAntenna>(DiGi.Com
 
 `TAntenna`
 
-The type of antenna to be returned, which must implement [DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna')\.
+The type of antenna to be returned, which must implement [IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna')\.
 #### Parameters
 
 <a name='DiGi.Communication.Classes.GeometricalPropagationModel.GetAntennas_TAntenna_(DiGi.Communication.Interfaces.IMultipathPowerDelayProfile,DiGi.Communication.Interfaces.IAntenna).multipathPowerDelayProfile'></a>
 
-`multipathPowerDelayProfile` [DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.imultipathpowerdelayprofile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')
+`multipathPowerDelayProfile` [IMultipathPowerDelayProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IMultipathPowerDelayProfile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')
 
 The multipath power delay profile used for the retrieval process\.
 
 <a name='DiGi.Communication.Classes.GeometricalPropagationModel.GetAntennas_TAntenna_(DiGi.Communication.Interfaces.IMultipathPowerDelayProfile,DiGi.Communication.Interfaces.IAntenna).antenna'></a>
 
-`antenna` [DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna')
+`antenna` [IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna')
 
 The reference antenna used to identify the antennas to retrieve\.
 
@@ -1778,12 +1805,12 @@ public System.Collections.Generic.List<TAntenna>? GetAntennas<TAntenna>(DiGi.Com
 
 `TAntenna`
 
-The type of antenna, which must implement the [DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna') interface\.
+The type of antenna, which must implement the [IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna') interface\.
 #### Parameters
 
 <a name='DiGi.Communication.Classes.GeometricalPropagationModel.GetAntennas_TAntenna_(DiGi.Communication.Interfaces.IScatteringProfile).scatteringProfile'></a>
 
-`scatteringProfile` [DiGi\.Communication\.Interfaces\.IScatteringProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscatteringprofile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')
+`scatteringProfile` [IScatteringProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringProfile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')
 
 The scattering profile used to identify the related antennas\. If null, no antennas are retrieved\.
 
@@ -1807,12 +1834,12 @@ public TMultipathPowerDelayProfile? GetMultipathPowerDelayProfile<TMultipathPowe
 
 `TMultipathPowerDelayProfile`
 
-The type of the multipath power delay profile to retrieve, which must implement [DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.imultipathpowerdelayprofile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')\.
+The type of the multipath power delay profile to retrieve, which must implement [IMultipathPowerDelayProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IMultipathPowerDelayProfile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')\.
 #### Parameters
 
 <a name='DiGi.Communication.Classes.GeometricalPropagationModel.GetMultipathPowerDelayProfile_TMultipathPowerDelayProfile_(DiGi.Communication.Interfaces.IScatteringProfile).scatteringProfile'></a>
 
-`scatteringProfile` [DiGi\.Communication\.Interfaces\.IScatteringProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscatteringprofile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')
+`scatteringProfile` [IScatteringProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringProfile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')
 
 The scattering profile for which the multipath power delay profile is retrieved\.
 
@@ -1836,11 +1863,33 @@ public System.Collections.Generic.List<TMultipathPowerDelayProfile>? GetMultipat
 
 `TMultipathPowerDelayProfile`
 
-The type of multipath power delay profile to retrieve, which must implement [DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.imultipathpowerdelayprofile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')\.
+The type of multipath power delay profile to retrieve, which must implement [IMultipathPowerDelayProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IMultipathPowerDelayProfile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')\.
 
 #### Returns
 [System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[TMultipathPowerDelayProfile](DiGi.Communication.Classes.md#DiGi.Communication.Classes.GeometricalPropagationModel.GetMultipathPowerDelayProfiles_TMultipathPowerDelayProfile_().TMultipathPowerDelayProfile 'DiGi\.Communication\.Classes\.GeometricalPropagationModel\.GetMultipathPowerDelayProfiles\<TMultipathPowerDelayProfile\>\(\)\.TMultipathPowerDelayProfile')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')  
 A list of [TMultipathPowerDelayProfile](DiGi.Communication.Classes.md#DiGi.Communication.Classes.GeometricalPropagationModel.GetMultipathPowerDelayProfiles_TMultipathPowerDelayProfile_().TMultipathPowerDelayProfile 'DiGi\.Communication\.Classes\.GeometricalPropagationModel\.GetMultipathPowerDelayProfiles\<TMultipathPowerDelayProfile\>\(\)\.TMultipathPowerDelayProfile') objects if available; otherwise, `null`\.
+
+<a name='DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringGroups_TScatteringGroup_()'></a>
+
+## GeometricalPropagationModel\.GetScatteringGroups\<TScatteringGroup\>\(\) Method
+
+Gets all scattering groups of the specified type from the model\.
+
+```csharp
+public System.Collections.Generic.List<TScatteringGroup>? GetScatteringGroups<TScatteringGroup>()
+    where TScatteringGroup : DiGi.Communication.Interfaces.IScatteringGroup;
+```
+#### Type parameters
+
+<a name='DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringGroups_TScatteringGroup_().TScatteringGroup'></a>
+
+`TScatteringGroup`
+
+The type of scattering group to retrieve, which must implement [IScatteringGroup](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringGroup 'DiGi\.Communication\.Interfaces\.IScatteringGroup')\.
+
+#### Returns
+[System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[TScatteringGroup](DiGi.Communication.Classes.md#DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringGroups_TScatteringGroup_().TScatteringGroup 'DiGi\.Communication\.Classes\.GeometricalPropagationModel\.GetScatteringGroups\<TScatteringGroup\>\(\)\.TScatteringGroup')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')  
+A list of scattering groups of type [TScatteringGroup](DiGi.Communication.Classes.md#DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringGroups_TScatteringGroup_().TScatteringGroup 'DiGi\.Communication\.Classes\.GeometricalPropagationModel\.GetScatteringGroups\<TScatteringGroup\>\(\)\.TScatteringGroup') if any are found; otherwise, [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null')\.
 
 <a name='DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringObjects_TScatteringObject_()'></a>
 
@@ -1858,11 +1907,40 @@ public System.Collections.Generic.List<TScatteringObject>? GetScatteringObjects<
 
 `TScatteringObject`
 
-The type of scattering object to retrieve, which must implement [DiGi\.Communication\.Interfaces\.IScatteringObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscatteringobject 'DiGi\.Communication\.Interfaces\.IScatteringObject')\.
+The type of scattering object to retrieve, which must implement [IScatteringObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringObject 'DiGi\.Communication\.Interfaces\.IScatteringObject')\.
 
 #### Returns
 [System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[TScatteringObject](DiGi.Communication.Classes.md#DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringObjects_TScatteringObject_().TScatteringObject 'DiGi\.Communication\.Classes\.GeometricalPropagationModel\.GetScatteringObjects\<TScatteringObject\>\(\)\.TScatteringObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')  
 A list of scattering objects of type [TScatteringObject](DiGi.Communication.Classes.md#DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringObjects_TScatteringObject_().TScatteringObject 'DiGi\.Communication\.Classes\.GeometricalPropagationModel\.GetScatteringObjects\<TScatteringObject\>\(\)\.TScatteringObject'), or `null` if the collection is empty or unavailable\.
+
+<a name='DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringObjects_TScatteringObject_(DiGi.Communication.Interfaces.IScatteringGroup)'></a>
+
+## GeometricalPropagationModel\.GetScatteringObjects\<TScatteringObject\>\(IScatteringGroup\) Method
+
+Gets all scattering objects of the specified type associated with the given scattering group\.
+
+```csharp
+public System.Collections.Generic.List<TScatteringObject>? GetScatteringObjects<TScatteringObject>(DiGi.Communication.Interfaces.IScatteringGroup? scatteringGroup)
+    where TScatteringObject : DiGi.Communication.Interfaces.IScatteringObject;
+```
+#### Type parameters
+
+<a name='DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringObjects_TScatteringObject_(DiGi.Communication.Interfaces.IScatteringGroup).TScatteringObject'></a>
+
+`TScatteringObject`
+
+The type of scattering object to retrieve, which must implement [IScatteringObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringObject 'DiGi\.Communication\.Interfaces\.IScatteringObject')\.
+#### Parameters
+
+<a name='DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringObjects_TScatteringObject_(DiGi.Communication.Interfaces.IScatteringGroup).scatteringGroup'></a>
+
+`scatteringGroup` [IScatteringGroup](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringGroup 'DiGi\.Communication\.Interfaces\.IScatteringGroup')
+
+The scattering group whose scattering objects to retrieve\.
+
+#### Returns
+[System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[TScatteringObject](DiGi.Communication.Classes.md#DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringObjects_TScatteringObject_(DiGi.Communication.Interfaces.IScatteringGroup).TScatteringObject 'DiGi\.Communication\.Classes\.GeometricalPropagationModel\.GetScatteringObjects\<TScatteringObject\>\(DiGi\.Communication\.Interfaces\.IScatteringGroup\)\.TScatteringObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')  
+A list of scattering objects of type [TScatteringObject](DiGi.Communication.Classes.md#DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringObjects_TScatteringObject_(DiGi.Communication.Interfaces.IScatteringGroup).TScatteringObject 'DiGi\.Communication\.Classes\.GeometricalPropagationModel\.GetScatteringObjects\<TScatteringObject\>\(DiGi\.Communication\.Interfaces\.IScatteringGroup\)\.TScatteringObject') if any are found; otherwise, [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null')\.
 
 <a name='DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringProfiles_TScatteringProfile_()'></a>
 
@@ -1880,7 +1958,7 @@ public System.Collections.Generic.List<TScatteringProfile>? GetScatteringProfile
 
 `TScatteringProfile`
 
-The type of scattering profile to retrieve, which must implement [DiGi\.Communication\.Interfaces\.IScatteringProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscatteringprofile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')\.
+The type of scattering profile to retrieve, which must implement [IScatteringProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringProfile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')\.
 
 #### Returns
 [System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[TScatteringProfile](DiGi.Communication.Classes.md#DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringProfiles_TScatteringProfile_().TScatteringProfile 'DiGi\.Communication\.Classes\.GeometricalPropagationModel\.GetScatteringProfiles\<TScatteringProfile\>\(\)\.TScatteringProfile')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')  
@@ -1902,24 +1980,61 @@ public System.Collections.Generic.List<TScatteringProfile>? GetScatteringProfile
 
 `TScatteringProfile`
 
-The type of scattering profile to retrieve, which must implement [DiGi\.Communication\.Interfaces\.IScatteringProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscatteringprofile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')\.
+The type of scattering profile to retrieve, which must implement [IScatteringProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringProfile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')\.
 #### Parameters
 
 <a name='DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringProfiles_TScatteringProfile_(DiGi.Communication.Interfaces.IAntenna,DiGi.Communication.Interfaces.IAntenna).antenna_1'></a>
 
-`antenna_1` [DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna')
+`antenna_1` [IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna')
 
 The first antenna involved in the propagation path\.
 
 <a name='DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringProfiles_TScatteringProfile_(DiGi.Communication.Interfaces.IAntenna,DiGi.Communication.Interfaces.IAntenna).antenna_2'></a>
 
-`antenna_2` [DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna')
+`antenna_2` [IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna')
 
 The second antenna involved in the propagation path\.
 
 #### Returns
 [System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[TScatteringProfile](DiGi.Communication.Classes.md#DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringProfiles_TScatteringProfile_(DiGi.Communication.Interfaces.IAntenna,DiGi.Communication.Interfaces.IAntenna).TScatteringProfile 'DiGi\.Communication\.Classes\.GeometricalPropagationModel\.GetScatteringProfiles\<TScatteringProfile\>\(DiGi\.Communication\.Interfaces\.IAntenna, DiGi\.Communication\.Interfaces\.IAntenna\)\.TScatteringProfile')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')  
 A list of scattering profiles if both antennas are provided; otherwise, null\.
+
+<a name='DiGi.Communication.Classes.GeometricalPropagationModel.Group_TScatteringObject_(string,System.Collections.Generic.IEnumerable_TScatteringObject_)'></a>
+
+## GeometricalPropagationModel\.Group\<TScatteringObject\>\(string, IEnumerable\<TScatteringObject\>\) Method
+
+Creates a scattering group from the specified collection of scattering objects and adds it to the model\.
+
+The bounding box of the resulting group encloses all provided scattering objects.
+
+```csharp
+public DiGi.Communication.Classes.ScatteringGroup? Group<TScatteringObject>(string? reference, System.Collections.Generic.IEnumerable<TScatteringObject>? scatteringObjects)
+    where TScatteringObject : DiGi.Communication.Interfaces.IScatteringObject;
+```
+#### Type parameters
+
+<a name='DiGi.Communication.Classes.GeometricalPropagationModel.Group_TScatteringObject_(string,System.Collections.Generic.IEnumerable_TScatteringObject_).TScatteringObject'></a>
+
+`TScatteringObject`
+
+The type of the scattering objects, which must implement [IScatteringObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringObject 'DiGi\.Communication\.Interfaces\.IScatteringObject')\.
+#### Parameters
+
+<a name='DiGi.Communication.Classes.GeometricalPropagationModel.Group_TScatteringObject_(string,System.Collections.Generic.IEnumerable_TScatteringObject_).reference'></a>
+
+`reference` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+The reference identifier for the new scattering group\.
+
+<a name='DiGi.Communication.Classes.GeometricalPropagationModel.Group_TScatteringObject_(string,System.Collections.Generic.IEnumerable_TScatteringObject_).scatteringObjects'></a>
+
+`scatteringObjects` [System\.Collections\.Generic\.IEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')[TScatteringObject](DiGi.Communication.Classes.md#DiGi.Communication.Classes.GeometricalPropagationModel.Group_TScatteringObject_(string,System.Collections.Generic.IEnumerable_TScatteringObject_).TScatteringObject 'DiGi\.Communication\.Classes\.GeometricalPropagationModel\.Group\<TScatteringObject\>\(string, System\.Collections\.Generic\.IEnumerable\<TScatteringObject\>\)\.TScatteringObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')
+
+The collection of scattering objects to group together\.
+
+#### Returns
+[ScatteringGroup](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringGroup 'DiGi\.Communication\.Classes\.ScatteringGroup')  
+The newly created [ScatteringGroup](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringGroup 'DiGi\.Communication\.Classes\.ScatteringGroup') if successful; otherwise, [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null')\.
 
 <a name='DiGi.Communication.Classes.GeometricalPropagationModel.Update(DiGi.Communication.Interfaces.IAngularPowerDistributionProfile)'></a>
 
@@ -1934,7 +2049,7 @@ public bool Update(DiGi.Communication.Interfaces.IAngularPowerDistributionProfil
 
 <a name='DiGi.Communication.Classes.GeometricalPropagationModel.Update(DiGi.Communication.Interfaces.IAngularPowerDistributionProfile).angularPowerDistributionProfile'></a>
 
-`angularPowerDistributionProfile` [DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iangularpowerdistributionprofile 'DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile')
+`angularPowerDistributionProfile` [IAngularPowerDistributionProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAngularPowerDistributionProfile 'DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile')
 
 The angular power distribution profile to be used for the update\. Can be null\.
 
@@ -1955,7 +2070,7 @@ public bool Update(DiGi.Communication.Interfaces.IAntenna? antenna);
 
 <a name='DiGi.Communication.Classes.GeometricalPropagationModel.Update(DiGi.Communication.Interfaces.IAntenna).antenna'></a>
 
-`antenna` [DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna')
+`antenna` [IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna')
 
 The antenna to be updated in the propagation model\.
 
@@ -1976,7 +2091,7 @@ public bool Update(DiGi.Communication.Interfaces.IMultipathPowerDelayProfile? mu
 
 <a name='DiGi.Communication.Classes.GeometricalPropagationModel.Update(DiGi.Communication.Interfaces.IMultipathPowerDelayProfile).multipathPowerDelayProfile'></a>
 
-`multipathPowerDelayProfile` [DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.imultipathpowerdelayprofile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')
+`multipathPowerDelayProfile` [IMultipathPowerDelayProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IMultipathPowerDelayProfile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')
 
 The multipath power delay profile to be used for the update; can be null\.
 
@@ -1997,7 +2112,7 @@ public bool Update(DiGi.Communication.Interfaces.IScatteringObject? scatteringOb
 
 <a name='DiGi.Communication.Classes.GeometricalPropagationModel.Update(DiGi.Communication.Interfaces.IScatteringObject).scatteringObject'></a>
 
-`scatteringObject` [DiGi\.Communication\.Interfaces\.IScatteringObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscatteringobject 'DiGi\.Communication\.Interfaces\.IScatteringObject')
+`scatteringObject` [IScatteringObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringObject 'DiGi\.Communication\.Interfaces\.IScatteringObject')
 
 The scattering object to be added\. If null, no update is performed\.
 
@@ -2018,7 +2133,7 @@ public bool Update(DiGi.Communication.Interfaces.IScatteringProfile? scatteringP
 
 <a name='DiGi.Communication.Classes.GeometricalPropagationModel.Update(DiGi.Communication.Interfaces.IScatteringProfile).scatteringProfile'></a>
 
-`scatteringProfile` [DiGi\.Communication\.Interfaces\.IScatteringProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscatteringprofile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')
+`scatteringProfile` [IScatteringProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringProfile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')
 
 The scattering profile to be used for the update\. Can be null\.
 
@@ -2038,7 +2153,7 @@ public class MaterialProperties : DiGi.Core.Classes.SerializableObject, DiGi.Com
 
 Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → MaterialProperties
 
-Implements [DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationserializableobject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Communication\.Interfaces\.ICommunicationObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationobject 'DiGi\.Communication\.Interfaces\.ICommunicationObject')
+Implements [ICommunicationSerializableObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationSerializableObject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject')
 ### Constructors
 
 <a name='DiGi.Communication.Classes.MaterialProperties.MaterialProperties(DiGi.Communication.Classes.MaterialProperties)'></a>
@@ -2164,7 +2279,7 @@ public class MeshCell : DiGi.Core.Classes.SerializableObject, DiGi.Communication
 
 Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → MeshCell
 
-Implements [DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationserializableobject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Communication\.Interfaces\.ICommunicationObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationobject 'DiGi\.Communication\.Interfaces\.ICommunicationObject')
+Implements [ICommunicationSerializableObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationSerializableObject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject')
 ### Constructors
 
 <a name='DiGi.Communication.Classes.MeshCell.MeshCell(DiGi.Communication.Classes.MeshCell)'></a>
@@ -2320,9 +2435,9 @@ Represents a bidirectional one\-to\-many relationship between a multipath power 
 public class MultipathPowerDelayProfileAntennasRelation : DiGi.Core.Relation.Classes.OneToManyBidirectionalRelation<DiGi.Communication.Interfaces.IMultipathPowerDelayProfile, DiGi.Communication.Interfaces.IAntenna>, DiGi.Communication.Interfaces.ICommunicationRelation, DiGi.Communication.Interfaces.ICommunicationObject, DiGi.Core.Interfaces.IObject, DiGi.Core.Relation.Interfaces.IRelation, DiGi.Core.Interfaces.ISerializableObject, DiGi.Core.Interfaces.ICloneableObject<DiGi.Core.Interfaces.ISerializableObject>, DiGi.Core.Interfaces.ICloneableObject
 ```
 
-Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → [DiGi\.Core\.Relation\.Classes\.Relation](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation 'DiGi\.Core\.Relation\.Classes\.Relation') → [DiGi\.Core\.Relation\.Classes\.Relation&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation-2 'DiGi\.Core\.Relation\.Classes\.Relation\`2')[DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.imultipathpowerdelayprofile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation-2 'DiGi\.Core\.Relation\.Classes\.Relation\`2')[DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation-2 'DiGi\.Core\.Relation\.Classes\.Relation\`2') → [DiGi\.Core\.Relation\.Classes\.OneToManyRelation&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetomanyrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToManyRelation\`2')[DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.imultipathpowerdelayprofile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetomanyrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToManyRelation\`2')[DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetomanyrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToManyRelation\`2') → [DiGi\.Core\.Relation\.Classes\.OneToManyBidirectionalRelation&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetomanybidirectionalrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToManyBidirectionalRelation\`2')[DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.imultipathpowerdelayprofile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetomanybidirectionalrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToManyBidirectionalRelation\`2')[DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetomanybidirectionalrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToManyBidirectionalRelation\`2') → MultipathPowerDelayProfileAntennasRelation
+Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → [DiGi\.Core\.Relation\.Classes\.Relation](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation 'DiGi\.Core\.Relation\.Classes\.Relation') → [DiGi\.Core\.Relation\.Classes\.Relation&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation-2 'DiGi\.Core\.Relation\.Classes\.Relation\`2')[IMultipathPowerDelayProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IMultipathPowerDelayProfile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation-2 'DiGi\.Core\.Relation\.Classes\.Relation\`2')[IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation-2 'DiGi\.Core\.Relation\.Classes\.Relation\`2') → [DiGi\.Core\.Relation\.Classes\.OneToManyRelation&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetomanyrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToManyRelation\`2')[IMultipathPowerDelayProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IMultipathPowerDelayProfile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetomanyrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToManyRelation\`2')[IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetomanyrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToManyRelation\`2') → [DiGi\.Core\.Relation\.Classes\.OneToManyBidirectionalRelation&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetomanybidirectionalrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToManyBidirectionalRelation\`2')[IMultipathPowerDelayProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IMultipathPowerDelayProfile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetomanybidirectionalrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToManyBidirectionalRelation\`2')[IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetomanybidirectionalrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToManyBidirectionalRelation\`2') → MultipathPowerDelayProfileAntennasRelation
 
-Implements [DiGi\.Communication\.Interfaces\.ICommunicationRelation](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationrelation 'DiGi\.Communication\.Interfaces\.ICommunicationRelation'), [DiGi\.Communication\.Interfaces\.ICommunicationObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationobject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Core\.Relation\.Interfaces\.IRelation](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.interfaces.irelation 'DiGi\.Core\.Relation\.Interfaces\.IRelation'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject')
+Implements [ICommunicationRelation](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationRelation 'DiGi\.Communication\.Interfaces\.ICommunicationRelation'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Core\.Relation\.Interfaces\.IRelation](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.interfaces.irelation 'DiGi\.Core\.Relation\.Interfaces\.IRelation'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject')
 ### Constructors
 
 <a name='DiGi.Communication.Classes.MultipathPowerDelayProfileAntennasRelation.MultipathPowerDelayProfileAntennasRelation(DiGi.Communication.Classes.MultipathPowerDelayProfileAntennasRelation)'></a>
@@ -2355,19 +2470,19 @@ public MultipathPowerDelayProfileAntennasRelation(DiGi.Communication.Interfaces.
 
 <a name='DiGi.Communication.Classes.MultipathPowerDelayProfileAntennasRelation.MultipathPowerDelayProfileAntennasRelation(DiGi.Communication.Interfaces.IMultipathPowerDelayProfile,DiGi.Communication.Interfaces.IAntenna,DiGi.Communication.Interfaces.IAntenna).multipathPowerDelayProfile'></a>
 
-`multipathPowerDelayProfile` [DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.imultipathpowerdelayprofile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')
+`multipathPowerDelayProfile` [IMultipathPowerDelayProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IMultipathPowerDelayProfile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')
 
 The multipath power delay profile associated with this relation\.
 
 <a name='DiGi.Communication.Classes.MultipathPowerDelayProfileAntennasRelation.MultipathPowerDelayProfileAntennasRelation(DiGi.Communication.Interfaces.IMultipathPowerDelayProfile,DiGi.Communication.Interfaces.IAntenna,DiGi.Communication.Interfaces.IAntenna).antenna_1'></a>
 
-`antenna_1` [DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna')
+`antenna_1` [IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna')
 
 The first antenna associated with this relation\.
 
 <a name='DiGi.Communication.Classes.MultipathPowerDelayProfileAntennasRelation.MultipathPowerDelayProfileAntennasRelation(DiGi.Communication.Interfaces.IMultipathPowerDelayProfile,DiGi.Communication.Interfaces.IAntenna,DiGi.Communication.Interfaces.IAntenna).antenna_2'></a>
 
-`antenna_2` [DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna')
+`antenna_2` [IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna')
 
 The second antenna associated with this relation\.
 
@@ -2400,7 +2515,7 @@ public class PropagationModel : DiGi.Core.Classes.SerializableObject, DiGi.Commu
 
 Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → PropagationModel
 
-Implements [DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationserializableobject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Communication\.Interfaces\.ICommunicationObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationobject 'DiGi\.Communication\.Interfaces\.ICommunicationObject')
+Implements [ICommunicationSerializableObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationSerializableObject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject')
 ### Constructors
 
 <a name='DiGi.Communication.Classes.PropagationModel.PropagationModel(DiGi.Communication.Classes.PropagationModel)'></a>
@@ -2750,7 +2865,7 @@ public class PropagationResult : DiGi.Core.Classes.SerializableObject, DiGi.Comm
 
 Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → PropagationResult
 
-Implements [DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationserializableobject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Communication\.Interfaces\.ICommunicationObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationobject 'DiGi\.Communication\.Interfaces\.ICommunicationObject')
+Implements [ICommunicationSerializableObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationSerializableObject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject')
 ### Constructors
 
 <a name='DiGi.Communication.Classes.PropagationResult.PropagationResult(DiGi.Communication.Classes.PropagationResult)'></a>
@@ -2940,7 +3055,7 @@ public class Ray : DiGi.Core.Classes.SerializableObject, DiGi.Communication.Inte
 
 Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → Ray
 
-Implements [DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationserializableobject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Communication\.Interfaces\.ICommunicationObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationobject 'DiGi\.Communication\.Interfaces\.ICommunicationObject')
+Implements [ICommunicationSerializableObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationSerializableObject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject')
 ### Constructors
 
 <a name='DiGi.Communication.Classes.Ray.Ray(DiGi.Communication.Classes.Ray)'></a>
@@ -3039,7 +3154,7 @@ public class RayContribution : DiGi.Core.Classes.SerializableObject, DiGi.Commun
 
 Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → RayContribution
 
-Implements [DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationserializableobject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Communication\.Interfaces\.ICommunicationObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationobject 'DiGi\.Communication\.Interfaces\.ICommunicationObject')
+Implements [ICommunicationSerializableObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationSerializableObject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject')
 ### Constructors
 
 <a name='DiGi.Communication.Classes.RayContribution.RayContribution(DiGi.Communication.Classes.RayContribution)'></a>
@@ -3390,7 +3505,7 @@ public class Scattering : DiGi.Core.Classes.SerializableObject, DiGi.Communicati
 
 Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → Scattering
 
-Implements [DiGi\.Communication\.Interfaces\.IScattering](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscattering 'DiGi\.Communication\.Interfaces\.IScattering'), [DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationserializableobject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Communication\.Interfaces\.ICommunicationObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationobject 'DiGi\.Communication\.Interfaces\.ICommunicationObject')
+Implements [IScattering](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScattering 'DiGi\.Communication\.Interfaces\.IScattering'), [ICommunicationSerializableObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationSerializableObject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject')
 ### Constructors
 
 <a name='DiGi.Communication.Classes.Scattering.Scattering(DiGi.Communication.Classes.Scattering)'></a>
@@ -3478,7 +3593,7 @@ Gets the delay associated with the scattering process\.
 public double Delay { get; }
 ```
 
-Implements [Delay](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscattering.delay 'DiGi\.Communication\.Interfaces\.IScattering\.Delay')
+Implements [Delay](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScattering.Delay 'DiGi\.Communication\.Interfaces\.IScattering\.Delay')
 
 #### Property Value
 [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
@@ -3493,10 +3608,214 @@ Gets the collection of scattering point groups, filtered to remove null entries 
 public System.Collections.Generic.List<DiGi.Communication.Classes.ScatteringPointGroup>? ScatteringPointGroups { get; }
 ```
 
-Implements [ScatteringPointGroups](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscattering.scatteringpointgroups 'DiGi\.Communication\.Interfaces\.IScattering\.ScatteringPointGroups')
+Implements [ScatteringPointGroups](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScattering.ScatteringPointGroups 'DiGi\.Communication\.Interfaces\.IScattering\.ScatteringPointGroups')
 
 #### Property Value
 [System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[ScatteringPointGroup](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringPointGroup 'DiGi\.Communication\.Classes\.ScatteringPointGroup')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')
+
+<a name='DiGi.Communication.Classes.ScatteringGroup'></a>
+
+## ScatteringGroup Class
+
+Represents a group of scattering objects identified by a bounding box and a reference string\.
+
+```csharp
+public class ScatteringGroup : DiGi.Core.Classes.GuidObject, DiGi.Communication.Interfaces.IScatteringGroup, DiGi.Communication.Interfaces.ICommunicationGuidObject, DiGi.Communication.Interfaces.ICommunicationSerializableObject, DiGi.Core.Interfaces.ISerializableObject, DiGi.Core.Interfaces.ICloneableObject<DiGi.Core.Interfaces.ISerializableObject>, DiGi.Core.Interfaces.ICloneableObject, DiGi.Core.Interfaces.IObject, DiGi.Communication.Interfaces.ICommunicationObject, DiGi.Core.Interfaces.IGuidObject, DiGi.Core.Interfaces.IUniqueObject
+```
+
+Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → [DiGi\.Core\.Classes\.UniqueObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.uniqueobject 'DiGi\.Core\.Classes\.UniqueObject') → [DiGi\.Core\.Classes\.GuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.guidobject 'DiGi\.Core\.Classes\.GuidObject') → ScatteringGroup
+
+Implements [IScatteringGroup](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringGroup 'DiGi\.Communication\.Interfaces\.IScatteringGroup'), [ICommunicationGuidObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationGuidObject 'DiGi\.Communication\.Interfaces\.ICommunicationGuidObject'), [ICommunicationSerializableObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationSerializableObject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IGuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iguidobject 'DiGi\.Core\.Interfaces\.IGuidObject'), [DiGi\.Core\.Interfaces\.IUniqueObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iuniqueobject 'DiGi\.Core\.Interfaces\.IUniqueObject')
+### Constructors
+
+<a name='DiGi.Communication.Classes.ScatteringGroup.ScatteringGroup(DiGi.Communication.Classes.ScatteringGroup)'></a>
+
+## ScatteringGroup\(ScatteringGroup\) Constructor
+
+Initializes a new instance of the [ScatteringGroup](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringGroup 'DiGi\.Communication\.Classes\.ScatteringGroup') class by copying an existing scattering group\.
+
+```csharp
+public ScatteringGroup(DiGi.Communication.Classes.ScatteringGroup? scatteringGroup);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Classes.ScatteringGroup.ScatteringGroup(DiGi.Communication.Classes.ScatteringGroup).scatteringGroup'></a>
+
+`scatteringGroup` [ScatteringGroup](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringGroup 'DiGi\.Communication\.Classes\.ScatteringGroup')
+
+The source scattering group to copy from, or [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null') to create a default instance\.
+
+<a name='DiGi.Communication.Classes.ScatteringGroup.ScatteringGroup(string,DiGi.Geometry.Spatial.Classes.BoundingBox3D)'></a>
+
+## ScatteringGroup\(string, BoundingBox3D\) Constructor
+
+Initializes a new instance of the [ScatteringGroup](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringGroup 'DiGi\.Communication\.Classes\.ScatteringGroup') class with the specified reference and bounding box, generating a new unique identifier\.
+
+```csharp
+public ScatteringGroup(string? reference, DiGi.Geometry.Spatial.Classes.BoundingBox3D? boundingBox3D);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Classes.ScatteringGroup.ScatteringGroup(string,DiGi.Geometry.Spatial.Classes.BoundingBox3D).reference'></a>
+
+`reference` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+The reference string for the scattering group\. If null or whitespace, the generated GUID string is used\.
+
+<a name='DiGi.Communication.Classes.ScatteringGroup.ScatteringGroup(string,DiGi.Geometry.Spatial.Classes.BoundingBox3D).boundingBox3D'></a>
+
+`boundingBox3D` [DiGi\.Geometry\.Spatial\.Classes\.BoundingBox3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.boundingbox3d 'DiGi\.Geometry\.Spatial\.Classes\.BoundingBox3D')
+
+The 3D bounding box that encloses the scattering group\.
+
+<a name='DiGi.Communication.Classes.ScatteringGroup.ScatteringGroup(System.Guid,string,DiGi.Geometry.Spatial.Classes.BoundingBox3D)'></a>
+
+## ScatteringGroup\(Guid, string, BoundingBox3D\) Constructor
+
+Initializes a new instance of the [ScatteringGroup](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringGroup 'DiGi\.Communication\.Classes\.ScatteringGroup') class with the specified unique identifier, reference, and bounding box\.
+
+```csharp
+public ScatteringGroup(System.Guid guid, string? reference, DiGi.Geometry.Spatial.Classes.BoundingBox3D? boundingBox3D);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Classes.ScatteringGroup.ScatteringGroup(System.Guid,string,DiGi.Geometry.Spatial.Classes.BoundingBox3D).guid'></a>
+
+`guid` [System\.Guid](https://learn.microsoft.com/en-us/dotnet/api/system.guid 'System\.Guid')
+
+The unique identifier for the scattering group\.
+
+<a name='DiGi.Communication.Classes.ScatteringGroup.ScatteringGroup(System.Guid,string,DiGi.Geometry.Spatial.Classes.BoundingBox3D).reference'></a>
+
+`reference` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+The reference string for the scattering group\. If null or whitespace, the GUID string is used\.
+
+<a name='DiGi.Communication.Classes.ScatteringGroup.ScatteringGroup(System.Guid,string,DiGi.Geometry.Spatial.Classes.BoundingBox3D).boundingBox3D'></a>
+
+`boundingBox3D` [DiGi\.Geometry\.Spatial\.Classes\.BoundingBox3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.boundingbox3d 'DiGi\.Geometry\.Spatial\.Classes\.BoundingBox3D')
+
+The 3D bounding box that encloses the scattering group\.
+
+<a name='DiGi.Communication.Classes.ScatteringGroup.ScatteringGroup(System.Text.Json.Nodes.JsonObject)'></a>
+
+## ScatteringGroup\(JsonObject\) Constructor
+
+Initializes a new instance of the [ScatteringGroup](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringGroup 'DiGi\.Communication\.Classes\.ScatteringGroup') class from a JSON object\.
+
+```csharp
+public ScatteringGroup(System.Text.Json.Nodes.JsonObject? jsonObject);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Classes.ScatteringGroup.ScatteringGroup(System.Text.Json.Nodes.JsonObject).jsonObject'></a>
+
+`jsonObject` [System\.Text\.Json\.Nodes\.JsonObject](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.nodes.jsonobject 'System\.Text\.Json\.Nodes\.JsonObject')
+
+The JSON object containing serializable data for the scattering group\.
+### Properties
+
+<a name='DiGi.Communication.Classes.ScatteringGroup.BoundingBox3D'></a>
+
+## ScatteringGroup\.BoundingBox3D Property
+
+Gets the 3D bounding box that encloses the scattering group\.
+
+```csharp
+public DiGi.Geometry.Spatial.Classes.BoundingBox3D? BoundingBox3D { get; }
+```
+
+Implements [BoundingBox3D](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringGroup.BoundingBox3D 'DiGi\.Communication\.Interfaces\.IScatteringGroup\.BoundingBox3D')
+
+#### Property Value
+[DiGi\.Geometry\.Spatial\.Classes\.BoundingBox3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.boundingbox3d 'DiGi\.Geometry\.Spatial\.Classes\.BoundingBox3D')
+
+<a name='DiGi.Communication.Classes.ScatteringGroup.Reference'></a>
+
+## ScatteringGroup\.Reference Property
+
+Gets the reference identifier of the scattering group\.
+
+```csharp
+public string? Reference { get; }
+```
+
+Implements [Reference](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringGroup.Reference 'DiGi\.Communication\.Interfaces\.IScatteringGroup\.Reference')
+
+#### Property Value
+[System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+<a name='DiGi.Communication.Classes.ScatteringGroupScatteringObjectsRelation'></a>
+
+## ScatteringGroupScatteringObjectsRelation Class
+
+Represents a directional one\-to\-many relationship between a scattering group and its associated scattering objects\.
+
+```csharp
+public class ScatteringGroupScatteringObjectsRelation : DiGi.Core.Relation.Classes.OneToManyDirectionalRelation<DiGi.Communication.Interfaces.IScatteringGroup, DiGi.Communication.Interfaces.IScatteringObject>, DiGi.Communication.Interfaces.ICommunicationRelation, DiGi.Communication.Interfaces.ICommunicationObject, DiGi.Core.Interfaces.IObject, DiGi.Core.Relation.Interfaces.IRelation, DiGi.Core.Interfaces.ISerializableObject, DiGi.Core.Interfaces.ICloneableObject<DiGi.Core.Interfaces.ISerializableObject>, DiGi.Core.Interfaces.ICloneableObject
+```
+
+Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → [DiGi\.Core\.Relation\.Classes\.Relation](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation 'DiGi\.Core\.Relation\.Classes\.Relation') → [DiGi\.Core\.Relation\.Classes\.Relation&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation-2 'DiGi\.Core\.Relation\.Classes\.Relation\`2')[IScatteringGroup](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringGroup 'DiGi\.Communication\.Interfaces\.IScatteringGroup')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation-2 'DiGi\.Core\.Relation\.Classes\.Relation\`2')[IScatteringObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringObject 'DiGi\.Communication\.Interfaces\.IScatteringObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation-2 'DiGi\.Core\.Relation\.Classes\.Relation\`2') → [DiGi\.Core\.Relation\.Classes\.OneToManyRelation&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetomanyrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToManyRelation\`2')[IScatteringGroup](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringGroup 'DiGi\.Communication\.Interfaces\.IScatteringGroup')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetomanyrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToManyRelation\`2')[IScatteringObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringObject 'DiGi\.Communication\.Interfaces\.IScatteringObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetomanyrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToManyRelation\`2') → [DiGi\.Core\.Relation\.Classes\.OneToManyDirectionalRelation&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetomanydirectionalrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToManyDirectionalRelation\`2')[IScatteringGroup](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringGroup 'DiGi\.Communication\.Interfaces\.IScatteringGroup')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetomanydirectionalrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToManyDirectionalRelation\`2')[IScatteringObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringObject 'DiGi\.Communication\.Interfaces\.IScatteringObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetomanydirectionalrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToManyDirectionalRelation\`2') → ScatteringGroupScatteringObjectsRelation
+
+Implements [ICommunicationRelation](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationRelation 'DiGi\.Communication\.Interfaces\.ICommunicationRelation'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Core\.Relation\.Interfaces\.IRelation](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.interfaces.irelation 'DiGi\.Core\.Relation\.Interfaces\.IRelation'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject')
+### Constructors
+
+<a name='DiGi.Communication.Classes.ScatteringGroupScatteringObjectsRelation.ScatteringGroupScatteringObjectsRelation(DiGi.Communication.Classes.ScatteringGroupScatteringObjectsRelation)'></a>
+
+## ScatteringGroupScatteringObjectsRelation\(ScatteringGroupScatteringObjectsRelation\) Constructor
+
+Initializes a new instance of the [ScatteringGroupScatteringObjectsRelation](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringGroupScatteringObjectsRelation 'DiGi\.Communication\.Classes\.ScatteringGroupScatteringObjectsRelation') class by copying an existing relation\.
+
+```csharp
+public ScatteringGroupScatteringObjectsRelation(DiGi.Communication.Classes.ScatteringGroupScatteringObjectsRelation? scatteringGroupScatteringObjectsRelation);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Classes.ScatteringGroupScatteringObjectsRelation.ScatteringGroupScatteringObjectsRelation(DiGi.Communication.Classes.ScatteringGroupScatteringObjectsRelation).scatteringGroupScatteringObjectsRelation'></a>
+
+`scatteringGroupScatteringObjectsRelation` [ScatteringGroupScatteringObjectsRelation](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringGroupScatteringObjectsRelation 'DiGi\.Communication\.Classes\.ScatteringGroupScatteringObjectsRelation')
+
+The source relation to copy from, or [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null') to create a default instance\.
+
+<a name='DiGi.Communication.Classes.ScatteringGroupScatteringObjectsRelation.ScatteringGroupScatteringObjectsRelation(DiGi.Communication.Interfaces.IScatteringGroup,System.Collections.Generic.IEnumerable_DiGi.Communication.Interfaces.IScatteringObject_)'></a>
+
+## ScatteringGroupScatteringObjectsRelation\(IScatteringGroup, IEnumerable\<IScatteringObject\>\) Constructor
+
+Initializes a new instance of the [ScatteringGroupScatteringObjectsRelation](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringGroupScatteringObjectsRelation 'DiGi\.Communication\.Classes\.ScatteringGroupScatteringObjectsRelation') class\.
+
+```csharp
+public ScatteringGroupScatteringObjectsRelation(DiGi.Communication.Interfaces.IScatteringGroup? scatteringGroup, System.Collections.Generic.IEnumerable<DiGi.Communication.Interfaces.IScatteringObject> scatteringObjects);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Classes.ScatteringGroupScatteringObjectsRelation.ScatteringGroupScatteringObjectsRelation(DiGi.Communication.Interfaces.IScatteringGroup,System.Collections.Generic.IEnumerable_DiGi.Communication.Interfaces.IScatteringObject_).scatteringGroup'></a>
+
+`scatteringGroup` [IScatteringGroup](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringGroup 'DiGi\.Communication\.Interfaces\.IScatteringGroup')
+
+The scattering group to be associated in the relation\.
+
+<a name='DiGi.Communication.Classes.ScatteringGroupScatteringObjectsRelation.ScatteringGroupScatteringObjectsRelation(DiGi.Communication.Interfaces.IScatteringGroup,System.Collections.Generic.IEnumerable_DiGi.Communication.Interfaces.IScatteringObject_).scatteringObjects'></a>
+
+`scatteringObjects` [System\.Collections\.Generic\.IEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')[IScatteringObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringObject 'DiGi\.Communication\.Interfaces\.IScatteringObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')
+
+The collection of scattering objects to be associated with the group\.
+
+<a name='DiGi.Communication.Classes.ScatteringGroupScatteringObjectsRelation.ScatteringGroupScatteringObjectsRelation(System.Text.Json.Nodes.JsonObject)'></a>
+
+## ScatteringGroupScatteringObjectsRelation\(JsonObject\) Constructor
+
+Initializes a new instance of the [ScatteringGroupScatteringObjectsRelation](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringGroupScatteringObjectsRelation 'DiGi\.Communication\.Classes\.ScatteringGroupScatteringObjectsRelation') class from a JSON object\.
+
+```csharp
+public ScatteringGroupScatteringObjectsRelation(System.Text.Json.Nodes.JsonObject? jsonObject);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Classes.ScatteringGroupScatteringObjectsRelation.ScatteringGroupScatteringObjectsRelation(System.Text.Json.Nodes.JsonObject).jsonObject'></a>
+
+`jsonObject` [System\.Text\.Json\.Nodes\.JsonObject](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.nodes.jsonobject 'System\.Text\.Json\.Nodes\.JsonObject')
+
+The JSON object containing serializable data for the relation\.
 
 <a name='DiGi.Communication.Classes.ScatteringObject'></a>
 
@@ -3510,7 +3829,7 @@ public class ScatteringObject : DiGi.Core.Classes.GuidObject, DiGi.Communication
 
 Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → [DiGi\.Core\.Classes\.UniqueObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.uniqueobject 'DiGi\.Core\.Classes\.UniqueObject') → [DiGi\.Core\.Classes\.GuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.guidobject 'DiGi\.Core\.Classes\.GuidObject') → ScatteringObject
 
-Implements [DiGi\.Communication\.Interfaces\.IScatteringObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscatteringobject 'DiGi\.Communication\.Interfaces\.IScatteringObject'), [DiGi\.Communication\.Interfaces\.ICommunicationGuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationguidobject 'DiGi\.Communication\.Interfaces\.ICommunicationGuidObject'), [DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationserializableobject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Communication\.Interfaces\.ICommunicationObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationobject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IGuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iguidobject 'DiGi\.Core\.Interfaces\.IGuidObject'), [DiGi\.Core\.Interfaces\.IUniqueObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iuniqueobject 'DiGi\.Core\.Interfaces\.IUniqueObject')
+Implements [IScatteringObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringObject 'DiGi\.Communication\.Interfaces\.IScatteringObject'), [ICommunicationGuidObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationGuidObject 'DiGi\.Communication\.Interfaces\.ICommunicationGuidObject'), [ICommunicationSerializableObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationSerializableObject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IGuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iguidobject 'DiGi\.Core\.Interfaces\.IGuidObject'), [DiGi\.Core\.Interfaces\.IUniqueObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iuniqueobject 'DiGi\.Core\.Interfaces\.IUniqueObject')
 ### Constructors
 
 <a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(DiGi.Communication.Classes.ScatteringObject)'></a>
@@ -3622,7 +3941,7 @@ Gets a clone of the three\-dimensional mesh associated with this scattering obje
 public DiGi.Geometry.Spatial.Classes.Mesh3D? Mesh3D { get; }
 ```
 
-Implements [Mesh3D](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscatteringobject.mesh3d 'DiGi\.Communication\.Interfaces\.IScatteringObject\.Mesh3D')
+Implements [Mesh3D](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringObject.Mesh3D 'DiGi\.Communication\.Interfaces\.IScatteringObject\.Mesh3D')
 
 #### Property Value
 [DiGi\.Geometry\.Spatial\.Classes\.Mesh3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.mesh3d 'DiGi\.Geometry\.Spatial\.Classes\.Mesh3D')
@@ -3637,7 +3956,7 @@ Gets the serializable reference object\.
 public string? Reference { get; }
 ```
 
-Implements [Reference](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscatteringobject.reference 'DiGi\.Communication\.Interfaces\.IScatteringObject\.Reference')
+Implements [Reference](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringObject.Reference 'DiGi\.Communication\.Interfaces\.IScatteringObject\.Reference')
 
 #### Property Value
 [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
@@ -3652,7 +3971,7 @@ Gets the scattering coefficient of the object\.
 public double ScatteringCoefficient { get; }
 ```
 
-Implements [ScatteringCoefficient](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscatteringobject.scatteringcoefficient 'DiGi\.Communication\.Interfaces\.IScatteringObject\.ScatteringCoefficient')
+Implements [ScatteringCoefficient](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringObject.ScatteringCoefficient 'DiGi\.Communication\.Interfaces\.IScatteringObject\.ScatteringCoefficient')
 
 #### Property Value
 [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
@@ -3669,7 +3988,7 @@ public class ScatteringPointGroup : DiGi.Core.Classes.SerializableObject, DiGi.C
 
 Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → ScatteringPointGroup
 
-Implements [DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationserializableobject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Communication\.Interfaces\.ICommunicationObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationobject 'DiGi\.Communication\.Interfaces\.ICommunicationObject')
+Implements [ICommunicationSerializableObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationSerializableObject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject')
 ### Constructors
 
 <a name='DiGi.Communication.Classes.ScatteringPointGroup.ScatteringPointGroup(DiGi.Communication.Classes.ScatteringPointGroup)'></a>
@@ -3768,7 +4087,7 @@ public class ScatteringProfile : DiGi.Core.Classes.GuidObject, DiGi.Communicatio
 
 Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → [DiGi\.Core\.Classes\.UniqueObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.uniqueobject 'DiGi\.Core\.Classes\.UniqueObject') → [DiGi\.Core\.Classes\.GuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.guidobject 'DiGi\.Core\.Classes\.GuidObject') → ScatteringProfile
 
-Implements [DiGi\.Communication\.Interfaces\.IScatteringProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscatteringprofile 'DiGi\.Communication\.Interfaces\.IScatteringProfile'), [DiGi\.Communication\.Interfaces\.ICommunicationGuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationguidobject 'DiGi\.Communication\.Interfaces\.ICommunicationGuidObject'), [DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationserializableobject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Communication\.Interfaces\.ICommunicationObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationobject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IGuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iguidobject 'DiGi\.Core\.Interfaces\.IGuidObject'), [DiGi\.Core\.Interfaces\.IUniqueObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iuniqueobject 'DiGi\.Core\.Interfaces\.IUniqueObject')
+Implements [IScatteringProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringProfile 'DiGi\.Communication\.Interfaces\.IScatteringProfile'), [ICommunicationGuidObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationGuidObject 'DiGi\.Communication\.Interfaces\.ICommunicationGuidObject'), [ICommunicationSerializableObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationSerializableObject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IGuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iguidobject 'DiGi\.Core\.Interfaces\.IGuidObject'), [DiGi\.Core\.Interfaces\.IUniqueObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iuniqueobject 'DiGi\.Core\.Interfaces\.IUniqueObject')
 ### Constructors
 
 <a name='DiGi.Communication.Classes.ScatteringProfile.ScatteringProfile(bool,DiGi.Geometry.Spatial.Classes.Point3D,DiGi.Geometry.Spatial.Classes.Point3D,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.Scattering_)'></a>
@@ -3892,7 +4211,7 @@ Gets the first location point in three\-dimensional space associated with the sc
 public DiGi.Geometry.Spatial.Classes.Point3D? Location_1 { get; }
 ```
 
-Implements [Location\_1](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscatteringprofile.location_1 'DiGi\.Communication\.Interfaces\.IScatteringProfile\.Location\_1')
+Implements [Location\_1](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringProfile.Location_1 'DiGi\.Communication\.Interfaces\.IScatteringProfile\.Location\_1')
 
 #### Property Value
 [DiGi\.Geometry\.Spatial\.Classes\.Point3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.point3d 'DiGi\.Geometry\.Spatial\.Classes\.Point3D')
@@ -3907,7 +4226,7 @@ Gets the second location associated with the scattering profile\.
 public DiGi.Geometry.Spatial.Classes.Point3D? Location_2 { get; }
 ```
 
-Implements [Location\_2](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscatteringprofile.location_2 'DiGi\.Communication\.Interfaces\.IScatteringProfile\.Location\_2')
+Implements [Location\_2](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringProfile.Location_2 'DiGi\.Communication\.Interfaces\.IScatteringProfile\.Location\_2')
 
 #### Property Value
 [DiGi\.Geometry\.Spatial\.Classes\.Point3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.point3d 'DiGi\.Geometry\.Spatial\.Classes\.Point3D')
@@ -3922,7 +4241,7 @@ Gets the collection of scattering entries associated with this profile\.
 public System.Collections.Generic.IEnumerable<DiGi.Communication.Classes.Scattering>? Scatterings { get; private set; }
 ```
 
-Implements [Scatterings](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscatteringprofile.scatterings 'DiGi\.Communication\.Interfaces\.IScatteringProfile\.Scatterings')
+Implements [Scatterings](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringProfile.Scatterings 'DiGi\.Communication\.Interfaces\.IScatteringProfile\.Scatterings')
 
 #### Property Value
 [System\.Collections\.Generic\.IEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')[Scattering](DiGi.Communication.Classes.md#DiGi.Communication.Classes.Scattering 'DiGi\.Communication\.Classes\.Scattering')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')
@@ -3937,7 +4256,7 @@ Gets a value indicating whether the scattering profile is visible\.
 public bool Visible { get; }
 ```
 
-Implements [Visible](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscatteringprofile.visible 'DiGi\.Communication\.Interfaces\.IScatteringProfile\.Visible')
+Implements [Visible](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringProfile.Visible 'DiGi\.Communication\.Interfaces\.IScatteringProfile\.Visible')
 
 #### Property Value
 [System\.Boolean](https://learn.microsoft.com/en-us/dotnet/api/system.boolean 'System\.Boolean')
@@ -3952,9 +4271,9 @@ Represents a directional one\-to\-many relationship between a scattering profile
 public class ScatteringProfileAntennasRelation : DiGi.Core.Relation.Classes.OneToManyDirectionalRelation<DiGi.Communication.Interfaces.IScatteringProfile, DiGi.Communication.Interfaces.IAntenna>, DiGi.Communication.Interfaces.ICommunicationRelation, DiGi.Communication.Interfaces.ICommunicationObject, DiGi.Core.Interfaces.IObject, DiGi.Core.Relation.Interfaces.IRelation, DiGi.Core.Interfaces.ISerializableObject, DiGi.Core.Interfaces.ICloneableObject<DiGi.Core.Interfaces.ISerializableObject>, DiGi.Core.Interfaces.ICloneableObject
 ```
 
-Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → [DiGi\.Core\.Relation\.Classes\.Relation](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation 'DiGi\.Core\.Relation\.Classes\.Relation') → [DiGi\.Core\.Relation\.Classes\.Relation&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation-2 'DiGi\.Core\.Relation\.Classes\.Relation\`2')[DiGi\.Communication\.Interfaces\.IScatteringProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscatteringprofile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation-2 'DiGi\.Core\.Relation\.Classes\.Relation\`2')[DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation-2 'DiGi\.Core\.Relation\.Classes\.Relation\`2') → [DiGi\.Core\.Relation\.Classes\.OneToManyRelation&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetomanyrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToManyRelation\`2')[DiGi\.Communication\.Interfaces\.IScatteringProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscatteringprofile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetomanyrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToManyRelation\`2')[DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetomanyrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToManyRelation\`2') → [DiGi\.Core\.Relation\.Classes\.OneToManyDirectionalRelation&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetomanydirectionalrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToManyDirectionalRelation\`2')[DiGi\.Communication\.Interfaces\.IScatteringProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscatteringprofile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetomanydirectionalrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToManyDirectionalRelation\`2')[DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetomanydirectionalrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToManyDirectionalRelation\`2') → ScatteringProfileAntennasRelation
+Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → [DiGi\.Core\.Relation\.Classes\.Relation](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation 'DiGi\.Core\.Relation\.Classes\.Relation') → [DiGi\.Core\.Relation\.Classes\.Relation&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation-2 'DiGi\.Core\.Relation\.Classes\.Relation\`2')[IScatteringProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringProfile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation-2 'DiGi\.Core\.Relation\.Classes\.Relation\`2')[IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation-2 'DiGi\.Core\.Relation\.Classes\.Relation\`2') → [DiGi\.Core\.Relation\.Classes\.OneToManyRelation&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetomanyrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToManyRelation\`2')[IScatteringProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringProfile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetomanyrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToManyRelation\`2')[IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetomanyrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToManyRelation\`2') → [DiGi\.Core\.Relation\.Classes\.OneToManyDirectionalRelation&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetomanydirectionalrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToManyDirectionalRelation\`2')[IScatteringProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringProfile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetomanydirectionalrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToManyDirectionalRelation\`2')[IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetomanydirectionalrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToManyDirectionalRelation\`2') → ScatteringProfileAntennasRelation
 
-Implements [DiGi\.Communication\.Interfaces\.ICommunicationRelation](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationrelation 'DiGi\.Communication\.Interfaces\.ICommunicationRelation'), [DiGi\.Communication\.Interfaces\.ICommunicationObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationobject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Core\.Relation\.Interfaces\.IRelation](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.interfaces.irelation 'DiGi\.Core\.Relation\.Interfaces\.IRelation'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject')
+Implements [ICommunicationRelation](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationRelation 'DiGi\.Communication\.Interfaces\.ICommunicationRelation'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Core\.Relation\.Interfaces\.IRelation](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.interfaces.irelation 'DiGi\.Core\.Relation\.Interfaces\.IRelation'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject')
 ### Constructors
 
 <a name='DiGi.Communication.Classes.ScatteringProfileAntennasRelation.ScatteringProfileAntennasRelation(DiGi.Communication.Classes.ScatteringProfileAntennasRelation)'></a>
@@ -3987,19 +4306,19 @@ public ScatteringProfileAntennasRelation(DiGi.Communication.Interfaces.IScatteri
 
 <a name='DiGi.Communication.Classes.ScatteringProfileAntennasRelation.ScatteringProfileAntennasRelation(DiGi.Communication.Interfaces.IScatteringProfile,DiGi.Communication.Interfaces.IAntenna,DiGi.Communication.Interfaces.IAntenna).scatteringProfile'></a>
 
-`scatteringProfile` [DiGi\.Communication\.Interfaces\.IScatteringProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscatteringprofile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')
+`scatteringProfile` [IScatteringProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringProfile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')
 
 The scattering profile associated with this relation\.
 
 <a name='DiGi.Communication.Classes.ScatteringProfileAntennasRelation.ScatteringProfileAntennasRelation(DiGi.Communication.Interfaces.IScatteringProfile,DiGi.Communication.Interfaces.IAntenna,DiGi.Communication.Interfaces.IAntenna).antenna_1'></a>
 
-`antenna_1` [DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna')
+`antenna_1` [IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna')
 
 The first antenna to be associated with the scattering profile\.
 
 <a name='DiGi.Communication.Classes.ScatteringProfileAntennasRelation.ScatteringProfileAntennasRelation(DiGi.Communication.Interfaces.IScatteringProfile,DiGi.Communication.Interfaces.IAntenna,DiGi.Communication.Interfaces.IAntenna).antenna_2'></a>
 
-`antenna_2` [DiGi\.Communication\.Interfaces\.IAntenna](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iantenna 'DiGi\.Communication\.Interfaces\.IAntenna')
+`antenna_2` [IAntenna](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAntenna 'DiGi\.Communication\.Interfaces\.IAntenna')
 
 The second antenna to be associated with the scattering profile\.
 
@@ -4030,9 +4349,9 @@ Represents a one\-to\-one bidirectional relationship between a scattering profil
 public class ScatteringProfileMultipathPowerDelayProfileRelation : DiGi.Core.Relation.Classes.OneToOneBidirectionalRelation<DiGi.Communication.Interfaces.IScatteringProfile, DiGi.Communication.Interfaces.IMultipathPowerDelayProfile>, DiGi.Communication.Interfaces.ICommunicationRelation, DiGi.Communication.Interfaces.ICommunicationObject, DiGi.Core.Interfaces.IObject, DiGi.Core.Relation.Interfaces.IRelation, DiGi.Core.Interfaces.ISerializableObject, DiGi.Core.Interfaces.ICloneableObject<DiGi.Core.Interfaces.ISerializableObject>, DiGi.Core.Interfaces.ICloneableObject
 ```
 
-Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → [DiGi\.Core\.Relation\.Classes\.Relation](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation 'DiGi\.Core\.Relation\.Classes\.Relation') → [DiGi\.Core\.Relation\.Classes\.Relation&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation-2 'DiGi\.Core\.Relation\.Classes\.Relation\`2')[DiGi\.Communication\.Interfaces\.IScatteringProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscatteringprofile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation-2 'DiGi\.Core\.Relation\.Classes\.Relation\`2')[DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.imultipathpowerdelayprofile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation-2 'DiGi\.Core\.Relation\.Classes\.Relation\`2') → [DiGi\.Core\.Relation\.Classes\.OneToOneRelation&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetoonerelation-2 'DiGi\.Core\.Relation\.Classes\.OneToOneRelation\`2')[DiGi\.Communication\.Interfaces\.IScatteringProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscatteringprofile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetoonerelation-2 'DiGi\.Core\.Relation\.Classes\.OneToOneRelation\`2')[DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.imultipathpowerdelayprofile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetoonerelation-2 'DiGi\.Core\.Relation\.Classes\.OneToOneRelation\`2') → [DiGi\.Core\.Relation\.Classes\.OneToOneBidirectionalRelation&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetoonebidirectionalrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToOneBidirectionalRelation\`2')[DiGi\.Communication\.Interfaces\.IScatteringProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscatteringprofile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetoonebidirectionalrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToOneBidirectionalRelation\`2')[DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.imultipathpowerdelayprofile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetoonebidirectionalrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToOneBidirectionalRelation\`2') → ScatteringProfileMultipathPowerDelayProfileRelation
+Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → [DiGi\.Core\.Relation\.Classes\.Relation](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation 'DiGi\.Core\.Relation\.Classes\.Relation') → [DiGi\.Core\.Relation\.Classes\.Relation&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation-2 'DiGi\.Core\.Relation\.Classes\.Relation\`2')[IScatteringProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringProfile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation-2 'DiGi\.Core\.Relation\.Classes\.Relation\`2')[IMultipathPowerDelayProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IMultipathPowerDelayProfile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.relation-2 'DiGi\.Core\.Relation\.Classes\.Relation\`2') → [DiGi\.Core\.Relation\.Classes\.OneToOneRelation&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetoonerelation-2 'DiGi\.Core\.Relation\.Classes\.OneToOneRelation\`2')[IScatteringProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringProfile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetoonerelation-2 'DiGi\.Core\.Relation\.Classes\.OneToOneRelation\`2')[IMultipathPowerDelayProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IMultipathPowerDelayProfile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetoonerelation-2 'DiGi\.Core\.Relation\.Classes\.OneToOneRelation\`2') → [DiGi\.Core\.Relation\.Classes\.OneToOneBidirectionalRelation&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetoonebidirectionalrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToOneBidirectionalRelation\`2')[IScatteringProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringProfile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')[,](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetoonebidirectionalrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToOneBidirectionalRelation\`2')[IMultipathPowerDelayProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IMultipathPowerDelayProfile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.classes.onetoonebidirectionalrelation-2 'DiGi\.Core\.Relation\.Classes\.OneToOneBidirectionalRelation\`2') → ScatteringProfileMultipathPowerDelayProfileRelation
 
-Implements [DiGi\.Communication\.Interfaces\.ICommunicationRelation](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationrelation 'DiGi\.Communication\.Interfaces\.ICommunicationRelation'), [DiGi\.Communication\.Interfaces\.ICommunicationObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationobject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Core\.Relation\.Interfaces\.IRelation](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.interfaces.irelation 'DiGi\.Core\.Relation\.Interfaces\.IRelation'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject')
+Implements [ICommunicationRelation](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationRelation 'DiGi\.Communication\.Interfaces\.ICommunicationRelation'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Core\.Relation\.Interfaces\.IRelation](https://learn.microsoft.com/en-us/dotnet/api/digi.core.relation.interfaces.irelation 'DiGi\.Core\.Relation\.Interfaces\.IRelation'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject')
 ### Constructors
 
 <a name='DiGi.Communication.Classes.ScatteringProfileMultipathPowerDelayProfileRelation.ScatteringProfileMultipathPowerDelayProfileRelation(DiGi.Communication.Classes.ScatteringProfileMultipathPowerDelayProfileRelation)'></a>
@@ -4065,13 +4384,13 @@ public ScatteringProfileMultipathPowerDelayProfileRelation(DiGi.Communication.In
 
 <a name='DiGi.Communication.Classes.ScatteringProfileMultipathPowerDelayProfileRelation.ScatteringProfileMultipathPowerDelayProfileRelation(DiGi.Communication.Interfaces.IScatteringProfile,DiGi.Communication.Interfaces.IMultipathPowerDelayProfile).scatteringProfile'></a>
 
-`scatteringProfile` [DiGi\.Communication\.Interfaces\.IScatteringProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscatteringprofile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')
+`scatteringProfile` [IScatteringProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringProfile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')
 
 The scattering profile to be associated in the relation\.
 
 <a name='DiGi.Communication.Classes.ScatteringProfileMultipathPowerDelayProfileRelation.ScatteringProfileMultipathPowerDelayProfileRelation(DiGi.Communication.Interfaces.IScatteringProfile,DiGi.Communication.Interfaces.IMultipathPowerDelayProfile).multipathPowerDelayProfile'></a>
 
-`multipathPowerDelayProfile` [DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.imultipathpowerdelayprofile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')
+`multipathPowerDelayProfile` [IMultipathPowerDelayProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IMultipathPowerDelayProfile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile')
 
 The multipath power delay profile to be associated in the relation\.
 
@@ -4105,7 +4424,7 @@ public class ScatteringSolver : DiGi.Communication.Interfaces.ICommunicationObje
 
 Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → ScatteringSolver
 
-Implements [DiGi\.Communication\.Interfaces\.ICommunicationObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationobject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Core\.Interfaces\.ISolver](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.isolver 'DiGi\.Core\.Interfaces\.ISolver'), [DiGi\.Core\.Interfaces\.IEvaluator](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.ievaluator 'DiGi\.Core\.Interfaces\.IEvaluator')
+Implements [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Core\.Interfaces\.ISolver](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.isolver 'DiGi\.Core\.Interfaces\.ISolver'), [DiGi\.Core\.Interfaces\.IEvaluator](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.ievaluator 'DiGi\.Core\.Interfaces\.IEvaluator')
 ### Properties
 
 <a name='DiGi.Communication.Classes.ScatteringSolver.GeometricalPropagationModel'></a>
@@ -4132,7 +4451,7 @@ public System.Collections.Generic.List<DiGi.Communication.Interfaces.IScattering
 ```
 
 #### Property Value
-[System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[DiGi\.Communication\.Interfaces\.IScatteringProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.iscatteringprofile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')
+[System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[IScatteringProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringProfile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')
 
 <a name='DiGi.Communication.Classes.ScatteringSolver.ScatteringSolverOptions'></a>
 
@@ -4177,7 +4496,7 @@ public class ScatteringSolverOptions : DiGi.Core.Classes.SerializableObject, DiG
 
 Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → ScatteringSolverOptions
 
-Implements [DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationserializableobject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Communication\.Interfaces\.ICommunicationObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationobject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IOptions](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.ioptions 'DiGi\.Core\.Interfaces\.IOptions')
+Implements [ICommunicationSerializableObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationSerializableObject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IOptions](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.ioptions 'DiGi\.Core\.Interfaces\.IOptions')
 ### Constructors
 
 <a name='DiGi.Communication.Classes.ScatteringSolverOptions.ScatteringSolverOptions()'></a>
@@ -4305,7 +4624,7 @@ public class SimpleMultipathPowerDelayProfile : DiGi.Core.Classes.GuidObject, Di
 
 Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → [DiGi\.Core\.Classes\.UniqueObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.uniqueobject 'DiGi\.Core\.Classes\.UniqueObject') → [DiGi\.Core\.Classes\.GuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.guidobject 'DiGi\.Core\.Classes\.GuidObject') → SimpleMultipathPowerDelayProfile
 
-Implements [DiGi\.Communication\.Interfaces\.ISimpleMultipathPowerDelayProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.isimplemultipathpowerdelayprofile 'DiGi\.Communication\.Interfaces\.ISimpleMultipathPowerDelayProfile'), [DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.imultipathpowerdelayprofile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile'), [DiGi\.Communication\.Interfaces\.ICommunicationGuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationguidobject 'DiGi\.Communication\.Interfaces\.ICommunicationGuidObject'), [DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationserializableobject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Communication\.Interfaces\.ICommunicationObject](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.icommunicationobject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IGuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iguidobject 'DiGi\.Core\.Interfaces\.IGuidObject'), [DiGi\.Core\.Interfaces\.IUniqueObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iuniqueobject 'DiGi\.Core\.Interfaces\.IUniqueObject')
+Implements [ISimpleMultipathPowerDelayProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ISimpleMultipathPowerDelayProfile 'DiGi\.Communication\.Interfaces\.ISimpleMultipathPowerDelayProfile'), [IMultipathPowerDelayProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IMultipathPowerDelayProfile 'DiGi\.Communication\.Interfaces\.IMultipathPowerDelayProfile'), [ICommunicationGuidObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationGuidObject 'DiGi\.Communication\.Interfaces\.ICommunicationGuidObject'), [ICommunicationSerializableObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationSerializableObject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IGuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iguidobject 'DiGi\.Core\.Interfaces\.IGuidObject'), [DiGi\.Core\.Interfaces\.IUniqueObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iuniqueobject 'DiGi\.Core\.Interfaces\.IUniqueObject')
 ### Constructors
 
 <a name='DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile.SimpleMultipathPowerDelayProfile(DiGi.Communication.Classes.SimpleMultipathPowerDelayProfile)'></a>
@@ -4393,7 +4712,7 @@ Delays \[s\]
 public System.Collections.Generic.HashSet<double>? Delays { get; }
 ```
 
-Implements [Delays](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.isimplemultipathpowerdelayprofile.delays 'DiGi\.Communication\.Interfaces\.ISimpleMultipathPowerDelayProfile\.Delays')
+Implements [Delays](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ISimpleMultipathPowerDelayProfile.Delays 'DiGi\.Communication\.Interfaces\.ISimpleMultipathPowerDelayProfile\.Delays')
 
 #### Property Value
 [System\.Collections\.Generic\.HashSet&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.hashset-1 'System\.Collections\.Generic\.HashSet\`1')[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.hashset-1 'System\.Collections\.Generic\.HashSet\`1')
@@ -4416,7 +4735,7 @@ public double GetPower(double delay);
 
 The delay for which to retrieve the power\.
 
-Implements [GetPower\(double\)](https://learn.microsoft.com/en-us/dotnet/api/digi.communication.interfaces.isimplemultipathpowerdelayprofile.getpower#digi-communication-interfaces-isimplemultipathpowerdelayprofile-getpower(system-double) 'DiGi\.Communication\.Interfaces\.ISimpleMultipathPowerDelayProfile\.GetPower\(System\.Double\)')
+Implements [GetPower\(double\)](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ISimpleMultipathPowerDelayProfile.GetPower(double) 'DiGi\.Communication\.Interfaces\.ISimpleMultipathPowerDelayProfile\.GetPower\(double\)')
 
 #### Returns
 [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')  
