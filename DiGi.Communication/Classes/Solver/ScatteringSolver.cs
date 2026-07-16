@@ -36,6 +36,12 @@ namespace DiGi.Communication.Classes
             //Per face 16 doubles: unit normal (3) + plane offset (1), then 3 x inward edge normal (3) + edge offset (1); NaN normal marks a face requiring the exact test
             public double[] FaceTriangles { get; }
 
+            //Per scattering object 6 doubles: minX, minY, minZ, maxX, maxY, maxZ (same order as BoundingBox3Ds)
+            public double[] ObjectSlabs { get; }
+
+            //Per face: index of the owning scattering object in ObjectSlabs/BoundingBox3Ds, or -1 when the object has no bounding box
+            public int[] FaceObjectIndexes { get; }
+
             public double MinX { get; }
             public double MinY { get; }
             public double MinZ { get; }
@@ -43,13 +49,15 @@ namespace DiGi.Communication.Classes
             public double MaxY { get; }
             public double MaxZ { get; }
 
-            public CachedScatteringGroup(BoundingBox3D boundingBox3D, List<BoundingBox3D> boundingBox3Ds, CachedFaceInfo[] cachedFaceInfos, double[] faceSlabs, double[] faceTriangles)
+            public CachedScatteringGroup(BoundingBox3D boundingBox3D, List<BoundingBox3D> boundingBox3Ds, CachedFaceInfo[] cachedFaceInfos, double[] faceSlabs, double[] faceTriangles, double[] objectSlabs, int[] faceObjectIndexes)
             {
                 BoundingBox3D = boundingBox3D;
                 BoundingBox3Ds = boundingBox3Ds;
                 CachedFaceInfos = cachedFaceInfos;
                 FaceSlabs = faceSlabs;
                 FaceTriangles = faceTriangles;
+                ObjectSlabs = objectSlabs;
+                FaceObjectIndexes = faceObjectIndexes;
 
                 MinX = boundingBox3D.MinX;
                 MinY = boundingBox3D.MinY;
@@ -206,6 +214,7 @@ namespace DiGi.Communication.Classes
             {
                 List<CachedFaceInfo> cachedFaceInfos = [];
                 List<BoundingBox3D> boundingBox3Ds = [];
+                List<int> faceObjectIndexes_Temp = [];
 
                 foreach (IScatteringObject scatteringObject in tuple_ScatteringObjects.Item2)
                 {
@@ -222,6 +231,13 @@ namespace DiGi.Communication.Classes
                     if (triangles_Temp == null)
                     {
                         continue;
+                    }
+
+                    int index_Object = -1;
+                    if (mesh3D_ScatteringObject.GetBoundingBox() is BoundingBox3D boundingBox3D_ScatteringObject)
+                    {
+                        index_Object = boundingBox3Ds.Count;
+                        boundingBox3Ds.Add(boundingBox3D_ScatteringObject);
                     }
 
                     foreach (Triangle3D triangle3D in triangles_Temp)
@@ -241,17 +257,27 @@ namespace DiGi.Communication.Classes
                             Reference = reference,
                             Triangle = triangle3D
                         });
-                    }
-
-                    if (mesh3D_ScatteringObject.GetBoundingBox() is BoundingBox3D boundingBox3D_ScatteringObject)
-                    {
-                        boundingBox3Ds.Add(boundingBox3D_ScatteringObject);
+                        faceObjectIndexes_Temp.Add(index_Object);
                     }
                 }
 
                 if (cachedFaceInfos.Count == 0)
                 {
                     continue;
+                }
+
+                double[] objectSlabs = new double[boundingBox3Ds.Count * 6];
+                for (int k = 0; k < boundingBox3Ds.Count; k++)
+                {
+                    BoundingBox3D boundingBox3D_Object = boundingBox3Ds[k];
+
+                    int offset_Object = k * 6;
+                    objectSlabs[offset_Object] = boundingBox3D_Object.MinX;
+                    objectSlabs[offset_Object + 1] = boundingBox3D_Object.MinY;
+                    objectSlabs[offset_Object + 2] = boundingBox3D_Object.MinZ;
+                    objectSlabs[offset_Object + 3] = boundingBox3D_Object.MaxX;
+                    objectSlabs[offset_Object + 4] = boundingBox3D_Object.MaxY;
+                    objectSlabs[offset_Object + 5] = boundingBox3D_Object.MaxZ;
                 }
 
                 double[] faceSlabs = new double[cachedFaceInfos.Count * 6];
@@ -354,7 +380,7 @@ namespace DiGi.Communication.Classes
                     faceTriangles[offset_Triangle + 3] = (normalX * point3D_0.X) + (normalY * point3D_0.Y) + (normalZ * point3D_0.Z);
                 }
 
-                cachedScatteringGroups.Add(new CachedScatteringGroup(tuple_ScatteringObjects.Item1, boundingBox3Ds, [.. cachedFaceInfos], faceSlabs, faceTriangles));
+                cachedScatteringGroups.Add(new CachedScatteringGroup(tuple_ScatteringObjects.Item1, boundingBox3Ds, [.. cachedFaceInfos], faceSlabs, faceTriangles, objectSlabs, [.. faceObjectIndexes_Temp]));
             }
 
             if (cachedScatteringGroups.Count == 0)
@@ -389,6 +415,31 @@ namespace DiGi.Communication.Classes
                 }
 
                 return true;
+            }
+
+            //Overall elevation range of all scattering objects; ellipsoid triangles fully above or below this range cannot be retained by any object
+            double sceneMinZ = double.MaxValue;
+            double sceneMaxZ = double.MinValue;
+            foreach (CachedScatteringGroup cachedScatteringGroup in cachedScatteringGroups)
+            {
+                if (cachedScatteringGroup.MinZ < sceneMinZ)
+                {
+                    sceneMinZ = cachedScatteringGroup.MinZ;
+                }
+
+                if (cachedScatteringGroup.MaxZ > sceneMaxZ)
+                {
+                    sceneMaxZ = cachedScatteringGroup.MaxZ;
+                }
+            }
+
+            //Euclidean distance from a point to an axis-aligned box stored as 6 doubles (minX, minY, minZ, maxX, maxY, maxZ)
+            static double PointBoxDistance(double[] slabs, int offset, double pointX, double pointY, double pointZ)
+            {
+                double deltaX = Math.Max(Math.Max(slabs[offset] - pointX, 0.0), pointX - slabs[offset + 3]);
+                double deltaY = Math.Max(Math.Max(slabs[offset + 1] - pointY, 0.0), pointY - slabs[offset + 4]);
+                double deltaZ = Math.Max(Math.Max(slabs[offset + 2] - pointZ, 0.0), pointZ - slabs[offset + 5]);
+                return Math.Sqrt((deltaX * deltaX) + (deltaY * deltaY) + (deltaZ * deltaZ));
             }
 
             //Scalar counterpart of BoundingBox3D.InRange(Point3D, Point3D, true, true, tolerance) working on flat data (no object graph traversal)
@@ -936,7 +987,46 @@ namespace DiGi.Communication.Classes
 
                 double[] delays_Sorted = [.. sortedDictionary.Keys];
 
-                Parallel.ForEach(delays_Sorted, delay =>
+                Point3D? location_1 = antenna_1?.Location;
+                if (location_1 is null)
+                {
+                    return false;
+                }
+
+                Point3D? location_2 = antenna_2?.Location;
+                if (location_2 is null)
+                {
+                    return false;
+                }
+
+                double distance_Antennas = location_1.Distance(location_2);
+
+                //Nested-ellipsoid property: the ellipsoid for a delay is { P : |P - location_1| + |P - location_2| <= LightSpeed * delay + distance_Antennas } and grows with delay.
+                //The lowest possible sum of distances over an object bounding box therefore tells for which delays the object can touch the ellipsoid mesh at all.
+                double[][] sumDistancesMin = new double[cachedScatteringGroups.Count][];
+                for (int j = 0; j < cachedScatteringGroups.Count; j++)
+                {
+                    double[] objectSlabs = cachedScatteringGroups[j].ObjectSlabs;
+
+                    int count_Objects = objectSlabs.Length / 6;
+                    double[] sumDistancesMin_Group = new double[count_Objects];
+                    for (int m = 0; m < count_Objects; m++)
+                    {
+                        int offset_Object = m * 6;
+                        sumDistancesMin_Group[m] = PointBoxDistance(objectSlabs, offset_Object, location_1.X, location_1.Y, location_1.Z) + PointBoxDistance(objectSlabs, offset_Object, location_2.X, location_2.Y, location_2.Z);
+                    }
+
+                    sumDistancesMin[j] = sumDistancesMin_Group;
+                }
+
+                //Larger delays mean larger ellipsoids and more work; scheduling them first with per-item load balancing keeps the longest chain off the critical path
+                double[] delays_Descending = new double[delays_Sorted.Length];
+                for (int j = 0; j < delays_Sorted.Length; j++)
+                {
+                    delays_Descending[j] = delays_Sorted[delays_Sorted.Length - 1 - j];
+                }
+
+                Parallel.ForEach(Partitioner.Create(delays_Descending, true), delay =>
                 {
                     Ellipsoid? ellipsoid = Create.Ellipsoid(antenna_1, antenna_2, delay, tolerance);
                     if (ellipsoid == null)
@@ -956,24 +1046,68 @@ namespace DiGi.Communication.Classes
                         return;
                     }
 
+                    double sumDistance_Delay = (Constants.Physical.LightSpeed * delay) + distance_Antennas;
+
                     for (int j = triangle3Ds_Ellipsoid.Count - 1; j >= 0; j--)
                     {
                         Triangle3D triangle3D = triangle3Ds_Ellipsoid[j];
 
                         BoundingBox3D? boundingBox3D_Triangle3D = triangle3D.GetBoundingBox();
+                        if (boundingBox3D_Triangle3D == null)
+                        {
+                            triangle3Ds_Ellipsoid.RemoveAt(j);
+                            continue;
+                        }
+
+                        double minX_Triangle = boundingBox3D_Triangle3D.MinX;
+                        double minY_Triangle = boundingBox3D_Triangle3D.MinY;
+                        double minZ_Triangle = boundingBox3D_Triangle3D.MinZ;
+                        double maxX_Triangle = boundingBox3D_Triangle3D.MaxX;
+                        double maxY_Triangle = boundingBox3D_Triangle3D.MaxY;
+                        double maxZ_Triangle = boundingBox3D_Triangle3D.MaxZ;
+
+                        // Elevation pre-check: an ellipsoid triangle fully above or below the elevation range of all scattering objects cannot be retained
+                        if (minZ_Triangle > sceneMaxZ + tolerance || maxZ_Triangle < sceneMinZ - tolerance)
+                        {
+                            triangle3Ds_Ellipsoid.RemoveAt(j);
+                            continue;
+                        }
 
                         bool inRange = false;
-                        foreach (CachedScatteringGroup cachedScatteringGroup in cachedScatteringGroups)
+                        for (int m = 0; m < cachedScatteringGroups.Count; m++)
                         {
+                            CachedScatteringGroup cachedScatteringGroup = cachedScatteringGroups[m];
+
                             // Group bounding box broad-phase check culls all scattering objects of the group at once
-                            if (!cachedScatteringGroup.BoundingBox3D.InRange(boundingBox3D_Triangle3D, tolerance))
+                            if (cachedScatteringGroup.MaxX + tolerance < minX_Triangle || cachedScatteringGroup.MinX - tolerance > maxX_Triangle || cachedScatteringGroup.MaxY + tolerance < minY_Triangle || cachedScatteringGroup.MinY - tolerance > maxY_Triangle || cachedScatteringGroup.MaxZ + tolerance < minZ_Triangle || cachedScatteringGroup.MinZ - tolerance > maxZ_Triangle)
                             {
                                 continue;
                             }
 
-                            if (cachedScatteringGroup.BoundingBox3Ds.FindIndex(x => x.InRange(boundingBox3D_Triangle3D, tolerance)) >= 0)
+                            double[] objectSlabs = cachedScatteringGroup.ObjectSlabs;
+                            double[] sumDistancesMin_Group = sumDistancesMin[m];
+
+                            int count_Objects = sumDistancesMin_Group.Length;
+                            for (int n = 0; n < count_Objects; n++)
                             {
+                                // Nested-ellipsoid check: an object fully outside the ellipsoid of this delay cannot touch its mesh
+                                if (sumDistancesMin_Group[n] > sumDistance_Delay + margin)
+                                {
+                                    continue;
+                                }
+
+                                int offset_Object = n * 6;
+                                if (objectSlabs[offset_Object + 3] + tolerance < minX_Triangle || objectSlabs[offset_Object] - tolerance > maxX_Triangle || objectSlabs[offset_Object + 4] + tolerance < minY_Triangle || objectSlabs[offset_Object + 1] - tolerance > maxY_Triangle || objectSlabs[offset_Object + 5] + tolerance < minZ_Triangle || objectSlabs[offset_Object + 2] - tolerance > maxZ_Triangle)
+                                {
+                                    continue;
+                                }
+
                                 inRange = true;
+                                break;
+                            }
+
+                            if (inRange)
+                            {
                                 break;
                             }
                         }
@@ -992,22 +1126,13 @@ namespace DiGi.Communication.Classes
                     }
                 });
 
-                Point3D? location_1 = antenna_1?.Location;
-                if (location_1 is null)
-                {
-                    return false;
-                }
-
-                Point3D? location_2 = antenna_2?.Location;
-                if (location_2 is null)
-                {
-                    return false;
-                }
-
                 // Process delays in parallel to fully utilize CPU cores
                 ConcurrentBag<Scattering> concurrentScatterings = [];
 
-                Parallel.ForEach(sortedDictionary, keyValuePair =>
+                List<KeyValuePair<double, Tuple<Ellipsoid, Mesh3D, List<Triangle3D>?>?>> keyValuePairs_Descending = [.. sortedDictionary];
+                keyValuePairs_Descending.Reverse();
+
+                Parallel.ForEach(Partitioner.Create(keyValuePairs_Descending, true), keyValuePair =>
                 {
                     double delay = keyValuePair.Key;
                     Tuple<Ellipsoid, Mesh3D, List<Triangle3D>?>? dataTuple = keyValuePair.Value;
@@ -1022,6 +1147,8 @@ namespace DiGi.Communication.Classes
                     List<ScatteringPointGroup> scatteringPointGroups = [];
                     List<IntersectionSegment> intersectionSegments = [];
 
+                    double sumDistance_Delay = (Constants.Physical.LightSpeed * delay) + distance_Antennas;
+
                     foreach (Triangle3D triangleEllipsoid in triangle3Ds_Ellipsoid)
                     {
                         BoundingBox3D? boundingBox3D_Ellipsoid = triangleEllipsoid.GetBoundingBox();
@@ -1030,24 +1157,47 @@ namespace DiGi.Communication.Classes
                             continue;
                         }
 
+                        double minX_Ellipsoid = boundingBox3D_Ellipsoid.MinX;
+                        double minY_Ellipsoid = boundingBox3D_Ellipsoid.MinY;
+                        double minZ_Ellipsoid = boundingBox3D_Ellipsoid.MinZ;
+                        double maxX_Ellipsoid = boundingBox3D_Ellipsoid.MaxX;
+                        double maxY_Ellipsoid = boundingBox3D_Ellipsoid.MaxY;
+                        double maxZ_Ellipsoid = boundingBox3D_Ellipsoid.MaxZ;
+
                         PolygonalFace3D polygonalFace3D_Ellipsoid = new(triangleEllipsoid);
 
-                        foreach (CachedScatteringGroup cachedScatteringGroup in cachedScatteringGroups)
+                        for (int m = 0; m < cachedScatteringGroups.Count; m++)
                         {
+                            CachedScatteringGroup cachedScatteringGroup = cachedScatteringGroups[m];
+
                             // Group bounding box broad-phase check culls all faces of the group at once
-                            if (!boundingBox3D_Ellipsoid.InRange(cachedScatteringGroup.BoundingBox3D, tolerance))
+                            if (maxX_Ellipsoid + tolerance < cachedScatteringGroup.MinX || minX_Ellipsoid - tolerance > cachedScatteringGroup.MaxX || maxY_Ellipsoid + tolerance < cachedScatteringGroup.MinY || minY_Ellipsoid - tolerance > cachedScatteringGroup.MaxY || maxZ_Ellipsoid + tolerance < cachedScatteringGroup.MinZ || minZ_Ellipsoid - tolerance > cachedScatteringGroup.MaxZ)
                             {
                                 continue;
                             }
 
-                            foreach (CachedFaceInfo cachedFace in cachedScatteringGroup.CachedFaceInfos)
+                            double[] faceSlabs = cachedScatteringGroup.FaceSlabs;
+                            int[] faceObjectIndexes = cachedScatteringGroup.FaceObjectIndexes;
+                            double[] sumDistancesMin_Group = sumDistancesMin[m];
+                            CachedFaceInfo[] cachedFaceInfos_Group = cachedScatteringGroup.CachedFaceInfos;
+
+                            for (int k = 0; k < cachedFaceInfos_Group.Length; k++)
                             {
-                                // Bounding box overlapping check prevents expensive face-face intersection checks
-                                if (!boundingBox3D_Ellipsoid.InRange(cachedFace.BBox, tolerance))
+                                // Nested-ellipsoid check: a face of an object fully outside the ellipsoid of this delay cannot intersect its mesh
+                                int index_Object = faceObjectIndexes[k];
+                                if (index_Object >= 0 && sumDistancesMin_Group[index_Object] > sumDistance_Delay + margin)
                                 {
                                     continue;
                                 }
 
+                                // Bounding box overlapping check prevents expensive face-face intersection checks
+                                int offset_Slab = k * 6;
+                                if (maxX_Ellipsoid + tolerance < faceSlabs[offset_Slab] || minX_Ellipsoid - tolerance > faceSlabs[offset_Slab + 3] || maxY_Ellipsoid + tolerance < faceSlabs[offset_Slab + 1] || minY_Ellipsoid - tolerance > faceSlabs[offset_Slab + 4] || maxZ_Ellipsoid + tolerance < faceSlabs[offset_Slab + 2] || minZ_Ellipsoid - tolerance > faceSlabs[offset_Slab + 5])
+                                {
+                                    continue;
+                                }
+
+                                CachedFaceInfo cachedFace = cachedFaceInfos_Group[k];
                                 List<Segment3D> segment3Ds_Temp = GetTriangleTriangleIntersectionSegments(triangleEllipsoid, polygonalFace3D_Ellipsoid, cachedFace.Face, tolerance);
                                 if (segment3Ds_Temp.Count > 0)
                                 {
