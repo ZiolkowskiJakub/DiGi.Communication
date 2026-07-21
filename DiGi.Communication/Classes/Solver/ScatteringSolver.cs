@@ -177,17 +177,16 @@ namespace DiGi.Communication.Classes
 
             scatteringProfiles = [];
 
-
             //Scattering objects are processed per group so a single group bounding box can cull all objects of the group at once (broad-phase intersection check).
 
             List<Tuple<BoundingBox3D, List<IScatteringObject>>> tuples_ScatteringObjects = [];
 
             //Get ungrouped scattering objects from the GeometricalPropagationModel. This will be used to create one bounding box for ungrouped scattering objects.
             List<IScatteringObject>? scatteringObjects_Ungrouped = GeometricalPropagationModel.GetScatteringObjects<IScatteringObject>(false);
-            if(scatteringObjects_Ungrouped is not null && scatteringObjects_Ungrouped.Count > 0)
+            if (scatteringObjects_Ungrouped is not null && scatteringObjects_Ungrouped.Count > 0)
             {
                 BoundingBox3D? boundingBox3D = Geometry.Spatial.Create.BoundingBox3D(scatteringObjects_Ungrouped.ConvertAll(x => x.Mesh3D?.GetBoundingBox()).FindAll(x => x is not null)!);
-                if(boundingBox3D is not null)
+                if (boundingBox3D is not null)
                 {
                     tuples_ScatteringObjects.Add(new Tuple<BoundingBox3D, List<IScatteringObject>>(boundingBox3D, scatteringObjects_Ungrouped));
                 }
@@ -195,7 +194,7 @@ namespace DiGi.Communication.Classes
 
             //Get grouped scattering objects from the GeometricalPropagationModel. This will be used to get one bounding box for each group of scattering objects.
             List<IScatteringGroup>? scatteringGroups = GeometricalPropagationModel.GetScatteringGroups<IScatteringGroup>();
-            if(scatteringGroups is not null && scatteringGroups.Count > 0)
+            if (scatteringGroups is not null && scatteringGroups.Count > 0)
             {
                 foreach (IScatteringGroup scatteringGroup in scatteringGroups)
                 {
@@ -764,7 +763,7 @@ namespace DiGi.Communication.Classes
                         }
                     }
 
-                    if (System.Math.Sqrt(maxDistanceSquared) > tolerance)
+                    if (Math.Sqrt(maxDistanceSquared) > tolerance)
                     {
                         return [new Segment3D(point3D_A, point3D_B)];
                     }
