@@ -1,9 +1,9 @@
-﻿using DiGi.Geometry.Spatial.Classes;
+using DiGi.Geometry.Spatial.Classes;
 
 namespace DiGi.Communication.Interfaces
 {
     /// <summary>
-    /// Interface for a physical object that causes scattering of electromagnetic waves, defined by its mesh geometry, reference identifier, and scattering coefficient.
+    /// Interface for a physical object that causes scattering of electromagnetic waves, defined by its mesh geometry, reference identifier, relative permittivity, and electrical conductivity.
     /// </summary>
     public interface IScatteringObject : ICommunicationGuidObject
     {
@@ -18,8 +18,13 @@ namespace DiGi.Communication.Interfaces
         string? Reference { get; }
 
         /// <summary>
-        /// Gets the scattering coefficient of the object [-].
+        /// Gets the relative permittivity of the object [-].
         /// </summary>
-        double ScatteringCoefficient { get; }
+        double RelativePermittivity { get; }
+
+        /// <summary>
+        /// Gets the electrical conductivity of the object [S/m].
+        /// </summary>
+        double ElectricalConductivity { get; }
     }
 }

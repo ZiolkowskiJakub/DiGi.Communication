@@ -2075,7 +2075,7 @@ The JSON object containing serializable data for the relation\.
 
 ## ScatteringObject Class
 
-Represents an object that can be scattered within a scene, containing data such as the associated 3D mesh, a reference identifier, and the scattering coefficient\.
+Represents an object that can be scattered within a scene, containing data such as the associated 3D mesh, a reference identifier, relative permittivity, and electrical conductivity\.
 
 ```csharp
 public class ScatteringObject : DiGi.Core.Classes.GuidObject, DiGi.Communication.Interfaces.IScatteringObject, DiGi.Communication.Interfaces.ICommunicationGuidObject, DiGi.Communication.Interfaces.ICommunicationSerializableObject, DiGi.Core.Interfaces.ISerializableObject, DiGi.Core.Interfaces.ICloneableObject<DiGi.Core.Interfaces.ISerializableObject>, DiGi.Core.Interfaces.ICloneableObject, DiGi.Core.Interfaces.IObject, DiGi.Communication.Interfaces.ICommunicationObject, DiGi.Core.Interfaces.IGuidObject, DiGi.Core.Interfaces.IUniqueObject
@@ -2103,69 +2103,81 @@ public ScatteringObject(DiGi.Communication.Classes.ScatteringObject? scatteringO
 
 The source scattering object to copy from, or [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null') to initialize a new instance without existing data\.
 
-<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(string,DiGi.Geometry.Spatial.Classes.Mesh3D,double)'></a>
+<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(string,DiGi.Geometry.Spatial.Classes.Mesh3D,double,double)'></a>
 
-## ScatteringObject\(string, Mesh3D, double\) Constructor
+## ScatteringObject\(string, Mesh3D, double, double\) Constructor
 
 Initializes a new instance of the [ScatteringObject](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringObject 'DiGi\.Communication\.Classes\.ScatteringObject') class\.
 
 ```csharp
-public ScatteringObject(string? reference, DiGi.Geometry.Spatial.Classes.Mesh3D? mesh3D, double scatteringCoefficient=1.0);
+public ScatteringObject(string? reference, DiGi.Geometry.Spatial.Classes.Mesh3D? mesh3D, double relativePermittivity=1.0, double electricalConductivity=0.0);
 ```
 #### Parameters
 
-<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(string,DiGi.Geometry.Spatial.Classes.Mesh3D,double).reference'></a>
+<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(string,DiGi.Geometry.Spatial.Classes.Mesh3D,double,double).reference'></a>
 
 `reference` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
 
 The reference identifier for the scattering object\. If null or whitespace, the unique identifier \(Guid\) is used instead\.
 
-<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(string,DiGi.Geometry.Spatial.Classes.Mesh3D,double).mesh3D'></a>
+<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(string,DiGi.Geometry.Spatial.Classes.Mesh3D,double,double).mesh3D'></a>
 
 `mesh3D` [DiGi\.Geometry\.Spatial\.Classes\.Mesh3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.mesh3d 'DiGi\.Geometry\.Spatial\.Classes\.Mesh3D')
 
 The three\-dimensional mesh associated with the scattering object\.
 
-<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(string,DiGi.Geometry.Spatial.Classes.Mesh3D,double).scatteringCoefficient'></a>
+<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(string,DiGi.Geometry.Spatial.Classes.Mesh3D,double,double).relativePermittivity'></a>
 
-`scatteringCoefficient` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+`relativePermittivity` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
 
-The coefficient that determines the intensity of the scattering effect\. Defaults to 1\.0\.
+The relative permittivity of the object\. Defaults to 1\.0\.
 
-<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(System.Guid,string,DiGi.Geometry.Spatial.Classes.Mesh3D,double)'></a>
+<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(string,DiGi.Geometry.Spatial.Classes.Mesh3D,double,double).electricalConductivity'></a>
 
-## ScatteringObject\(Guid, string, Mesh3D, double\) Constructor
+`electricalConductivity` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+The electrical conductivity of the object\. Defaults to 0\.0\.
+
+<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(System.Guid,string,DiGi.Geometry.Spatial.Classes.Mesh3D,double,double)'></a>
+
+## ScatteringObject\(Guid, string, Mesh3D, double, double\) Constructor
 
 Initializes a new instance of the [ScatteringObject](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringObject 'DiGi\.Communication\.Classes\.ScatteringObject') class\.
 
 ```csharp
-public ScatteringObject(System.Guid guid, string? reference, DiGi.Geometry.Spatial.Classes.Mesh3D? mesh3D, double scatteringCoefficient=1.0);
+public ScatteringObject(System.Guid guid, string? reference, DiGi.Geometry.Spatial.Classes.Mesh3D? mesh3D, double relativePermittivity=1.0, double electricalConductivity=0.0);
 ```
 #### Parameters
 
-<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(System.Guid,string,DiGi.Geometry.Spatial.Classes.Mesh3D,double).guid'></a>
+<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(System.Guid,string,DiGi.Geometry.Spatial.Classes.Mesh3D,double,double).guid'></a>
 
 `guid` [System\.Guid](https://learn.microsoft.com/en-us/dotnet/api/system.guid 'System\.Guid')
 
 The unique identifier for the scattering object\.
 
-<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(System.Guid,string,DiGi.Geometry.Spatial.Classes.Mesh3D,double).reference'></a>
+<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(System.Guid,string,DiGi.Geometry.Spatial.Classes.Mesh3D,double,double).reference'></a>
 
 `reference` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
 
 An optional reference string; if null or whitespace, the GUID is used as the reference\.
 
-<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(System.Guid,string,DiGi.Geometry.Spatial.Classes.Mesh3D,double).mesh3D'></a>
+<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(System.Guid,string,DiGi.Geometry.Spatial.Classes.Mesh3D,double,double).mesh3D'></a>
 
 `mesh3D` [DiGi\.Geometry\.Spatial\.Classes\.Mesh3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.mesh3d 'DiGi\.Geometry\.Spatial\.Classes\.Mesh3D')
 
 The three\-dimensional mesh associated with this scattering object\.
 
-<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(System.Guid,string,DiGi.Geometry.Spatial.Classes.Mesh3D,double).scatteringCoefficient'></a>
+<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(System.Guid,string,DiGi.Geometry.Spatial.Classes.Mesh3D,double,double).relativePermittivity'></a>
 
-`scatteringCoefficient` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+`relativePermittivity` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
 
-The coefficient that determines the intensity of the scattering effect\. Defaults to 1\.0\.
+The relative permittivity of the object\. Defaults to 1\.0\.
+
+<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(System.Guid,string,DiGi.Geometry.Spatial.Classes.Mesh3D,double,double).electricalConductivity'></a>
+
+`electricalConductivity` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+The electrical conductivity of the object\. Defaults to 0\.0\.
 
 <a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(System.Text.Json.Nodes.JsonObject)'></a>
 
@@ -2184,6 +2196,21 @@ public ScatteringObject(System.Text.Json.Nodes.JsonObject? jsonObject);
 
 The [System\.Text\.Json\.Nodes\.JsonObject](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.nodes.jsonobject 'System\.Text\.Json\.Nodes\.JsonObject') used to initialize the current instance\.
 ### Properties
+
+<a name='DiGi.Communication.Classes.ScatteringObject.ElectricalConductivity'></a>
+
+## ScatteringObject\.ElectricalConductivity Property
+
+Gets the electrical conductivity of the object\. \[S/m\]
+
+```csharp
+public double ElectricalConductivity { get; }
+```
+
+Implements [ElectricalConductivity](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringObject.ElectricalConductivity 'DiGi\.Communication\.Interfaces\.IScatteringObject\.ElectricalConductivity')
+
+#### Property Value
+[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
 
 <a name='DiGi.Communication.Classes.ScatteringObject.Mesh3D'></a>
 
@@ -2215,17 +2242,17 @@ Implements [Reference](DiGi.Communication.Interfaces.md#DiGi.Communication.Inter
 #### Property Value
 [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
 
-<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringCoefficient'></a>
+<a name='DiGi.Communication.Classes.ScatteringObject.RelativePermittivity'></a>
 
-## ScatteringObject\.ScatteringCoefficient Property
+## ScatteringObject\.RelativePermittivity Property
 
-Gets the scattering coefficient of the object\.
+Gets the relative permittivity of the object\. \[\-\]
 
 ```csharp
-public double ScatteringCoefficient { get; }
+public double RelativePermittivity { get; }
 ```
 
-Implements [ScatteringCoefficient](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringObject.ScatteringCoefficient 'DiGi\.Communication\.Interfaces\.IScatteringObject\.ScatteringCoefficient')
+Implements [RelativePermittivity](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringObject.RelativePermittivity 'DiGi\.Communication\.Interfaces\.IScatteringObject\.RelativePermittivity')
 
 #### Property Value
 [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')

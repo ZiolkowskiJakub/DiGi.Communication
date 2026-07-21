@@ -8,18 +8,21 @@ using System.Text.Json.Serialization;
 namespace DiGi.Communication.Classes
 {
     /// <summary>
-    /// Represents an object that can be scattered within a scene, containing data such as the associated 3D mesh, a reference identifier, and the scattering coefficient.
+    /// Represents an object that can be scattered within a scene, containing data such as the associated 3D mesh, a reference identifier, relative permittivity, and electrical conductivity.
     /// </summary>
     public class ScatteringObject : GuidObject, IScatteringObject
     {
-        [JsonInclude, JsonPropertyName("Mesh3D")]
+        [JsonInclude, JsonPropertyName(nameof(Mesh3D))]
         private readonly Mesh3D? mesh3D;
 
-        [JsonInclude, JsonPropertyName("Reference")]
+        [JsonInclude, JsonPropertyName(nameof(Reference))]
         private readonly string? reference;
 
-        [JsonInclude, JsonPropertyName("ScatteringCoefficient")]
-        private readonly double scatteringCoefficient = 1.0;
+        [JsonInclude, JsonPropertyName(nameof(RelativePermittivity))]
+        private readonly double relativePermittivity = 1.0;
+
+        [JsonInclude, JsonPropertyName(nameof(ElectricalConductivity))]
+        private readonly double electricalConductivity = 0.0;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ScatteringObject"/> class.
@@ -27,13 +30,15 @@ namespace DiGi.Communication.Classes
         /// <param name="guid">The unique identifier for the scattering object.</param>
         /// <param name="reference">An optional reference string; if null or whitespace, the GUID is used as the reference.</param>
         /// <param name="mesh3D">The three-dimensional mesh associated with this scattering object.</param>
-        /// <param name="scatteringCoefficient">The coefficient that determines the intensity of the scattering effect. Defaults to 1.0.</param>
-        public ScatteringObject(Guid guid, string? reference, Mesh3D? mesh3D, double scatteringCoefficient = 1.0)
+        /// <param name="relativePermittivity">The relative permittivity of the object. Defaults to 1.0.</param>
+        /// <param name="electricalConductivity">The electrical conductivity of the object. Defaults to 0.0.</param>
+        public ScatteringObject(Guid guid, string? reference, Mesh3D? mesh3D, double relativePermittivity = 1.0, double electricalConductivity = 0.0)
             : base(guid)
         {
             this.reference = string.IsNullOrWhiteSpace(reference) ? guid.ToString() : reference;
             this.mesh3D = Core.Query.Clone(mesh3D);
-            this.scatteringCoefficient = scatteringCoefficient;
+            this.relativePermittivity = relativePermittivity;
+            this.electricalConductivity = electricalConductivity;
         }
 
         /// <summary>
@@ -41,22 +46,15 @@ namespace DiGi.Communication.Classes
         /// </summary>
         /// <param name="reference">The reference identifier for the scattering object. If null or whitespace, the unique identifier (Guid) is used instead.</param>
         /// <param name="mesh3D">The three-dimensional mesh associated with the scattering object.</param>
-        /// <param name="scatteringCoefficient">The coefficient that determines the intensity of the scattering effect. Defaults to 1.0.</param>
-        public ScatteringObject(string? reference, Mesh3D? mesh3D, double scatteringCoefficient = 1.0)
+        /// <param name="relativePermittivity">The relative permittivity of the object. Defaults to 1.0.</param>
+        /// <param name="electricalConductivity">The electrical conductivity of the object. Defaults to 0.0.</param>
+        public ScatteringObject(string? reference, Mesh3D? mesh3D, double relativePermittivity = 1.0, double electricalConductivity = 0.0)
             : base()
         {
             this.reference = string.IsNullOrWhiteSpace(reference) ? Guid.ToString() : reference;
             this.mesh3D = Core.Query.Clone(mesh3D);
-            this.scatteringCoefficient = scatteringCoefficient;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ScatteringObject"/> class using the specified JSON object.
-        /// </summary>
-        /// <param name="jsonObject">The <see cref="JsonObject"/> used to initialize the current instance.</param>
-        public ScatteringObject(JsonObject? jsonObject)
-            : base(jsonObject)
-        {
+            this.relativePermittivity = relativePermittivity;
+            this.electricalConductivity = electricalConductivity;
         }
 
         /// <summary>
@@ -70,8 +68,18 @@ namespace DiGi.Communication.Classes
             {
                 reference = scatteringObject.reference;
                 mesh3D = Core.Query.Clone(scatteringObject.mesh3D);
-                scatteringCoefficient = scatteringObject.scatteringCoefficient;
+                relativePermittivity = scatteringObject.relativePermittivity;
+                electricalConductivity = scatteringObject.electricalConductivity;
             }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ScatteringObject"/> class using the specified JSON object.
+        /// </summary>
+        /// <param name="jsonObject">The <see cref="JsonObject"/> used to initialize the current instance.</param>
+        public ScatteringObject(JsonObject? jsonObject)
+            : base(jsonObject)
+        {
         }
 
         /// <summary> Gets the serializable reference object. </summary>
@@ -94,13 +102,27 @@ namespace DiGi.Communication.Classes
             }
         }
 
-        /// <summary> Gets the scattering coefficient of the object. </summary>
+        /// <summary> 
+        /// Gets the relative permittivity of the object. [-] 
+        /// </summary>
         [JsonIgnore]
-        public double ScatteringCoefficient
+        public double RelativePermittivity
         {
             get
             {
-                return scatteringCoefficient;
+                return relativePermittivity;
+            }
+        }
+
+        /// <summary> 
+        /// Gets the electrical conductivity of the object. [S/m]
+        /// </summary>
+        [JsonIgnore]
+        public double ElectricalConductivity
+        {
+            get
+            {
+                return electricalConductivity;
             }
         }
     }

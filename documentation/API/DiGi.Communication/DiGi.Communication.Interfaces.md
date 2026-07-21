@@ -460,7 +460,7 @@ string? Reference { get; }
 
 ## IScatteringObject Interface
 
-Interface for a physical object that causes scattering of electromagnetic waves, defined by its mesh geometry, reference identifier, and scattering coefficient\.
+Interface for a physical object that causes scattering of electromagnetic waves, defined by its mesh geometry, reference identifier, relative permittivity, and electrical conductivity\.
 
 ```csharp
 public interface IScatteringObject : DiGi.Communication.Interfaces.ICommunicationGuidObject, DiGi.Communication.Interfaces.ICommunicationSerializableObject, DiGi.Core.Interfaces.ISerializableObject, DiGi.Core.Interfaces.ICloneableObject<DiGi.Core.Interfaces.ISerializableObject>, DiGi.Core.Interfaces.ICloneableObject, DiGi.Core.Interfaces.IObject, DiGi.Communication.Interfaces.ICommunicationObject, DiGi.Core.Interfaces.IGuidObject, DiGi.Core.Interfaces.IUniqueObject
@@ -471,6 +471,19 @@ Derived
 
 Implements [ICommunicationGuidObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationGuidObject 'DiGi\.Communication\.Interfaces\.ICommunicationGuidObject'), [ICommunicationSerializableObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationSerializableObject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IGuidObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iguidobject 'DiGi\.Core\.Interfaces\.IGuidObject'), [DiGi\.Core\.Interfaces\.IUniqueObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iuniqueobject 'DiGi\.Core\.Interfaces\.IUniqueObject')
 ### Properties
+
+<a name='DiGi.Communication.Interfaces.IScatteringObject.ElectricalConductivity'></a>
+
+## IScatteringObject\.ElectricalConductivity Property
+
+Gets the electrical conductivity of the object \[S/m\]\.
+
+```csharp
+double ElectricalConductivity { get; }
+```
+
+#### Property Value
+[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
 
 <a name='DiGi.Communication.Interfaces.IScatteringObject.Mesh3D'></a>
 
@@ -498,14 +511,14 @@ string? Reference { get; }
 #### Property Value
 [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
 
-<a name='DiGi.Communication.Interfaces.IScatteringObject.ScatteringCoefficient'></a>
+<a name='DiGi.Communication.Interfaces.IScatteringObject.RelativePermittivity'></a>
 
-## IScatteringObject\.ScatteringCoefficient Property
+## IScatteringObject\.RelativePermittivity Property
 
-Gets the scattering coefficient of the object \[\-\]\.
+Gets the relative permittivity of the object \[\-\]\.
 
 ```csharp
-double ScatteringCoefficient { get; }
+double RelativePermittivity { get; }
 ```
 
 #### Property Value

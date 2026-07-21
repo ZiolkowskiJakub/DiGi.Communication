@@ -175,15 +175,15 @@ namespace DiGi.Communication.Classes
                                     continue;
                                 }
 
-                                double scatteringCoefficient = 1;
+                                //double relativePermittivity = 1;
 
-                                IScatteringObject? scatteringObject = scatteringObjects?.Find(x => x.Reference == keyValuePair.Key);
-                                if (scatteringObject != null)
-                                {
-                                    scatteringCoefficient = scatteringObject.ScatteringCoefficient;
-                                }
+                                //IScatteringObject? scatteringObject = scatteringObjects?.Find(x => x.Reference == keyValuePair.Key);
+                                //if (scatteringObject != null)
+                                //{
+                                //    relativePermittivity = scatteringObject.RelativePermittivity;
+                                //}
 
-                                double weight = distance * scatteringCoefficient;
+                                double weight = 1;
 
                                 Segment3D segment3D = new(point3D_1, point3D_2);
 
