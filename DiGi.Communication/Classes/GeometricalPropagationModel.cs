@@ -534,6 +534,12 @@ namespace DiGi.Communication.Classes
             return result;
         }
 
+        /// <summary>
+        /// Gets all scattering objects of the specified type, optionally filtering or grouping by scattering group membership.
+        /// </summary>
+        /// <typeparam name="TScatteringObject">The type of scattering object to retrieve, which must implement <see cref="IScatteringObject"/>.</typeparam>
+        /// <param name="grouped">A value indicating whether to return only scattering objects that belong to a scattering group.</param>
+        /// <returns>A list of scattering objects of type <typeparamref name="TScatteringObject"/> if any are found; otherwise, <see langword="null"/>.</returns>
         public List<TScatteringObject>? GetScatteringObjects<TScatteringObject>(bool grouped) where TScatteringObject : IScatteringObject
         {
             List<IScatteringGroup> scatteringGroups = communicationRelationCluster.GetValues<IScatteringGroup>();
@@ -599,6 +605,17 @@ namespace DiGi.Communication.Classes
             }
 
             return scatteringObjects.CloneAndFilterNulls();
+        }
+
+        /// <summary>
+        /// Retrieves a list of scattering objects of the specified type matching the given reference.
+        /// </summary>
+        /// <typeparam name="TScatteringObject">The type of scattering object to retrieve, which must implement <see cref="IScatteringObject"/>.</typeparam>
+        /// <param name="reference">The reference string used to filter the scattering objects.</param>
+        /// <returns>A list of scattering objects of type <typeparamref name="TScatteringObject"/> matching the specified reference, or <see langword="null"/> if no matching objects are found.</returns>
+        public List<TScatteringObject>? GetScatteringObjects<TScatteringObject>(string reference) where TScatteringObject : IScatteringObject
+        {
+            return communicationRelationCluster.GetValues<TScatteringObject>(x => x?.Reference == reference)?.CloneAndFilterNulls();
         }
 
         /// <summary>

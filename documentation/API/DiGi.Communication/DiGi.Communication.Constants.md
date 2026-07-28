@@ -3,6 +3,45 @@
 ## DiGi\.Communication\.Constants Namespace
 ### Classes
 
+<a name='DiGi.Communication.Constants.ElectricalProperties'></a>
+
+## ElectricalProperties Class
+
+Provides predefined standard material electrical properties\.
+
+```csharp
+public static class ElectricalProperties
+```
+
+Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → ElectricalProperties
+### Fields
+
+<a name='DiGi.Communication.Constants.ElectricalProperties.Concrete'></a>
+
+## ElectricalProperties\.Concrete Field
+
+Gets predefined electrical properties representing concrete\.
+
+```csharp
+public static readonly ElectricalProperties Concrete;
+```
+
+#### Field Value
+[ElectricalProperties](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ElectricalProperties 'DiGi\.Communication\.Classes\.ElectricalProperties')
+
+<a name='DiGi.Communication.Constants.ElectricalProperties.Vacuum'></a>
+
+## ElectricalProperties\.Vacuum Field
+
+Gets predefined electrical properties representing a vacuum\.
+
+```csharp
+public static readonly ElectricalProperties Vacuum;
+```
+
+#### Field Value
+[ElectricalProperties](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ElectricalProperties 'DiGi\.Communication\.Classes\.ElectricalProperties')
+
 <a name='DiGi.Communication.Constants.Factor'></a>
 
 ## Factor Class

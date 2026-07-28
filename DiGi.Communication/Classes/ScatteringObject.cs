@@ -12,17 +12,14 @@ namespace DiGi.Communication.Classes
     /// </summary>
     public class ScatteringObject : GuidObject, IScatteringObject
     {
+        [JsonInclude, JsonPropertyName(nameof(ElectricalProperties))]
+        private readonly ElectricalProperties? electricalProperties;
+
         [JsonInclude, JsonPropertyName(nameof(Mesh3D))]
         private readonly Mesh3D? mesh3D;
 
         [JsonInclude, JsonPropertyName(nameof(Reference))]
         private readonly string? reference;
-
-        [JsonInclude, JsonPropertyName(nameof(RelativePermittivity))]
-        private readonly double relativePermittivity = 1.0;
-
-        [JsonInclude, JsonPropertyName(nameof(ElectricalConductivity))]
-        private readonly double electricalConductivity = 0.0;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ScatteringObject"/> class.
@@ -30,15 +27,13 @@ namespace DiGi.Communication.Classes
         /// <param name="guid">The unique identifier for the scattering object.</param>
         /// <param name="reference">An optional reference string; if null or whitespace, the GUID is used as the reference.</param>
         /// <param name="mesh3D">The three-dimensional mesh associated with this scattering object.</param>
-        /// <param name="relativePermittivity">The relative permittivity of the object. Defaults to 1.0.</param>
-        /// <param name="electricalConductivity">The electrical conductivity of the object. Defaults to 0.0.</param>
-        public ScatteringObject(Guid guid, string? reference, Mesh3D? mesh3D, double relativePermittivity = 1.0, double electricalConductivity = 0.0)
+        /// <param name="electricalProperties">Electrical properties assigned to the scattering object</param>
+        public ScatteringObject(Guid guid, string? reference, Mesh3D? mesh3D, ElectricalProperties electricalProperties)
             : base(guid)
         {
             this.reference = string.IsNullOrWhiteSpace(reference) ? guid.ToString() : reference;
             this.mesh3D = Core.Query.Clone(mesh3D);
-            this.relativePermittivity = relativePermittivity;
-            this.electricalConductivity = electricalConductivity;
+            this.electricalProperties = Core.Query.Clone(electricalProperties);
         }
 
         /// <summary>
@@ -46,15 +41,13 @@ namespace DiGi.Communication.Classes
         /// </summary>
         /// <param name="reference">The reference identifier for the scattering object. If null or whitespace, the unique identifier (Guid) is used instead.</param>
         /// <param name="mesh3D">The three-dimensional mesh associated with the scattering object.</param>
-        /// <param name="relativePermittivity">The relative permittivity of the object. Defaults to 1.0.</param>
-        /// <param name="electricalConductivity">The electrical conductivity of the object. Defaults to 0.0.</param>
-        public ScatteringObject(string? reference, Mesh3D? mesh3D, double relativePermittivity = 1.0, double electricalConductivity = 0.0)
+        /// <param name="electricalProperties">Electrical properties assigned to the scattering object</param>
+        public ScatteringObject(string? reference, Mesh3D? mesh3D, ElectricalProperties electricalProperties)
             : base()
         {
             this.reference = string.IsNullOrWhiteSpace(reference) ? Guid.ToString() : reference;
             this.mesh3D = Core.Query.Clone(mesh3D);
-            this.relativePermittivity = relativePermittivity;
-            this.electricalConductivity = electricalConductivity;
+            this.electricalProperties = Core.Query.Clone(electricalProperties);
         }
 
         /// <summary>
@@ -68,8 +61,7 @@ namespace DiGi.Communication.Classes
             {
                 reference = scatteringObject.reference;
                 mesh3D = Core.Query.Clone(scatteringObject.mesh3D);
-                relativePermittivity = scatteringObject.relativePermittivity;
-                electricalConductivity = scatteringObject.electricalConductivity;
+                electricalProperties = Core.Query.Clone(scatteringObject.electricalProperties);
             }
         }
 
@@ -82,13 +74,13 @@ namespace DiGi.Communication.Classes
         {
         }
 
-        /// <summary> Gets the serializable reference object. </summary>
+        /// <summary> Gets a clone of the electrical properties associated with this scattering object. </summary>
         [JsonIgnore]
-        public string? Reference
+        public ElectricalProperties? ElectricalProperties
         {
             get
             {
-                return reference;
+                return Core.Query.Clone(electricalProperties);
             }
         }
 
@@ -102,27 +94,13 @@ namespace DiGi.Communication.Classes
             }
         }
 
-        /// <summary> 
-        /// Gets the relative permittivity of the object. [-] 
-        /// </summary>
+        /// <summary> Gets the serializable reference object. </summary>
         [JsonIgnore]
-        public double RelativePermittivity
+        public string? Reference
         {
             get
             {
-                return relativePermittivity;
-            }
-        }
-
-        /// <summary> 
-        /// Gets the electrical conductivity of the object. [S/m]
-        /// </summary>
-        [JsonIgnore]
-        public double ElectricalConductivity
-        {
-            get
-            {
-                return electricalConductivity;
+                return reference;
             }
         }
     }

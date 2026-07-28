@@ -130,15 +130,30 @@ namespace DiGi.Communication.Classes
         /// Retrieves a list of rays associated with the specified delay.
         /// </summary>
         /// <param name="delay">The time delay used to look up the angular power distribution.</param>
-        /// <returns>A list of <see cref="Ray"/> objects if the distribution is found for the given delay; otherwise, <c>null</c>.</returns>
-        public List<Ray>? GetRays(double delay)
+        /// <returns>A list of <see cref="Ray3D"/> objects if the distribution is found for the given delay; otherwise, <c>null</c>.</returns>
+        public List<Ray3D>? GetRays(double delay)
         {
             if (double.IsNaN(delay) || location == null || dictionary == null || !dictionary.TryGetValue(delay, out AngularPowerDistribution angularPowerDistribution) || angularPowerDistribution == null)
             {
                 return null;
             }
 
-            return angularPowerDistribution.Vectors?.ConvertAll(x => new Ray(location.GetMoved(x.GetInversed()), x));
+            IReadOnlyList<IScatteringHit>? hits = angularPowerDistribution.SphericalDistributionScatteringHitCollection?.Values;
+            if (hits == null || hits.Count == 0)
+            {
+                return null;
+            }
+
+            List<Ray3D> result = [];
+            foreach (IScatteringHit hit in hits)
+            {
+                if (hit?.Ray3D is Ray3D ray3D)
+                {
+                    result.Add(ray3D);
+                }
+            }
+
+            return result.Count > 0 ? result : null;
         }
     }
 }

@@ -7,7 +7,7 @@
 
 ## AngularPowerDistribution Class
 
-Represents the angular power distribution, encapsulating the time delay and the associated spatial vectors\.
+Represents the angular power distribution, encapsulating the time delay and the associated spherical distribution scattering hit collection\.
 
 ```csharp
 public class AngularPowerDistribution : DiGi.Core.Classes.SerializableObject, DiGi.Communication.Interfaces.IAngularPowerDistribution, DiGi.Communication.Interfaces.ICommunicationSerializableObject, DiGi.Core.Interfaces.ISerializableObject, DiGi.Core.Interfaces.ICloneableObject<DiGi.Core.Interfaces.ISerializableObject>, DiGi.Core.Interfaces.ICloneableObject, DiGi.Core.Interfaces.IObject, DiGi.Communication.Interfaces.ICommunicationObject
@@ -35,28 +35,28 @@ public AngularPowerDistribution(DiGi.Communication.Classes.AngularPowerDistribut
 
 The source [AngularPowerDistribution](DiGi.Communication.Classes.md#DiGi.Communication.Classes.AngularPowerDistribution 'DiGi\.Communication\.Classes\.AngularPowerDistribution') instance to copy data from, or [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null')\.
 
-<a name='DiGi.Communication.Classes.AngularPowerDistribution.AngularPowerDistribution(double,System.Collections.Generic.IEnumerable_DiGi.Geometry.Spatial.Classes.Vector3D_)'></a>
+<a name='DiGi.Communication.Classes.AngularPowerDistribution.AngularPowerDistribution(double,DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection)'></a>
 
-## AngularPowerDistribution\(double, IEnumerable\<Vector3D\>\) Constructor
+## AngularPowerDistribution\(double, SphericalDistributionScatteringHitCollection\) Constructor
 
 Initializes a new instance of the [AngularPowerDistribution](DiGi.Communication.Classes.md#DiGi.Communication.Classes.AngularPowerDistribution 'DiGi\.Communication\.Classes\.AngularPowerDistribution') class\.
 
 ```csharp
-public AngularPowerDistribution(double delay, System.Collections.Generic.IEnumerable<DiGi.Geometry.Spatial.Classes.Vector3D>? vectors);
+public AngularPowerDistribution(double delay, DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection? sphericalDistributionScatteringHitCollection);
 ```
 #### Parameters
 
-<a name='DiGi.Communication.Classes.AngularPowerDistribution.AngularPowerDistribution(double,System.Collections.Generic.IEnumerable_DiGi.Geometry.Spatial.Classes.Vector3D_).delay'></a>
+<a name='DiGi.Communication.Classes.AngularPowerDistribution.AngularPowerDistribution(double,DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection).delay'></a>
 
 `delay` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
 
 The delay value for the power distribution\.
 
-<a name='DiGi.Communication.Classes.AngularPowerDistribution.AngularPowerDistribution(double,System.Collections.Generic.IEnumerable_DiGi.Geometry.Spatial.Classes.Vector3D_).vectors'></a>
+<a name='DiGi.Communication.Classes.AngularPowerDistribution.AngularPowerDistribution(double,DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection).sphericalDistributionScatteringHitCollection'></a>
 
-`vectors` [System\.Collections\.Generic\.IEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')[DiGi\.Geometry\.Spatial\.Classes\.Vector3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.vector3d 'DiGi\.Geometry\.Spatial\.Classes\.Vector3D')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')
+`sphericalDistributionScatteringHitCollection` [SphericalDistributionScatteringHitCollection](DiGi.Communication.Classes.md#DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection 'DiGi\.Communication\.Classes\.SphericalDistributionScatteringHitCollection')
 
-A collection of three\-dimensional vectors defining the angular power distribution\.
+A spherical distribution scattering hit collection defining the angular power distribution\.
 
 <a name='DiGi.Communication.Classes.AngularPowerDistribution.AngularPowerDistribution(System.Text.Json.Nodes.JsonObject)'></a>
 
@@ -91,37 +91,167 @@ Implements [Delay](DiGi.Communication.Interfaces.md#DiGi.Communication.Interface
 #### Property Value
 [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
 
+<a name='DiGi.Communication.Classes.AngularPowerDistribution.SphericalDistributionScatteringHitCollection'></a>
+
+## AngularPowerDistribution\.SphericalDistributionScatteringHitCollection Property
+
+Gets the spherical distribution scattering hit collection\.
+
+```csharp
+public DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection? SphericalDistributionScatteringHitCollection { get; }
+```
+
+#### Property Value
+[SphericalDistributionScatteringHitCollection](DiGi.Communication.Classes.md#DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection 'DiGi\.Communication\.Classes\.SphericalDistributionScatteringHitCollection')
+
 <a name='DiGi.Communication.Classes.AngularPowerDistribution.Vectors'></a>
 
 ## AngularPowerDistribution\.Vectors Property
 
-Gets the collection of three\-dimensional vectors associated with the angular power distribution, filtered to remove null entries\.
+Gets the collection of direction vectors extracted from stored scattering hits\.
 
 ```csharp
-public System.Collections.Generic.List<DiGi.Geometry.Spatial.Classes.Vector3D>? Vectors { get; }
+public System.Collections.Generic.IReadOnlyList<DiGi.Geometry.Spatial.Classes.Vector3D>? Vectors { get; }
 ```
 
 Implements [Vectors](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAngularPowerDistribution.Vectors 'DiGi\.Communication\.Interfaces\.IAngularPowerDistribution\.Vectors')
 
 #### Property Value
-[System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[DiGi\.Geometry\.Spatial\.Classes\.Vector3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.vector3d 'DiGi\.Geometry\.Spatial\.Classes\.Vector3D')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')
+[System\.Collections\.Generic\.IReadOnlyList&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlylist-1 'System\.Collections\.Generic\.IReadOnlyList\`1')[DiGi\.Geometry\.Spatial\.Classes\.Vector3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.vector3d 'DiGi\.Geometry\.Spatial\.Classes\.Vector3D')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlylist-1 'System\.Collections\.Generic\.IReadOnlyList\`1')
 ### Methods
 
-<a name='DiGi.Communication.Classes.AngularPowerDistribution.GetPower()'></a>
+<a name='DiGi.Communication.Classes.AngularPowerDistribution.GetAzimuthRanges(bool)'></a>
 
-## AngularPowerDistribution\.GetPower\(\) Method
+## AngularPowerDistribution\.GetAzimuthRanges\(bool\) Method
 
-Calculates the total power by summing the lengths of all stored vectors\.
+Gets the azimuth ranges defined in the spherical distribution scattering hit collection\.
 
 ```csharp
-public double GetPower();
+public System.Collections.Generic.IReadOnlyList<DiGi.Core.Classes.Range<double>>? GetAzimuthRanges(bool populatedOnly=false);
 ```
+#### Parameters
 
-Implements [GetPower\(\)](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAngularPowerDistribution.GetPower() 'DiGi\.Communication\.Interfaces\.IAngularPowerDistribution\.GetPower\(\)')
+<a name='DiGi.Communication.Classes.AngularPowerDistribution.GetAzimuthRanges(bool).populatedOnly'></a>
+
+`populatedOnly` [System\.Boolean](https://learn.microsoft.com/en-us/dotnet/api/system.boolean 'System\.Boolean')
+
+If set to [true](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/bool 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/builtin\-types/bool'), returns only ranges that contain scattering hits\.
+
+Implements [GetAzimuthRanges\(bool\)](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAngularPowerDistribution.GetAzimuthRanges(bool) 'DiGi\.Communication\.Interfaces\.IAngularPowerDistribution\.GetAzimuthRanges\(bool\)')
 
 #### Returns
-[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')  
-The sum of the vector lengths, or [System\.Double\.NaN](https://learn.microsoft.com/en-us/dotnet/api/system.double.nan 'System\.Double\.NaN') if the vectors collection is null\.
+[System\.Collections\.Generic\.IReadOnlyList&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlylist-1 'System\.Collections\.Generic\.IReadOnlyList\`1')[DiGi\.Core\.Classes\.Range&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.range-1 'DiGi\.Core\.Classes\.Range\`1')[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.range-1 'DiGi\.Core\.Classes\.Range\`1')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlylist-1 'System\.Collections\.Generic\.IReadOnlyList\`1')  
+A collection of azimuth ranges, or [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null') if no collection exists\.
+
+<a name='DiGi.Communication.Classes.AngularPowerDistribution.GetElevationRanges(bool)'></a>
+
+## AngularPowerDistribution\.GetElevationRanges\(bool\) Method
+
+Gets the elevation ranges defined in the spherical distribution scattering hit collection\.
+
+```csharp
+public System.Collections.Generic.IReadOnlyList<DiGi.Core.Classes.Range<double>>? GetElevationRanges(bool populatedOnly=false);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Classes.AngularPowerDistribution.GetElevationRanges(bool).populatedOnly'></a>
+
+`populatedOnly` [System\.Boolean](https://learn.microsoft.com/en-us/dotnet/api/system.boolean 'System\.Boolean')
+
+If set to [true](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/bool 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/builtin\-types/bool'), returns only ranges that contain scattering hits\.
+
+Implements [GetElevationRanges\(bool\)](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAngularPowerDistribution.GetElevationRanges(bool) 'DiGi\.Communication\.Interfaces\.IAngularPowerDistribution\.GetElevationRanges\(bool\)')
+
+#### Returns
+[System\.Collections\.Generic\.IReadOnlyList&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlylist-1 'System\.Collections\.Generic\.IReadOnlyList\`1')[DiGi\.Core\.Classes\.Range&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.range-1 'DiGi\.Core\.Classes\.Range\`1')[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.range-1 'DiGi\.Core\.Classes\.Range\`1')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlylist-1 'System\.Collections\.Generic\.IReadOnlyList\`1')  
+A collection of elevation ranges, or [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null') if no collection exists\.
+
+<a name='DiGi.Communication.Classes.AngularPowerDistribution.GetScatteringHits(double,double)'></a>
+
+## AngularPowerDistribution\.GetScatteringHits\(double, double\) Method
+
+Gets the scattering hits for the specified azimuth and elevation angles\.
+
+```csharp
+public System.Collections.Generic.IReadOnlyList<DiGi.Communication.Interfaces.IScatteringHit>? GetScatteringHits(double azimuth, double elevation);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Classes.AngularPowerDistribution.GetScatteringHits(double,double).azimuth'></a>
+
+`azimuth` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+The azimuth angle \[rad\]\.
+
+<a name='DiGi.Communication.Classes.AngularPowerDistribution.GetScatteringHits(double,double).elevation'></a>
+
+`elevation` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+The elevation angle \[rad\]\.
+
+Implements [GetScatteringHits\(double, double\)](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAngularPowerDistribution.GetScatteringHits(double,double) 'DiGi\.Communication\.Interfaces\.IAngularPowerDistribution\.GetScatteringHits\(double, double\)')
+
+#### Returns
+[System\.Collections\.Generic\.IReadOnlyList&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlylist-1 'System\.Collections\.Generic\.IReadOnlyList\`1')[IScatteringHit](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringHit 'DiGi\.Communication\.Interfaces\.IScatteringHit')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlylist-1 'System\.Collections\.Generic\.IReadOnlyList\`1')  
+A collection of [IScatteringHit](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringHit 'DiGi\.Communication\.Interfaces\.IScatteringHit') instances for the specified angles, or [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null') if none exist\.
+
+<a name='DiGi.Communication.Classes.AngularPowerDistribution.GetValues(DiGi.Core.Classes.Range_double_,DiGi.Core.Classes.Range_double_)'></a>
+
+## AngularPowerDistribution\.GetValues\(Range\<double\>, Range\<double\>\) Method
+
+Gets the scattering hits for the specified azimuth and elevation angle ranges\.
+
+```csharp
+public System.Collections.Generic.IReadOnlyList<DiGi.Communication.Interfaces.IScatteringHit>? GetValues(DiGi.Core.Classes.Range<double>? azimuthRange, DiGi.Core.Classes.Range<double>? elevationRange);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Classes.AngularPowerDistribution.GetValues(DiGi.Core.Classes.Range_double_,DiGi.Core.Classes.Range_double_).azimuthRange'></a>
+
+`azimuthRange` [DiGi\.Core\.Classes\.Range&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.range-1 'DiGi\.Core\.Classes\.Range\`1')[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.range-1 'DiGi\.Core\.Classes\.Range\`1')
+
+The azimuth angle range \[rad\]\.
+
+<a name='DiGi.Communication.Classes.AngularPowerDistribution.GetValues(DiGi.Core.Classes.Range_double_,DiGi.Core.Classes.Range_double_).elevationRange'></a>
+
+`elevationRange` [DiGi\.Core\.Classes\.Range&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.range-1 'DiGi\.Core\.Classes\.Range\`1')[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.range-1 'DiGi\.Core\.Classes\.Range\`1')
+
+The elevation angle range \[rad\]\.
+
+Implements [GetValues\(Range&lt;double&gt;, Range&lt;double&gt;\)](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAngularPowerDistribution.GetValues(DiGi.Core.Classes.Range_double_,DiGi.Core.Classes.Range_double_) 'DiGi\.Communication\.Interfaces\.IAngularPowerDistribution\.GetValues\(DiGi\.Core\.Classes\.Range\<double\>, DiGi\.Core\.Classes\.Range\<double\>\)')
+
+#### Returns
+[System\.Collections\.Generic\.IReadOnlyList&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlylist-1 'System\.Collections\.Generic\.IReadOnlyList\`1')[IScatteringHit](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringHit 'DiGi\.Communication\.Interfaces\.IScatteringHit')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlylist-1 'System\.Collections\.Generic\.IReadOnlyList\`1')  
+A collection of [IScatteringHit](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringHit 'DiGi\.Communication\.Interfaces\.IScatteringHit') instances for the specified angle ranges, or [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null') if none exist\.
+
+<a name='DiGi.Communication.Classes.AngularPowerDistribution.GetValues(double,double)'></a>
+
+## AngularPowerDistribution\.GetValues\(double, double\) Method
+
+Gets the scattering hits for the specified azimuth and elevation angles\.
+
+```csharp
+public System.Collections.Generic.IReadOnlyList<DiGi.Communication.Interfaces.IScatteringHit>? GetValues(double azimuth, double elevation);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Classes.AngularPowerDistribution.GetValues(double,double).azimuth'></a>
+
+`azimuth` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+The azimuth angle \[rad\]\.
+
+<a name='DiGi.Communication.Classes.AngularPowerDistribution.GetValues(double,double).elevation'></a>
+
+`elevation` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+The elevation angle \[rad\]\.
+
+Implements [GetValues\(double, double\)](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAngularPowerDistribution.GetValues(double,double) 'DiGi\.Communication\.Interfaces\.IAngularPowerDistribution\.GetValues\(double, double\)')
+
+#### Returns
+[System\.Collections\.Generic\.IReadOnlyList&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlylist-1 'System\.Collections\.Generic\.IReadOnlyList\`1')[IScatteringHit](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringHit 'DiGi\.Communication\.Interfaces\.IScatteringHit')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlylist-1 'System\.Collections\.Generic\.IReadOnlyList\`1')  
+A collection of [IScatteringHit](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringHit 'DiGi\.Communication\.Interfaces\.IScatteringHit') instances for the specified angles, or [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null') if none exist\.
 
 <a name='DiGi.Communication.Classes.AngularPowerDistributionProfile'></a>
 
@@ -263,7 +393,7 @@ Implements [Location](DiGi.Communication.Interfaces.md#DiGi.Communication.Interf
 Retrieves a list of rays associated with the specified delay\.
 
 ```csharp
-public System.Collections.Generic.List<DiGi.Communication.Classes.Ray>? GetRays(double delay);
+public System.Collections.Generic.List<DiGi.Geometry.Spatial.Classes.Ray3D>? GetRays(double delay);
 ```
 #### Parameters
 
@@ -276,8 +406,8 @@ The time delay used to look up the angular power distribution\.
 Implements [GetRays\(double\)](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAngularPowerDistributionProfile.GetRays(double) 'DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile\.GetRays\(double\)')
 
 #### Returns
-[System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[Ray](DiGi.Communication.Classes.md#DiGi.Communication.Classes.Ray 'DiGi\.Communication\.Classes\.Ray')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')  
-A list of [Ray](DiGi.Communication.Classes.md#DiGi.Communication.Classes.Ray 'DiGi\.Communication\.Classes\.Ray') objects if the distribution is found for the given delay; otherwise, `null`\.
+[System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[DiGi\.Geometry\.Spatial\.Classes\.Ray3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.ray3d 'DiGi\.Geometry\.Spatial\.Classes\.Ray3D')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')  
+A list of [DiGi\.Geometry\.Spatial\.Classes\.Ray3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.ray3d 'DiGi\.Geometry\.Spatial\.Classes\.Ray3D') objects if the distribution is found for the given delay; otherwise, `null`\.
 
 <a name='DiGi.Communication.Classes.AngularPowerDistributionProfileAntennaRelation'></a>
 
@@ -929,6 +1059,337 @@ Implements [GetSimpleMultipathPowerDelay\(bool\)](DiGi.Communication.Interfaces.
 [ISimpleMultipathPowerDelayProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ISimpleMultipathPowerDelayProfile 'DiGi\.Communication\.Interfaces\.ISimpleMultipathPowerDelayProfile')  
 The cloned [ISimpleMultipathPowerDelayProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ISimpleMultipathPowerDelayProfile 'DiGi\.Communication\.Interfaces\.ISimpleMultipathPowerDelayProfile') corresponding to the requested visibility, or `null` if it does not exist\.
 
+<a name='DiGi.Communication.Classes.ElectricalProperties'></a>
+
+## ElectricalProperties Class
+
+Represents the frequency\-dependent electrical properties of a material, including permittivity and conductivity parameters\.
+
+```csharp
+public class ElectricalProperties : DiGi.Core.Classes.SerializableObject, DiGi.Communication.Interfaces.ICommunicationSerializableObject, DiGi.Core.Interfaces.ISerializableObject, DiGi.Core.Interfaces.ICloneableObject<DiGi.Core.Interfaces.ISerializableObject>, DiGi.Core.Interfaces.ICloneableObject, DiGi.Core.Interfaces.IObject, DiGi.Communication.Interfaces.ICommunicationObject, DiGi.Core.Interfaces.INamedObject, System.IEquatable<DiGi.Communication.Classes.ElectricalProperties>
+```
+
+Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → ElectricalProperties
+
+Implements [ICommunicationSerializableObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationSerializableObject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.INamedObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.inamedobject 'DiGi\.Core\.Interfaces\.INamedObject'), [System\.IEquatable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.iequatable-1 'System\.IEquatable\`1')[ElectricalProperties](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ElectricalProperties 'DiGi\.Communication\.Classes\.ElectricalProperties')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.iequatable-1 'System\.IEquatable\`1')
+### Constructors
+
+<a name='DiGi.Communication.Classes.ElectricalProperties.ElectricalProperties(DiGi.Communication.Classes.ElectricalProperties)'></a>
+
+## ElectricalProperties\(ElectricalProperties\) Constructor
+
+Initializes a new instance of the [ElectricalProperties](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ElectricalProperties 'DiGi\.Communication\.Classes\.ElectricalProperties') class by copying another instance\.
+
+```csharp
+public ElectricalProperties(DiGi.Communication.Classes.ElectricalProperties electricalProperties);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Classes.ElectricalProperties.ElectricalProperties(DiGi.Communication.Classes.ElectricalProperties).electricalProperties'></a>
+
+`electricalProperties` [ElectricalProperties](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ElectricalProperties 'DiGi\.Communication\.Classes\.ElectricalProperties')
+
+The instance to copy properties from\.
+
+<a name='DiGi.Communication.Classes.ElectricalProperties.ElectricalProperties(string,double,double,double,double,DiGi.Core.Classes.Range_double_)'></a>
+
+## ElectricalProperties\(string, double, double, double, double, Range\<double\>\) Constructor
+
+Initializes a new instance of the [ElectricalProperties](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ElectricalProperties 'DiGi\.Communication\.Classes\.ElectricalProperties') class with the specified parameters\.
+
+```csharp
+public ElectricalProperties(string? name, double a, double b, double c, double d, DiGi.Core.Classes.Range<double>? frequencyRange);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Classes.ElectricalProperties.ElectricalProperties(string,double,double,double,double,DiGi.Core.Classes.Range_double_).name'></a>
+
+`name` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+The name of the material\.
+
+<a name='DiGi.Communication.Classes.ElectricalProperties.ElectricalProperties(string,double,double,double,double,DiGi.Core.Classes.Range_double_).a'></a>
+
+`a` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+The relative permittivity coefficient a\.
+
+<a name='DiGi.Communication.Classes.ElectricalProperties.ElectricalProperties(string,double,double,double,double,DiGi.Core.Classes.Range_double_).b'></a>
+
+`b` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+The relative permittivity exponent b\.
+
+<a name='DiGi.Communication.Classes.ElectricalProperties.ElectricalProperties(string,double,double,double,double,DiGi.Core.Classes.Range_double_).c'></a>
+
+`c` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+The conductivity coefficient c\.
+
+<a name='DiGi.Communication.Classes.ElectricalProperties.ElectricalProperties(string,double,double,double,double,DiGi.Core.Classes.Range_double_).d'></a>
+
+`d` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+The conductivity exponent d\.
+
+<a name='DiGi.Communication.Classes.ElectricalProperties.ElectricalProperties(string,double,double,double,double,DiGi.Core.Classes.Range_double_).frequencyRange'></a>
+
+`frequencyRange` [DiGi\.Core\.Classes\.Range&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.range-1 'DiGi\.Core\.Classes\.Range\`1')[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.range-1 'DiGi\.Core\.Classes\.Range\`1')
+
+The valid frequency range for these electrical properties\.
+
+<a name='DiGi.Communication.Classes.ElectricalProperties.ElectricalProperties(System.Text.Json.Nodes.JsonObject)'></a>
+
+## ElectricalProperties\(JsonObject\) Constructor
+
+Initializes a new instance of the [ElectricalProperties](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ElectricalProperties 'DiGi\.Communication\.Classes\.ElectricalProperties') class from a [System\.Text\.Json\.Nodes\.JsonObject](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.nodes.jsonobject 'System\.Text\.Json\.Nodes\.JsonObject')\.
+
+```csharp
+public ElectricalProperties(System.Text.Json.Nodes.JsonObject jsonObject);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Classes.ElectricalProperties.ElectricalProperties(System.Text.Json.Nodes.JsonObject).jsonObject'></a>
+
+`jsonObject` [System\.Text\.Json\.Nodes\.JsonObject](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.nodes.jsonobject 'System\.Text\.Json\.Nodes\.JsonObject')
+
+The JSON object containing serialized property values\.
+### Properties
+
+<a name='DiGi.Communication.Classes.ElectricalProperties.A'></a>
+
+## ElectricalProperties\.A Property
+
+Gets the relative permittivity coefficient a\.
+
+```csharp
+public double A { get; }
+```
+
+#### Property Value
+[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+<a name='DiGi.Communication.Classes.ElectricalProperties.B'></a>
+
+## ElectricalProperties\.B Property
+
+Gets the relative permittivity exponent b\.
+
+```csharp
+public double B { get; }
+```
+
+#### Property Value
+[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+<a name='DiGi.Communication.Classes.ElectricalProperties.C'></a>
+
+## ElectricalProperties\.C Property
+
+Gets the conductivity coefficient c\.
+
+```csharp
+public double C { get; }
+```
+
+#### Property Value
+[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+<a name='DiGi.Communication.Classes.ElectricalProperties.D'></a>
+
+## ElectricalProperties\.D Property
+
+Gets the conductivity exponent d\.
+
+```csharp
+public double D { get; }
+```
+
+#### Property Value
+[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+<a name='DiGi.Communication.Classes.ElectricalProperties.FrequencyRange'></a>
+
+## ElectricalProperties\.FrequencyRange Property
+
+Gets a clone of the frequency range for which these electrical properties are valid\.
+
+```csharp
+public DiGi.Core.Classes.Range<double>? FrequencyRange { get; }
+```
+
+#### Property Value
+[DiGi\.Core\.Classes\.Range&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.range-1 'DiGi\.Core\.Classes\.Range\`1')[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.range-1 'DiGi\.Core\.Classes\.Range\`1')
+
+<a name='DiGi.Communication.Classes.ElectricalProperties.Name'></a>
+
+## ElectricalProperties\.Name Property
+
+Gets the name of the material\.
+
+```csharp
+public string? Name { get; }
+```
+
+Implements [Name](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.inamedobject.name 'DiGi\.Core\.Interfaces\.INamedObject\.Name')
+
+#### Property Value
+[System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+### Methods
+
+<a name='DiGi.Communication.Classes.ElectricalProperties.Equals(DiGi.Communication.Classes.ElectricalProperties)'></a>
+
+## ElectricalProperties\.Equals\(ElectricalProperties\) Method
+
+Indicates whether the current instance is equal to another [ElectricalProperties](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ElectricalProperties 'DiGi\.Communication\.Classes\.ElectricalProperties') instance\.
+
+```csharp
+public bool Equals(DiGi.Communication.Classes.ElectricalProperties? electricalProperties);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Classes.ElectricalProperties.Equals(DiGi.Communication.Classes.ElectricalProperties).electricalProperties'></a>
+
+`electricalProperties` [ElectricalProperties](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ElectricalProperties 'DiGi\.Communication\.Classes\.ElectricalProperties')
+
+An instance to compare with this instance\.
+
+#### Returns
+[System\.Boolean](https://learn.microsoft.com/en-us/dotnet/api/system.boolean 'System\.Boolean')  
+[true](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/bool 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/builtin\-types/bool') if the current instance is equal to the [electricalProperties](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ElectricalProperties.Equals(DiGi.Communication.Classes.ElectricalProperties).electricalProperties 'DiGi\.Communication\.Classes\.ElectricalProperties\.Equals\(DiGi\.Communication\.Classes\.ElectricalProperties\)\.electricalProperties') parameter; otherwise, [false](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/bool 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/builtin\-types/bool')\.
+
+<a name='DiGi.Communication.Classes.ElectricalProperties.Equals(object)'></a>
+
+## ElectricalProperties\.Equals\(object\) Method
+
+Determines whether the specified object is equal to the current instance\.
+
+```csharp
+public override bool Equals(object? obj);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Classes.ElectricalProperties.Equals(object).obj'></a>
+
+`obj` [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object')
+
+The object to compare with the current instance\.
+
+#### Returns
+[System\.Boolean](https://learn.microsoft.com/en-us/dotnet/api/system.boolean 'System\.Boolean')  
+[true](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/bool 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/builtin\-types/bool') if the specified object is equal to the current instance; otherwise, [false](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/bool 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/builtin\-types/bool')\.
+
+<a name='DiGi.Communication.Classes.ElectricalProperties.GetConductivity(double)'></a>
+
+## ElectricalProperties\.GetConductivity\(double\) Method
+
+Electrical conductivity sigma\_k of the object \[S/m\]\.
+
+```csharp
+public double GetConductivity(double frequency);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Classes.ElectricalProperties.GetConductivity(double).frequency'></a>
+
+`frequency` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+Frequency in \[Hz\]
+
+#### Returns
+[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')  
+The electrical conductivity \[S/m\], or [System\.Double\.NaN](https://learn.microsoft.com/en-us/dotnet/api/system.double.nan 'System\.Double\.NaN') if calculation inputs are invalid\.
+
+<a name='DiGi.Communication.Classes.ElectricalProperties.GetHashCode()'></a>
+
+## ElectricalProperties\.GetHashCode\(\) Method
+
+Returns the hash code for this instance\.
+
+```csharp
+public override int GetHashCode();
+```
+
+#### Returns
+[System\.Int32](https://learn.microsoft.com/en-us/dotnet/api/system.int32 'System\.Int32')  
+A 32\-bit signed integer hash code\.
+
+<a name='DiGi.Communication.Classes.ElectricalProperties.GetRelativePermittivity(double)'></a>
+
+## ElectricalProperties\.GetRelativePermittivity\(double\) Method
+
+Relative electrical permittivity epsilon\_wk of the object \[\-\]\.
+
+```csharp
+public double GetRelativePermittivity(double frequency);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Classes.ElectricalProperties.GetRelativePermittivity(double).frequency'></a>
+
+`frequency` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+Frequency in \[Hz\]
+
+#### Returns
+[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')  
+The relative electrical permittivity \[\-\], or [System\.Double\.NaN](https://learn.microsoft.com/en-us/dotnet/api/system.double.nan 'System\.Double\.NaN') if calculation inputs are invalid\.
+### Operators
+
+<a name='DiGi.Communication.Classes.ElectricalProperties.op_Equality(DiGi.Communication.Classes.ElectricalProperties,DiGi.Communication.Classes.ElectricalProperties)'></a>
+
+## ElectricalProperties\.operator ==\(ElectricalProperties, ElectricalProperties\) Operator
+
+Determines whether two [ElectricalProperties](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ElectricalProperties 'DiGi\.Communication\.Classes\.ElectricalProperties') instances are equal\.
+
+```csharp
+public static bool operator ==(DiGi.Communication.Classes.ElectricalProperties? electricalProperties_1, DiGi.Communication.Classes.ElectricalProperties? electricalProperties_2);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Classes.ElectricalProperties.op_Equality(DiGi.Communication.Classes.ElectricalProperties,DiGi.Communication.Classes.ElectricalProperties).electricalProperties_1'></a>
+
+`electricalProperties_1` [ElectricalProperties](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ElectricalProperties 'DiGi\.Communication\.Classes\.ElectricalProperties')
+
+The first instance to compare\.
+
+<a name='DiGi.Communication.Classes.ElectricalProperties.op_Equality(DiGi.Communication.Classes.ElectricalProperties,DiGi.Communication.Classes.ElectricalProperties).electricalProperties_2'></a>
+
+`electricalProperties_2` [ElectricalProperties](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ElectricalProperties 'DiGi\.Communication\.Classes\.ElectricalProperties')
+
+The second instance to compare\.
+
+#### Returns
+[System\.Boolean](https://learn.microsoft.com/en-us/dotnet/api/system.boolean 'System\.Boolean')  
+[true](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/bool 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/builtin\-types/bool') if the instances are equal; otherwise, [false](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/bool 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/builtin\-types/bool')\.
+
+<a name='DiGi.Communication.Classes.ElectricalProperties.op_Inequality(DiGi.Communication.Classes.ElectricalProperties,DiGi.Communication.Classes.ElectricalProperties)'></a>
+
+## ElectricalProperties\.operator \!=\(ElectricalProperties, ElectricalProperties\) Operator
+
+Determines whether two [ElectricalProperties](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ElectricalProperties 'DiGi\.Communication\.Classes\.ElectricalProperties') instances are not equal\.
+
+```csharp
+public static bool operator !=(DiGi.Communication.Classes.ElectricalProperties? electricalProperties_1, DiGi.Communication.Classes.ElectricalProperties? electricalProperties_2);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Classes.ElectricalProperties.op_Inequality(DiGi.Communication.Classes.ElectricalProperties,DiGi.Communication.Classes.ElectricalProperties).electricalProperties_1'></a>
+
+`electricalProperties_1` [ElectricalProperties](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ElectricalProperties 'DiGi\.Communication\.Classes\.ElectricalProperties')
+
+The first instance to compare\.
+
+<a name='DiGi.Communication.Classes.ElectricalProperties.op_Inequality(DiGi.Communication.Classes.ElectricalProperties,DiGi.Communication.Classes.ElectricalProperties).electricalProperties_2'></a>
+
+`electricalProperties_2` [ElectricalProperties](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ElectricalProperties 'DiGi\.Communication\.Classes\.ElectricalProperties')
+
+The second instance to compare\.
+
+#### Returns
+[System\.Boolean](https://learn.microsoft.com/en-us/dotnet/api/system.boolean 'System\.Boolean')  
+[true](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/bool 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/builtin\-types/bool') if the instances are not equal; otherwise, [false](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/bool 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/builtin\-types/bool')\.
+
 <a name='DiGi.Communication.Classes.GeometricalPropagationModel'></a>
 
 ## GeometricalPropagationModel Class
@@ -1341,6 +1802,35 @@ The type of scattering object to retrieve, which must implement [IScatteringObje
 [System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[TScatteringObject](DiGi.Communication.Classes.md#DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringObjects_TScatteringObject_().TScatteringObject 'DiGi\.Communication\.Classes\.GeometricalPropagationModel\.GetScatteringObjects\<TScatteringObject\>\(\)\.TScatteringObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')  
 A list of scattering objects of type [TScatteringObject](DiGi.Communication.Classes.md#DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringObjects_TScatteringObject_().TScatteringObject 'DiGi\.Communication\.Classes\.GeometricalPropagationModel\.GetScatteringObjects\<TScatteringObject\>\(\)\.TScatteringObject'), or `null` if the collection is empty or unavailable\.
 
+<a name='DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringObjects_TScatteringObject_(bool)'></a>
+
+## GeometricalPropagationModel\.GetScatteringObjects\<TScatteringObject\>\(bool\) Method
+
+Gets all scattering objects of the specified type, optionally filtering or grouping by scattering group membership\.
+
+```csharp
+public System.Collections.Generic.List<TScatteringObject>? GetScatteringObjects<TScatteringObject>(bool grouped)
+    where TScatteringObject : DiGi.Communication.Interfaces.IScatteringObject;
+```
+#### Type parameters
+
+<a name='DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringObjects_TScatteringObject_(bool).TScatteringObject'></a>
+
+`TScatteringObject`
+
+The type of scattering object to retrieve, which must implement [IScatteringObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringObject 'DiGi\.Communication\.Interfaces\.IScatteringObject')\.
+#### Parameters
+
+<a name='DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringObjects_TScatteringObject_(bool).grouped'></a>
+
+`grouped` [System\.Boolean](https://learn.microsoft.com/en-us/dotnet/api/system.boolean 'System\.Boolean')
+
+A value indicating whether to return only scattering objects that belong to a scattering group\.
+
+#### Returns
+[System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[TScatteringObject](DiGi.Communication.Classes.md#DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringObjects_TScatteringObject_(bool).TScatteringObject 'DiGi\.Communication\.Classes\.GeometricalPropagationModel\.GetScatteringObjects\<TScatteringObject\>\(bool\)\.TScatteringObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')  
+A list of scattering objects of type [TScatteringObject](DiGi.Communication.Classes.md#DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringObjects_TScatteringObject_(bool).TScatteringObject 'DiGi\.Communication\.Classes\.GeometricalPropagationModel\.GetScatteringObjects\<TScatteringObject\>\(bool\)\.TScatteringObject') if any are found; otherwise, [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null')\.
+
 <a name='DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringObjects_TScatteringObject_(DiGi.Communication.Interfaces.IScatteringGroup)'></a>
 
 ## GeometricalPropagationModel\.GetScatteringObjects\<TScatteringObject\>\(IScatteringGroup\) Method
@@ -1369,6 +1859,35 @@ The scattering group whose scattering objects to retrieve\.
 #### Returns
 [System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[TScatteringObject](DiGi.Communication.Classes.md#DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringObjects_TScatteringObject_(DiGi.Communication.Interfaces.IScatteringGroup).TScatteringObject 'DiGi\.Communication\.Classes\.GeometricalPropagationModel\.GetScatteringObjects\<TScatteringObject\>\(DiGi\.Communication\.Interfaces\.IScatteringGroup\)\.TScatteringObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')  
 A list of scattering objects of type [TScatteringObject](DiGi.Communication.Classes.md#DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringObjects_TScatteringObject_(DiGi.Communication.Interfaces.IScatteringGroup).TScatteringObject 'DiGi\.Communication\.Classes\.GeometricalPropagationModel\.GetScatteringObjects\<TScatteringObject\>\(DiGi\.Communication\.Interfaces\.IScatteringGroup\)\.TScatteringObject') if any are found; otherwise, [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null')\.
+
+<a name='DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringObjects_TScatteringObject_(string)'></a>
+
+## GeometricalPropagationModel\.GetScatteringObjects\<TScatteringObject\>\(string\) Method
+
+Retrieves a list of scattering objects of the specified type matching the given reference\.
+
+```csharp
+public System.Collections.Generic.List<TScatteringObject>? GetScatteringObjects<TScatteringObject>(string reference)
+    where TScatteringObject : DiGi.Communication.Interfaces.IScatteringObject;
+```
+#### Type parameters
+
+<a name='DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringObjects_TScatteringObject_(string).TScatteringObject'></a>
+
+`TScatteringObject`
+
+The type of scattering object to retrieve, which must implement [IScatteringObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringObject 'DiGi\.Communication\.Interfaces\.IScatteringObject')\.
+#### Parameters
+
+<a name='DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringObjects_TScatteringObject_(string).reference'></a>
+
+`reference` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+The reference string used to filter the scattering objects\.
+
+#### Returns
+[System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[TScatteringObject](DiGi.Communication.Classes.md#DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringObjects_TScatteringObject_(string).TScatteringObject 'DiGi\.Communication\.Classes\.GeometricalPropagationModel\.GetScatteringObjects\<TScatteringObject\>\(string\)\.TScatteringObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')  
+A list of scattering objects of type [TScatteringObject](DiGi.Communication.Classes.md#DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringObjects_TScatteringObject_(string).TScatteringObject 'DiGi\.Communication\.Classes\.GeometricalPropagationModel\.GetScatteringObjects\<TScatteringObject\>\(string\)\.TScatteringObject') matching the specified reference, or [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null') if no matching objects are found\.
 
 <a name='DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringProfiles_TScatteringProfile_()'></a>
 
@@ -1646,105 +2165,6 @@ public MultipathPowerDelayProfileAntennasRelation(System.Text.Json.Nodes.JsonObj
 `jsonObject` [System\.Text\.Json\.Nodes\.JsonObject](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.nodes.jsonobject 'System\.Text\.Json\.Nodes\.JsonObject')
 
 The JSON object containing the data to initialize the relation\.
-
-<a name='DiGi.Communication.Classes.Ray'></a>
-
-## Ray Class
-
-Represents a geometric ray defined by an origin point and a direction vector, supporting serialization for communication purposes\.
-
-```csharp
-public class Ray : DiGi.Core.Classes.SerializableObject, DiGi.Communication.Interfaces.ICommunicationSerializableObject, DiGi.Core.Interfaces.ISerializableObject, DiGi.Core.Interfaces.ICloneableObject<DiGi.Core.Interfaces.ISerializableObject>, DiGi.Core.Interfaces.ICloneableObject, DiGi.Core.Interfaces.IObject, DiGi.Communication.Interfaces.ICommunicationObject
-```
-
-Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → Ray
-
-Implements [ICommunicationSerializableObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationSerializableObject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject')
-### Constructors
-
-<a name='DiGi.Communication.Classes.Ray.Ray(DiGi.Communication.Classes.Ray)'></a>
-
-## Ray\(Ray\) Constructor
-
-Initializes a new instance of the [Ray](DiGi.Communication.Classes.md#DiGi.Communication.Classes.Ray 'DiGi\.Communication\.Classes\.Ray') class by copying an existing [Ray](DiGi.Communication.Classes.md#DiGi.Communication.Classes.Ray 'DiGi\.Communication\.Classes\.Ray') instance\.
-
-```csharp
-public Ray(DiGi.Communication.Classes.Ray? ray);
-```
-#### Parameters
-
-<a name='DiGi.Communication.Classes.Ray.Ray(DiGi.Communication.Classes.Ray).ray'></a>
-
-`ray` [Ray](DiGi.Communication.Classes.md#DiGi.Communication.Classes.Ray 'DiGi\.Communication\.Classes\.Ray')
-
-The source [Ray](DiGi.Communication.Classes.md#DiGi.Communication.Classes.Ray 'DiGi\.Communication\.Classes\.Ray') instance to copy from, or [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null')\.
-
-<a name='DiGi.Communication.Classes.Ray.Ray(DiGi.Geometry.Spatial.Classes.Point3D,DiGi.Geometry.Spatial.Classes.Vector3D)'></a>
-
-## Ray\(Point3D, Vector3D\) Constructor
-
-Initializes a new instance of the [Ray](DiGi.Communication.Classes.md#DiGi.Communication.Classes.Ray 'DiGi\.Communication\.Classes\.Ray') class with the specified starting point and direction vector\.
-
-```csharp
-public Ray(DiGi.Geometry.Spatial.Classes.Point3D? point, DiGi.Geometry.Spatial.Classes.Vector3D? vector);
-```
-#### Parameters
-
-<a name='DiGi.Communication.Classes.Ray.Ray(DiGi.Geometry.Spatial.Classes.Point3D,DiGi.Geometry.Spatial.Classes.Vector3D).point'></a>
-
-`point` [DiGi\.Geometry\.Spatial\.Classes\.Point3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.point3d 'DiGi\.Geometry\.Spatial\.Classes\.Point3D')
-
-The starting point of the ray\.
-
-<a name='DiGi.Communication.Classes.Ray.Ray(DiGi.Geometry.Spatial.Classes.Point3D,DiGi.Geometry.Spatial.Classes.Vector3D).vector'></a>
-
-`vector` [DiGi\.Geometry\.Spatial\.Classes\.Vector3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.vector3d 'DiGi\.Geometry\.Spatial\.Classes\.Vector3D')
-
-The direction vector of the ray\.
-
-<a name='DiGi.Communication.Classes.Ray.Ray(System.Text.Json.Nodes.JsonObject)'></a>
-
-## Ray\(JsonObject\) Constructor
-
-Initializes a new instance of the [Ray](DiGi.Communication.Classes.md#DiGi.Communication.Classes.Ray 'DiGi\.Communication\.Classes\.Ray') class using the specified JSON object\.
-
-```csharp
-public Ray(System.Text.Json.Nodes.JsonObject? jsonObject);
-```
-#### Parameters
-
-<a name='DiGi.Communication.Classes.Ray.Ray(System.Text.Json.Nodes.JsonObject).jsonObject'></a>
-
-`jsonObject` [System\.Text\.Json\.Nodes\.JsonObject](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.nodes.jsonobject 'System\.Text\.Json\.Nodes\.JsonObject')
-
-The JSON object used to initialize the current [Ray](DiGi.Communication.Classes.md#DiGi.Communication.Classes.Ray 'DiGi\.Communication\.Classes\.Ray') instance\.
-### Properties
-
-<a name='DiGi.Communication.Classes.Ray.Point'></a>
-
-## Ray\.Point Property
-
-Gets the point in three\-dimensional space associated with this ray\.
-
-```csharp
-public DiGi.Geometry.Spatial.Classes.Point3D? Point { get; }
-```
-
-#### Property Value
-[DiGi\.Geometry\.Spatial\.Classes\.Point3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.point3d 'DiGi\.Geometry\.Spatial\.Classes\.Point3D')
-
-<a name='DiGi.Communication.Classes.Ray.Vector'></a>
-
-## Ray\.Vector Property
-
-Gets the vector defining the segment\.
-
-```csharp
-public DiGi.Geometry.Spatial.Classes.Vector3D? Vector { get; }
-```
-
-#### Property Value
-[DiGi\.Geometry\.Spatial\.Classes\.Vector3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.vector3d 'DiGi\.Geometry\.Spatial\.Classes\.Vector3D')
 
 <a name='DiGi.Communication.Classes.Scattering'></a>
 
@@ -2071,6 +2491,132 @@ public ScatteringGroupScatteringObjectsRelation(System.Text.Json.Nodes.JsonObjec
 
 The JSON object containing serializable data for the relation\.
 
+<a name='DiGi.Communication.Classes.ScatteringHit'></a>
+
+## ScatteringHit Class
+
+Represents a hit result containing a reference identifier to a scattering object and the 3D ray\.
+
+```csharp
+public class ScatteringHit : DiGi.Core.Classes.SerializableObject, DiGi.Communication.Interfaces.IScatteringHit, DiGi.Communication.Interfaces.ICommunicationSerializableObject, DiGi.Core.Interfaces.ISerializableObject, DiGi.Core.Interfaces.ICloneableObject<DiGi.Core.Interfaces.ISerializableObject>, DiGi.Core.Interfaces.ICloneableObject, DiGi.Core.Interfaces.IObject, DiGi.Communication.Interfaces.ICommunicationObject
+```
+
+Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → ScatteringHit
+
+Implements [IScatteringHit](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringHit 'DiGi\.Communication\.Interfaces\.IScatteringHit'), [ICommunicationSerializableObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationSerializableObject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject')
+### Constructors
+
+<a name='DiGi.Communication.Classes.ScatteringHit.ScatteringHit(DiGi.Communication.Classes.ScatteringHit)'></a>
+
+## ScatteringHit\(ScatteringHit\) Constructor
+
+Initializes a new instance of the [ScatteringHit](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringHit 'DiGi\.Communication\.Classes\.ScatteringHit') class by copying another [ScatteringHit](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringHit 'DiGi\.Communication\.Classes\.ScatteringHit') instance\.
+
+```csharp
+public ScatteringHit(DiGi.Communication.Classes.ScatteringHit? scatteringHit);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Classes.ScatteringHit.ScatteringHit(DiGi.Communication.Classes.ScatteringHit).scatteringHit'></a>
+
+`scatteringHit` [ScatteringHit](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringHit 'DiGi\.Communication\.Classes\.ScatteringHit')
+
+The source hit instance to copy from, or [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null') to create a default instance\.
+
+<a name='DiGi.Communication.Classes.ScatteringHit.ScatteringHit(DiGi.Communication.Interfaces.IScatteringObject,DiGi.Geometry.Spatial.Classes.Ray3D)'></a>
+
+## ScatteringHit\(IScatteringObject, Ray3D\) Constructor
+
+Initializes a new instance of the [ScatteringHit](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringHit 'DiGi\.Communication\.Classes\.ScatteringHit') class from a [IScatteringObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringObject 'DiGi\.Communication\.Interfaces\.IScatteringObject') instance and ray\.
+
+```csharp
+public ScatteringHit(DiGi.Communication.Interfaces.IScatteringObject? scatteringObject, DiGi.Geometry.Spatial.Classes.Ray3D? ray3D);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Classes.ScatteringHit.ScatteringHit(DiGi.Communication.Interfaces.IScatteringObject,DiGi.Geometry.Spatial.Classes.Ray3D).scatteringObject'></a>
+
+`scatteringObject` [IScatteringObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringObject 'DiGi\.Communication\.Interfaces\.IScatteringObject')
+
+The scattering object hit by the ray\.
+
+<a name='DiGi.Communication.Classes.ScatteringHit.ScatteringHit(DiGi.Communication.Interfaces.IScatteringObject,DiGi.Geometry.Spatial.Classes.Ray3D).ray3D'></a>
+
+`ray3D` [DiGi\.Geometry\.Spatial\.Classes\.Ray3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.ray3d 'DiGi\.Geometry\.Spatial\.Classes\.Ray3D')
+
+The ray in three\-dimensional space associated with the hit\.
+
+<a name='DiGi.Communication.Classes.ScatteringHit.ScatteringHit(string,DiGi.Geometry.Spatial.Classes.Ray3D)'></a>
+
+## ScatteringHit\(string, Ray3D\) Constructor
+
+Initializes a new instance of the [ScatteringHit](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringHit 'DiGi\.Communication\.Classes\.ScatteringHit') class with the specified reference and ray\.
+
+```csharp
+public ScatteringHit(string? reference, DiGi.Geometry.Spatial.Classes.Ray3D? ray3D);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Classes.ScatteringHit.ScatteringHit(string,DiGi.Geometry.Spatial.Classes.Ray3D).reference'></a>
+
+`reference` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+The reference identifier of the target scattering object\.
+
+<a name='DiGi.Communication.Classes.ScatteringHit.ScatteringHit(string,DiGi.Geometry.Spatial.Classes.Ray3D).ray3D'></a>
+
+`ray3D` [DiGi\.Geometry\.Spatial\.Classes\.Ray3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.ray3d 'DiGi\.Geometry\.Spatial\.Classes\.Ray3D')
+
+The ray in three\-dimensional space associated with the hit\.
+
+<a name='DiGi.Communication.Classes.ScatteringHit.ScatteringHit(System.Text.Json.Nodes.JsonObject)'></a>
+
+## ScatteringHit\(JsonObject\) Constructor
+
+Initializes a new instance of the [ScatteringHit](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringHit 'DiGi\.Communication\.Classes\.ScatteringHit') class from a [System\.Text\.Json\.Nodes\.JsonObject](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.nodes.jsonobject 'System\.Text\.Json\.Nodes\.JsonObject')\.
+
+```csharp
+public ScatteringHit(System.Text.Json.Nodes.JsonObject? jsonObject);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Classes.ScatteringHit.ScatteringHit(System.Text.Json.Nodes.JsonObject).jsonObject'></a>
+
+`jsonObject` [System\.Text\.Json\.Nodes\.JsonObject](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.nodes.jsonobject 'System\.Text\.Json\.Nodes\.JsonObject')
+
+The JSON object containing serialized property values\.
+### Properties
+
+<a name='DiGi.Communication.Classes.ScatteringHit.Ray3D'></a>
+
+## ScatteringHit\.Ray3D Property
+
+Gets a clone of the ray in three\-dimensional space associated with the hit\.
+
+```csharp
+public DiGi.Geometry.Spatial.Classes.Ray3D? Ray3D { get; }
+```
+
+Implements [Ray3D](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringHit.Ray3D 'DiGi\.Communication\.Interfaces\.IScatteringHit\.Ray3D')
+
+#### Property Value
+[DiGi\.Geometry\.Spatial\.Classes\.Ray3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.ray3d 'DiGi\.Geometry\.Spatial\.Classes\.Ray3D')
+
+<a name='DiGi.Communication.Classes.ScatteringHit.Reference'></a>
+
+## ScatteringHit\.Reference Property
+
+Gets the reference identifier of the hit scattering object\.
+
+```csharp
+public string? Reference { get; }
+```
+
+Implements [Reference](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringHit.Reference 'DiGi\.Communication\.Interfaces\.IScatteringHit\.Reference')
+
+#### Property Value
+[System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
 <a name='DiGi.Communication.Classes.ScatteringObject'></a>
 
 ## ScatteringObject Class
@@ -2103,81 +2649,69 @@ public ScatteringObject(DiGi.Communication.Classes.ScatteringObject? scatteringO
 
 The source scattering object to copy from, or [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null') to initialize a new instance without existing data\.
 
-<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(string,DiGi.Geometry.Spatial.Classes.Mesh3D,double,double)'></a>
+<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(string,DiGi.Geometry.Spatial.Classes.Mesh3D,DiGi.Communication.Classes.ElectricalProperties)'></a>
 
-## ScatteringObject\(string, Mesh3D, double, double\) Constructor
+## ScatteringObject\(string, Mesh3D, ElectricalProperties\) Constructor
 
 Initializes a new instance of the [ScatteringObject](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringObject 'DiGi\.Communication\.Classes\.ScatteringObject') class\.
 
 ```csharp
-public ScatteringObject(string? reference, DiGi.Geometry.Spatial.Classes.Mesh3D? mesh3D, double relativePermittivity=1.0, double electricalConductivity=0.0);
+public ScatteringObject(string? reference, DiGi.Geometry.Spatial.Classes.Mesh3D? mesh3D, DiGi.Communication.Classes.ElectricalProperties electricalProperties);
 ```
 #### Parameters
 
-<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(string,DiGi.Geometry.Spatial.Classes.Mesh3D,double,double).reference'></a>
+<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(string,DiGi.Geometry.Spatial.Classes.Mesh3D,DiGi.Communication.Classes.ElectricalProperties).reference'></a>
 
 `reference` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
 
 The reference identifier for the scattering object\. If null or whitespace, the unique identifier \(Guid\) is used instead\.
 
-<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(string,DiGi.Geometry.Spatial.Classes.Mesh3D,double,double).mesh3D'></a>
+<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(string,DiGi.Geometry.Spatial.Classes.Mesh3D,DiGi.Communication.Classes.ElectricalProperties).mesh3D'></a>
 
 `mesh3D` [DiGi\.Geometry\.Spatial\.Classes\.Mesh3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.mesh3d 'DiGi\.Geometry\.Spatial\.Classes\.Mesh3D')
 
 The three\-dimensional mesh associated with the scattering object\.
 
-<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(string,DiGi.Geometry.Spatial.Classes.Mesh3D,double,double).relativePermittivity'></a>
+<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(string,DiGi.Geometry.Spatial.Classes.Mesh3D,DiGi.Communication.Classes.ElectricalProperties).electricalProperties'></a>
 
-`relativePermittivity` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+`electricalProperties` [ElectricalProperties](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ElectricalProperties 'DiGi\.Communication\.Classes\.ElectricalProperties')
 
-The relative permittivity of the object\. Defaults to 1\.0\.
+Electrical properties assigned to the scattering object
 
-<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(string,DiGi.Geometry.Spatial.Classes.Mesh3D,double,double).electricalConductivity'></a>
+<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(System.Guid,string,DiGi.Geometry.Spatial.Classes.Mesh3D,DiGi.Communication.Classes.ElectricalProperties)'></a>
 
-`electricalConductivity` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
-
-The electrical conductivity of the object\. Defaults to 0\.0\.
-
-<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(System.Guid,string,DiGi.Geometry.Spatial.Classes.Mesh3D,double,double)'></a>
-
-## ScatteringObject\(Guid, string, Mesh3D, double, double\) Constructor
+## ScatteringObject\(Guid, string, Mesh3D, ElectricalProperties\) Constructor
 
 Initializes a new instance of the [ScatteringObject](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringObject 'DiGi\.Communication\.Classes\.ScatteringObject') class\.
 
 ```csharp
-public ScatteringObject(System.Guid guid, string? reference, DiGi.Geometry.Spatial.Classes.Mesh3D? mesh3D, double relativePermittivity=1.0, double electricalConductivity=0.0);
+public ScatteringObject(System.Guid guid, string? reference, DiGi.Geometry.Spatial.Classes.Mesh3D? mesh3D, DiGi.Communication.Classes.ElectricalProperties electricalProperties);
 ```
 #### Parameters
 
-<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(System.Guid,string,DiGi.Geometry.Spatial.Classes.Mesh3D,double,double).guid'></a>
+<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(System.Guid,string,DiGi.Geometry.Spatial.Classes.Mesh3D,DiGi.Communication.Classes.ElectricalProperties).guid'></a>
 
 `guid` [System\.Guid](https://learn.microsoft.com/en-us/dotnet/api/system.guid 'System\.Guid')
 
 The unique identifier for the scattering object\.
 
-<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(System.Guid,string,DiGi.Geometry.Spatial.Classes.Mesh3D,double,double).reference'></a>
+<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(System.Guid,string,DiGi.Geometry.Spatial.Classes.Mesh3D,DiGi.Communication.Classes.ElectricalProperties).reference'></a>
 
 `reference` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
 
 An optional reference string; if null or whitespace, the GUID is used as the reference\.
 
-<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(System.Guid,string,DiGi.Geometry.Spatial.Classes.Mesh3D,double,double).mesh3D'></a>
+<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(System.Guid,string,DiGi.Geometry.Spatial.Classes.Mesh3D,DiGi.Communication.Classes.ElectricalProperties).mesh3D'></a>
 
 `mesh3D` [DiGi\.Geometry\.Spatial\.Classes\.Mesh3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.mesh3d 'DiGi\.Geometry\.Spatial\.Classes\.Mesh3D')
 
 The three\-dimensional mesh associated with this scattering object\.
 
-<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(System.Guid,string,DiGi.Geometry.Spatial.Classes.Mesh3D,double,double).relativePermittivity'></a>
+<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(System.Guid,string,DiGi.Geometry.Spatial.Classes.Mesh3D,DiGi.Communication.Classes.ElectricalProperties).electricalProperties'></a>
 
-`relativePermittivity` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+`electricalProperties` [ElectricalProperties](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ElectricalProperties 'DiGi\.Communication\.Classes\.ElectricalProperties')
 
-The relative permittivity of the object\. Defaults to 1\.0\.
-
-<a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(System.Guid,string,DiGi.Geometry.Spatial.Classes.Mesh3D,double,double).electricalConductivity'></a>
-
-`electricalConductivity` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
-
-The electrical conductivity of the object\. Defaults to 0\.0\.
+Electrical properties assigned to the scattering object
 
 <a name='DiGi.Communication.Classes.ScatteringObject.ScatteringObject(System.Text.Json.Nodes.JsonObject)'></a>
 
@@ -2197,20 +2731,20 @@ public ScatteringObject(System.Text.Json.Nodes.JsonObject? jsonObject);
 The [System\.Text\.Json\.Nodes\.JsonObject](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.nodes.jsonobject 'System\.Text\.Json\.Nodes\.JsonObject') used to initialize the current instance\.
 ### Properties
 
-<a name='DiGi.Communication.Classes.ScatteringObject.ElectricalConductivity'></a>
+<a name='DiGi.Communication.Classes.ScatteringObject.ElectricalProperties'></a>
 
-## ScatteringObject\.ElectricalConductivity Property
+## ScatteringObject\.ElectricalProperties Property
 
-Gets the electrical conductivity of the object\. \[S/m\]
+Gets a clone of the electrical properties associated with this scattering object\.
 
 ```csharp
-public double ElectricalConductivity { get; }
+public DiGi.Communication.Classes.ElectricalProperties? ElectricalProperties { get; }
 ```
 
-Implements [ElectricalConductivity](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringObject.ElectricalConductivity 'DiGi\.Communication\.Interfaces\.IScatteringObject\.ElectricalConductivity')
+Implements [ElectricalProperties](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringObject.ElectricalProperties 'DiGi\.Communication\.Interfaces\.IScatteringObject\.ElectricalProperties')
 
 #### Property Value
-[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+[ElectricalProperties](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ElectricalProperties 'DiGi\.Communication\.Classes\.ElectricalProperties')
 
 <a name='DiGi.Communication.Classes.ScatteringObject.Mesh3D'></a>
 
@@ -2241,21 +2775,6 @@ Implements [Reference](DiGi.Communication.Interfaces.md#DiGi.Communication.Inter
 
 #### Property Value
 [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
-
-<a name='DiGi.Communication.Classes.ScatteringObject.RelativePermittivity'></a>
-
-## ScatteringObject\.RelativePermittivity Property
-
-Gets the relative permittivity of the object\. \[\-\]
-
-```csharp
-public double RelativePermittivity { get; }
-```
-
-Implements [RelativePermittivity](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringObject.RelativePermittivity 'DiGi\.Communication\.Interfaces\.IScatteringObject\.RelativePermittivity')
-
-#### Property Value
-[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
 
 <a name='DiGi.Communication.Classes.ScatteringPointGroup'></a>
 
@@ -3021,3 +3540,130 @@ Implements [GetPower\(double\)](DiGi.Communication.Interfaces.md#DiGi.Communicat
 #### Returns
 [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')  
 The power value corresponding to the given delay, or [System\.Double\.NaN](https://learn.microsoft.com/en-us/dotnet/api/system.double.nan 'System\.Double\.NaN') if the values are not initialized or the delay is not found\.
+
+<a name='DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection'></a>
+
+## SphericalDistributionScatteringHitCollection Class
+
+Non\-generic version of [SphericalDistributionScatteringHitCollection&lt;TScatteringHit&gt;](DiGi.Communication.Classes.md#DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection_TScatteringHit_ 'DiGi\.Communication\.Classes\.SphericalDistributionScatteringHitCollection\<TScatteringHit\>') for handling a collection of [IScatteringHit](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringHit 'DiGi\.Communication\.Interfaces\.IScatteringHit') objects\.
+
+```csharp
+public class SphericalDistributionScatteringHitCollection : DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection<DiGi.Communication.Interfaces.IScatteringHit>
+```
+
+Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → [DiGi\.Core\.Classes\.SphericalDistributionSerializableObjectCollection&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.sphericaldistributionserializableobjectcollection-1 'DiGi\.Core\.Classes\.SphericalDistributionSerializableObjectCollection\`1')[IScatteringHit](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringHit 'DiGi\.Communication\.Interfaces\.IScatteringHit')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.sphericaldistributionserializableobjectcollection-1 'DiGi\.Core\.Classes\.SphericalDistributionSerializableObjectCollection\`1') → [DiGi\.Communication\.Classes\.SphericalDistributionScatteringHitCollection&lt;](DiGi.Communication.Classes.md#DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection_TScatteringHit_ 'DiGi\.Communication\.Classes\.SphericalDistributionScatteringHitCollection\<TScatteringHit\>')[IScatteringHit](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringHit 'DiGi\.Communication\.Interfaces\.IScatteringHit')[&gt;](DiGi.Communication.Classes.md#DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection_TScatteringHit_ 'DiGi\.Communication\.Classes\.SphericalDistributionScatteringHitCollection\<TScatteringHit\>') → SphericalDistributionScatteringHitCollection
+### Constructors
+
+<a name='DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection.SphericalDistributionScatteringHitCollection()'></a>
+
+## SphericalDistributionScatteringHitCollection\(\) Constructor
+
+Initializes a new instance of the [SphericalDistributionScatteringHitCollection](DiGi.Communication.Classes.md#DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection 'DiGi\.Communication\.Classes\.SphericalDistributionScatteringHitCollection') class\.
+
+```csharp
+public SphericalDistributionScatteringHitCollection();
+```
+
+<a name='DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection.SphericalDistributionScatteringHitCollection(DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection)'></a>
+
+## SphericalDistributionScatteringHitCollection\(SphericalDistributionScatteringHitCollection\) Constructor
+
+Initializes a new instance of the [SphericalDistributionScatteringHitCollection](DiGi.Communication.Classes.md#DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection 'DiGi\.Communication\.Classes\.SphericalDistributionScatteringHitCollection') class by copying another collection\.
+
+```csharp
+public SphericalDistributionScatteringHitCollection(DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection? sphericalDistributionCollection);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection.SphericalDistributionScatteringHitCollection(DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection).sphericalDistributionCollection'></a>
+
+`sphericalDistributionCollection` [SphericalDistributionScatteringHitCollection](DiGi.Communication.Classes.md#DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection 'DiGi\.Communication\.Classes\.SphericalDistributionScatteringHitCollection')
+
+The collection to copy from\.
+
+<a name='DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection.SphericalDistributionScatteringHitCollection(System.Text.Json.Nodes.JsonObject)'></a>
+
+## SphericalDistributionScatteringHitCollection\(JsonObject\) Constructor
+
+Initializes a new instance of the [SphericalDistributionScatteringHitCollection](DiGi.Communication.Classes.md#DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection 'DiGi\.Communication\.Classes\.SphericalDistributionScatteringHitCollection') class from a JSON object\.
+
+```csharp
+public SphericalDistributionScatteringHitCollection(System.Text.Json.Nodes.JsonObject? jsonObject);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection.SphericalDistributionScatteringHitCollection(System.Text.Json.Nodes.JsonObject).jsonObject'></a>
+
+`jsonObject` [System\.Text\.Json\.Nodes\.JsonObject](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.nodes.jsonobject 'System\.Text\.Json\.Nodes\.JsonObject')
+
+The JSON object to initialize from\.
+
+<a name='DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection_TScatteringHit_'></a>
+
+## SphericalDistributionScatteringHitCollection\<TScatteringHit\> Class
+
+Represents a spherical distribution collection of scattering hits partitioned into azimuth and elevation bins\.
+
+```csharp
+public class SphericalDistributionScatteringHitCollection<TScatteringHit> : DiGi.Core.Classes.SphericalDistributionSerializableObjectCollection<TScatteringHit>, DiGi.Communication.Interfaces.ICommunicationSerializableObject, DiGi.Core.Interfaces.ISerializableObject, DiGi.Core.Interfaces.ICloneableObject<DiGi.Core.Interfaces.ISerializableObject>, DiGi.Core.Interfaces.ICloneableObject, DiGi.Core.Interfaces.IObject, DiGi.Communication.Interfaces.ICommunicationObject
+    where TScatteringHit : DiGi.Communication.Interfaces.IScatteringHit
+```
+#### Type parameters
+
+<a name='DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection_TScatteringHit_.TScatteringHit'></a>
+
+`TScatteringHit`
+
+The type of scattering hit stored in the collection\.
+
+Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → [DiGi\.Core\.Classes\.SphericalDistributionSerializableObjectCollection&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.sphericaldistributionserializableobjectcollection-1 'DiGi\.Core\.Classes\.SphericalDistributionSerializableObjectCollection\`1')[TScatteringHit](DiGi.Communication.Classes.md#DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection_TScatteringHit_.TScatteringHit 'DiGi\.Communication\.Classes\.SphericalDistributionScatteringHitCollection\<TScatteringHit\>\.TScatteringHit')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.sphericaldistributionserializableobjectcollection-1 'DiGi\.Core\.Classes\.SphericalDistributionSerializableObjectCollection\`1') → SphericalDistributionScatteringHitCollection\<TScatteringHit\>
+
+Derived  
+↳ [SphericalDistributionScatteringHitCollection](DiGi.Communication.Classes.md#DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection 'DiGi\.Communication\.Classes\.SphericalDistributionScatteringHitCollection')
+
+Implements [ICommunicationSerializableObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationSerializableObject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject')
+### Constructors
+
+<a name='DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection_TScatteringHit_.SphericalDistributionScatteringHitCollection()'></a>
+
+## SphericalDistributionScatteringHitCollection\(\) Constructor
+
+Initializes a new instance of the [SphericalDistributionScatteringHitCollection&lt;TScatteringHit&gt;](DiGi.Communication.Classes.md#DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection_TScatteringHit_ 'DiGi\.Communication\.Classes\.SphericalDistributionScatteringHitCollection\<TScatteringHit\>') class\.
+
+```csharp
+public SphericalDistributionScatteringHitCollection();
+```
+
+<a name='DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection_TScatteringHit_.SphericalDistributionScatteringHitCollection(DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection_TScatteringHit_)'></a>
+
+## SphericalDistributionScatteringHitCollection\(SphericalDistributionScatteringHitCollection\<TScatteringHit\>\) Constructor
+
+Initializes a new instance of the [SphericalDistributionScatteringHitCollection&lt;TScatteringHit&gt;](DiGi.Communication.Classes.md#DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection_TScatteringHit_ 'DiGi\.Communication\.Classes\.SphericalDistributionScatteringHitCollection\<TScatteringHit\>') class by copying another collection\.
+
+```csharp
+public SphericalDistributionScatteringHitCollection(DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection<TScatteringHit>? sphericalDistributionCollection);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection_TScatteringHit_.SphericalDistributionScatteringHitCollection(DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection_TScatteringHit_).sphericalDistributionCollection'></a>
+
+`sphericalDistributionCollection` [DiGi\.Communication\.Classes\.SphericalDistributionScatteringHitCollection&lt;](DiGi.Communication.Classes.md#DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection_TScatteringHit_ 'DiGi\.Communication\.Classes\.SphericalDistributionScatteringHitCollection\<TScatteringHit\>')[TScatteringHit](DiGi.Communication.Classes.md#DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection_TScatteringHit_.TScatteringHit 'DiGi\.Communication\.Classes\.SphericalDistributionScatteringHitCollection\<TScatteringHit\>\.TScatteringHit')[&gt;](DiGi.Communication.Classes.md#DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection_TScatteringHit_ 'DiGi\.Communication\.Classes\.SphericalDistributionScatteringHitCollection\<TScatteringHit\>')
+
+The collection to copy from\.
+
+<a name='DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection_TScatteringHit_.SphericalDistributionScatteringHitCollection(System.Text.Json.Nodes.JsonObject)'></a>
+
+## SphericalDistributionScatteringHitCollection\(JsonObject\) Constructor
+
+Initializes a new instance of the [SphericalDistributionScatteringHitCollection&lt;TScatteringHit&gt;](DiGi.Communication.Classes.md#DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection_TScatteringHit_ 'DiGi\.Communication\.Classes\.SphericalDistributionScatteringHitCollection\<TScatteringHit\>') class from a JSON object\.
+
+```csharp
+public SphericalDistributionScatteringHitCollection(System.Text.Json.Nodes.JsonObject? jsonObject);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection_TScatteringHit_.SphericalDistributionScatteringHitCollection(System.Text.Json.Nodes.JsonObject).jsonObject'></a>
+
+`jsonObject` [System\.Text\.Json\.Nodes\.JsonObject](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.nodes.jsonobject 'System\.Text\.Json\.Nodes\.JsonObject')
+
+The JSON object to initialize from\.

@@ -18,13 +18,8 @@ namespace DiGi.Communication.Interfaces
         string? Reference { get; }
 
         /// <summary>
-        /// Gets the relative permittivity of the object [-].
+        /// Gets the electrical properties of the object [-].
         /// </summary>
-        double RelativePermittivity { get; }
-
-        /// <summary>
-        /// Gets the electrical conductivity of the object [S/m].
-        /// </summary>
-        double ElectricalConductivity { get; }
+        Classes.ElectricalProperties? ElectricalProperties { get; }
     }
 }

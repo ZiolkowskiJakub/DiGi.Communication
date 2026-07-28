@@ -130,7 +130,7 @@ namespace DiGi.Communication.Classes
                             continue;
                         }
 
-                        List<Vector3D> vector3Ds = [];
+                        SphericalDistributionScatteringHitCollection sphericalDistributionScatteringHitCollection = new();
 
                         List<ScatteringPointGroup>? scatteringPointGroups = scattering.ScatteringPointGroups;
                         if (scatteringPointGroups != null && scatteringPointGroups.Count != 0)
@@ -150,82 +150,27 @@ namespace DiGi.Communication.Classes
                                     continue;
                                 }
 
-                                if (!dictionary.TryGetValue(reference!, out List<Point3D> point3Ds_Temp) || point3Ds_Temp == null)
+                                foreach(Point3D point3D in point3Ds)
                                 {
-                                    point3Ds_Temp = [];
-                                    dictionary[reference!] = point3Ds_Temp;
-                                }
-
-                                point3Ds_Temp.AddRange(point3Ds);
-                            }
-
-                            List<Tuple<List<Point3D>, double>> tuples_Point3Ds = [];
-                            foreach (KeyValuePair<string, List<Point3D>> keyValuePair in dictionary)
-                            {
-                                List<Point3D> point3Ds = keyValuePair.Value;
-                                if (point3Ds == null || point3Ds.Count < 2)
-                                {
-                                    continue;
-                                }
-
-                                Geometry.Spatial.Query.ExtremePoints(point3Ds, out Point3D? point3D_1, out Point3D? point3D_2, out double distance);
-
-                                if (double.IsNaN(distance) || distance < tolerance)
-                                {
-                                    continue;
-                                }
-
-                                //double relativePermittivity = 1;
-
-                                //IScatteringObject? scatteringObject = scatteringObjects?.Find(x => x.Reference == keyValuePair.Key);
-                                //if (scatteringObject != null)
-                                //{
-                                //    relativePermittivity = scatteringObject.RelativePermittivity;
-                                //}
-
-                                double weight = 1;
-
-                                Segment3D segment3D = new(point3D_1, point3D_2);
-
-                                List<Point3D>? point3Ds_Temp = Geometry.Spatial.Create.Point3Ds(segment3D, rayCount);
-                                if (point3Ds_Temp == null || point3Ds_Temp.Count == 0)
-                                {
-                                    continue;
-                                }
-
-                                List<Point3D> point3Ds_Closest = [];
-                                foreach (Point3D point3D_Temp in point3Ds_Temp)
-                                {
-                                    if (point3D_Temp.ClosestPoint(point3Ds, out double distance_Temp) is Point3D point3D_Closest)
+                                    if (new Vector3D(point3D, location).Unit is Vector3D vector3D)
                                     {
-                                        point3Ds_Closest.Add(point3D_Closest);
-                                    }
-                                }
+                                        Ray3D ray3D = new(location.GetMoved(vector3D.GetInversed()), vector3D);
 
-                                tuples_Point3Ds.Add(new Tuple<List<Point3D>, double>(point3Ds_Closest, weight));
-                            }
+                                        ScatteringHit scatteringHit = new(reference, ray3D);
+                                        double azimuth = Math.Atan2(vector3D.Y, vector3D.X);
+                                        if (azimuth < 0)
+                                        {
+                                            azimuth += Math.PI * 2;
+                                        }
 
-                            double total = tuples_Point3Ds.ConvertAll(x => x.Item2).Sum();
-
-                            foreach (Tuple<List<Point3D>, double> tuple_Point3Ds in tuples_Point3Ds)
-                            {
-                                int count_Temp = tuple_Point3Ds.Item1.Count;
-
-                                double length = (tuple_Point3Ds.Item2 / total) * power;
-
-                                length /= count_Temp;
-
-                                foreach (Point3D point3D in tuple_Point3Ds.Item1)
-                                {
-                                    if (new Vector3D(point3D, location).Unit * length is Vector3D vector3D)
-                                    {
-                                        vector3Ds.Add(vector3D);
+                                        double elevation = Math.Acos(vector3D.Z / vector3D.Length);
+                                        sphericalDistributionScatteringHitCollection.AddValue(azimuth, elevation, scatteringHit);
                                     }
                                 }
                             }
                         }
 
-                        angularPowerDistributions.Add(new AngularPowerDistribution(delay, vector3Ds));
+                        angularPowerDistributions.Add(new AngularPowerDistribution(delay, sphericalDistributionScatteringHitCollection));
                     }
 
                     tuples.Add(new Tuple<IScatteringProfile, IAntenna, IAngularPowerDistributionProfile>(scatteringProfile, antenna!, new AngularPowerDistributionProfile(location, angularPowerDistributions)));
