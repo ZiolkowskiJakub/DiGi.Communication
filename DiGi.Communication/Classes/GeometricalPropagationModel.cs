@@ -613,7 +613,7 @@ namespace DiGi.Communication.Classes
         /// <typeparam name="TScatteringObject">The type of scattering object to retrieve, which must implement <see cref="IScatteringObject"/>.</typeparam>
         /// <param name="reference">The reference string used to filter the scattering objects.</param>
         /// <returns>A list of scattering objects of type <typeparamref name="TScatteringObject"/> matching the specified reference, or <see langword="null"/> if no matching objects are found.</returns>
-        public List<TScatteringObject>? GetScatteringObjects<TScatteringObject>(string reference) where TScatteringObject : IScatteringObject
+        public List<TScatteringObject>? GetScatteringObjects<TScatteringObject>(string? reference) where TScatteringObject : IScatteringObject
         {
             return communicationRelationCluster.GetValues<TScatteringObject>(x => x?.Reference == reference)?.CloneAndFilterNulls();
         }

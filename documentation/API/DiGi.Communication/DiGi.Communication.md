@@ -290,3 +290,50 @@ Frequency in \[Hz\]\.
 #### Returns
 [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')  
 The relative electrical permittivity \[\-\], or [System\.Double\.NaN](https://learn.microsoft.com/en-us/dotnet/api/system.double.nan 'System\.Double\.NaN') if calculation inputs are invalid or [electricalProperties](DiGi.Communication.md#DiGi.Communication.Query.RelativePermittivity(thisDiGi.Communication.Classes.ElectricalProperties,double).electricalProperties 'DiGi\.Communication\.Query\.RelativePermittivity\(this DiGi\.Communication\.Classes\.ElectricalProperties, double\)\.electricalProperties') is null\.
+
+<a name='DiGi.Communication.Query.ScatteringHitsByElectricalProperties_TScatteringHit_(thisDiGi.Communication.Classes.GeometricalPropagationModel,DiGi.Communication.Classes.AngularPowerDistribution,double,double)'></a>
+
+## Query\.ScatteringHitsByElectricalProperties\<TScatteringHit\>\(this GeometricalPropagationModel, AngularPowerDistribution, double, double\) Method
+
+Groups scattering hits extracted from an angular power distribution at specified azimuth and elevation angles by the electrical properties of their corresponding scattering objects in the model\.
+
+```csharp
+public static System.Collections.Generic.Dictionary<DiGi.Communication.Classes.ElectricalProperties,System.Collections.Generic.List<TScatteringHit>>? ScatteringHitsByElectricalProperties<TScatteringHit>(this DiGi.Communication.Classes.GeometricalPropagationModel geometricalPropagationModel, DiGi.Communication.Classes.AngularPowerDistribution? angularPowerDistribution, double azimuth, double elevation)
+    where TScatteringHit : DiGi.Communication.Interfaces.IScatteringHit;
+```
+#### Type parameters
+
+<a name='DiGi.Communication.Query.ScatteringHitsByElectricalProperties_TScatteringHit_(thisDiGi.Communication.Classes.GeometricalPropagationModel,DiGi.Communication.Classes.AngularPowerDistribution,double,double).TScatteringHit'></a>
+
+`TScatteringHit`
+
+The type of scattering hit to extract, which must implement [IScatteringHit](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringHit 'DiGi\.Communication\.Interfaces\.IScatteringHit')\.
+#### Parameters
+
+<a name='DiGi.Communication.Query.ScatteringHitsByElectricalProperties_TScatteringHit_(thisDiGi.Communication.Classes.GeometricalPropagationModel,DiGi.Communication.Classes.AngularPowerDistribution,double,double).geometricalPropagationModel'></a>
+
+`geometricalPropagationModel` [GeometricalPropagationModel](DiGi.Communication.Classes.md#DiGi.Communication.Classes.GeometricalPropagationModel 'DiGi\.Communication\.Classes\.GeometricalPropagationModel')
+
+The geometrical propagation model containing the scattering objects\.
+
+<a name='DiGi.Communication.Query.ScatteringHitsByElectricalProperties_TScatteringHit_(thisDiGi.Communication.Classes.GeometricalPropagationModel,DiGi.Communication.Classes.AngularPowerDistribution,double,double).angularPowerDistribution'></a>
+
+`angularPowerDistribution` [AngularPowerDistribution](DiGi.Communication.Classes.md#DiGi.Communication.Classes.AngularPowerDistribution 'DiGi\.Communication\.Classes\.AngularPowerDistribution')
+
+The angular power distribution from which scattering hits are extracted\.
+
+<a name='DiGi.Communication.Query.ScatteringHitsByElectricalProperties_TScatteringHit_(thisDiGi.Communication.Classes.GeometricalPropagationModel,DiGi.Communication.Classes.AngularPowerDistribution,double,double).azimuth'></a>
+
+`azimuth` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+The azimuth angle in radians\.
+
+<a name='DiGi.Communication.Query.ScatteringHitsByElectricalProperties_TScatteringHit_(thisDiGi.Communication.Classes.GeometricalPropagationModel,DiGi.Communication.Classes.AngularPowerDistribution,double,double).elevation'></a>
+
+`elevation` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+The elevation angle in radians\.
+
+#### Returns
+[System\.Collections\.Generic\.Dictionary&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2 'System\.Collections\.Generic\.Dictionary\`2')[ElectricalProperties](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ElectricalProperties 'DiGi\.Communication\.Classes\.ElectricalProperties')[,](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2 'System\.Collections\.Generic\.Dictionary\`2')[System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[TScatteringHit](DiGi.Communication.md#DiGi.Communication.Query.ScatteringHitsByElectricalProperties_TScatteringHit_(thisDiGi.Communication.Classes.GeometricalPropagationModel,DiGi.Communication.Classes.AngularPowerDistribution,double,double).TScatteringHit 'DiGi\.Communication\.Query\.ScatteringHitsByElectricalProperties\<TScatteringHit\>\(this DiGi\.Communication\.Classes\.GeometricalPropagationModel, DiGi\.Communication\.Classes\.AngularPowerDistribution, double, double\)\.TScatteringHit')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2 'System\.Collections\.Generic\.Dictionary\`2')  
+A dictionary mapping each unique [ElectricalProperties](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ElectricalProperties 'DiGi\.Communication\.Classes\.ElectricalProperties') to a list of matching scattering hits, or [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null') if inputs are null or angles are invalid\.

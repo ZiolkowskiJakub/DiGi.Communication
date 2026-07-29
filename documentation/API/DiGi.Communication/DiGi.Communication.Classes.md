@@ -1867,7 +1867,7 @@ A list of scattering objects of type [TScatteringObject](DiGi.Communication.Clas
 Retrieves a list of scattering objects of the specified type matching the given reference\.
 
 ```csharp
-public System.Collections.Generic.List<TScatteringObject>? GetScatteringObjects<TScatteringObject>(string reference)
+public System.Collections.Generic.List<TScatteringObject>? GetScatteringObjects<TScatteringObject>(string? reference)
     where TScatteringObject : DiGi.Communication.Interfaces.IScatteringObject;
 ```
 #### Type parameters

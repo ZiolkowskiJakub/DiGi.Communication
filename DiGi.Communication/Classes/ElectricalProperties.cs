@@ -1,6 +1,7 @@
 using DiGi.Communication.Interfaces;
 using DiGi.Core.Classes;
 using DiGi.Core.Interfaces;
+using System.Collections.Generic;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 
@@ -177,10 +178,10 @@ namespace DiGi.Communication.Classes
             }
 
             return string.Equals(name, electricalProperties.name, System.StringComparison.Ordinal) &&
-                   a == electricalProperties.a &&
-                   b == electricalProperties.b &&
-                   c == electricalProperties.c &&
-                   d == electricalProperties.d &&
+                   EqualityComparer<double>.Default.Equals(a, electricalProperties.a) &&
+                   EqualityComparer<double>.Default.Equals(b, electricalProperties.b) &&
+                   EqualityComparer<double>.Default.Equals(c, electricalProperties.c) &&
+                   EqualityComparer<double>.Default.Equals(d, electricalProperties.d) &&
                    Equals(frequencyRange, electricalProperties.frequencyRange);
         }
 
@@ -219,10 +220,10 @@ namespace DiGi.Communication.Classes
             {
                 int hash = 17;
                 hash = (hash * 31) + (name is null ? 0 : name.GetHashCode());
-                hash = (hash * 31) + a.GetHashCode();
-                hash = (hash * 31) + b.GetHashCode();
-                hash = (hash * 31) + c.GetHashCode();
-                hash = (hash * 31) + d.GetHashCode();
+                hash = (hash * 31) + EqualityComparer<double>.Default.GetHashCode(a);
+                hash = (hash * 31) + EqualityComparer<double>.Default.GetHashCode(b);
+                hash = (hash * 31) + EqualityComparer<double>.Default.GetHashCode(c);
+                hash = (hash * 31) + EqualityComparer<double>.Default.GetHashCode(d);
                 hash = (hash * 31) + (frequencyRange is null ? 0 : frequencyRange.GetHashCode());
                 return hash;
             }
