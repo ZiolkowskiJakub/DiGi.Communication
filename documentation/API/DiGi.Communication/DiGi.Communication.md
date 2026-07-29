@@ -205,6 +205,32 @@ Frequency in \[Hz\]\.
 [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')  
 The electrical conductivity \[S/m\], or [System\.Double\.NaN](https://learn.microsoft.com/en-us/dotnet/api/system.double.nan 'System\.Double\.NaN') if calculation inputs are invalid or [electricalProperties](DiGi.Communication.md#DiGi.Communication.Query.Conductivity(thisDiGi.Communication.Classes.ElectricalProperties,double).electricalProperties 'DiGi\.Communication\.Query\.Conductivity\(this DiGi\.Communication\.Classes\.ElectricalProperties, double\)\.electricalProperties') is null\.
 
+<a name='DiGi.Communication.Query.ElectricalPropertiesByReference(thisDiGi.Communication.Classes.GeometricalPropagationModel)'></a>
+
+## Query\.ElectricalPropertiesByReference\(this GeometricalPropagationModel\) Method
+
+Builds a lookup of the electrical properties of every scattering object of the model, keyed by the scattering object reference\.
+
+```csharp
+public static System.Collections.Generic.Dictionary<string,DiGi.Communication.Classes.ElectricalProperties>? ElectricalPropertiesByReference(this DiGi.Communication.Classes.GeometricalPropagationModel? geometricalPropagationModel);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Query.ElectricalPropertiesByReference(thisDiGi.Communication.Classes.GeometricalPropagationModel).geometricalPropagationModel'></a>
+
+`geometricalPropagationModel` [GeometricalPropagationModel](DiGi.Communication.Classes.md#DiGi.Communication.Classes.GeometricalPropagationModel 'DiGi\.Communication\.Classes\.GeometricalPropagationModel')
+
+The geometrical propagation model holding the scattering objects\.
+
+#### Returns
+[System\.Collections\.Generic\.Dictionary&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2 'System\.Collections\.Generic\.Dictionary\`2')[System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')[,](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2 'System\.Collections\.Generic\.Dictionary\`2')[ElectricalProperties](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ElectricalProperties 'DiGi\.Communication\.Classes\.ElectricalProperties')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2 'System\.Collections\.Generic\.Dictionary\`2')  
+A dictionary mapping the scattering object reference to its electrical properties, or `null` if [geometricalPropagationModel](DiGi.Communication.md#DiGi.Communication.Query.ElectricalPropertiesByReference(thisDiGi.Communication.Classes.GeometricalPropagationModel).geometricalPropagationModel 'DiGi\.Communication\.Query\.ElectricalPropertiesByReference\(this DiGi\.Communication\.Classes\.GeometricalPropagationModel\)\.geometricalPropagationModel') is null or holds no scattering objects\.
+
+### Remarks
+The scattering objects are retrieved in a single bulk call\. Resolving each [Reference](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringHit.Reference 'DiGi\.Communication\.Interfaces\.IScatteringHit\.Reference') through
+[GetScatteringObjects&lt;TScatteringObject&gt;\(string\)](DiGi.Communication.Classes.md#DiGi.Communication.Classes.GeometricalPropagationModel.GetScatteringObjects_TScatteringObject_(string) 'DiGi\.Communication\.Classes\.GeometricalPropagationModel\.GetScatteringObjects\<TScatteringObject\>\(string\)') instead would clone the mesh of every
+candidate on each call\. References are not enforced unique, so the last scattering object of a duplicated reference wins\.
+
 <a name='DiGi.Communication.Query.Polyline3Ds(thisDiGi.Communication.Interfaces.IScatteringProfile,double,System.Collections.Generic.IEnumerable_string_)'></a>
 
 ## Query\.Polyline3Ds\(this IScatteringProfile, double, IEnumerable\<string\>\) Method
