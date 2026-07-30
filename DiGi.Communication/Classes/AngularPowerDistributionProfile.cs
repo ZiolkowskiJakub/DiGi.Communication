@@ -13,22 +13,25 @@ namespace DiGi.Communication.Classes
     /// </summary>
     public class AngularPowerDistributionProfile : GuidObject, IAngularPowerDistributionProfile
     {
-        [JsonIgnore]
-        private SortedDictionary<double, AngularPowerDistribution>? dictionary;
+        [JsonInclude, JsonPropertyName("Frequency")]
+        private readonly double frequency;
 
         [JsonInclude, JsonPropertyName("Location")]
         private readonly Point3D? location;
 
+        [JsonIgnore]
+        private SortedDictionary<double, AngularPowerDistribution>? dictionary;
         /// <summary>
         /// Initializes a new instance of the <see cref="AngularPowerDistributionProfile"/> class.
         /// </summary>
         /// <param name="guid">The unique identifier for the profile.</param>
         /// <param name="location">The location in three-dimensional space.</param>
         /// <param name="angularPowerDistributions">The collection of angular power distributions.</param>
-        public AngularPowerDistributionProfile(Guid guid, Point3D? location, IEnumerable<AngularPowerDistribution>? angularPowerDistributions)
+        public AngularPowerDistributionProfile(Guid guid, Point3D? location, double frequency, IEnumerable<AngularPowerDistribution>? angularPowerDistributions)
             : base(guid)
         {
             this.location = Core.Query.Clone(location);
+            this.frequency = frequency;
             AngularPowerDistributions = angularPowerDistributions;
         }
 
@@ -37,10 +40,11 @@ namespace DiGi.Communication.Classes
         /// </summary>
         /// <param name="location">The location of the angular power distribution profile in three-dimensional space.</param>
         /// <param name="angularPowerDistributions">A collection of angular power distributions associated with this profile.</param>
-        public AngularPowerDistributionProfile(Point3D? location, IEnumerable<AngularPowerDistribution>? angularPowerDistributions)
+        public AngularPowerDistributionProfile(Point3D? location, double frequency, IEnumerable<AngularPowerDistribution>? angularPowerDistributions)
             : base()
         {
             this.location = Core.Query.Clone(location);
+            this.frequency = frequency;
             AngularPowerDistributions = angularPowerDistributions;
         }
 
@@ -63,6 +67,7 @@ namespace DiGi.Communication.Classes
             if (angularPowerDistributionProfile != null)
             {
                 location = angularPowerDistributionProfile.Location;
+                frequency = angularPowerDistributionProfile.frequency;
                 AngularPowerDistributions = angularPowerDistributionProfile.dictionary?.Values;
             }
         }
@@ -116,6 +121,18 @@ namespace DiGi.Communication.Classes
             }
         }
 
+        /// <summary>
+        /// Frequency [Hz]
+        /// </summary>
+        [JsonIgnore]
+        public double Frequency
+        {
+            get
+            {
+                return frequency;
+            }
+        }
+
         /// <summary> Gets the location of the angular power distribution profile in three-dimensional space. </summary>
         [JsonIgnore]
         public Point3D? Location
@@ -125,7 +142,6 @@ namespace DiGi.Communication.Classes
                 return Core.Query.Clone(location);
             }
         }
-
         /// <summary>
         /// Retrieves a list of rays associated with the specified delay.
         /// </summary>

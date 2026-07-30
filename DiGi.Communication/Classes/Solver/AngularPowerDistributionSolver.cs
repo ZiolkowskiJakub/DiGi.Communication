@@ -54,10 +54,6 @@ namespace DiGi.Communication.Classes
 
             List<IScatteringObject>? scatteringObjects = GeometricalPropagationModel.GetScatteringObjects<IScatteringObject>();
 
-            double tolerance = AngularPowerDistributionSolverOptions.Tolerance;
-
-            int rayCount = AngularPowerDistributionSolverOptions.RayCount;
-
             angularPowerDistributionProfiles = [];
 
             foreach (IScatteringProfile scatteringProfile in scatteringProfiles)
@@ -84,7 +80,7 @@ namespace DiGi.Communication.Classes
                 }
 
                 List<IAntenna>? antennas = GeometricalPropagationModel.GetAntennas<IAntenna>(scatteringProfile);
-                if (antennas == null || antennas.Count < 2)
+                if (antennas == null || antennas.Count != 2)
                 {
                     continue;
                 }
@@ -95,6 +91,8 @@ namespace DiGi.Communication.Classes
                     continue;
                 }
 
+                double frequency = AngularPowerDistributionSolverOptions.Frequency;
+
                 List<Tuple<IScatteringProfile, IAntenna, IAngularPowerDistributionProfile>> tuples = [];
                 foreach (IAntenna antenna in antennas)
                 {
@@ -104,8 +102,20 @@ namespace DiGi.Communication.Classes
                         continue;
                     }
 
-                    Point3D? location = antenna?.Location;
-                    if (location == null)
+                    Point3D? location_Receiver = antenna?.Location;
+                    if (location_Receiver == null)
+                    {
+                        continue;
+                    }
+
+                    IAntenna antenna_Transmitter = antennas.Find(x => x.Guid != antenna!.Guid && x.Functions is HashSet<Function> functions_Temp && functions_Temp.Contains(Function.Transmitter));
+                    if(antenna_Transmitter is null)
+                    {
+                        continue;
+                    }
+
+                    Point3D? location_Transmitter = antenna_Transmitter?.Location;
+                    if (location_Transmitter == null)
                     {
                         continue;
                     }
@@ -152,9 +162,9 @@ namespace DiGi.Communication.Classes
 
                                 foreach(Point3D point3D in point3Ds)
                                 {
-                                    if (new Vector3D(point3D, location).Unit is Vector3D vector3D)
+                                    if (new Vector3D(point3D, location_Receiver).Unit is Vector3D vector3D)
                                     {
-                                        Ray3D ray3D = new(location.GetMoved(vector3D.GetInversed()), vector3D);
+                                        Ray3D ray3D = new(location_Receiver.GetMoved(vector3D.GetInversed()), vector3D);
 
                                         ScatteringHit scatteringHit = new(reference, ray3D);
                                         double azimuth = Math.Atan2(vector3D.Y, vector3D.X);
@@ -173,7 +183,7 @@ namespace DiGi.Communication.Classes
                         angularPowerDistributions.Add(new AngularPowerDistribution(delay, sphericalDistributionScatteringHitCollection));
                     }
 
-                    tuples.Add(new Tuple<IScatteringProfile, IAntenna, IAngularPowerDistributionProfile>(scatteringProfile, antenna!, new AngularPowerDistributionProfile(location, angularPowerDistributions)));
+                    tuples.Add(new Tuple<IScatteringProfile, IAntenna, IAngularPowerDistributionProfile>(scatteringProfile, antenna!, new AngularPowerDistributionProfile(location_Receiver, frequency, angularPowerDistributions)));
                 }
 
                 foreach (Tuple<IScatteringProfile, IAntenna, IAngularPowerDistributionProfile> tuple in tuples)

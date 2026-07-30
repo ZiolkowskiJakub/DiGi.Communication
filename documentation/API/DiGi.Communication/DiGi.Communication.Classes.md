@@ -285,53 +285,61 @@ public AngularPowerDistributionProfile(DiGi.Communication.Classes.AngularPowerDi
 
 The source [AngularPowerDistributionProfile](DiGi.Communication.Classes.md#DiGi.Communication.Classes.AngularPowerDistributionProfile 'DiGi\.Communication\.Classes\.AngularPowerDistributionProfile') to copy data from, or `null` to create a new instance\.
 
-<a name='DiGi.Communication.Classes.AngularPowerDistributionProfile.AngularPowerDistributionProfile(DiGi.Geometry.Spatial.Classes.Point3D,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.AngularPowerDistribution_)'></a>
+<a name='DiGi.Communication.Classes.AngularPowerDistributionProfile.AngularPowerDistributionProfile(DiGi.Geometry.Spatial.Classes.Point3D,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.AngularPowerDistribution_)'></a>
 
-## AngularPowerDistributionProfile\(Point3D, IEnumerable\<AngularPowerDistribution\>\) Constructor
+## AngularPowerDistributionProfile\(Point3D, double, IEnumerable\<AngularPowerDistribution\>\) Constructor
 
 Initializes a new instance of the [AngularPowerDistributionProfile](DiGi.Communication.Classes.md#DiGi.Communication.Classes.AngularPowerDistributionProfile 'DiGi\.Communication\.Classes\.AngularPowerDistributionProfile') class\.
 
 ```csharp
-public AngularPowerDistributionProfile(DiGi.Geometry.Spatial.Classes.Point3D? location, System.Collections.Generic.IEnumerable<DiGi.Communication.Classes.AngularPowerDistribution>? angularPowerDistributions);
+public AngularPowerDistributionProfile(DiGi.Geometry.Spatial.Classes.Point3D? location, double frequency, System.Collections.Generic.IEnumerable<DiGi.Communication.Classes.AngularPowerDistribution>? angularPowerDistributions);
 ```
 #### Parameters
 
-<a name='DiGi.Communication.Classes.AngularPowerDistributionProfile.AngularPowerDistributionProfile(DiGi.Geometry.Spatial.Classes.Point3D,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.AngularPowerDistribution_).location'></a>
+<a name='DiGi.Communication.Classes.AngularPowerDistributionProfile.AngularPowerDistributionProfile(DiGi.Geometry.Spatial.Classes.Point3D,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.AngularPowerDistribution_).location'></a>
 
 `location` [DiGi\.Geometry\.Spatial\.Classes\.Point3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.point3d 'DiGi\.Geometry\.Spatial\.Classes\.Point3D')
 
 The location of the angular power distribution profile in three\-dimensional space\.
 
-<a name='DiGi.Communication.Classes.AngularPowerDistributionProfile.AngularPowerDistributionProfile(DiGi.Geometry.Spatial.Classes.Point3D,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.AngularPowerDistribution_).angularPowerDistributions'></a>
+<a name='DiGi.Communication.Classes.AngularPowerDistributionProfile.AngularPowerDistributionProfile(DiGi.Geometry.Spatial.Classes.Point3D,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.AngularPowerDistribution_).frequency'></a>
+
+`frequency` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+<a name='DiGi.Communication.Classes.AngularPowerDistributionProfile.AngularPowerDistributionProfile(DiGi.Geometry.Spatial.Classes.Point3D,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.AngularPowerDistribution_).angularPowerDistributions'></a>
 
 `angularPowerDistributions` [System\.Collections\.Generic\.IEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')[AngularPowerDistribution](DiGi.Communication.Classes.md#DiGi.Communication.Classes.AngularPowerDistribution 'DiGi\.Communication\.Classes\.AngularPowerDistribution')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')
 
 A collection of angular power distributions associated with this profile\.
 
-<a name='DiGi.Communication.Classes.AngularPowerDistributionProfile.AngularPowerDistributionProfile(System.Guid,DiGi.Geometry.Spatial.Classes.Point3D,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.AngularPowerDistribution_)'></a>
+<a name='DiGi.Communication.Classes.AngularPowerDistributionProfile.AngularPowerDistributionProfile(System.Guid,DiGi.Geometry.Spatial.Classes.Point3D,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.AngularPowerDistribution_)'></a>
 
-## AngularPowerDistributionProfile\(Guid, Point3D, IEnumerable\<AngularPowerDistribution\>\) Constructor
+## AngularPowerDistributionProfile\(Guid, Point3D, double, IEnumerable\<AngularPowerDistribution\>\) Constructor
 
 Initializes a new instance of the [AngularPowerDistributionProfile](DiGi.Communication.Classes.md#DiGi.Communication.Classes.AngularPowerDistributionProfile 'DiGi\.Communication\.Classes\.AngularPowerDistributionProfile') class\.
 
 ```csharp
-public AngularPowerDistributionProfile(System.Guid guid, DiGi.Geometry.Spatial.Classes.Point3D? location, System.Collections.Generic.IEnumerable<DiGi.Communication.Classes.AngularPowerDistribution>? angularPowerDistributions);
+public AngularPowerDistributionProfile(System.Guid guid, DiGi.Geometry.Spatial.Classes.Point3D? location, double frequency, System.Collections.Generic.IEnumerable<DiGi.Communication.Classes.AngularPowerDistribution>? angularPowerDistributions);
 ```
 #### Parameters
 
-<a name='DiGi.Communication.Classes.AngularPowerDistributionProfile.AngularPowerDistributionProfile(System.Guid,DiGi.Geometry.Spatial.Classes.Point3D,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.AngularPowerDistribution_).guid'></a>
+<a name='DiGi.Communication.Classes.AngularPowerDistributionProfile.AngularPowerDistributionProfile(System.Guid,DiGi.Geometry.Spatial.Classes.Point3D,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.AngularPowerDistribution_).guid'></a>
 
 `guid` [System\.Guid](https://learn.microsoft.com/en-us/dotnet/api/system.guid 'System\.Guid')
 
 The unique identifier for the profile\.
 
-<a name='DiGi.Communication.Classes.AngularPowerDistributionProfile.AngularPowerDistributionProfile(System.Guid,DiGi.Geometry.Spatial.Classes.Point3D,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.AngularPowerDistribution_).location'></a>
+<a name='DiGi.Communication.Classes.AngularPowerDistributionProfile.AngularPowerDistributionProfile(System.Guid,DiGi.Geometry.Spatial.Classes.Point3D,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.AngularPowerDistribution_).location'></a>
 
 `location` [DiGi\.Geometry\.Spatial\.Classes\.Point3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.point3d 'DiGi\.Geometry\.Spatial\.Classes\.Point3D')
 
 The location in three\-dimensional space\.
 
-<a name='DiGi.Communication.Classes.AngularPowerDistributionProfile.AngularPowerDistributionProfile(System.Guid,DiGi.Geometry.Spatial.Classes.Point3D,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.AngularPowerDistribution_).angularPowerDistributions'></a>
+<a name='DiGi.Communication.Classes.AngularPowerDistributionProfile.AngularPowerDistributionProfile(System.Guid,DiGi.Geometry.Spatial.Classes.Point3D,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.AngularPowerDistribution_).frequency'></a>
+
+`frequency` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+<a name='DiGi.Communication.Classes.AngularPowerDistributionProfile.AngularPowerDistributionProfile(System.Guid,DiGi.Geometry.Spatial.Classes.Point3D,double,System.Collections.Generic.IEnumerable_DiGi.Communication.Classes.AngularPowerDistribution_).angularPowerDistributions'></a>
 
 `angularPowerDistributions` [System\.Collections\.Generic\.IEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')[AngularPowerDistribution](DiGi.Communication.Classes.md#DiGi.Communication.Classes.AngularPowerDistribution 'DiGi\.Communication\.Classes\.AngularPowerDistribution')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')
 
@@ -369,6 +377,19 @@ Implements [AngularPowerDistributions](DiGi.Communication.Interfaces.md#DiGi.Com
 
 #### Property Value
 [System\.Collections\.Generic\.IEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')[AngularPowerDistribution](DiGi.Communication.Classes.md#DiGi.Communication.Classes.AngularPowerDistribution 'DiGi\.Communication\.Classes\.AngularPowerDistribution')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')
+
+<a name='DiGi.Communication.Classes.AngularPowerDistributionProfile.Frequency'></a>
+
+## AngularPowerDistributionProfile\.Frequency Property
+
+Frequency \[Hz\]
+
+```csharp
+public double Frequency { get; }
+```
+
+#### Property Value
+[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
 
 <a name='DiGi.Communication.Classes.AngularPowerDistributionProfile.Location'></a>
 
@@ -567,27 +588,14 @@ Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system
 Implements [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [DiGi\.Core\.Interfaces\.IOptions](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.ioptions 'DiGi\.Core\.Interfaces\.IOptions')
 ### Properties
 
-<a name='DiGi.Communication.Classes.AngularPowerDistributionSolverOptions.RayCount'></a>
+<a name='DiGi.Communication.Classes.AngularPowerDistributionSolverOptions.Frequency'></a>
 
-## AngularPowerDistributionSolverOptions\.RayCount Property
+## AngularPowerDistributionSolverOptions\.Frequency Property
 
-Gets or sets the number of rays used by the angular power distribution solver\.
-
-```csharp
-public int RayCount { get; set; }
-```
-
-#### Property Value
-[System\.Int32](https://learn.microsoft.com/en-us/dotnet/api/system.int32 'System\.Int32')
-
-<a name='DiGi.Communication.Classes.AngularPowerDistributionSolverOptions.Tolerance'></a>
-
-## AngularPowerDistributionSolverOptions\.Tolerance Property
-
-Gets or sets the tolerance value used for comparisons and geometric operations within the angular power distribution solver\.
+Frequency \[Hz\]\.
 
 ```csharp
-public double Tolerance { get; set; }
+public double Frequency { get; set; }
 ```
 
 #### Property Value
