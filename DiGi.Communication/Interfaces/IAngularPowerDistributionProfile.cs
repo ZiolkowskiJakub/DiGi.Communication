@@ -1,4 +1,5 @@
 using DiGi.Communication.Classes;
+using DiGi.Communication.Enums;
 using DiGi.Geometry.Spatial.Classes;
 using System.Collections.Generic;
 
@@ -23,7 +24,8 @@ namespace DiGi.Communication.Interfaces
         /// Retrieves the rays associated with the specified delay.
         /// </summary>
         /// <param name="delay">The propagation delay [s] for which to retrieve rays.</param>
+        /// <param name="function">Function</param>
         /// <returns>A list of rays corresponding to the given delay, or <see langword="null"/> if no rays are found.</returns>
-        List<Ray3D>? GetRays(double delay);
+        List<Ray3D>? GetRays(double delay, Function function = Function.Receiver);
     }
 }

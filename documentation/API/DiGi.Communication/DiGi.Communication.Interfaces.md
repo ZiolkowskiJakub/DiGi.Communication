@@ -212,22 +212,28 @@ DiGi.Geometry.Spatial.Classes.Point3D? Location { get; }
 [DiGi\.Geometry\.Spatial\.Classes\.Point3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.point3d 'DiGi\.Geometry\.Spatial\.Classes\.Point3D')
 ### Methods
 
-<a name='DiGi.Communication.Interfaces.IAngularPowerDistributionProfile.GetRays(double)'></a>
+<a name='DiGi.Communication.Interfaces.IAngularPowerDistributionProfile.GetRays(double,DiGi.Communication.Enums.Function)'></a>
 
-## IAngularPowerDistributionProfile\.GetRays\(double\) Method
+## IAngularPowerDistributionProfile\.GetRays\(double, Function\) Method
 
 Retrieves the rays associated with the specified delay\.
 
 ```csharp
-System.Collections.Generic.List<DiGi.Geometry.Spatial.Classes.Ray3D>? GetRays(double delay);
+System.Collections.Generic.List<DiGi.Geometry.Spatial.Classes.Ray3D>? GetRays(double delay, DiGi.Communication.Enums.Function function=DiGi.Communication.Enums.Function.Receiver);
 ```
 #### Parameters
 
-<a name='DiGi.Communication.Interfaces.IAngularPowerDistributionProfile.GetRays(double).delay'></a>
+<a name='DiGi.Communication.Interfaces.IAngularPowerDistributionProfile.GetRays(double,DiGi.Communication.Enums.Function).delay'></a>
 
 `delay` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
 
 The propagation delay \[s\] for which to retrieve rays\.
+
+<a name='DiGi.Communication.Interfaces.IAngularPowerDistributionProfile.GetRays(double,DiGi.Communication.Enums.Function).function'></a>
+
+`function` [Function](DiGi.Communication.Enums.md#DiGi.Communication.Enums.Function 'DiGi\.Communication\.Enums\.Function')
+
+Function
 
 #### Returns
 [System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[DiGi\.Geometry\.Spatial\.Classes\.Ray3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.ray3d 'DiGi\.Geometry\.Spatial\.Classes\.Ray3D')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')  
@@ -331,6 +337,7 @@ Derived
 ↳ [ScatteringGroup](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringGroup 'DiGi\.Communication\.Classes\.ScatteringGroup')  
 ↳ [ScatteringGroupScatteringObjectsRelation](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringGroupScatteringObjectsRelation 'DiGi\.Communication\.Classes\.ScatteringGroupScatteringObjectsRelation')  
 ↳ [ScatteringHit](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringHit 'DiGi\.Communication\.Classes\.ScatteringHit')  
+↳ [ScatteringHits](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringHits 'DiGi\.Communication\.Classes\.ScatteringHits')  
 ↳ [ScatteringObject](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringObject 'DiGi\.Communication\.Classes\.ScatteringObject')  
 ↳ [ScatteringPointGroup](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringPointGroup 'DiGi\.Communication\.Classes\.ScatteringPointGroup')  
 ↳ [ScatteringProfile](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringProfile 'DiGi\.Communication\.Classes\.ScatteringProfile')  
@@ -351,6 +358,7 @@ Derived
 ↳ [IScattering](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScattering 'DiGi\.Communication\.Interfaces\.IScattering')  
 ↳ [IScatteringGroup](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringGroup 'DiGi\.Communication\.Interfaces\.IScatteringGroup')  
 ↳ [IScatteringHit](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringHit 'DiGi\.Communication\.Interfaces\.IScatteringHit')  
+↳ [IScatteringHits](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringHits 'DiGi\.Communication\.Interfaces\.IScatteringHits')  
 ↳ [IScatteringObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringObject 'DiGi\.Communication\.Interfaces\.IScatteringObject')  
 ↳ [IScatteringProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringProfile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')  
 ↳ [ISimpleMultipathPowerDelayProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ISimpleMultipathPowerDelayProfile 'DiGi\.Communication\.Interfaces\.ISimpleMultipathPowerDelayProfile')
@@ -397,6 +405,7 @@ Derived
 ↳ [Scattering](DiGi.Communication.Classes.md#DiGi.Communication.Classes.Scattering 'DiGi\.Communication\.Classes\.Scattering')  
 ↳ [ScatteringGroup](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringGroup 'DiGi\.Communication\.Classes\.ScatteringGroup')  
 ↳ [ScatteringHit](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringHit 'DiGi\.Communication\.Classes\.ScatteringHit')  
+↳ [ScatteringHits](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringHits 'DiGi\.Communication\.Classes\.ScatteringHits')  
 ↳ [ScatteringObject](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringObject 'DiGi\.Communication\.Classes\.ScatteringObject')  
 ↳ [ScatteringPointGroup](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringPointGroup 'DiGi\.Communication\.Classes\.ScatteringPointGroup')  
 ↳ [ScatteringProfile](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringProfile 'DiGi\.Communication\.Classes\.ScatteringProfile')  
@@ -412,6 +421,7 @@ Derived
 ↳ [IScattering](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScattering 'DiGi\.Communication\.Interfaces\.IScattering')  
 ↳ [IScatteringGroup](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringGroup 'DiGi\.Communication\.Interfaces\.IScatteringGroup')  
 ↳ [IScatteringHit](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringHit 'DiGi\.Communication\.Interfaces\.IScatteringHit')  
+↳ [IScatteringHits](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringHits 'DiGi\.Communication\.Interfaces\.IScatteringHits')  
 ↳ [IScatteringObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringObject 'DiGi\.Communication\.Interfaces\.IScatteringObject')  
 ↳ [IScatteringProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringProfile 'DiGi\.Communication\.Interfaces\.IScatteringProfile')  
 ↳ [ISimpleMultipathPowerDelayProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ISimpleMultipathPowerDelayProfile 'DiGi\.Communication\.Interfaces\.ISimpleMultipathPowerDelayProfile')
@@ -561,7 +571,7 @@ string? Reference { get; }
 
 ## IScatteringHit Interface
 
-Interface for a hit resulting from scattering ray intersection, containing a reference identifier and ray geometry\.
+Interface for a hit resulting from scattering ray intersection, containing reference identifier, electrical properties, and ray geometry\.
 
 ```csharp
 public interface IScatteringHit : DiGi.Communication.Interfaces.ICommunicationSerializableObject, DiGi.Core.Interfaces.ISerializableObject, DiGi.Core.Interfaces.ICloneableObject<DiGi.Core.Interfaces.ISerializableObject>, DiGi.Core.Interfaces.ICloneableObject, DiGi.Core.Interfaces.IObject, DiGi.Communication.Interfaces.ICommunicationObject
@@ -573,22 +583,330 @@ Derived
 Implements [ICommunicationSerializableObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationSerializableObject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject')
 ### Properties
 
-<a name='DiGi.Communication.Interfaces.IScatteringHit.Ray3D'></a>
+<a name='DiGi.Communication.Interfaces.IScatteringHit.ElectricalProperties'></a>
 
-## IScatteringHit\.Ray3D Property
+## IScatteringHit\.ElectricalProperties Property
 
-Gets the ray in three\-dimensional space associated with the hit\.
+Gets the electrical properties of the scattering object\.
 
 ```csharp
-DiGi.Geometry.Spatial.Classes.Ray3D? Ray3D { get; }
+DiGi.Communication.Classes.ElectricalProperties? ElectricalProperties { get; }
 ```
 
 #### Property Value
-[DiGi\.Geometry\.Spatial\.Classes\.Ray3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.ray3d 'DiGi\.Geometry\.Spatial\.Classes\.Ray3D')
+[ElectricalProperties](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ElectricalProperties 'DiGi\.Communication\.Classes\.ElectricalProperties')
+
+<a name='DiGi.Communication.Interfaces.IScatteringHit.Frequency'></a>
+
+## IScatteringHit\.Frequency Property
+
+Gets the frequency in Hertz \[Hz\]\.
+
+```csharp
+double Frequency { get; }
+```
+
+#### Property Value
+[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+<a name='DiGi.Communication.Interfaces.IScatteringHit.Location'></a>
+
+## IScatteringHit\.Location Property
+
+Gets the 3D location of the hit point\.
+
+```csharp
+DiGi.Geometry.Spatial.Classes.Point3D? Location { get; }
+```
+
+#### Property Value
+[DiGi\.Geometry\.Spatial\.Classes\.Point3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.point3d 'DiGi\.Geometry\.Spatial\.Classes\.Point3D')
+
+<a name='DiGi.Communication.Interfaces.IScatteringHit.Location_Receiver'></a>
+
+## IScatteringHit\.Location\_Receiver Property
+
+Gets the 3D location of the receiver\.
+
+```csharp
+DiGi.Geometry.Spatial.Classes.Point3D? Location_Receiver { get; }
+```
+
+#### Property Value
+[DiGi\.Geometry\.Spatial\.Classes\.Point3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.point3d 'DiGi\.Geometry\.Spatial\.Classes\.Point3D')
+
+<a name='DiGi.Communication.Interfaces.IScatteringHit.Location_Transmitter'></a>
+
+## IScatteringHit\.Location\_Transmitter Property
+
+Gets the 3D location of the transmitter\.
+
+```csharp
+DiGi.Geometry.Spatial.Classes.Point3D? Location_Transmitter { get; }
+```
+
+#### Property Value
+[DiGi\.Geometry\.Spatial\.Classes\.Point3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.point3d 'DiGi\.Geometry\.Spatial\.Classes\.Point3D')
 
 <a name='DiGi.Communication.Interfaces.IScatteringHit.Reference'></a>
 
 ## IScatteringHit\.Reference Property
+
+Gets the reference identifier of the hit scattering object\.
+
+```csharp
+string? Reference { get; }
+```
+
+#### Property Value
+[System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+### Methods
+
+<a name='DiGi.Communication.Interfaces.IScatteringHit.GetAzimuth(DiGi.Communication.Enums.Function)'></a>
+
+## IScatteringHit\.GetAzimuth\(Function\) Method
+
+Calculates the azimuth angle in radians for the specified node function\.
+
+```csharp
+double GetAzimuth(DiGi.Communication.Enums.Function function);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Interfaces.IScatteringHit.GetAzimuth(DiGi.Communication.Enums.Function).function'></a>
+
+`function` [Function](DiGi.Communication.Enums.md#DiGi.Communication.Enums.Function 'DiGi\.Communication\.Enums\.Function')
+
+The node function \(Transmitter or Receiver\)\.
+
+#### Returns
+[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')  
+The azimuth angle in radians \[0, 2π\), or [System\.Double\.NaN](https://learn.microsoft.com/en-us/dotnet/api/system.double.nan 'System\.Double\.NaN') if invalid\.
+
+<a name='DiGi.Communication.Interfaces.IScatteringHit.GetConductivity()'></a>
+
+## IScatteringHit\.GetConductivity\(\) Method
+
+Calculates the material conductivity in Siemens per meter \[S/m\] at the operating frequency\.
+
+```csharp
+double GetConductivity();
+```
+
+#### Returns
+[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')  
+The conductivity \[S/m\], or [System\.Double\.NaN](https://learn.microsoft.com/en-us/dotnet/api/system.double.nan 'System\.Double\.NaN') if electrical properties are missing\.
+
+<a name='DiGi.Communication.Interfaces.IScatteringHit.GetElevation(DiGi.Communication.Enums.Function)'></a>
+
+## IScatteringHit\.GetElevation\(Function\) Method
+
+Calculates the elevation angle in radians for the specified node function\.
+
+```csharp
+double GetElevation(DiGi.Communication.Enums.Function function);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Interfaces.IScatteringHit.GetElevation(DiGi.Communication.Enums.Function).function'></a>
+
+`function` [Function](DiGi.Communication.Enums.md#DiGi.Communication.Enums.Function 'DiGi\.Communication\.Enums\.Function')
+
+The node function \(Transmitter or Receiver\)\.
+
+#### Returns
+[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')  
+The elevation angle in radians \[0, π\], or [System\.Double\.NaN](https://learn.microsoft.com/en-us/dotnet/api/system.double.nan 'System\.Double\.NaN') if invalid\.
+
+<a name='DiGi.Communication.Interfaces.IScatteringHit.GetGrazingAngle()'></a>
+
+## IScatteringHit\.GetGrazingAngle\(\) Method
+
+Calculates the grazing angle in radians relative to the surface tangent plane\.
+
+```csharp
+double GetGrazingAngle();
+```
+
+#### Returns
+[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')  
+The grazing angle in radians \[0, π/2\], or [System\.Double\.NaN](https://learn.microsoft.com/en-us/dotnet/api/system.double.nan 'System\.Double\.NaN') if invalid\.
+
+### Remarks
+The grazing angle is defined as \(π/2 \- ReflectionAngle\), measuring elevation above the reflecting surface plane \(0 rad = parallel to surface, π/2 rad = normal incidence\)\.
+
+<a name='DiGi.Communication.Interfaces.IScatteringHit.GetNormal()'></a>
+
+## IScatteringHit\.GetNormal\(\) Method
+
+Gets the surface normal unit vector at the hit point derived from specular reflection geometry\.
+
+```csharp
+DiGi.Geometry.Spatial.Classes.Vector3D? GetNormal();
+```
+
+#### Returns
+[DiGi\.Geometry\.Spatial\.Classes\.Vector3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.vector3d 'DiGi\.Geometry\.Spatial\.Classes\.Vector3D')  
+The unit surface normal vector, or [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null') if invalid\.
+
+<a name='DiGi.Communication.Interfaces.IScatteringHit.GetRay3D(DiGi.Communication.Enums.Function)'></a>
+
+## IScatteringHit\.GetRay3D\(Function\) Method
+
+Gets the ray in 3D space associated with the specified node function\.
+
+```csharp
+DiGi.Geometry.Spatial.Classes.Ray3D? GetRay3D(DiGi.Communication.Enums.Function function);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Interfaces.IScatteringHit.GetRay3D(DiGi.Communication.Enums.Function).function'></a>
+
+`function` [Function](DiGi.Communication.Enums.md#DiGi.Communication.Enums.Function 'DiGi\.Communication\.Enums\.Function')
+
+The node function \(Transmitter or Receiver\)\.
+
+#### Returns
+[DiGi\.Geometry\.Spatial\.Classes\.Ray3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.ray3d 'DiGi\.Geometry\.Spatial\.Classes\.Ray3D')  
+The 3D ray associated with the specified node function, or [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null') if invalid\.
+
+<a name='DiGi.Communication.Interfaces.IScatteringHit.GetReflectionAngle()'></a>
+
+## IScatteringHit\.GetReflectionAngle\(\) Method
+
+Calculates the reflection angle \(angle of incidence\) in radians relative to the surface normal\.
+
+```csharp
+double GetReflectionAngle();
+```
+
+#### Returns
+[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')  
+The reflection angle in radians \[0, π/2\], or [System\.Double\.NaN](https://learn.microsoft.com/en-us/dotnet/api/system.double.nan 'System\.Double\.NaN') if invalid\.
+
+### Remarks
+According to standard scientific radioscience definitions \(ITU\-R P\.2040, IEEE Std 211\), the reflection angle
+is the angle between the ray direction and the surface normal vector \(0 rad = normal incidence, π/2 rad = parallel to surface\)\.
+
+<a name='DiGi.Communication.Interfaces.IScatteringHit.GetRelativePermittivity()'></a>
+
+## IScatteringHit\.GetRelativePermittivity\(\) Method
+
+Calculates the material relative permittivity \(dielectric constant\) at the operating frequency\.
+
+```csharp
+double GetRelativePermittivity();
+```
+
+#### Returns
+[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')  
+The relative permittivity, or [System\.Double\.NaN](https://learn.microsoft.com/en-us/dotnet/api/system.double.nan 'System\.Double\.NaN') if electrical properties are missing\.
+
+<a name='DiGi.Communication.Interfaces.IScatteringHit.GetVector3D(DiGi.Communication.Enums.Function)'></a>
+
+## IScatteringHit\.GetVector3D\(Function\) Method
+
+Gets the unit direction vector associated with the specified node function\.
+
+```csharp
+DiGi.Geometry.Spatial.Classes.Vector3D? GetVector3D(DiGi.Communication.Enums.Function function);
+```
+#### Parameters
+
+<a name='DiGi.Communication.Interfaces.IScatteringHit.GetVector3D(DiGi.Communication.Enums.Function).function'></a>
+
+`function` [Function](DiGi.Communication.Enums.md#DiGi.Communication.Enums.Function 'DiGi\.Communication\.Enums\.Function')
+
+The node function \(Transmitter or Receiver\)\.
+
+#### Returns
+[DiGi\.Geometry\.Spatial\.Classes\.Vector3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.vector3d 'DiGi\.Geometry\.Spatial\.Classes\.Vector3D')  
+The unit direction vector, or [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null') if invalid\.
+
+<a name='DiGi.Communication.Interfaces.IScatteringHits'></a>
+
+## IScatteringHits Interface
+
+Interface for a collection of hit points resulting from scattering ray intersections, containing reference identifier, electrical properties, and ray geometry\.
+
+```csharp
+public interface IScatteringHits : DiGi.Communication.Interfaces.ICommunicationSerializableObject, DiGi.Core.Interfaces.ISerializableObject, DiGi.Core.Interfaces.ICloneableObject<DiGi.Core.Interfaces.ISerializableObject>, DiGi.Core.Interfaces.ICloneableObject, DiGi.Core.Interfaces.IObject, DiGi.Communication.Interfaces.ICommunicationObject
+```
+
+Derived  
+↳ [ScatteringHits](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringHits 'DiGi\.Communication\.Classes\.ScatteringHits')
+
+Implements [ICommunicationSerializableObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationSerializableObject 'DiGi\.Communication\.Interfaces\.ICommunicationSerializableObject'), [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject'), [DiGi\.Core\.Interfaces\.ICloneableObject&lt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1')[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1 'DiGi\.Core\.Interfaces\.ICloneableObject\`1'), [DiGi\.Core\.Interfaces\.ICloneableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject 'DiGi\.Core\.Interfaces\.ICloneableObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject'), [ICommunicationObject](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.ICommunicationObject 'DiGi\.Communication\.Interfaces\.ICommunicationObject')
+### Properties
+
+<a name='DiGi.Communication.Interfaces.IScatteringHits.ElectricalProperties'></a>
+
+## IScatteringHits\.ElectricalProperties Property
+
+Gets the electrical properties of the scattering object\.
+
+```csharp
+DiGi.Communication.Classes.ElectricalProperties? ElectricalProperties { get; }
+```
+
+#### Property Value
+[ElectricalProperties](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ElectricalProperties 'DiGi\.Communication\.Classes\.ElectricalProperties')
+
+<a name='DiGi.Communication.Interfaces.IScatteringHits.Frequency'></a>
+
+## IScatteringHits\.Frequency Property
+
+Gets the frequency in Hertz \[Hz\]\.
+
+```csharp
+double Frequency { get; }
+```
+
+#### Property Value
+[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+<a name='DiGi.Communication.Interfaces.IScatteringHits.Locations'></a>
+
+## IScatteringHits\.Locations Property
+
+Gets the list of 3D hit locations\.
+
+```csharp
+System.Collections.Generic.List<DiGi.Geometry.Spatial.Classes.Point3D>? Locations { get; }
+```
+
+#### Property Value
+[System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[DiGi\.Geometry\.Spatial\.Classes\.Point3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.point3d 'DiGi\.Geometry\.Spatial\.Classes\.Point3D')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')
+
+<a name='DiGi.Communication.Interfaces.IScatteringHits.Location_Receiver'></a>
+
+## IScatteringHits\.Location\_Receiver Property
+
+Gets the 3D location of the receiver\.
+
+```csharp
+DiGi.Geometry.Spatial.Classes.Point3D? Location_Receiver { get; }
+```
+
+#### Property Value
+[DiGi\.Geometry\.Spatial\.Classes\.Point3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.point3d 'DiGi\.Geometry\.Spatial\.Classes\.Point3D')
+
+<a name='DiGi.Communication.Interfaces.IScatteringHits.Location_Transmitter'></a>
+
+## IScatteringHits\.Location\_Transmitter Property
+
+Gets the 3D location of the transmitter\.
+
+```csharp
+DiGi.Geometry.Spatial.Classes.Point3D? Location_Transmitter { get; }
+```
+
+#### Property Value
+[DiGi\.Geometry\.Spatial\.Classes\.Point3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.point3d 'DiGi\.Geometry\.Spatial\.Classes\.Point3D')
+
+<a name='DiGi.Communication.Interfaces.IScatteringHits.Reference'></a>
+
+## IScatteringHits\.Reference Property
 
 Gets the reference identifier of the hit scattering object\.
 

@@ -10,7 +10,7 @@ using System.Text.Json.Serialization;
 
 namespace DiGi.Communication.Classes
 {
-    public class ScatteringHit : SerializableObject, IScatteringHit
+    public class ScatteringHits : SerializableObject, IScatteringHits
     {
         [JsonInclude, JsonPropertyName(nameof(ElectricalProperties))]
         private readonly ElectricalProperties? electricalProperties;
@@ -24,13 +24,13 @@ namespace DiGi.Communication.Classes
         [JsonInclude, JsonPropertyName(nameof(Location_Transmitter))]
         private readonly Point3D? location_Transmitter;
 
-        [JsonInclude, JsonPropertyName(nameof(Location))]
-        private readonly Point3D? location;
+        [JsonInclude, JsonPropertyName(nameof(Locations))]
+        private readonly List<Point3D>? locations;
         
         [JsonInclude, JsonPropertyName(nameof(Reference))]
         private readonly string? reference;
 
-        public ScatteringHit(string? reference, ElectricalProperties? electricalProperties, double frequency, Point3D? location_Transmitter, Point3D? location_Receiver, Point3D? location)
+        public ScatteringHits(string? reference, ElectricalProperties? electricalProperties, double frequency, Point3D? location_Transmitter, Point3D? location_Receiver, IEnumerable<Point3D>? locations)
             : base()
         {
             this.reference = reference;
@@ -38,27 +38,37 @@ namespace DiGi.Communication.Classes
             this.frequency = frequency;
             this.location_Transmitter = Core.Query.Clone(location_Transmitter);
             this.location_Receiver = Core.Query.Clone(location_Receiver);
-            this.location = Core.Query.Clone(location);
+            this.locations = locations == null ? null : [.. locations];
         }
 
-        public ScatteringHit(ScatteringHit? scatteringHit)
-            : base(scatteringHit)
+        public ScatteringHits(ScatteringHits? scatteringHits)
+            : base(scatteringHits)
         {
-            if (scatteringHit != null)
+            if (scatteringHits != null)
             {
-                reference = scatteringHit.reference;
-                frequency = scatteringHit.frequency;
-                location = scatteringHit.Location;
-                location_Transmitter = scatteringHit.Location_Transmitter;
-                location_Receiver = scatteringHit.Location_Receiver;
-                electricalProperties = scatteringHit.ElectricalProperties;
-
+                reference = scatteringHits.reference;
+                frequency = scatteringHits.frequency;
+                electricalProperties = scatteringHits.ElectricalProperties;
+                location_Transmitter = scatteringHits.Location_Transmitter;
+                location_Receiver = scatteringHits.Location_Receiver;
+                locations = scatteringHits.Locations;
             }
         }
 
-        public ScatteringHit(JsonObject? jsonObject)
+        public ScatteringHits(JsonObject? jsonObject)
             : base(jsonObject)
         {
+        }
+
+        /// <summary>
+        /// Gets the number of hit locations.
+        /// </summary>
+        public int Count
+        {
+            get
+            {
+                return locations == null ? 0 : locations.Count;
+            }
         }
 
         /// <summary>
@@ -110,14 +120,14 @@ namespace DiGi.Communication.Classes
         }
 
         /// <summary>
-        /// Gets the 3D location of the hit point.
+        /// Gets the list of 3D hit locations.
         /// </summary>
         [JsonIgnore]
-        public Point3D? Location
+        public List<Point3D>? Locations
         {
             get
             {
-                return Core.Query.Clone(location);
+                return locations?.CloneAndFilterNulls();
             }
         }
 
@@ -134,13 +144,27 @@ namespace DiGi.Communication.Classes
         }
 
         /// <summary>
-        /// Calculates the azimuth angle in radians for the specified node function using the hit location.
+        /// Gets the 3D location at the specified index.
+        /// </summary>
+        /// <param name="index">The zero-based index.</param>
+        /// <returns>The 3D location, or <see langword="null"/> if out of range.</returns>
+        public Point3D? this[int index]
+        {
+            get
+            {
+                return Core.Query.Clone(locations?[index]);
+            }
+        }
+
+        /// <summary>
+        /// Calculates the azimuth angle in radians for the specified node function and hit index.
         /// </summary>
         /// <param name="function">The node function (Transmitter or Receiver).</param>
+        /// <param name="index">The zero-based location index.</param>
         /// <returns>The azimuth angle in radians [0, 2π), or <see cref="double.NaN"/> if invalid.</returns>
-        public double GetAzimuth(Function function)
+        public double GetAzimuth(Function function, int index)
         {
-            return GetAzimuth(function, location);
+            return GetAzimuth(function, this[index]);
         }
 
         /// <summary>
@@ -167,13 +191,14 @@ namespace DiGi.Communication.Classes
         }
 
         /// <summary>
-        /// Calculates the elevation angle in radians for the specified node function using the hit location.
+        /// Calculates the elevation angle in radians for the specified node function and hit index.
         /// </summary>
         /// <param name="function">The node function (Transmitter or Receiver).</param>
+        /// <param name="index">The zero-based location index.</param>
         /// <returns>The elevation angle in radians [0, π], or <see cref="double.NaN"/> if invalid.</returns>
-        public double GetElevation(Function function)
+        public double GetElevation(Function function, int index)
         {
-            return GetElevation(function, location);
+            return GetElevation(function, this[index]);
         }
 
         /// <summary>
@@ -194,13 +219,14 @@ namespace DiGi.Communication.Classes
         }
 
         /// <summary>
-        /// Gets the ray in 3D space associated with the specified node function using the hit location.
+        /// Gets the ray in 3D space associated with the specified node function and hit index.
         /// </summary>
         /// <param name="function">The node function (Transmitter or Receiver).</param>
+        /// <param name="index">The zero-based location index.</param>
         /// <returns>The 3D ray, or <see langword="null"/> if invalid.</returns>
-        public Ray3D? GetRay3D(Function function)
+        public Ray3D? GetRay3D(Function function, int index)
         {
-            return GetRay3D(function, location);
+            return GetRay3D(function, this[index]);
         }
 
         /// <summary>
@@ -241,13 +267,14 @@ namespace DiGi.Communication.Classes
         }
 
         /// <summary>
-        /// Gets the unit direction vector associated with the specified node function using the hit location.
+        /// Gets the unit direction vector associated with the specified node function and hit index.
         /// </summary>
         /// <param name="function">The node function (Transmitter or Receiver).</param>
+        /// <param name="index">The zero-based location index.</param>
         /// <returns>The unit direction vector, or <see langword="null"/> if invalid.</returns>
-        public Vector3D? GetVector3D(Function function)
+        public Vector3D? GetVector3D(Function function, int index)
         {
-            return GetVector3D(function, location);
+            return GetVector3D(function, this[index]);
         }
 
         /// <summary>
@@ -295,98 +322,6 @@ namespace DiGi.Communication.Classes
             }
 
             return null;
-        }
-
-        /// <summary>
-        /// Calculates the material conductivity in Siemens per meter [S/m] at the operating frequency.
-        /// </summary>
-        /// <returns>The conductivity [S/m], or <see cref="double.NaN"/> if electrical properties are missing.</returns>
-        public double GetConductivity()
-        {
-            if (electricalProperties is null)
-            {
-                return double.NaN;
-            }
-
-            return electricalProperties.GetConductivity(frequency);
-        }
-
-        /// <summary>
-        /// Calculates the material relative permittivity (dielectric constant) at the operating frequency.
-        /// </summary>
-        /// <returns>The relative permittivity, or <see cref="double.NaN"/> if electrical properties are missing.</returns>
-        public double GetRelativePermittivity()
-        {
-            if (electricalProperties is null)
-            {
-                return double.NaN;
-            }
-
-            return electricalProperties.GetRelativePermittivity(frequency);
-        }
-
-        /// <summary>
-        /// Gets the surface normal unit vector at the hit point derived from specular reflection geometry.
-        /// </summary>
-        /// <returns>The unit surface normal vector, or <see langword="null"/> if invalid.</returns>
-        public Vector3D? GetNormal()
-        {
-            Vector3D? vector3D_Transmitter = GetVector3D(Function.Transmitter);
-            if (vector3D_Transmitter is null)
-            {
-                return null;
-            }
-
-            Vector3D? vector3D_Receiver = GetVector3D(Function.Receiver);
-            if (vector3D_Receiver is null)
-            {
-                return null;
-            }
-
-            return (vector3D_Receiver.Unit + vector3D_Transmitter.GetInversed().Unit)?.Unit;
-        }
-
-        /// <summary>
-        /// Calculates the reflection angle (angle of incidence) in radians relative to the surface normal vector.
-        /// </summary>
-        /// <remarks>
-        /// According to standard scientific radioscience definitions (ITU-R P.2040, IEEE Std 211), the reflection angle
-        /// is the angle between the ray direction and the surface normal vector (0 rad = normal incidence, π/2 rad = parallel to surface).
-        /// </remarks>
-        /// <returns>The reflection angle in radians [0, π/2], or <see cref="double.NaN"/> if invalid.</returns>
-        public double GetReflectionAngle()
-        {
-            Vector3D? vector3D_Receiver = GetVector3D(Function.Receiver);
-            if (vector3D_Receiver is null)
-            {
-                return double.NaN;
-            }
-
-            Vector3D? vector3D_Normal = GetNormal();
-            if (vector3D_Normal is null)
-            {
-                return double.NaN;
-            }
-
-            return vector3D_Receiver.Angle(vector3D_Normal);
-        }
-
-        /// <summary>
-        /// Calculates the grazing angle in radians relative to the surface tangent plane.
-        /// </summary>
-        /// <remarks>
-        /// The grazing angle is defined as (π/2 - ReflectionAngle), measuring elevation above the reflecting surface plane (0 rad = parallel to surface, π/2 rad = normal incidence).
-        /// </remarks>
-        /// <returns>The grazing angle in radians [0, π/2], or <see cref="double.NaN"/> if invalid.</returns>
-        public double GetGrazingAngle()
-        {
-            double reflectionAngle = GetReflectionAngle();
-            if (double.IsNaN(reflectionAngle))
-            {
-                return double.NaN;
-            }
-
-            return (Math.PI / 2) - reflectionAngle;
         }
     }
 }

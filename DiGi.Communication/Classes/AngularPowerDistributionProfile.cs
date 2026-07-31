@@ -1,3 +1,4 @@
+using DiGi.Communication.Enums;
 using DiGi.Communication.Interfaces;
 using DiGi.Core.Classes;
 using DiGi.Geometry.Spatial.Classes;
@@ -26,6 +27,7 @@ namespace DiGi.Communication.Classes
         /// </summary>
         /// <param name="guid">The unique identifier for the profile.</param>
         /// <param name="location">The location in three-dimensional space.</param>
+        /// <param name="frequency">The operating frequency in Hertz [Hz].</param>
         /// <param name="angularPowerDistributions">The collection of angular power distributions.</param>
         public AngularPowerDistributionProfile(Guid guid, Point3D? location, double frequency, IEnumerable<AngularPowerDistribution>? angularPowerDistributions)
             : base(guid)
@@ -39,6 +41,7 @@ namespace DiGi.Communication.Classes
         /// Initializes a new instance of the <see cref="AngularPowerDistributionProfile"/> class.
         /// </summary>
         /// <param name="location">The location of the angular power distribution profile in three-dimensional space.</param>
+        /// <param name="frequency">The operating frequency in Hertz [Hz].</param>
         /// <param name="angularPowerDistributions">A collection of angular power distributions associated with this profile.</param>
         public AngularPowerDistributionProfile(Point3D? location, double frequency, IEnumerable<AngularPowerDistribution>? angularPowerDistributions)
             : base()
@@ -146,24 +149,25 @@ namespace DiGi.Communication.Classes
         /// Retrieves a list of rays associated with the specified delay.
         /// </summary>
         /// <param name="delay">The time delay used to look up the angular power distribution.</param>
+        /// <param name="function">The node function (Transmitter or Receiver).</param>
         /// <returns>A list of <see cref="Ray3D"/> objects if the distribution is found for the given delay; otherwise, <c>null</c>.</returns>
-        public List<Ray3D>? GetRays(double delay)
+        public List<Ray3D>? GetRays(double delay, Function function = Function.Receiver)
         {
             if (double.IsNaN(delay) || location == null || dictionary == null || !dictionary.TryGetValue(delay, out AngularPowerDistribution angularPowerDistribution) || angularPowerDistribution == null)
             {
                 return null;
             }
 
-            IReadOnlyList<IScatteringHit>? hits = angularPowerDistribution.SphericalDistributionScatteringHitCollection?.Values;
-            if (hits == null || hits.Count == 0)
+            IReadOnlyList<IScatteringHit>? scatteringHits = angularPowerDistribution.SphericalDistributionScatteringHitCollection?.Values;
+            if (scatteringHits == null || scatteringHits.Count == 0)
             {
                 return null;
             }
 
             List<Ray3D> result = [];
-            foreach (IScatteringHit hit in hits)
+            foreach (IScatteringHit scatteringHit in scatteringHits)
             {
-                if (hit?.Ray3D is Ray3D ray3D)
+                if (scatteringHit?.GetRay3D(function) is Ray3D ray3D)
                 {
                     result.Add(ray3D);
                 }

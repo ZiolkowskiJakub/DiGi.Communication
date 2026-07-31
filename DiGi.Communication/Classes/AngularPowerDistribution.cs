@@ -1,3 +1,4 @@
+using DiGi.Communication.Enums;
 using DiGi.Communication.Interfaces;
 using DiGi.Core.Classes;
 using DiGi.Geometry.Spatial.Classes;
@@ -92,7 +93,7 @@ namespace DiGi.Communication.Classes
                 List<Vector3D> result = [];
                 foreach (IScatteringHit scatteringHit in scatteringHits)
                 {
-                    if (scatteringHit?.Ray3D?.Direction is not Vector3D vector3D)
+                    if (scatteringHit?.GetVector3D(Function.Receiver) is not Vector3D vector3D)
                     {
                         continue;
                     }
@@ -139,7 +140,7 @@ namespace DiGi.Communication.Classes
         /// </summary>
         /// <param name="azimuth">The azimuth angle [rad].</param>
         /// <param name="elevation">The elevation angle [rad].</param>
-        /// <returns>A collection of <see cref="IScatteringHit"/> instances for the specified angles, or <see langword="null"/> if none exist.</returns>
+        /// <returns>A collection of <see cref="IScatteringHits"/> instances for the specified angles, or <see langword="null"/> if none exist.</returns>
         public IReadOnlyList<IScatteringHit>? GetScatteringHits(double azimuth, double elevation)
         {
             if (sphericalDistributionScatteringHitCollection == null)
@@ -155,7 +156,7 @@ namespace DiGi.Communication.Classes
         /// </summary>
         /// <param name="azimuthRange">The azimuth angle range [rad].</param>
         /// <param name="elevationRange">The elevation angle range [rad].</param>
-        /// <returns>A collection of <see cref="IScatteringHit"/> instances for the specified angle ranges, or <see langword="null"/> if none exist.</returns>
+        /// <returns>A collection of <see cref="IScatteringHits"/> instances for the specified angle ranges, or <see langword="null"/> if none exist.</returns>
         public IReadOnlyList<IScatteringHit>? GetValues(Range<double>? azimuthRange, Range<double>? elevationRange)
         {
             if (sphericalDistributionScatteringHitCollection == null)
@@ -171,7 +172,7 @@ namespace DiGi.Communication.Classes
         /// </summary>
         /// <param name="azimuth">The azimuth angle [rad].</param>
         /// <param name="elevation">The elevation angle [rad].</param>
-        /// <returns>A collection of <see cref="IScatteringHit"/> instances for the specified angles, or <see langword="null"/> if none exist.</returns>
+        /// <returns>A collection of <see cref="IScatteringHits"/> instances for the specified angles, or <see langword="null"/> if none exist.</returns>
         public IReadOnlyList<IScatteringHit>? GetValues(double azimuth, double elevation)
         {
             if (sphericalDistributionScatteringHitCollection == null)

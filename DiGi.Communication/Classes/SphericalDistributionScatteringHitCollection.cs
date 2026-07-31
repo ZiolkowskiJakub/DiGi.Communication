@@ -1,3 +1,4 @@
+using DiGi.Communication.Enums;
 using DiGi.Communication.Interfaces;
 using DiGi.Core.Classes;
 using System.Text.Json.Nodes;
@@ -34,6 +35,33 @@ namespace DiGi.Communication.Classes
         public SphericalDistributionScatteringHitCollection(JsonObject? jsonObject)
             : base(jsonObject)
         {
+        }
+
+        /// <summary>
+        /// Adds a scattering hit to the collection by extracting its azimuth and elevation angles for the specified node function.
+        /// </summary>
+        /// <param name="function">The node function (Transmitter or Receiver).</param>
+        /// <param name="scatteringHit">The scattering hit to add.</param>
+        public void AddValue(Function function, TScatteringHit? scatteringHit)
+        {
+            if (scatteringHit is null)
+            {
+                return;
+            }
+
+            double azimuth = scatteringHit.GetAzimuth(function);
+            if (double.IsNaN(azimuth))
+            {
+                return;
+            }
+
+            double elevation = scatteringHit.GetElevation(function);
+            if (double.IsNaN(elevation))
+            {
+                return;
+            }
+
+            AddValue(azimuth, elevation, scatteringHit);
         }
     }
 

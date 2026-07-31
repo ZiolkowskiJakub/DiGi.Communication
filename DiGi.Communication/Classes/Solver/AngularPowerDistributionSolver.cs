@@ -160,21 +160,21 @@ namespace DiGi.Communication.Classes
                                     continue;
                                 }
 
-                                foreach(Point3D point3D in point3Ds)
+                                List<IScatteringObject>? scatteringObjects_Reference = GeometricalPropagationModel.GetScatteringObjects<IScatteringObject>(reference);
+                                if (scatteringObjects_Reference is null)
                                 {
-                                    if (new Vector3D(point3D, location_Receiver).Unit is Vector3D vector3D)
+                                    continue;
+                                }
+
+                                foreach (IScatteringObject scatteringObject_Reference in scatteringObjects_Reference)
+                                {
+                                    ElectricalProperties? electricalProperties = scatteringObject_Reference?.ElectricalProperties;
+
+                                    foreach (Point3D point3D in point3Ds)
                                     {
-                                        Ray3D ray3D = new(location_Receiver.GetMoved(vector3D.GetInversed()), vector3D);
+                                        ScatteringHit scatteringHit = new (reference, electricalProperties, frequency, location_Transmitter, location_Receiver, point3D);
 
-                                        ScatteringHit scatteringHit = new(reference, ray3D);
-                                        double azimuth = Math.Atan2(vector3D.Y, vector3D.X);
-                                        if (azimuth < 0)
-                                        {
-                                            azimuth += Math.PI * 2;
-                                        }
-
-                                        double elevation = Math.Acos(vector3D.Z / vector3D.Length);
-                                        sphericalDistributionScatteringHitCollection.AddValue(azimuth, elevation, scatteringHit);
+                                        sphericalDistributionScatteringHitCollection.AddValue(Function.Receiver, scatteringHit);
                                     }
                                 }
                             }
