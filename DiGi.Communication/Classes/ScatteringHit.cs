@@ -5,6 +5,7 @@ using DiGi.Core.Classes;
 using DiGi.Geometry.Spatial.Classes;
 using System;
 using System.Collections.Generic;
+using System.Numerics;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 
@@ -387,6 +388,68 @@ namespace DiGi.Communication.Classes
             }
 
             return (Math.PI / 2) - reflectionAngle;
+        }
+
+        /// <summary>
+        /// Calculates the complex reflection coefficient for vertical polarization at the hit point.
+        /// <para>The relative complex electrical permittivity is evaluated as epsilon_k' = epsilon_wk - j * 60 * lambda * sigma_k, where lambda is the wavelength in meters [m].</para>
+        /// <para>The coefficient is then Gamma_kl = (epsilon_k' * sin(gamma_kl) - sqrt(epsilon_k' - cos^2(gamma_kl))) / (epsilon_k' * sin(gamma_kl) + sqrt(epsilon_k' - cos^2(gamma_kl))).</para>
+        /// </summary>
+        /// <remarks>
+        /// The angle gamma_kl is measured from the reflecting surface plane, therefore the grazing angle returned by <see cref="GetGrazingAngle"/> is used, not the reflection angle relative to the surface normal.
+        /// </remarks>
+        /// <returns>The complex reflection coefficient for vertical polarization, or a <see cref="Complex"/> with <see cref="double.NaN"/> components if invalid.</returns>
+        public Complex GetVerticalPolarizationReflection()
+        {
+            Complex complex_Invalid = new(double.NaN, double.NaN);
+
+            if (double.IsNaN(frequency) || double.IsInfinity(frequency) || frequency <= 0)
+            {
+                return complex_Invalid;
+            }
+
+            double relativePermittivity = GetRelativePermittivity();
+            if (double.IsNaN(relativePermittivity))
+            {
+                return complex_Invalid;
+            }
+
+            double conductivity = GetConductivity();
+            if (double.IsNaN(conductivity))
+            {
+                return complex_Invalid;
+            }
+
+            double grazingAngle = GetGrazingAngle();
+            if (double.IsNaN(grazingAngle))
+            {
+                return complex_Invalid;
+            }
+
+            // 1. Convert frequency from Hz to MHz to match the provided propagation formula.
+            double frequencyMHz = frequency / 1_000_000.0;
+
+            // 2. Calculate wavelength (lambda) in meters.
+            double wavelength = 300.0 / frequencyMHz;
+
+            // 3. Calculate relative complex electrical permittivity (epsilon_k').
+            // The formula is: epsilon_k' = epsilon_wk - j * 60 * lambda * sigma_k
+            double imaginaryPart = -60.0 * wavelength * conductivity;
+            Complex complexPermittivity = new(relativePermittivity, imaginaryPart);
+
+            // 4. Calculate trigonometric values for the grazing angle (gamma).
+            double sinGamma = Math.Sin(grazingAngle);
+            double cosGamma = Math.Cos(grazingAngle);
+
+            // 5. Calculate the first main term: epsilon_k' * sin(gamma)
+            Complex complex_1 = complexPermittivity * sinGamma;
+
+            // 6. Calculate the second main term: sqrt(epsilon_k' - cos^2(gamma))
+            Complex complex_2 = Complex.Sqrt(complexPermittivity - (cosGamma * cosGamma));
+
+            // 7. Calculate final vertical polarization reflection coefficient (Gamma_kl).
+            // The formula is: (complex_1 - complex_2) / (complex_1 + complex_2)
+            return (complex_1 - complex_2) / (complex_1 + complex_2);
         }
     }
 }

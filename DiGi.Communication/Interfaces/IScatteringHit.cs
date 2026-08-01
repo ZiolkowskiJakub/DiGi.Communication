@@ -1,6 +1,7 @@
 using DiGi.Communication.Classes;
 using DiGi.Communication.Enums;
 using DiGi.Geometry.Spatial.Classes;
+using System.Numerics;
 
 namespace DiGi.Communication.Interfaces
 {
@@ -103,5 +104,16 @@ namespace DiGi.Communication.Interfaces
         /// </remarks>
         /// <returns>The grazing angle in radians [0, π/2], or <see cref="double.NaN"/> if invalid.</returns>
         double GetGrazingAngle();
+
+        /// <summary>
+        /// Calculates the complex reflection coefficient for vertical polarization at the hit point.
+        /// <para>The relative complex electrical permittivity is evaluated as epsilon_k' = epsilon_wk - j * 60 * lambda * sigma_k, where lambda is the wavelength in meters [m].</para>
+        /// <para>The coefficient is then Gamma_kl = (epsilon_k' * sin(gamma_kl) - sqrt(epsilon_k' - cos^2(gamma_kl))) / (epsilon_k' * sin(gamma_kl) + sqrt(epsilon_k' - cos^2(gamma_kl))).</para>
+        /// </summary>
+        /// <remarks>
+        /// The angle gamma_kl is measured from the reflecting surface plane, therefore the grazing angle returned by <see cref="GetGrazingAngle"/> is used, not the reflection angle relative to the surface normal.
+        /// </remarks>
+        /// <returns>The complex reflection coefficient for vertical polarization, or a <see cref="Complex"/> with <see cref="double.NaN"/> components if invalid.</returns>
+        Complex GetVerticalPolarizationReflection();
     }
 }

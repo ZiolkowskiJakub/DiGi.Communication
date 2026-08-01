@@ -2900,6 +2900,29 @@ The reference 3D point\.
 [DiGi\.Geometry\.Spatial\.Classes\.Vector3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.vector3d 'DiGi\.Geometry\.Spatial\.Classes\.Vector3D')  
 The unit direction vector, or [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null') if invalid\.
 
+<a name='DiGi.Communication.Classes.ScatteringHit.GetVerticalPolarizationReflection()'></a>
+
+## ScatteringHit\.GetVerticalPolarizationReflection\(\) Method
+
+Calculates the complex reflection coefficient for vertical polarization at the hit point\.
+
+The relative complex electrical permittivity is evaluated as epsilon_k' = epsilon_wk - j * 60 * lambda * sigma_k, where lambda is the wavelength in meters [m].
+
+The coefficient is then Gamma_kl = (epsilon_k' * sin(gamma_kl) - sqrt(epsilon_k' - cos^2(gamma_kl))) / (epsilon_k' * sin(gamma_kl) + sqrt(epsilon_k' - cos^2(gamma_kl))).
+
+```csharp
+public System.Numerics.Complex GetVerticalPolarizationReflection();
+```
+
+Implements [GetVerticalPolarizationReflection\(\)](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IScatteringHit.GetVerticalPolarizationReflection() 'DiGi\.Communication\.Interfaces\.IScatteringHit\.GetVerticalPolarizationReflection\(\)')
+
+#### Returns
+[System\.Numerics\.Complex](https://learn.microsoft.com/en-us/dotnet/api/system.numerics.complex 'System\.Numerics\.Complex')  
+The complex reflection coefficient for vertical polarization, or a [System\.Numerics\.Complex](https://learn.microsoft.com/en-us/dotnet/api/system.numerics.complex 'System\.Numerics\.Complex') with [System\.Double\.NaN](https://learn.microsoft.com/en-us/dotnet/api/system.double.nan 'System\.Double\.NaN') components if invalid\.
+
+### Remarks
+The angle gamma\_kl is measured from the reflecting surface plane, therefore the grazing angle returned by [GetGrazingAngle\(\)](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ScatteringHit.GetGrazingAngle() 'DiGi\.Communication\.Classes\.ScatteringHit\.GetGrazingAngle\(\)') is used, not the reflection angle relative to the surface normal\.
+
 <a name='DiGi.Communication.Classes.ScatteringHits'></a>
 
 ## ScatteringHits Class
