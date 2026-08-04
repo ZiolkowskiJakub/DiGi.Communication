@@ -1,6 +1,6 @@
 using DiGi.Communication.Classes;
+using DiGi.Communication.Enums;
 using DiGi.Communication.Interfaces;
-using DiGi.Core.Classes;
 using System.Collections.Generic;
 
 namespace DiGi.Communication
@@ -8,56 +8,41 @@ namespace DiGi.Communication
     public static partial class Query
     {
         /// <summary>
-        /// Combines and retrieves a spherical distribution scattering hit collection from the specified angular power distribution profile.
+        /// Combines and retrieves a spherical distribution scattering hit collection across all delays in the specified angular power distribution profile.
         /// </summary>
         /// <param name="angularPowerDistributionProfile">The angular power distribution profile to query.</param>
-        /// <returns>A <see cref="Classes.SphericalDistributionScatteringHitCollection"/> instance aggregating all scattering hits, or <see langword="null"/> if the profile or its distributions are null.</returns>
-        public static SphericalDistributionScatteringHitCollection? SphericalDistributionScatteringHitCollection(this IAngularPowerDistributionProfile? angularPowerDistributionProfile)
+        /// <param name="function">The node function (Transmitter or Receiver) used for spatial hit positioning.</param>
+        /// <returns>A <see cref="Classes.SphericalDistributionScatteringHitCollection"/> instance aggregating all scattering hits, or <see langword="null"/> if the profile or its distributions are null or contain no hits.</returns>
+        public static SphericalDistributionScatteringHitCollection? SphericalDistributionScatteringHitCollection(this IAngularPowerDistributionProfile? angularPowerDistributionProfile, Function function = Function.Receiver)
         {
             if (angularPowerDistributionProfile?.AngularPowerDistributions is not IEnumerable<AngularPowerDistribution> angularPowerDistributions)
             {
                 return null;
             }
 
-            Classes.SphericalDistributionScatteringHitCollection result = new();
+            SphericalDistributionScatteringHitCollection result = new();
+            int count_AddedHits = 0;
+
             foreach (AngularPowerDistribution angularPowerDistribution in angularPowerDistributions)
             {
-                if (angularPowerDistribution?.SphericalDistributionScatteringHitCollection is not Classes.SphericalDistributionScatteringHitCollection sphericalDistributionScatteringHitCollection)
+                if (angularPowerDistribution?.SphericalDistributionScatteringHitCollection?.Values is not IReadOnlyList<IScatteringHit> scatteringHits)
                 {
                     continue;
                 }
 
-                List<Range<double>>? ranges_Elevation = sphericalDistributionScatteringHitCollection.GetElevationRanges(true);
-                if (ranges_Elevation is null || ranges_Elevation.Count == 0)
+                foreach (IScatteringHit scatteringHit in scatteringHits)
                 {
-                    continue;
-                }
-
-                List<Range<double>>? ranges_Azimuth = sphericalDistributionScatteringHitCollection.GetAzimuthRanges(true);
-                if (ranges_Azimuth is null || ranges_Azimuth.Count == 0)
-                {
-                    continue;
-                }
-
-                for (int i = 0; i < ranges_Elevation.Count; i++)
-                {
-                    double elevation = (ranges_Elevation[i].Min + ranges_Elevation[i].Max) / 2.0;
-
-                    for (int j = 0; j < ranges_Azimuth.Count; j++)
+                    if (scatteringHit is null)
                     {
-                        double azimuth = (ranges_Azimuth[j].Min + ranges_Azimuth[j].Max) / 2.0;
-                        IReadOnlyList<IScatteringHit>? scatteringHits = angularPowerDistribution.GetScatteringHits(azimuth, elevation);
-                        if (scatteringHits is null || scatteringHits.Count == 0)
-                        {
-                            continue;
-                        }
-
-                        result.AddValues(azimuth, elevation, scatteringHits);
+                        continue;
                     }
+
+                    result.AddValue(function, scatteringHit);
+                    count_AddedHits++;
                 }
             }
 
-            return result;
+            return count_AddedHits > 0 ? result : null;
         }
     }
 }

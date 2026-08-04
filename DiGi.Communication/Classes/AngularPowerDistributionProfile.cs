@@ -145,6 +145,7 @@ namespace DiGi.Communication.Classes
                 return Core.Query.Clone(location);
             }
         }
+
         /// <summary>
         /// Retrieves a list of rays associated with the specified delay.
         /// </summary>

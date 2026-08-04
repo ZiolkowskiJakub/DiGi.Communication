@@ -338,23 +338,29 @@ The elevation angle in radians\.
 [System\.Collections\.Generic\.Dictionary&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2 'System\.Collections\.Generic\.Dictionary\`2')[ElectricalProperties](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ElectricalProperties 'DiGi\.Communication\.Classes\.ElectricalProperties')[,](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2 'System\.Collections\.Generic\.Dictionary\`2')[System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[TScatteringHit](DiGi.Communication.md#DiGi.Communication.Query.ScatteringHitsByElectricalProperties_TScatteringHit_(thisDiGi.Communication.Classes.GeometricalPropagationModel,DiGi.Communication.Classes.AngularPowerDistribution,double,double).TScatteringHit 'DiGi\.Communication\.Query\.ScatteringHitsByElectricalProperties\<TScatteringHit\>\(this DiGi\.Communication\.Classes\.GeometricalPropagationModel, DiGi\.Communication\.Classes\.AngularPowerDistribution, double, double\)\.TScatteringHit')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2 'System\.Collections\.Generic\.Dictionary\`2')  
 A dictionary mapping each unique [ElectricalProperties](DiGi.Communication.Classes.md#DiGi.Communication.Classes.ElectricalProperties 'DiGi\.Communication\.Classes\.ElectricalProperties') to a list of matching scattering hits, or [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null') if inputs are null or angles are invalid\.
 
-<a name='DiGi.Communication.Query.SphericalDistributionScatteringHitCollection(thisDiGi.Communication.Interfaces.IAngularPowerDistributionProfile)'></a>
+<a name='DiGi.Communication.Query.SphericalDistributionScatteringHitCollection(thisDiGi.Communication.Interfaces.IAngularPowerDistributionProfile,DiGi.Communication.Enums.Function)'></a>
 
-## Query\.SphericalDistributionScatteringHitCollection\(this IAngularPowerDistributionProfile\) Method
+## Query\.SphericalDistributionScatteringHitCollection\(this IAngularPowerDistributionProfile, Function\) Method
 
-Combines and retrieves a spherical distribution scattering hit collection from the specified angular power distribution profile\.
+Combines and retrieves a spherical distribution scattering hit collection across all delays in the specified angular power distribution profile\.
 
 ```csharp
-public static DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection? SphericalDistributionScatteringHitCollection(this DiGi.Communication.Interfaces.IAngularPowerDistributionProfile? angularPowerDistributionProfile);
+public static DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection? SphericalDistributionScatteringHitCollection(this DiGi.Communication.Interfaces.IAngularPowerDistributionProfile? angularPowerDistributionProfile, DiGi.Communication.Enums.Function function=DiGi.Communication.Enums.Function.Receiver);
 ```
 #### Parameters
 
-<a name='DiGi.Communication.Query.SphericalDistributionScatteringHitCollection(thisDiGi.Communication.Interfaces.IAngularPowerDistributionProfile).angularPowerDistributionProfile'></a>
+<a name='DiGi.Communication.Query.SphericalDistributionScatteringHitCollection(thisDiGi.Communication.Interfaces.IAngularPowerDistributionProfile,DiGi.Communication.Enums.Function).angularPowerDistributionProfile'></a>
 
 `angularPowerDistributionProfile` [IAngularPowerDistributionProfile](DiGi.Communication.Interfaces.md#DiGi.Communication.Interfaces.IAngularPowerDistributionProfile 'DiGi\.Communication\.Interfaces\.IAngularPowerDistributionProfile')
 
 The angular power distribution profile to query\.
 
+<a name='DiGi.Communication.Query.SphericalDistributionScatteringHitCollection(thisDiGi.Communication.Interfaces.IAngularPowerDistributionProfile,DiGi.Communication.Enums.Function).function'></a>
+
+`function` [Function](DiGi.Communication.Enums.md#DiGi.Communication.Enums.Function 'DiGi\.Communication\.Enums\.Function')
+
+The node function \(Transmitter or Receiver\) used for spatial hit positioning\.
+
 #### Returns
 [SphericalDistributionScatteringHitCollection](DiGi.Communication.Classes.md#DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection 'DiGi\.Communication\.Classes\.SphericalDistributionScatteringHitCollection')  
-A [SphericalDistributionScatteringHitCollection](DiGi.Communication.Classes.md#DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection 'DiGi\.Communication\.Classes\.SphericalDistributionScatteringHitCollection') instance aggregating all scattering hits, or [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null') if the profile or its distributions are null\.
+A [SphericalDistributionScatteringHitCollection](DiGi.Communication.Classes.md#DiGi.Communication.Classes.SphericalDistributionScatteringHitCollection 'DiGi\.Communication\.Classes\.SphericalDistributionScatteringHitCollection') instance aggregating all scattering hits, or [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null') if the profile or its distributions are null or contain no hits\.
