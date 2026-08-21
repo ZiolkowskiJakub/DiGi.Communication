@@ -15,7 +15,7 @@ namespace DiGi.Communication
         /// <param name="antenna_2">Second antenna</param>
         /// <param name="delay">Delay [m]</param>
         /// <param name="tolerance">Tolerance [m]</param>
-        /// <returns>The calculated propagation <see cref="DiGi.Geometry.Spatial.Classes.Ellipsoid"/>, or <c>null</c> if invalid parameters are provided.</returns>
+        /// <returns>The calculated propagation <see cref="Geometry.Spatial.Classes.Ellipsoid"/>, or <c>null</c> if invalid parameters are provided.</returns>
         public static Ellipsoid? Ellipsoid(IAntenna? antenna_1, IAntenna? antenna_2, double delay, double tolerance = Tolerance.Distance)
         {
             if (antenna_1 == null || antenna_2 == null || double.IsNaN(delay))
@@ -45,7 +45,7 @@ namespace DiGi.Communication
         /// <param name="location_2">Second location</param>
         /// <param name="delay">Delay [m]</param>
         /// <param name="tolerance">Tolerance [m]</param>
-        /// <returns>The calculated propagation <see cref="DiGi.Geometry.Spatial.Classes.Ellipsoid"/>, or <c>null</c> if invalid parameters are provided.</returns>
+        /// <returns>The calculated propagation <see cref="Geometry.Spatial.Classes.Ellipsoid"/>, or <c>null</c> if invalid parameters are provided.</returns>
         public static Ellipsoid? Ellipsoid(Point3D? location_1, Point3D? location_2, double delay, double tolerance = Tolerance.Distance)
         {
             if (location_1 == null || location_2 == null || double.IsNaN(delay))
