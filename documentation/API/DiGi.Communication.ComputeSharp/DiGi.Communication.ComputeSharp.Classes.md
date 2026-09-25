@@ -65,6 +65,9 @@ public DiGi.Communication.Classes.ScatteringSolverOptions? ScatteringSolverOptio
 
 Executes the solving operation\.
 
+When the scattering objects provide at least one triangle, the operation requires a hardware-accelerated, double-precision graphics device and
+            returns `false` when none is available (the WARP software renderer is never used) (ZiolkowskiJakub/DiGi.Communication#2).
+
 ```csharp
 public bool Solve();
 ```
